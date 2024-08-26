@@ -1,0 +1,261 @@
+/*================================================
+Projects Details Area CSS
+=================================================*/
+.projects-details-image {
+    margin-bottom: 45px;
+}
+.projects-details-desc {
+    position: relative;
+    padding: {
+        left: 45px;
+        right: 30px;
+    };
+    .sub {
+        font-weight: 500;
+        color: var(--primaryColor);
+        font-size: 15.7px;
+        writing-mode: vertical-lr;
+        position: absolute;
+        left: 0;
+        top: 7.8px;
+        letter-spacing: 1.6px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 15px;
+        font-weight: 400;
+    }
+    h1 {
+        font-size: 44px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 34px;
+    }
+    h4 {
+        font-size: 30px;
+    }
+    h5 {
+        font-size: 28px;
+    }
+    h6 {
+        font-size: 26px;
+    }
+    ul, ol {
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+ 
+    .box-content {
+        background: #F2EFEB;
+        padding: 40px;
+        margin: {
+            top: 30px;
+            bottom: 30px;
+        };
+        h3 {
+            margin-bottom: 0;
+            font-size: 30px;
+            font-weight: 400;
+        }
+        .list {
+            padding-left: 0;
+            margin: {
+                top: 25px;
+                bottom: 0;
+            };
+            li {
+                list-style-type: none;
+                font-size: 18px;
+                font-weight: 500;
+                position: relative;
+                margin-bottom: 20px;
+                padding-left: 38px;
+    
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                img {
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+.projects-details-side {
+    border: 1px solid #E7E0E0;
+    padding: 30px;
+
+    h3 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 35px;
+    }
+    .list {
+        padding-left: 0;
+        margin-bottom: 0;
+
+        li {
+            list-style-type: none;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #E7E0E0;
+
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+            span {
+                color: #7C756E;
+                font-size: 14px;
+                display: block;
+                margin-bottom: 10px;
+            }
+            h4 {
+                font-size: 15px;
+                letter-spacing: 1.4px;
+                font-weight: 600;
+                margin-bottom: 0;
+
+                a {
+                    color: var(--blackColor);
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+    .projects-details-image {
+        margin-bottom: 30px;
+    }
+    .projects-details-desc {
+        padding: {
+            left: 0;
+            right: 0;
+        };
+        .sub {
+            font-size: 12.7px;
+            writing-mode: unset;
+            position: relative;
+            top: 0;
+            display: block;
+            margin-bottom: 12px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 25px;
+        }
+        .box-content {
+            padding: 20px;
+
+            h3 {
+                font-size: 22px;
+            }
+            .list {
+                li {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    .projects-details-side {
+        padding: 22px;
+        margin-top: 30px;
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+        .list {
+            li {
+                span {
+                    font-size: 12px;
+                }
+                h4 {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .projects-details-desc {
+        padding-right: 0;
+
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        h3 {
+            font-size: 26px;
+        }
+        h4 {
+            font-size: 22px;
+        }
+        h5 {
+            font-size: 20px;
+        }
+        h6 {
+            font-size: 18px;
+        }
+    }
+    .projects-details-side {
+        margin-top: 35px;
+    }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .projects-details-desc {
+        padding-right: 0;
+
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        h3 {
+            font-size: 26px;
+        }
+        h4 {
+            font-size: 22px;
+        }
+        h5 {
+            font-size: 20px;
+        }
+        h6 {
+            font-size: 18px;
+        }
+    }
+    .projects-details-side {
+        padding: 15px;
+        
+        .list {
+            li {
+                span {
+                    font-size: 12px;
+                }
+                h4 {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

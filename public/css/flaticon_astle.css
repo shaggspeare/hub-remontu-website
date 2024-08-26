@@ -1,0 +1,518 @@
+@font-face {
+    font-family: "flaticon_astle";
+    src: url("../fonts/flaticon_astle.ttf?23d801b4aa1e308745aa32f976d1c7d8") format("truetype"),
+url("../fonts/flaticon_astle.woff?23d801b4aa1e308745aa32f976d1c7d8") format("woff"),
+url("../fonts/flaticon_astle.woff2?23d801b4aa1e308745aa32f976d1c7d8") format("woff2"),
+url("../fonts/flaticon_astle.eot?23d801b4aa1e308745aa32f976d1c7d8#iefix") format("embedded-opentype"),
+url("../fonts/flaticon_astle.svg?23d801b4aa1e308745aa32f976d1c7d8#flaticon_astle") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_astle !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-search-interface-symbol:before {
+    content: "\f101";
+}
+.flaticon-hand-gesture:before {
+    content: "\f102";
+}
+.flaticon-money-icons:before {
+    content: "\f103";
+}
+.flaticon-electric:before {
+    content: "\f104";
+}
+.flaticon-real-estate:before {
+    content: "\f105";
+}
+.flaticon-security-system:before {
+    content: "\f106";
+}
+.flaticon-plumbering:before {
+    content: "\f107";
+}
+.flaticon-tools-and-utensils:before {
+    content: "\f108";
+}
+.flaticon-kilograms:before {
+    content: "\f109";
+}
+.flaticon-online-store:before {
+    content: "\f10a";
+}
+.flaticon-facade:before {
+    content: "\f10b";
+}
+.flaticon-disturbance:before {
+    content: "\f10c";
+}
+.flaticon-roof:before {
+    content: "\f10d";
+}
+.flaticon-picket:before {
+    content: "\f10e";
+}
+.flaticon-cooling:before {
+    content: "\f10f";
+}
+.flaticon-up:before {
+    content: "\f110";
+}
+.flaticon-house-things:before {
+    content: "\f111";
+}
+.flaticon-door:before {
+    content: "\f112";
+}
+.flaticon-purses:before {
+    content: "\f113";
+}
+.flaticon-mail:before {
+    content: "\f114";
+}
+.flaticon-turned-off:before {
+    content: "\f115";
+}
+.flaticon-paint-roller:before {
+    content: "\f116";
+}
+.flaticon-measuring:before {
+    content: "\f117";
+}
+.flaticon-domestic-phone:before {
+    content: "\f118";
+}
+.flaticon-doorway:before {
+    content: "\f119";
+}
+.flaticon-fireplace:before {
+    content: "\f11a";
+}
+.flaticon-studying:before {
+    content: "\f11b";
+}
+.flaticon-draws:before {
+    content: "\f11c";
+}
+.flaticon-wheelbarrow:before {
+    content: "\f11d";
+}
+.flaticon-flats:before {
+    content: "\f11e";
+}
+.flaticon-paper-printer:before {
+    content: "\f11f";
+}
+.flaticon-interior-design:before {
+    content: "\f120";
+}
+.flaticon-savings:before {
+    content: "\f121";
+}
+.flaticon-title:before {
+    content: "\f122";
+}
+.flaticon-industrial-park:before {
+    content: "\f123";
+}
+.flaticon-closing:before {
+    content: "\f124";
+}
+.flaticon-ventilation:before {
+    content: "\f125";
+}
+.flaticon-demostration:before {
+    content: "\f126";
+}
+.flaticon-winch:before {
+    content: "\f127";
+}
+.flaticon-hacksaw:before {
+    content: "\f128";
+}
+.flaticon-attached:before {
+    content: "\f129";
+}
+.flaticon-door-key:before {
+    content: "\f12a";
+}
+.flaticon-reading-glasses:before {
+    content: "\f12b";
+}
+.flaticon-bridges:before {
+    content: "\f12c";
+}
+.flaticon-maps-and-flags:before {
+    content: "\f12d";
+}
+.flaticon-plans:before {
+    content: "\f12e";
+}
+.flaticon-houses:before {
+    content: "\f12f";
+}
+.flaticon-printed:before {
+    content: "\f130";
+}
+.flaticon-trucks:before {
+    content: "\f131";
+}
+.flaticon-painted:before {
+    content: "\f132";
+}
+.flaticon-mansory:before {
+    content: "\f133";
+}
+.flaticon-left-arrow:before {
+    content: "\f134";
+}
+.flaticon-right-arrow:before {
+    content: "\f135";
+}
+.flaticon-cube:before {
+    content: "\f136";
+}
+.flaticon-magnifying-glass:before {
+    content: "\f137";
+}
+.flaticon-color:before {
+    content: "\f138";
+}
+.flaticon-content:before {
+    content: "\f139";
+}
+.flaticon-content-1:before {
+    content: "\f13a";
+}
+.flaticon-crop:before {
+    content: "\f13b";
+}
+.flaticon-editor:before {
+    content: "\f13c";
+}
+.flaticon-folder:before {
+    content: "\f13d";
+}
+.flaticon-size:before {
+    content: "\f13e";
+}
+.flaticon-size-1:before {
+    content: "\f13f";
+}
+.flaticon-text:before {
+    content: "\f140";
+}
+.flaticon-vector-graphic:before {
+    content: "\f141";
+}
+.flaticon-add:before {
+    content: "\f142";
+}
+.flaticon-alignment:before {
+    content: "\f143";
+}
+.flaticon-alignment-1:before {
+    content: "\f144";
+}
+.flaticon-artwork:before {
+    content: "\f145";
+}
+.flaticon-color-control:before {
+    content: "\f146";
+}
+.flaticon-exclude:before {
+    content: "\f147";
+}
+.flaticon-editing:before {
+    content: "\f148";
+}
+.flaticon-editing-1:before {
+    content: "\f149";
+}
+.flaticon-image:before {
+    content: "\f14a";
+}
+.flaticon-photography:before {
+    content: "\f14b";
+}
+.flaticon-remove:before {
+    content: "\f14c";
+}
+.flaticon-typography:before {
+    content: "\f14d";
+}
+.flaticon-typography-1:before {
+    content: "\f14e";
+}
+.flaticon-typography-2:before {
+    content: "\f14f";
+}
+.flaticon-vector-graphic-1:before {
+    content: "\f150";
+}
+.flaticon-vector-graphic-2:before {
+    content: "\f151";
+}
+.flaticon-vector-graphic-3:before {
+    content: "\f152";
+}
+.flaticon-view:before {
+    content: "\f153";
+}
+.flaticon-zoom-in:before {
+    content: "\f154";
+}
+.flaticon-zoom-out:before {
+    content: "\f155";
+}
+.flaticon-appartment:before {
+    content: "\f156";
+}
+.flaticon-barn:before {
+    content: "\f157";
+}
+.flaticon-block:before {
+    content: "\f158";
+}
+.flaticon-bungalow:before {
+    content: "\f159";
+}
+.flaticon-cabin:before {
+    content: "\f15a";
+}
+.flaticon-cabin-1:before {
+    content: "\f15b";
+}
+.flaticon-camping:before {
+    content: "\f15c";
+}
+.flaticon-caravan:before {
+    content: "\f15d";
+}
+.flaticon-castle:before {
+    content: "\f15e";
+}
+.flaticon-cottage:before {
+    content: "\f15f";
+}
+.flaticon-dome:before {
+    content: "\f160";
+}
+.flaticon-farm-house:before {
+    content: "\f161";
+}
+.flaticon-hotel:before {
+    content: "\f162";
+}
+.flaticon-house-1:before {
+    content: "\f163";
+}
+.flaticon-houseboat:before {
+    content: "\f164";
+}
+.flaticon-hut:before {
+    content: "\f165";
+}
+.flaticon-lighthouse:before {
+    content: "\f166";
+}
+.flaticon-mansion:before {
+    content: "\f167";
+}
+.flaticon-modern-house:before {
+    content: "\f168";
+}
+.flaticon-modern-house-1:before {
+    content: "\f169";
+}
+.flaticon-mansion-1:before {
+    content: "\f16a";
+}
+.flaticon-skyscraper:before {
+    content: "\f16b";
+}
+.flaticon-stilts:before {
+    content: "\f16c";
+}
+.flaticon-teepee:before {
+    content: "\f16d";
+}
+.flaticon-tiny-house:before {
+    content: "\f16e";
+}
+.flaticon-tree-house:before {
+    content: "\f16f";
+}
+.flaticon-aparment:before {
+    content: "\f170";
+}
+.flaticon-twin:before {
+    content: "\f171";
+}
+.flaticon-wood-cabin:before {
+    content: "\f172";
+}
+.flaticon-wood-house:before {
+    content: "\f173";
+}
+.flaticon-chalet:before {
+    content: "\f174";
+}
+.flaticon-house-2:before {
+    content: "\f175";
+}
+.flaticon-house-3:before {
+    content: "\f176";
+}
+.flaticon-house-4:before {
+    content: "\f177";
+}
+.flaticon-mansion-2:before {
+    content: "\f178";
+}
+.flaticon-flat:before {
+    content: "\f179";
+}
+.flaticon-modern-house-2:before {
+    content: "\f17a";
+}
+.flaticon-igloo:before {
+    content: "\f17b";
+}
+.flaticon-chalet-1:before {
+    content: "\f17c";
+}
+.flaticon-container:before {
+    content: "\f17d";
+}
+.flaticon-mansion-3:before {
+    content: "\f17e";
+}
+.flaticon-house-5:before {
+    content: "\f17f";
+}
+.flaticon-house-6:before {
+    content: "\f180";
+}
+.flaticon-flat-1:before {
+    content: "\f181";
+}
+.flaticon-ranch:before {
+    content: "\f182";
+}
+.flaticon-house-7:before {
+    content: "\f183";
+}
+.flaticon-lighthouse-1:before {
+    content: "\f184";
+}
+.flaticon-caravan-1:before {
+    content: "\f185";
+}
+.flaticon-teepee-1:before {
+    content: "\f186";
+}
+.flaticon-house-8:before {
+    content: "\f187";
+}
+.flaticon-house-9:before {
+    content: "\f188";
+}
+.flaticon-modern-house-3:before {
+    content: "\f189";
+}
+.flaticon-modern-house-4:before {
+    content: "\f18a";
+}
+.flaticon-house-10:before {
+    content: "\f18b";
+}
+.flaticon-house-11:before {
+    content: "\f18c";
+}
+.flaticon-house-12:before {
+    content: "\f18d";
+}
+.flaticon-cabin-2:before {
+    content: "\f18e";
+}
+.flaticon-house-13:before {
+    content: "\f18f";
+}
+.flaticon-bungalow-1:before {
+    content: "\f190";
+}
+.flaticon-barn-1:before {
+    content: "\f191";
+}
+.flaticon-windmill:before {
+    content: "\f192";
+}
+.flaticon-house-14:before {
+    content: "\f193";
+}
+.flaticon-house-15:before {
+    content: "\f194";
+}
+.flaticon-castle-1:before {
+    content: "\f195";
+}
+.flaticon-house-16:before {
+    content: "\f196";
+}
+.flaticon-refuge:before {
+    content: "\f197";
+}
+.flaticon-house-17:before {
+    content: "\f198";
+}
+.flaticon-house-18:before {
+    content: "\f199";
+}
+.flaticon-mobile-home:before {
+    content: "\f19a";
+}
+.flaticon-tent:before {
+    content: "\f19b";
+}
+.flaticon-house-boat:before {
+    content: "\f19c";
+}
+.flaticon-camper-van:before {
+    content: "\f19d";
+}
+.flaticon-house-19:before {
+    content: "\f19e";
+}
+.flaticon-mansion-4:before {
+    content: "\f19f";
+}
+.flaticon-house-20:before {
+    content: "\f1a0";
+}
+.flaticon-hotel-1:before {
+    content: "\f1a1";
+}
+.flaticon-house-21:before {
+    content: "\f1a2";
+}
+.flaticon-house-22:before {
+    content: "\f1a3";
+}
+.flaticon-tree-house-1:before {
+    content: "\f1a4";
+}
+.flaticon-cottage-1:before {
+    content: "\f1a5";
+}
+.flaticon-right-arrow-1:before {
+    content: "\f1a6";
+}

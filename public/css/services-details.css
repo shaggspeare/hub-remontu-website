@@ -1,0 +1,243 @@
+/*================================================
+Services Details Area CSS
+=================================================*/
+.services-details-desc {
+  padding-right: 35px;
+}
+.services-details-desc .title {
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 40px;
+}
+.services-details-desc .title span {
+  font-weight: 500;
+  color: var(--primaryColor);
+  font-size: 15.7px;
+  writing-mode: vertical-lr;
+  position: absolute;
+  left: 0;
+  top: 7.8px;
+  letter-spacing: 1.6px;
+}
+.services-details-desc img {
+  margin-bottom: 30px;
+}
+.services-details-desc h1, .services-details-desc h2, .services-details-desc h3, .services-details-desc h4, .services-details-desc h5, .services-details-desc h6 {
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+.services-details-desc h1 {
+  font-size: 34px;
+}
+.services-details-desc h2 {
+  font-size: 32px;
+}
+.services-details-desc h3 {
+  font-size: 30px;
+}
+.services-details-desc h4 {
+  font-size: 28px;
+}
+.services-details-desc h5 {
+  font-size: 26px;
+}
+.services-details-desc h6 {
+  font-size: 24px;
+}
+.services-details-desc ul, .services-details-desc ol {
+  margin-bottom: 20px;
+}
+.services-details-desc ul li, .services-details-desc ol li {
+  margin-bottom: 10px;
+}
+.services-details-desc .list {
+  padding-left: 0;
+}
+.services-details-desc .list li {
+  list-style-type: none;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 15px;
+  padding-left: 38px;
+}
+.services-details-desc .list li:last-child {
+  margin-bottom: 0;
+}
+.services-details-desc .list li img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.services-details-info-side {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.services-details-info-side li {
+  list-style-type: none;
+  font-size: 15px;
+  border-bottom: 1px dashed #E7E0E0;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.services-details-info-side li a {
+  font-weight: 600;
+  color: var(--blackColor);
+  letter-spacing: 1.4px;
+}
+.services-details-info-side li a:hover {
+  color: var(--primaryColor);
+}
+.services-details-info-side li:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.services-details-area {
+  overflow: hidden;
+}
+.services-details-area .process-area {
+  background-color: transparent;
+  overflow: unset;
+  padding-top: 55px;
+}
+.services-details-area .process-area .title {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 35px;
+}
+.services-details-area .process-area .process-card .process-content h3 {
+  color: var(--blackColor);
+  font-weight: 500;
+}
+.services-details-area .process-area .process-card .process-content p {
+  color: var(--paragraphColor);
+}
+.services-details-area .process-area .col-xl-3:nth-child(1) .process-card::before {
+  opacity: 30%;
+}
+.services-details-area .process-area .col-xl-3:nth-child(1) .process-card::after {
+  opacity: 30%;
+}
+.services-details-area .process-area .col-xl-3:nth-child(2) .process-card::before {
+  opacity: 30%;
+}
+.services-details-area .process-area .col-xl-3:nth-child(2) .process-card::after {
+  opacity: 30%;
+}
+.services-details-area .process-area .col-xl-3:nth-child(3) .process-card::before {
+  opacity: 30%;
+}
+.services-details-area .process-area .col-xl-3:nth-child(3) .process-card::after {
+  opacity: 30%;
+}
+.services-details-area .process-area .col-xl-3:nth-child(4) .process-card::before {
+  opacity: 30%;
+}
+.services-details-area .process-area .col-xl-3:nth-child(4) .process-card::after {
+  opacity: 30%;
+}
+
+.services-details-bottom {
+  margin-top: 20px;
+}
+.services-details-bottom p {
+  max-width: 865px;
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .services-details-desc {
+    padding-right: 0;
+  }
+  .services-details-desc .title {
+    padding-left: 0;
+    margin-bottom: 30px;
+  }
+  .services-details-desc .title span {
+    font-size: 12.7px;
+    writing-mode: unset;
+    position: relative;
+    top: 0;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .services-details-desc h1 {
+    font-size: 28px;
+  }
+  .services-details-desc h2 {
+    font-size: 26px;
+  }
+  .services-details-desc h3 {
+    font-size: 24px;
+  }
+  .services-details-desc h4 {
+    font-size: 22px;
+  }
+  .services-details-desc h5 {
+    font-size: 20px;
+  }
+  .services-details-desc h6 {
+    font-size: 18px;
+  }
+  .services-details-desc .list li {
+    font-size: 15px;
+  }
+  .services-details-info-side {
+    margin-top: 30px;
+  }
+  .services-details-info-side li {
+    font-size: 14px;
+  }
+}
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .services-details-desc {
+    padding-right: 0;
+  }
+  .services-details-desc h1 {
+    font-size: 28px;
+  }
+  .services-details-desc h2 {
+    font-size: 26px;
+  }
+  .services-details-desc h3 {
+    font-size: 24px;
+  }
+  .services-details-desc h4 {
+    font-size: 22px;
+  }
+  .services-details-desc h5 {
+    font-size: 20px;
+  }
+  .services-details-desc h6 {
+    font-size: 18px;
+  }
+  .services-details-info-side {
+    margin-top: 35px;
+  }
+}
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .services-details-desc h1 {
+    font-size: 28px;
+  }
+  .services-details-desc h2 {
+    font-size: 26px;
+  }
+  .services-details-desc h3 {
+    font-size: 24px;
+  }
+  .services-details-desc h4 {
+    font-size: 22px;
+  }
+  .services-details-desc h5 {
+    font-size: 20px;
+  }
+  .services-details-desc h6 {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=services-details.css.map */

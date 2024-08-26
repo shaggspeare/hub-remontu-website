@@ -1,0 +1,229 @@
+/*================================================
+Projects Details Area CSS
+=================================================*/
+.projects-details-image {
+  margin-bottom: 45px;
+}
+
+.projects-details-desc {
+  position: relative;
+  padding-left: 45px;
+  padding-right: 30px;
+}
+.projects-details-desc .sub {
+  font-weight: 500;
+  color: var(--primaryColor);
+  font-size: 15.7px;
+  writing-mode: vertical-lr;
+  position: absolute;
+  left: 0;
+  top: 7.8px;
+  letter-spacing: 1.6px;
+}
+.projects-details-desc h1, .projects-details-desc h2, .projects-details-desc h3, .projects-details-desc h4, .projects-details-desc h5, .projects-details-desc h6 {
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+.projects-details-desc h1 {
+  font-size: 44px;
+}
+.projects-details-desc h2 {
+  font-size: 40px;
+}
+.projects-details-desc h3 {
+  font-size: 34px;
+}
+.projects-details-desc h4 {
+  font-size: 30px;
+}
+.projects-details-desc h5 {
+  font-size: 28px;
+}
+.projects-details-desc h6 {
+  font-size: 26px;
+}
+.projects-details-desc ul li, .projects-details-desc ol li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.projects-details-desc ul li:last-child, .projects-details-desc ol li:last-child {
+  margin-bottom: 0;
+}
+.projects-details-desc .box-content {
+  background: #F2EFEB;
+  padding: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.projects-details-desc .box-content h3 {
+  margin-bottom: 0;
+  font-size: 30px;
+  font-weight: 400;
+}
+.projects-details-desc .box-content .list {
+  padding-left: 0;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+.projects-details-desc .box-content .list li {
+  list-style-type: none;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 38px;
+}
+.projects-details-desc .box-content .list li:last-child {
+  margin-bottom: 0;
+}
+.projects-details-desc .box-content .list li img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.projects-details-side {
+  border: 1px solid #E7E0E0;
+  padding: 30px;
+}
+.projects-details-side h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 35px;
+}
+.projects-details-side .list {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.projects-details-side .list li {
+  list-style-type: none;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #E7E0E0;
+}
+.projects-details-side .list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.projects-details-side .list li span {
+  color: #7C756E;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 10px;
+}
+.projects-details-side .list li h4 {
+  font-size: 15px;
+  letter-spacing: 1.4px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.projects-details-side .list li h4 a {
+  color: var(--blackColor);
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .projects-details-image {
+    margin-bottom: 30px;
+  }
+  .projects-details-desc {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .projects-details-desc .sub {
+    font-size: 12.7px;
+    writing-mode: unset;
+    position: relative;
+    top: 0;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .projects-details-desc h1, .projects-details-desc h2, .projects-details-desc h3, .projects-details-desc h4, .projects-details-desc h5, .projects-details-desc h6 {
+    font-size: 25px;
+  }
+  .projects-details-desc .box-content {
+    padding: 20px;
+  }
+  .projects-details-desc .box-content h3 {
+    font-size: 22px;
+  }
+  .projects-details-desc .box-content .list li {
+    font-size: 15px;
+  }
+  .projects-details-side {
+    padding: 22px;
+    margin-top: 30px;
+  }
+  .projects-details-side h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  .projects-details-side .list li span {
+    font-size: 12px;
+  }
+  .projects-details-side .list li h4 {
+    font-size: 14px;
+  }
+}
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .projects-details-desc {
+    padding-right: 0;
+  }
+  .projects-details-desc h1 {
+    font-size: 30px;
+  }
+  .projects-details-desc h2 {
+    font-size: 28px;
+  }
+  .projects-details-desc h3 {
+    font-size: 26px;
+  }
+  .projects-details-desc h4 {
+    font-size: 22px;
+  }
+  .projects-details-desc h5 {
+    font-size: 20px;
+  }
+  .projects-details-desc h6 {
+    font-size: 18px;
+  }
+  .projects-details-side {
+    margin-top: 35px;
+  }
+}
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .projects-details-desc {
+    padding-right: 0;
+  }
+  .projects-details-desc h1 {
+    font-size: 30px;
+  }
+  .projects-details-desc h2 {
+    font-size: 28px;
+  }
+  .projects-details-desc h3 {
+    font-size: 26px;
+  }
+  .projects-details-desc h4 {
+    font-size: 22px;
+  }
+  .projects-details-desc h5 {
+    font-size: 20px;
+  }
+  .projects-details-desc h6 {
+    font-size: 18px;
+  }
+  .projects-details-side {
+    padding: 15px;
+  }
+  .projects-details-side .list li span {
+    font-size: 12px;
+  }
+  .projects-details-side .list li h4 {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=portfolio-details.css.map */
