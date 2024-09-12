@@ -30,7 +30,7 @@ const AboutUsContent: React.FC = () => {
         <div className="container">
           <div className="about-three-title">
             <span>ABOUT US</span>
-            <h2>
+            <h2 style={{ color: "var(--whiteColor)" }}>
               We Are <b>Traz.</b> We Create Unique And Sustainable Living
               Spaces, Designed For Sharing
             </h2>
@@ -53,28 +53,58 @@ const AboutUsContent: React.FC = () => {
 
                   <ul className="list">
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />
                       Innovative Design Approach
                     </li>
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />
                       Highly Skilled Expertise and Specialization
                     </li>
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} /> A client-centric
-                      approach for an architectural company
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />{" "}
+                      A client-centric approach for an architectural company
                     </li>
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />
                       Sustainable Design Practices
                     </li>
                   </ul>
 
                   <div className="about-image-wrap">
-                    <Image src={videoThumb} alt="image" width={1052} height={1120} />
+                    <Image
+                      src={videoThumb}
+                      alt="image"
+                      width={1052}
+                      height={1120}
+                    />
 
                     <div className="wrap-video">
-                      <Image src={videoCircleImg} alt="image" width={184} height={184} />
+                      <Image
+                        src={videoCircleImg}
+                        alt="image"
+                        width={184}
+                        height={184}
+                      />
 
                       <div
                         className="video-btn text-decoration-none"
@@ -98,11 +128,10 @@ const AboutUsContent: React.FC = () => {
                       Our Job
                     </h2>
                     <p>
-                      Traz is a full-service design firm providing
-                      architecture, master planning, urban design, interior
-                      architecture, space planning and programming. Our
-                      portfolio of completed work includes highly acclaimed and
-                      award-winning projects.
+                      Traz is a full-service design firm providing architecture,
+                      master planning, urban design, interior architecture,
+                      space planning and programming. Our portfolio of completed
+                      work includes highly acclaimed and award-winning projects.
                     </p>
                     <p>
                       At Traz, we believe that architecture goes beyond mere

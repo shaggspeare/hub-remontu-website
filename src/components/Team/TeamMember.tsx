@@ -230,7 +230,7 @@ const TeamMember: React.FC = () => {
           <div className="container">
             <div className="section-title-wrap">
               <span>OUR TEAM</span>
-              <h2>We Have A Passionate Dedicated Team Behind Our Design Master Pieces</h2>
+              <h2 style={{color: 'var(--whiteColor)'}}>We Have A Passionate Dedicated Team Behind Our Design Master Pieces</h2>
             </div>
 
             <div className="row justify-content-center">

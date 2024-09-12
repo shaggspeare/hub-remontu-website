@@ -12,8 +12,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-import logo from "/public/images/white-logo.svg";
-import blackLogo from "/public/images/black-logo.svg";
+import logo from "/public/images/logo_en.svg";
+import blackLogo from "/public/images/logo_en_black.svg";
 
 const Navbar: React.FC = () => {
   const currentRoute = usePathname();
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Toggle navigation */}
-          <button 
+          <button
             className={classTwo}
             type="button"
             data-toggle="collapse"
@@ -79,47 +79,11 @@ const Navbar: React.FC = () => {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  className={`nav-link ${currentRoute === "/" ? "active" : ""}`}
+                  href="/"
                 >
-                  Home
+                  Головна
                 </Link>
-
-                <ul className="dropdown-menu">
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        currentRoute === "/" ? "active" : ""
-                      }`}
-                      href="/"
-                    >
-                      Architecture Home
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        currentRoute === "/interior-home/" ? "active" : ""
-                      }`}
-                      href="/interior-home/"
-                    >
-                      Interior Home
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        currentRoute === "/architecture-studio/" ? "active" : ""
-                      }`}
-                      href="/architecture-studio/"
-                    >
-                      Architecture Studio
-                    </Link>
-                  </li>
-                </ul>
               </li>
 
               <li className="nav-item">
@@ -129,328 +93,42 @@ const Navbar: React.FC = () => {
                     currentRoute === "/about-us/" ? "active" : ""
                   }`}
                 >
-                  About Us
+                  Про нас
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href="/portfolio-2/"
+                  className={`nav-link ${
+                    currentRoute === "/portfolio-2/" ? "active" : ""
+                  }`}
                 >
-                  Portfolio
+                  Портфоліо
                 </Link>
-
-                <ul className="dropdown-menu">
-                  <li className="nav-item">
-                    <Link
-                      href="/portfolio/"
-                      className={`nav-link ${
-                        currentRoute === "/portfolio/" ? "active" : ""
-                      }`}
-                    >
-                      Portfolio Style 01
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/portfolio-2/"
-                      className={`nav-link ${
-                        currentRoute === "/portfolio-2/" ? "active" : ""
-                      }`}
-                    >
-                      Portfolio Style 02
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/portfolio/portfolio-details/"
-                      className={`nav-link ${
-                        currentRoute === "/portfolio/portfolio-details/"
-                          ? "active"
-                          : ""
-                      }`}
-                    >
-                      Portfolio Details
-                    </Link>
-                  </li>
-                </ul>
               </li>
 
               <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href="/team/"
+                  className={`nav-link ${
+                    currentRoute === "/team/" ? "active" : ""
+                  }`}
                 >
-                  Pages
+                  Команда
                 </Link>
-
-                <ul className="dropdown-menu">
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      Services
-                    </Link>
-
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link
-                          href="/services/"
-                          className={`nav-link ${
-                            currentRoute === "/services/" ? "active" : ""
-                          }`}
-                        >
-                          Services
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/services/service-details/"
-                          className={`nav-link ${
-                            currentRoute === "/services/service-details/"
-                              ? "active"
-                              : ""
-                          }`}
-                        >
-                          Services Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/pricing/"
-                      className={`nav-link ${
-                        currentRoute === "/pricing/" ? "active" : ""
-                      }`}
-                    >
-                      Pricing
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/team/"
-                      className={`nav-link ${
-                        currentRoute === "/team/" ? "active" : ""
-                      }`}
-                    >
-                      Team
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/gallery/"
-                      className={`nav-link ${
-                        currentRoute === "/gallery/" ? "active" : ""
-                      }`}
-                    >
-                      Gallery
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/faq/"
-                      className={`nav-link ${
-                        currentRoute === "/faq/" ? "active" : ""
-                      }`}
-                    >
-                      FAQs
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/testimonials/"
-                      className={`nav-link ${
-                        currentRoute === "/testimonials/" ? "active" : ""
-                      }`}
-                    >
-                      Testimonials
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      My Account
-                    </Link>
-
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link
-                          href="/login/"
-                          className={`nav-link ${
-                            currentRoute === "/login/" ? "active" : ""
-                          }`}
-                        >
-                          Login
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/register/"
-                          className={`nav-link ${
-                            currentRoute === "/register/" ? "active" : ""
-                          }`}
-                        >
-                          Register
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/privacy-policy/"
-                      className={`nav-link ${
-                        currentRoute === "/privacy-policy/" ? "active" : ""
-                      }`}
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/terms-conditions/"
-                      className={`nav-link ${
-                        currentRoute === "/terms-conditions/" ? "active" : ""
-                      }`}
-                    >
-                      Terms & Conditions
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/request-quote/"
-                      className={`nav-link ${
-                        currentRoute === "/request-quote/" ? "active" : ""
-                      }`}
-                    >
-                      Request A Quote
-                    </Link>
-                  </li>
-                </ul>
               </li>
 
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href="/faq/"
+                  className={`nav-link ${
+                    currentRoute === "/faq/" ? "active" : ""
+                  }`}
                 >
-                  Blog
+                  FAQ
                 </Link>
-
-                <ul className="dropdown-menu">
-                  <li className="nav-item">
-                    <Link
-                      href="/blog/"
-                      className={`nav-link ${
-                        currentRoute === "/blog/" ? "active" : ""
-                      }`}
-                    >
-                      Blog Grid
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/blog-right-sidebar/"
-                      className={`nav-link ${
-                        currentRoute === "/blog-right-sidebar/" ? "active" : ""
-                      }`}
-                    >
-                      Right Sidebar
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/blog-left-sidebar/"
-                      className={`nav-link ${
-                        currentRoute === "/blog-left-sidebar/" ? "active" : ""
-                      }`}
-                    >
-                      Left Sidebar
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      href="/single-blog/"
-                      className={`nav-link ${
-                        currentRoute === "/single-blog/" ? "active" : ""
-                      }`}
-                    >
-                      Single Blog
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      Others
-                    </Link>
-
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link
-                          href="/author/"
-                          className={`nav-link ${
-                            currentRoute === "/author/" ? "active" : ""
-                          }`}
-                        >
-                          Author
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/categories/"
-                          className={`nav-link ${
-                            currentRoute === "/categories/" ? "active" : ""
-                          }`}
-                        >
-                          Categories
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/tags/"
-                          className={`nav-link ${
-                            currentRoute === "/tags/" ? "active" : ""
-                          }`}
-                        >
-                          Tags
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
               </li>
-
               <li className="nav-item">
                 <Link
                   href="/contact-us/"
@@ -458,7 +136,7 @@ const Navbar: React.FC = () => {
                     currentRoute === "/contact-us/" ? "active" : ""
                   }`}
                 >
-                  Contact Us
+                  Контакти
                 </Link>
               </li>
             </ul>
@@ -466,15 +144,15 @@ const Navbar: React.FC = () => {
 
           {/* others-options */}
           <div className="others-option d-flex align-items-center">
-            <div className="option-item">
-              <div className="search-btn" onClick={handleToggleSearchModal}>
-                <i className="ri-search-line"></i>
-              </div>
-            </div>
+            {/*<div className="option-item">*/}
+            {/*  <div className="search-btn" onClick={handleToggleSearchModal}>*/}
+            {/*    <i className="ri-search-line"></i>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
             <div className="option-item">
               <Link href="/request-quote" className="default-btn">
-                Request A Quote
+                Заповнити анкету
               </Link>
             </div>
           </div>

@@ -11,7 +11,7 @@ export default function Page() {
         <Navbar />
        
         <PageTitle 
-          title="Portfolio Style 2"
+          title="Portfolio"
           homeText="Home"
           homeUrl="/"
         />

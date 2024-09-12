@@ -1,13 +1,13 @@
-import NavbarStyleTwo from "@/components/Layout/NavbarStyleTwo";
 import PageTitle from "@/components/Common/PageTitle";
 import FaqsContent from "@/components/Faqs/FaqsContent";
-import ContactFormStyleTwo from "@/components/ContactUs/ContactFormStyleTwo";
 import Footer from "@/components/Layout/Footer";
+import Navbar from "@/components/Layout/Navbar";
+import ContactForm from "@/components/ContactUs/ContactForm";
 
 export default function Page() {
   return (
-    <>
-      <NavbarStyleTwo />
+    <div className="full-bg-black-color">
+      <Navbar />
 
       <PageTitle 
         title="FAQs"
@@ -18,10 +18,10 @@ export default function Page() {
       <FaqsContent />
 
       <div className="pb-100">
-        <ContactFormStyleTwo />
+        <ContactForm />
       </div>
  
       <Footer />
-    </>
+    </div>
   )
 }

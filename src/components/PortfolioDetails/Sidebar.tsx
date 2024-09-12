@@ -11,21 +11,23 @@ const Sidebar: React.FC = () => {
 
         <ul className="list">
           <li>
-            <span>CLIENT</span>
-            <h4>SOLANA REAL ESTATE</h4>
+            <span style={{ color: "var(--whiteColor)" }}>CLIENT</span>
+            <h4 style={{ color: "var(--whiteColor)" }}>SOLANA REAL ESTATE</h4>
           </li>
           <li>
-            <span>DURATION</span>
-            <h4>JUN 01, 2023 - JUL 18, 2023</h4>
+            <span style={{ color: "var(--whiteColor)" }}>DURATION</span>
+            <h4 style={{ color: "var(--whiteColor)" }}>
+              JUN 01, 2023 - JUL 18, 2023
+            </h4>
           </li>
           <li>
-            <span>BUDGET</span>
-            <h4>$23,000 - $30,000</h4>
+            <span style={{ color: "var(--whiteColor)" }}>BUDGET</span>
+            <h4 style={{ color: "var(--whiteColor)" }}>$23,000 - $30,000</h4>
           </li>
           <li>
-            <span>SERVICE</span>
-            <h4>
-              <Link href="/services">INTERIOR DESIGN</Link>
+            <span style={{ color: "var(--whiteColor)" }}>SERVICE</span>
+            <h4 style={{ color: "var(--whiteColor)" }}>
+              <h4 style={{ color: "var(--whiteColor)" }}>INTERIOR DESIGN</h4>
             </h4>
           </li>
         </ul>

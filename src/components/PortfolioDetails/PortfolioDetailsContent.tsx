@@ -21,7 +21,9 @@ const PortfolioDetailsContent: React.FC = () => {
               <div className="projects-details-desc">
                 <span className="sub">CASE STUDY</span>
 
-                <h2>Solana Interior Design</h2>
+                <h2 style={{ color: "var(--whiteColor)" }}>
+                  Solana Interior Design
+                </h2>
 
                 <p>
                   We are a leading architecture firm dedicated to creating
@@ -52,15 +54,30 @@ const PortfolioDetailsContent: React.FC = () => {
                     <div className="col-lg-6 col-md-6">
                       <ul className="list">
                         <li>
-                          <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                          <Image
+                            src={arrowIcon}
+                            alt="arrow"
+                            width={28}
+                            height={10}
+                          />
                           Innovative Design
                         </li>
                         <li>
-                          <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                          <Image
+                            src={arrowIcon}
+                            alt="arrow"
+                            width={28}
+                            height={10}
+                          />
                           Highly Skilled Expertise
                         </li>
                         <li>
-                          <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                          <Image
+                            src={arrowIcon}
+                            alt="arrow"
+                            width={28}
+                            height={10}
+                          />
                           Furniture Design
                         </li>
                       </ul>
@@ -69,15 +86,30 @@ const PortfolioDetailsContent: React.FC = () => {
                     <div className="col-lg-6 col-md-6">
                       <ul className="list">
                         <li>
-                          <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                          <Image
+                            src={arrowIcon}
+                            alt="arrow"
+                            width={28}
+                            height={10}
+                          />
                           Sustainable Design Practices
                         </li>
                         <li>
-                          <Image src={arrowIcon} alt="arrow" width={28} height={10} />A Client-Centric
-                          Approach
+                          <Image
+                            src={arrowIcon}
+                            alt="arrow"
+                            width={28}
+                            height={10}
+                          />
+                          A Client-Centric Approach
                         </li>
                         <li>
-                          <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                          <Image
+                            src={arrowIcon}
+                            alt="arrow"
+                            width={28}
+                            height={10}
+                          />
                           Landscape Design
                         </li>
                       </ul>

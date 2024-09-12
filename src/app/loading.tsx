@@ -5,10 +5,8 @@ export default function Loading() {
       <div className="preloader-area position-fixed text-center">
         <div className="loader">
           <div className="waviy">
-            <span>T</span>
-            <span>R</span>
-            <span>A</span>
-            <span>Z</span>
+            <span>Hub</span>
+            <span>Remontu</span>
           </div>
         </div>
       </div>

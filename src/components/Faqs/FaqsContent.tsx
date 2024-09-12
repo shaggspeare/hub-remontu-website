@@ -17,7 +17,7 @@ const FaqsContent: React.FC = () => {
         <div className="container">
           <div className="section-title-wrap">
             <span>FAQ</span>
-            <h2>Contact Us Anytime, We Are Always There For You</h2>
+            <h2 style={{color: 'var(--whiteColor)'}}>Contact Us Anytime, We Are Always There For You</h2>
           </div>
 
           <Accordion preExpanded={["a"]} className="faq-accordion">

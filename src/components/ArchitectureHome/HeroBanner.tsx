@@ -51,7 +51,7 @@ const HeroBanner: React.FC = () => {
               data-aos-duration="600"
               data-aos-once="false"
             >
-              Aesthetix: Redefining Spaces with <span>Architectural Magic</span>
+              Створимо простір, в якому <span>хочеться жити</span>
             </h1>
             <p
               data-aos="fade-up"
@@ -71,7 +71,7 @@ const HeroBanner: React.FC = () => {
               data-aos-once="false"
             >
               <Link href="/contact-us" className="default-btn">
-                Contact Us
+                Замовити проект
               </Link>
             </div>
           </div>

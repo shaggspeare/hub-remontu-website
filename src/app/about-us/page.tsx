@@ -1,4 +1,3 @@
-import NavbarStyleTwo from "@/components/Layout/NavbarStyleTwo";
 import PageTitle from "@/components/Common/PageTitle";
 import AboutUsContent from "@/components/AboutUs/AboutUsContent";
 import LatestRecognition from "@/components/ArchitectureStudio/LatestRecognition";
@@ -9,11 +8,12 @@ import TeamMemberStyle2 from "@/components/Common/TeamMemberStyle2";
 import Partner from "@/components/Common/Partner";
 import ContactFormStyleTwo from "@/components/ContactUs/ContactFormStyleTwo";
 import Footer from "@/components/Layout/Footer";
+import Navbar from "@/components/Layout/Navbar";
 
 export default function Page() {
   return (
-    <>
-      <NavbarStyleTwo />
+    <div className="full-bg-black-color">
+      <Navbar/>
 
       <PageTitle 
         title="About Us"
@@ -44,6 +44,6 @@ export default function Page() {
       </div>
       
       <Footer />
-    </>
+    </div>
   )
 }

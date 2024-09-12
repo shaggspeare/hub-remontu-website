@@ -303,9 +303,10 @@ Preloader Area CSS
                 animation: flip 2s infinite;
                 color: var(--whiteColor);
                 display: inline-block;
+                margin-right: 10px;
                 animation-delay: .2s;
                 font: {
-                    size: 45px;
+                    size: 100px;
                     weight: 800;
                 };
                 &:nth-child(2) {

@@ -1,22 +1,29 @@
-import NavbarStyleTwo from "@/components/Layout/NavbarStyleTwo";
 import PageTitle from "@/components/Common/PageTitle";
-import RequestAQuoteForm from "@/components/RequestAQuote/RequestAQuoteForm";
+import GoogleMap from "@/components/ContactUs/GoogleMap";
 import Footer from "@/components/Layout/Footer";
+import Navbar from "@/components/Layout/Navbar";
+import ContactForm from "@/components/ContactUs/ContactForm";
 
 export default function Page() {
   return (
-    <>
-      <NavbarStyleTwo />
+    <div className="full-bg-black-color">
+      <Navbar />
 
-      <PageTitle 
-        title="Request a Quote"
-        homeText="Home"
+      <PageTitle
+        title="Заповніть анкету"
+        homeText="Анкета"
         homeUrl="/"
       />
 
-      <RequestAQuoteForm />
- 
+      <div className="ptb-100">
+        <ContactForm />
+      </div>
+
+      <div className="pb-100">
+        <GoogleMap />
+      </div>
+
       <Footer />
-    </>
+    </div>
   )
 }
