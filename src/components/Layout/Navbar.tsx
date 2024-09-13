@@ -171,7 +171,7 @@ const Navbar: React.FC = () => {
               <div>
                 <Image
                   src={blackLogo}
-                  alt="Traz Logo"
+                  alt="Hub remontu Logo"
                   width={100}
                   height={41}
                 />
@@ -196,42 +196,16 @@ const Navbar: React.FC = () => {
                   </AccordionItemHeading>
 
                   <AccordionItemPanel>
-                    <ul className="menu-list">
-                      <li>
-                        <Link
-                          className={`nav-link ${
-                            currentRoute === "/" ? "active" : ""
-                          }`}
-                          href="/"
-                        >
-                          Architecture Home
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link
-                          className={`nav-link ${
-                            currentRoute === "/interior-home/" ? "active" : ""
-                          }`}
-                          href="/interior-home/"
-                        >
-                          Interior Home
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link
-                          className={`nav-link ${
-                            currentRoute === "/architecture-studio/"
-                              ? "active"
-                              : ""
-                          }`}
-                          href="/architecture-studio/"
-                        >
-                          Architecture Studio
-                        </Link>
-                      </li>
-                    </ul>
+                    <li>
+                      <Link
+                        className={`nav-link ${
+                          currentRoute === "/" ? "active" : ""
+                        }`}
+                        href="/"
+                      >
+                        Головна
+                      </Link>
+                    </li>
                   </AccordionItemPanel>
                 </AccordionItem>
 
@@ -241,7 +215,7 @@ const Navbar: React.FC = () => {
                     currentRoute === "/about-us/" ? "active" : ""
                   }`}
                 >
-                  About Us
+                  Про нас
                 </Link>
 
                 <AccordionItem uuid="b">
