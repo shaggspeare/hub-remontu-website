@@ -7,17 +7,17 @@ const socialLinksData = [
   {
     id: "1",
     icon: "ri-facebook-line",
-    link: "https://www.facebook.com/",
+    link: "https://www.facebook.com/profile.php?id=61555825405999",
   },
   {
     id: "2",
     icon: "ri-instagram-line",
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/hub_remontu",
   },
   {
     id: "3",
-    icon: "ri-twitter-line",
-    link: "https://www.twitter.com/",
+    icon: "ri-telegram-line",
+    link: "https://t.me/HUBremontu",
   },
 ];
 
@@ -26,18 +26,19 @@ const ContactInfo: React.FC = () => {
     <>
       <ul className="contact-info-list">
         <li>
-          <span>ADDRESS</span>
-          123 Maple Street Toronto, Ontario M1A 1A1 Canada
+          <span>АДРЕСА</span>
+          м. Київ, ЖК Great,
+          Дніпровська набережна, 15к, приміщення 1
         </li>
 
         <li>
           <span>CONTACT</span>
-          <a href="mailto:helltraz@gmail.com">helltraz@gmail.com</a>
-          <a href="tel:15551234567">+1 555-123-4567</a>
+          <a href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</a>
+          <a href="tel:380683833838">+38 (068) 383 38 38</a>
         </li>
 
         <li>
-          <span>SOCIAL MEDIA</span>
+          <span>СОЦМЕРЕЖІ</span>
 
           {socialLinksData && (
             <ul className="social">

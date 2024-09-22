@@ -128,11 +128,11 @@ const HeroBanner: React.FC = () => {
         <ul className="main-banner-info">
           <li>
             <span>Дзвони: </span>
-            <a href="tel:3214264567">+38(068) 383 38 38</a>
+            <a href="tel:380683833838">+38(068) 383 38 38</a>
           </li>
           <li>
             <span>Пиши: </span>
-            <a href="mailto:trazteam@gmail.com">hubremontu@gmail.com</a>
+            <a href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</a>
           </li>
         </ul>
       </div>

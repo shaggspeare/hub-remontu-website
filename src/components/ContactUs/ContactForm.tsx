@@ -65,12 +65,10 @@ const ContactForm: React.FC = () => {
               >
                 <div className="title">
                   <h2>
-                    <span>Contact,</span> Let&apos;s Talk
+                    <span>Зв`язатись</span> з нами
                   </h2>
                   <p>
-                    Let&apos;s bring your project to life. Let us know how we
-                    can best help you. We are a leading architecture firm
-                    dedicated to creating designs.
+                    Разом з нами Ваш проєкт стане реальністю, а процес ремонту перетвориться на приємне та комфортне втілення усіх побажань.
                   </p>
                 </div>
 
@@ -79,7 +77,7 @@ const ContactForm: React.FC = () => {
                     <form onSubmit={handleSubmit}>
                       <div className="form-group">
                         <label>
-                          YOUR NAME<span>*</span>
+                          ВАШЕ ІМ`Я<span>*</span>
                         </label>
                         <input
                           type="text"
@@ -87,13 +85,13 @@ const ContactForm: React.FC = () => {
                           value={formData.name}
                           onChange={handleChange}
                           className="form-control"
-                          placeholder="Jonathon Ronan"
+                          placeholder="Ваше ім'я"
                         />
                       </div>
 
                       <div className="form-group">
                         <label>
-                          EMAIL ADDRESS<span>*</span>
+                          EMAIL<span>*</span>
                         </label>
                         <input
                           type="email"
@@ -101,13 +99,13 @@ const ContactForm: React.FC = () => {
                           value={formData.email}
                           onChange={handleChange}
                           className="form-control"
-                          placeholder="jonathonronana63@gmail.com"
+                          placeholder="ваш_мейл@gmail.com"
                         />
                       </div>
 
                       <div className="form-group">
                         <label>
-                          PHONE NO<span>*</span>
+                          ТЕЛЕФОН<span>*</span>
                         </label>
                         <input
                           type="tel"
@@ -115,25 +113,25 @@ const ContactForm: React.FC = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           className="form-control"
-                          placeholder="+0 321 546 2345"
+                          placeholder="+380 00 000 00 00"
                         />
                       </div>
 
                       <div className="form-group">
                         <label>
-                          YOUR MESSAGE HERE<span>*</span>
+                          ВАШ КОМЕНТАР<span>*</span>
                         </label>
                         <textarea
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
                           className="form-control"
-                          placeholder="Write your message here..."
+                          placeholder="Напишіть ваш коментар..."
                         ></textarea>
                       </div>
 
                       <button type="submit" className="default-btn">
-                        Send Message Now
+                        Надіслати
                       </button>
                     </form>
                   </div>

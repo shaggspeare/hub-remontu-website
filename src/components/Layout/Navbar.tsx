@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
       <nav className="navbar navbar-expand-lg" id="navbar">
         <div className="container-fluid position-relative">
           <Link className="navbar-brand" href="/">
-            <Image src={logo} alt="Traz Logo" width={113} height={54} />
+            <Image src={logo} alt="HUB Logo" width={113} height={54} />
           </Link>
 
           {/* Toggle navigation */}
