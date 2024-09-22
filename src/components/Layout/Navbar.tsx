@@ -77,6 +77,19 @@ const Navbar: React.FC = () => {
           {/* Menu For Desktop Device */}
           <div className={classOne} id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto">
+              <a
+                style={{
+                  marginRight: "60px",
+                  backgroundColor: "transparent",
+                  border: "1px solid var(--primaryColor)",
+                  padding: "10px",
+                  color: "white",
+                  lineHeight: "32px",
+                }}
+                href="tel:380683833838"
+              >
+                +38(068) 383 38 38
+              </a>
               <li className="nav-item">
                 <Link
                   className={`nav-link ${currentRoute === "/" ? "active" : ""}`}
@@ -85,7 +98,6 @@ const Navbar: React.FC = () => {
                   Головна
                 </Link>
               </li>
-
               <li className="nav-item">
                 <Link
                   href="/about-us/"
@@ -96,18 +108,16 @@ const Navbar: React.FC = () => {
                   Про нас
                 </Link>
               </li>
-
               <li className="nav-item">
                 <Link
-                  href="/portfolio-2/"
+                  href="/portfolio/"
                   className={`nav-link ${
-                    currentRoute === "/portfolio-2/" ? "active" : ""
+                    currentRoute === "/portfolio/" ? "active" : ""
                   }`}
                 >
                   Портфоліо
                 </Link>
               </li>
-
               <li className="nav-item">
                 <Link
                   href="/team/"
@@ -118,7 +128,6 @@ const Navbar: React.FC = () => {
                   Команда
                 </Link>
               </li>
-
               <li className="nav-item">
                 <Link
                   href="/faq/"

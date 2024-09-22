@@ -356,7 +356,7 @@ Main Banner Area CSS
         top: 0;
         height: 100%;
         width: 100%;
-        background: linear-gradient(180deg, rgba(22, 21, 18, 0.90) 0%, rgba(22, 21, 18, 0.30) 100%);
+        background: linear-gradient(135deg, rgba(22, 21, 18, 0.95) 0%, rgba(22, 21, 18, 0.4) 100%);
     }
 }
 .main-banner-content {
@@ -371,9 +371,6 @@ Main Banner Area CSS
         span {
             color: transparent;
             -webkit-text-stroke: 0.5px var(--whiteColor);
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
         }
     }
     p {
@@ -464,12 +461,12 @@ Main Banner Area CSS
         }
         a {
             i {
-                width: 25px;
-                height: 25px;
-                line-height: 25px;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
                 background-color: #000000;
                 border-radius: 100%;
-                font-size: 15px;
+                font-size: 30px;
                 color: var(--whiteColor);
                 transition: var(--transition);
                 display: inline-block;

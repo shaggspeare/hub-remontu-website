@@ -85,13 +85,20 @@ const AllProjects: React.FC = () => {
 
                       <div className="icon">
                         <Link href={value.link}>
-                          <Image src={rightArrowIcon} alt="arrow-right" width={24} height={24} />
+                          <Image
+                            src={rightArrowIcon}
+                            alt="arrow-right"
+                            width={24}
+                            height={24}
+                          />
                         </Link>
                       </div>
                     </div>
                     <div className="projects-content">
                       <h3>
-                        <Link href={value.link}>{value.title}</Link>
+                        <Link style={{ color: "white" }} href={value.link}>
+                          {value.title}
+                        </Link>
                         <span className="ms-2">{value.category}</span>
                       </h3>
                     </div>

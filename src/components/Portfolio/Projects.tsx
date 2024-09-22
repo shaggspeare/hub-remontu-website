@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
           <div className="section-title-wrap d-flex d-md-block d-xl-flex align-items-end justify-content-between">
             <div className="title">
               <span>PORTFOLIO</span>
-              <h2>Selected Projects That We Really Want To Show You</h2>
+              <h2 style={{color: 'white'}}>Selected Projects That We Really Want To Show You</h2>
             </div>
 
             <div className="tabs-nav">

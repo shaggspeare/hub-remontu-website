@@ -9,8 +9,8 @@ import arrowRightIcon from "../../../public/images/arrow-right.svg";
 const servicesData = [
   {
     id: "1",
-    icon: "flaticon-measuring",
-    title: "Design",
+    icon: "flaticon-interior-design",
+    title: "Дизайн",
     text: "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
     link: "/services/service-details",
     aosDelay: "100",
@@ -18,15 +18,15 @@ const servicesData = [
   {
     id: "2",
     icon: "flaticon-mansory",
-    title: "Construction",
+    title: "Ремонт",
     text: "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
     link: "/services/service-details",
     aosDelay: "200",
   },
   {
     id: "3",
-    icon: "flaticon-interior-design",
-    title: "Engineering",
+    icon: "flaticon-measuring",
+    title: "Проектування",
     text: "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
     link: "/services/service-details",
     aosDelay: "300",
@@ -46,9 +46,9 @@ const WhatWeDo: React.FC = () => {
             data-aos-once="true"
           >
             <h2>
-              What <span>We Do</span> For You
+              Що <span>ми робимо</span> для Вас
             </h2>
-            <Link href="/services">VIEW ALL SERVICES</Link>
+            <Link href="/services">ПОДИВИТИСЬ ВСІ ПОСЛУГИ</Link>
           </div>
 
           {servicesData && (

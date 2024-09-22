@@ -91,7 +91,7 @@ const IndustryTabContent: React.FC = () => {
                     </div>
                     <div className="projects-content">
                       <h3>
-                        <Link href={value.link}>{value.title}</Link>
+                        <Link style={{color: 'white'}} href={value.link}>{value.title}</Link>
                         <span className="ms-2">{value.category}</span>
                       </h3>
                     </div>

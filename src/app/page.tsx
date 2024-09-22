@@ -24,11 +24,9 @@ export default function Home() {
 
       <WhatWeDo />
 
-      <Overview />
-
-      <CoreFeatures />
-
-      <LatestRecognition />
+      {/*<Overview />*/}
+      {/*<CoreFeatures />*/}
+      {/*<LatestRecognition />*/}
 
       <RecentProjects />
 
@@ -38,7 +36,7 @@ export default function Home() {
 
       <ClientsFeedbackSlider />
 
-      <BlogPost />
+      {/*<BlogPost />*/}
 
       <ContactForm />
 
