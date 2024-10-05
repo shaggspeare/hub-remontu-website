@@ -13,34 +13,51 @@ const clientsFeedbackData = [
   {
     id: "1",
     feedbackText:
-      "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations. With our team of highly skilled architects and designers, we specialize in crafting.",
-    image: "/images/client/user1.png",
-    name: "Jonathon Ronan",
-    designation: "CEO of HiBootstrap",
+      "Робили ремонт квартири по готовому дизайн-проекту з нуля, включно з переплануванням. Все зробили якісно та оперативно, по ходу проекту пропонували покращення та нові рішення, які успішно втілили в життя. Первинний розрахунок вартості був максимально близьким до реальних витрат - і роботи, і матеріали (відмінності були в основному по погодженим покращенням). Допомогли зі знижками на чорнові матеріали і оздоблення, завжди на звʼязку по питанням під час ремонту і навіть через довгий час після закінчення ремонту. Дякую за чудову співпрацю і гарний результат!",
+    name: "Kami",
   },
   {
     id: "2",
     feedbackText:
-      "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations. With our team of highly skilled architects and designers, we specialize in crafting.",
-    image: "/images/client/user2.png",
-    name: "Angela Carter",
-    designation: "CEO of EnvyTheme",
+      "Висловлюю велику подяку за допомогу на всіх етапах ремонту. Все було зроблено якісно, у встановлений термін. Врахували усі мої вимоги. Залишилася дуже задоволена проведеним ремонтом. Тепер рекомендуватиму Вас усім своїм друзям.",
+    name: "Марина Предко",
   },
   {
     id: "3",
     feedbackText:
-      "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations. With our team of highly skilled architects and designers, we specialize in crafting.",
-    image: "/images/client/user3.png",
-    name: "Skyler White",
-    designation: "CEO of HiboTheme",
+      "Рекомендую команду майстрів!!! Ціна- якість, турбота про людей,відповідальність",
+    name: "Ольга Карельска",
   },
   {
     id: "4",
     feedbackText:
-      "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations. With our team of highly skilled architects and designers, we specialize in crafting.",
-    image: "/images/client/user4.png",
-    name: "Angela Carter",
-    designation: "CEO of Abc",
+      "Звернулась для прорахунку кошторису майбутнього ремонту. Одна з небагатьох компаній, яка реально подивилась на мій дизайн проект та запропонувала цінову пропозицію відповідно до необхідних робіт. Більшість компаній не хочуть витрачати час та просто дають середню ціну робіт/матеріалів за м2. Сподобалась відношення до потенційного клієнта.",
+    name: "Ольга Данилець",
+  },
+  {
+    id: "5",
+    feedbackText: "Професійна команда! Дякую за співпрацю!!",
+    name: "Влад Половець",
+  },
+  {
+    id: "6",
+    feedbackText:
+      "Технічне завдання - виконати ремонтні роботи в квартирі за кресленнями та дизайн-проекту (не самої кращої деталізації.\n" +
+      "1) роботи виконувались на 100% без мого втручання.\n" +
+      "2) з боку хлопців поступали раціональні рішення як можливо зробити краще ( по дві сторони: десь зменшуючи собівартість робіт, десь трохи треба додати щоб було добре)\n" +
+      "3) всі проектні зміни були з легкістю погоджені та обговорені.\n" +
+      "4) хлопці працюють автономно та в узгоджені строки.\n" +
+      "5) окреме дякую за те що після майже закінчення ремонту (меблярів, вони були окремі) хлопці виправили деякі дефекти після монтажу шаф та іншого.\n" +
+      "Тож можу рекомендувати що проблем не буде, та ваш ремонт пройде максимально без нервів.",
+    name: "Ramil As",
+  },
+  {
+    id: "7",
+    feedbackText:
+      "Випадок звів нас з професіоналами з HuB ремонту. Дизайн-проєкт був зроблений з врахуванням наявного планування та наших побажань.\n" +
+      "Ремонт проведено досить швидко. Всі процеси виконувались своєчасно та не вимагали нашого контролю. Якістю задоволені.\n" +
+      "Дякуємо Олені та Євгену за високу професійність.",
+    name: "Alex K",
   },
 ];
 
@@ -62,7 +79,7 @@ const ClientsFeedbackSlider: React.FC = () => {
                 clickable: true,
               }}
               autoplay={{
-                delay: 5000,
+                delay: 4000,
                 disableOnInteraction: true,
                 pauseOnMouseEnter: true,
               }}
@@ -74,22 +91,27 @@ const ClientsFeedbackSlider: React.FC = () => {
                   <SwiperSlide key={i}>
                     <div className="client-content">
                       <div className="icon">
-                        <Image src={quoteIcon} alt="quote" width={56} height={56} />
+                        <Image
+                          src={quoteIcon}
+                          alt="quote"
+                          width={56}
+                          height={56}
+                        />
                       </div>
                       <p>{value.feedbackText}</p>
 
                       <div className="client-information">
-                        <div className="image">
-                          <Image
-                            src={value.image}
-                            alt="image"
-                            width={70}
-                            height={70}
-                          />
-                        </div>
+                        {/*<div className="image">*/}
+                        {/*  <Image*/}
+                        {/*    src={value.image}*/}
+                        {/*    alt="image"*/}
+                        {/*    width={70}*/}
+                        {/*    height={70}*/}
+                        {/*  />*/}
+                        {/*</div>*/}
                         <div className="title">
                           <h3>{value.name}</h3>
-                          <span>{value.designation}</span>
+                          {/*<span>{value.designation}</span>*/}
                         </div>
                       </div>
                     </div>

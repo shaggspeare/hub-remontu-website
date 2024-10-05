@@ -66,7 +66,7 @@ const Process: React.FC = () => {
             data-aos-once="true"
           >
             <h2>
-              <span>Принцип</span> роботи студії
+              <span>Принцип</span> роботи
             </h2>
           </div>
 

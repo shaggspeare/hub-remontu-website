@@ -9,41 +9,32 @@ import Partner from "@/components/Common/Partner";
 import ContactFormStyleTwo from "@/components/ContactUs/ContactFormStyleTwo";
 import Footer from "@/components/Layout/Footer";
 import Navbar from "@/components/Layout/Navbar";
+import ContactForm from "@/components/ContactUs/ContactForm";
 
 export default function Page() {
   return (
     <div className="full-bg-black-color">
-      <Navbar/>
+      <Navbar />
 
-      <PageTitle 
-        title="About Us"
-        homeText="Home"
-        homeUrl="/"
-      />
+      <PageTitle title="About Us" homeText="Home" homeUrl="/" />
 
       <AboutUsContent />
 
-      <LatestRecognition />
+      {/*<LatestRecognition />*/}
 
       <QuoteText />
 
-      <div className="ptb-100">
-        <ClientsFeedbackSlider />
-      </div>
-
       <TextSlide />
-
-      <TeamMemberStyle2 />
 
       <div className="pt-100">
         <Partner />
       </div>
 
       <div className="pb-100">
-        <ContactFormStyleTwo />
+        <ContactForm />
       </div>
-      
+
       <Footer />
     </div>
-  )
+  );
 }

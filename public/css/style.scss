@@ -301,25 +301,42 @@ Preloader Area CSS
         .waviy {
             span {
                 animation: flip 2s infinite;
-                color: var(--whiteColor);
                 display: inline-block;
                 margin-right: 10px;
-                animation-delay: .2s;
-                font: {
-                    size: 100px;
-                    weight: 800;
-                };
-                &:nth-child(2) {
+                font-size: 100px;
+                color: transparent;
+                text-transform: uppercase;
+                font-weight: bold;
+                -webkit-text-stroke: 0.5px var(--whiteColor);
+                &:nth-of-type(2) {
+                    animation-delay: .1s;
+                }
+                &:nth-of-type(3) {
                     animation-delay: .2s;
                 }
-                &:nth-child(3) {
+                &:nth-of-type(4) {
+                    animation-delay: .3s;
+                }
+                &:nth-of-type(5) {
                     animation-delay: .4s;
                 }
-                &:nth-child(4) {
+                &:nth-of-type(6) {
+                    animation-delay: .5s;
+                }
+                &:nth-of-type(7) {
                     animation-delay: .6s;
                 }
-                &:nth-child(5) {
+                &:nth-of-type(8) {
+                    animation-delay: .7s;
+                }
+                &:nth-of-type(9) {
                     animation-delay: .8s;
+                }
+                &:nth-of-type(10) {
+                    animation-delay: .9s;
+                }
+                &:nth-of-type(11) {
+                    animation-delay: 1s;
                 }
             }
         }
@@ -2304,7 +2321,7 @@ Client Area CSS
         margin-bottom: 20px;
     }
     p {
-        font-size: 24px;
+        font-size: 20px;
         color: #B6B4B2;
     }
 

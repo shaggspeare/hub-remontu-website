@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   Accordion,
   AccordionItem,
@@ -17,28 +16,37 @@ const FaqsContent: React.FC = () => {
         <div className="container">
           <div className="section-title-wrap">
             <span>FAQ</span>
-            <h2 style={{color: 'var(--whiteColor)'}}>Contact Us Anytime, We Are Always There For You</h2>
+            <h2 style={{ color: "var(--whiteColor)" }}>FAQ</h2>
           </div>
 
-          <Accordion preExpanded={["a"]} className="faq-accordion">
+          <Accordion
+            preExpanded={[
+              "a",
+              "b",
+              "c",
+              "d",
+              "e",
+              "f",
+              "g",
+              "h",
+              "i",
+              "j",
+              "k",
+            ]}
+            className="faq-accordion"
+            allowMultipleExpanded
+          >
             <AccordionItem uuid="a">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  How I can book a service?
+                  Хто робить дизайн-проєкти?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
+                  Ми маємо власний відділ проєктування, де працюють архітектори
+                  та дизайнери, які мають відповідну освіту та роблять проєкти
+                  не тільки красивими, а й функціональними.
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -46,21 +54,14 @@ const FaqsContent: React.FC = () => {
             <AccordionItem uuid="b">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  What are the terms of service?
+                  Які дизайн-проєкти Ви пропонуєте?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
+                  Ми розробляємо технічну документацію та повний дизайн-проєкт з
+                  3D-візуалізаціями. Детальніше про кожен у розділі
+                  “Дизайн-проєкти”.
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -68,21 +69,23 @@ const FaqsContent: React.FC = () => {
             <AccordionItem uuid="c">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  What if I don&apos;t like the first design?
+                  Як замовити у Вас дизайн-проєкт?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
+                  Все просто! Залиште заявку на нашому сайті або зателефонуйте
+                  нам за номером{" "}
+                  <a
+                    style={{
+                      textDecoration: "underline",
+                      color: "var(--whiteColor)",
+                    }}
+                    href="tel:380683833838"
+                  >
+                    +38(068) 383 38 38
+                  </a>{" "}
+                  і ми обговоримо майбутню співпрацю.
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -90,21 +93,13 @@ const FaqsContent: React.FC = () => {
             <AccordionItem uuid="d">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  How much does a consultation cost?
+                  Скільки часу створюється дизайн-проєкт?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
+                  За середніми показниками: технічна документація ≈ 14 робочих
+                  днів, повний дизайн-проєкт з візуалізаціями ≈ 1,5-2 місяці.
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -112,43 +107,24 @@ const FaqsContent: React.FC = () => {
             <AccordionItem uuid="e">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  What services does your architecture company offer?
+                  Чи працюєте Ви з вторинним житлом?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
-                </p>
+                <p>Так, звичайно.</p>
               </AccordionItemPanel>
             </AccordionItem>
 
             <AccordionItem uuid="f">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  Can you handle both residential and commercial projects?
+                  Скільки часу триває ремонт?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
+                  Терміни ремонту залежать від складності робіт та площі Вашого
+                  приміщення. У середньому від 2 до 10 місяців.
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -156,22 +132,15 @@ const FaqsContent: React.FC = () => {
             <AccordionItem uuid="g">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  How do you ensure that the design aligns with our vision
-                  and needs?
+                  Яка вартість ремонту квадратного метра?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
+                  Ціна роботи за метр квадратний формується на основі ваших
+                  побажань у оздобленні підлоги, стін та стелі, наявності
+                  прихованих елементів, складності та кількості робіт на вашому
+                  об’єкті.
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -179,22 +148,65 @@ const FaqsContent: React.FC = () => {
             <AccordionItem uuid="h">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  What is your approach to sustainability in architecture?
+                  Яку мінімальну площу берете у роботу?
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <p>Починаємо роботу з приміщеннями від 35 м2</p>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem uuid="h">
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  Чи закупляєте ви матеріали?
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  За Вашим бажанням ми комплектуємо Ваш об’єкт від чорнових то
+                  чистових матеріалів (від труб та сумішей до міжкімнатних
+                  дверей та меблів). З радістю поділимося з Вами нашими
+                  партнерськими знижками.
                 </p>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem uuid="i">
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  Чи є у вас регламент робіт?
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
                 <p>
-                  Our organizational sprit believes that where design meets
-                  passion & love with space, good architecture happens here.
-                  We are a leading architecture firm dedicated to creating
-                  visionary designs.
+                  Ми максимально ефективно плануємо та організовуємо нашу
+                  роботу: щотижня ми оновлюємо графік робіт та закупок на усіх
+                  об’єктах, а також працюємо за техкартами кожного етапу
+                  ремонту.
                 </p>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem uuid="j">
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  Хто та як контролює якість виконання ремонту?
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <p>
+                  Ремонт приймає поетапно Ваш персональний керівник проєкту. Він
+                  перевіряє дотримання технологій, якість вирівнювання стін,
+                  монтаж підлоги, укладання керамограніту, фарбування стін тощо.
+                </p>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem uuid="k">
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  Як відбувається оплата за Ваші послуги?
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <p>Оплата відбувається за фактом виконаних нами робіт.</p>
               </AccordionItemPanel>
             </AccordionItem>
           </Accordion>
