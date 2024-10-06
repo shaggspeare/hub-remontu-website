@@ -18,7 +18,7 @@ const Sidebar: React.FC<Props> = ({
   return (
     <>
       <div className="projects-details-side">
-        <h3 style={{ color: "var(--whiteColor)" }}>Деталі проекту</h3>
+        <h3 style={{ color: "var(--whiteColor)" }}>Деталі</h3>
 
         <ul className="list">
           <li>

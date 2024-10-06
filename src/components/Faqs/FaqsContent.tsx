@@ -20,19 +20,7 @@ const FaqsContent: React.FC = () => {
           </div>
 
           <Accordion
-            preExpanded={[
-              "a",
-              "b",
-              "c",
-              "d",
-              "e",
-              "f",
-              "g",
-              "h",
-              "i",
-              "j",
-              "k",
-            ]}
+            preExpanded={["a"]}
             className="faq-accordion"
             allowMultipleExpanded
           >

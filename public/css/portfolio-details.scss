@@ -3,6 +3,8 @@ Projects Details Area CSS
 =================================================*/
 .projects-details-image {
     margin-bottom: 45px;
+    display: flex;
+    justify-content: center;
 }
 .projects-details-desc {
     position: relative;
@@ -140,6 +142,8 @@ Projects Details Area CSS
 @media only screen and (max-width: 767px) {
     .projects-details-image {
         margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
     }
     .projects-details-desc {
         padding: {
