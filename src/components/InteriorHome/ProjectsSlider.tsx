@@ -14,7 +14,7 @@ const projectsData = [
     tag: "NEW CASTLE, UK",
     introText:
       "We are specialized in the privates houses creation. Our architecture is an innovative and creative retranscription of the lifestyle and codes of the Arcachon basin.",
-    link: "/portfolio/portfolio-details",
+    link: "/portfolio-details",
   },
   {
     id: "2",
@@ -23,7 +23,7 @@ const projectsData = [
     tag: "Architecture",
     introText:
       "We are specialized in the privates houses creation. Our architecture is an innovative and creative retranscription of the lifestyle and codes of the Arcachon basin.",
-    link: "/portfolio/portfolio-details",
+    link: "/portfolio-details",
   },
 ];
 

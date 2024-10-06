@@ -258,9 +258,9 @@ const Navbar: React.FC = () => {
 
                       <li>
                         <Link
-                          href="/portfolio/portfolio-details/"
+                          href="/portfolio-details/"
                           className={`nav-link ${
-                            currentRoute === "/portfolio/portfolio-details/"
+                            currentRoute === "/portfolio-details/"
                               ? "active"
                               : ""
                           }`}

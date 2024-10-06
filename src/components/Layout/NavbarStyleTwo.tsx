@@ -167,9 +167,9 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/portfolio/portfolio-details/"
+                      href="/portfolio-details/"
                       className={`nav-link ${
-                        currentRoute === "/portfolio/portfolio-details/"
+                        currentRoute === "/portfolio-details/"
                           ? "active"
                           : ""
                       }`}
@@ -595,9 +595,9 @@ const NavbarStyleTwo: React.FC = () => {
 
                       <li>
                         <Link
-                          href="/portfolio/portfolio-details/"
+                          href="/portfolio-details/"
                           className={`nav-link ${
-                            currentRoute === "/portfolio/portfolio-details/"
+                            currentRoute === "/portfolio-details/"
                               ? "active"
                               : ""
                           }`}

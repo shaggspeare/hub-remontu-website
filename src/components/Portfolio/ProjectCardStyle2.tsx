@@ -11,28 +11,28 @@ const projectsData = [
     image: "/images/projects/projects7.jpg",
     title: "Refined Elegance",
     category: "Interior",
-    link: "/portfolio/portfolio-details",
+    link: "/portfolio-details",
   },
   {
     id: "2",
     image: "/images/projects/projects8.jpg",
     title: "Tower House",
     category: "Architecture",
-    link: "/portfolio/portfolio-details",
+    link: "/portfolio-details",
   },
   {
     id: "3",
     image: "/images/projects/projects9.jpg",
     title: "House Renovation",
     category: "Interior",
-    link: "/portfolio/portfolio-details",
+    link: "/portfolio-details",
   },
   {
     id: "4",
     image: "/images/projects/projects10.jpg",
     title: "Penthouse",
     category: "Architecture",
-    link: "/portfolio/portfolio-details",
+    link: "/portfolio-details",
   },
 ];
 

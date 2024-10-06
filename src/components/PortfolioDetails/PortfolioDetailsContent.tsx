@@ -91,7 +91,7 @@ const portfolioDetailsInfo: PortfolioDetailsInfo = {
   projectDetails: {
     client: "Молода пара",
     duration: "6 місяців",
-    squareMeters: "56",
+    squareMeters: "56 м2",
     services: "Дизайн-проект, ремонт",
   },
   galleryImages: [projectImg, projectImg],
