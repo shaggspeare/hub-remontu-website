@@ -18,7 +18,7 @@ export default function PortfolioDetailsDefaultPage() {
   return (
     <div className="full-bg-black-color">
       <Navbar />
-      <PageTitle title="Portfolio Details" homeText="Home" homeUrl="/" />
+      <PageTitle title="Портфоліо" homeText="Головна" homeUrl="/" />
       <PortfolioDetailsContent portfolioDetailsInfo={portfolioDetailsInfo} />
       <GalleryImage />
       <Footer />

@@ -20,50 +20,51 @@ const Projects: React.FC = () => {
         <div className="container">
           <div className="section-title-wrap d-flex d-md-block d-xl-flex align-items-end justify-content-between">
             <div className="title">
-              <span>PORTFOLIO</span>
-              <h2 style={{color: 'white'}}>Selected Projects That We Really Want To Show You</h2>
+              <span>Проекти</span>
+              <h2 style={{color: 'white'}}>Проекти, якими ми пишаємось</h2>
             </div>
 
-            <div className="tabs-nav">
-              <button
-                onClick={() => handleTabClick(0)}
-                className={`tab-btn ${activeTab === 0 ? "active" : ""}`}
-              >
-                All
-              </button>
-              <button
-                onClick={() => handleTabClick(1)}
-                className={`tab-btn ${activeTab === 1 ? "active" : ""}`}
-              >
-                Exterior
-              </button>
-              <button
-                onClick={() => handleTabClick(2)}
-                className={`tab-btn ${activeTab === 2 ? "active" : ""}`}
-              >
-                Interior
-              </button>
-              <button
-                onClick={() => handleTabClick(3)}
-                className={`tab-btn ${activeTab === 3 ? "active" : ""}`}
-              >
-                Industry
-              </button>
-              <button
-                onClick={() => handleTabClick(4)}
-                className={`tab-btn ${activeTab === 4 ? "active" : ""}`}
-              >
-                Urban
-              </button>
-            </div>
+            {/*<div className="tabs-nav">*/}
+            {/*  <button*/}
+            {/*    onClick={() => handleTabClick(0)}*/}
+            {/*    className={`tab-btn ${activeTab === 0 ? "active" : ""}`}*/}
+            {/*  >*/}
+            {/*    All*/}
+            {/*  </button>*/}
+            {/*  <button*/}
+            {/*    onClick={() => handleTabClick(1)}*/}
+            {/*    className={`tab-btn ${activeTab === 1 ? "active" : ""}`}*/}
+            {/*  >*/}
+            {/*    Exterior*/}
+            {/*  </button>*/}
+            {/*  <button*/}
+            {/*    onClick={() => handleTabClick(2)}*/}
+            {/*    className={`tab-btn ${activeTab === 2 ? "active" : ""}`}*/}
+            {/*  >*/}
+            {/*    Interior*/}
+            {/*  </button>*/}
+            {/*  <button*/}
+            {/*    onClick={() => handleTabClick(3)}*/}
+            {/*    className={`tab-btn ${activeTab === 3 ? "active" : ""}`}*/}
+            {/*  >*/}
+            {/*    Industry*/}
+            {/*  </button>*/}
+            {/*  <button*/}
+            {/*    onClick={() => handleTabClick(4)}*/}
+            {/*    className={`tab-btn ${activeTab === 4 ? "active" : ""}`}*/}
+            {/*  >*/}
+            {/*    Urban*/}
+            {/*  </button>*/}
+            {/*</div>*/}
           </div>
 
           <div>
-            {activeTab === 0 && <AllProjects />}
-            {activeTab === 1 && <ExteriorTabContent />}
-            {activeTab === 2 && <InteriorTabContent />}
-            {activeTab === 3 && <IndustryTabContent />}
-            {activeTab === 4 && <UrbanTabContent />}
+            <AllProjects />
+            {/*{activeTab === 0 && <AllProjects />}*/}
+            {/*{activeTab === 1 && <ExteriorTabContent />}*/}
+            {/*{activeTab === 2 && <InteriorTabContent />}*/}
+            {/*{activeTab === 3 && <IndustryTabContent />}*/}
+            {/*{activeTab === 4 && <UrbanTabContent />}*/}
           </div>
         </div>
       </div>
