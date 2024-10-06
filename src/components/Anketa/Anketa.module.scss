@@ -1,0 +1,104 @@
+/* Anketa.module.scss */
+
+/* Common Styles */
+.textWhite {
+  color: #ffffff;
+}
+
+h3.textWhite {
+  margin-bottom: 16px;
+}
+
+.formStep {
+  margin-bottom: 48px;
+}
+
+.inputField {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.radioLabel,
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.checkboxArea {
+  display: flex;
+}
+
+.checkboxLabelBlock {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.checkboxLabelBlockInput {
+  margin-right: 4px;
+}
+
+.radioLabel span,
+.checkboxLabel span,
+.checkboxLabelBlock span {
+  margin-right: 16px;
+}
+
+.radioLabelBlock,
+.checkboxLabelBlock {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.submitButton {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  display: inline-block;
+  padding: 15px 150px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.submitButton:hover {
+  background-color: transparent;
+  border: 1px solid var(--primaryColor);
+}
+
+.designDetailBox {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lightBackground {
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.inputOtherField {
+  margin-top: 8px;
+}
+
+.boldText {
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.infoText {
+  margin-top: 8px;
+  color: #000000;
+}
+
+.optionSelected {
+  border: 5px solid var(--primaryColor);
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  padding: 4px;
+}

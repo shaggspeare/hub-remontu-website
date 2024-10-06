@@ -56,13 +56,7 @@ const Footer: React.FC = () => {
       <footer className="footer-area pt-100 pb-75">
         <div className="container">
           <div className="row justify-content-center">
-            <div
-              className="col-lg-4 col-sm-6"
-              data-aos="fade-up"
-              data-aos-delay="100"
-              data-aos-duration="600"
-              data-aos-once="true"
-            >
+            <div className="col-lg-4 col-sm-6">
               <div className="single-footer-widget">
                 <div className="widget-logo">
                   <Link href="/">
@@ -78,13 +72,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div
-              className="col-lg-2 col-sm-6"
-              data-aos="fade-up"
-              data-aos-delay="200"
-              data-aos-duration="600"
-              data-aos-once="true"
-            >
+            <div className="col-lg-2 col-sm-6">
               <div className="single-footer-widget ps-5">
                 <h3>МИ В СОЦМЕРЕЖАХ</h3>
 
@@ -103,13 +91,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div
-              className="col-lg-3 col-sm-6"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              data-aos-duration="600"
-              data-aos-once="true"
-            >
+            <div className="col-lg-3 col-sm-6">
               <div className="single-footer-widget ps-5">
                 <h3>МАПА САЙТУ</h3>
 
@@ -126,13 +108,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div
-              className="col-lg-3 col-sm-6"
-              data-aos="fade-up"
-              data-aos-delay="400"
-              data-aos-duration="600"
-              data-aos-once="true"
-            >
+            <div className="col-lg-3 col-sm-6">
               {/* NewsletterForm */}
               {/*<NewsletterForm />*/}
             </div>
@@ -144,7 +120,7 @@ const Footer: React.FC = () => {
         <div className="container">
           <div className="copyright-area-content">
             <p>
-              © <span>HUB REMONTU</span>{" "}All Rights Reserved By
+              © <span>HUB REMONTU</span> All Rights Reserved By
               <a href="https://envytheme.com/" target="_blank">
                 {" "}
                 HUB REMONTU

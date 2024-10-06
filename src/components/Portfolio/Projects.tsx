@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
         <div className="container">
           <div className="section-title-wrap d-flex d-md-block d-xl-flex align-items-end justify-content-between">
             <div className="title">
-              <span>Проекти</span>
+              <span>ПРОЕКТИ</span>
               <h2 style={{color: 'white'}}>Проекти, якими ми пишаємось</h2>
             </div>
 
