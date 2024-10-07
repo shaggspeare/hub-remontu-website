@@ -536,11 +536,11 @@ const MultiPartForm: React.FC = () => {
           options={[
             {
               label: "Звичайні",
-              imgSrc: "/images/new-images/anketa/door/door1.jpg",
+              imgSrc: "/images/new-images/anketa/door/door2.jpg",
             },
             {
               label: "Прихованого монтажу",
-              imgSrc: "/images/new-images/anketa/door/door2.jpg",
+              imgSrc: "/images/new-images/anketa/door/door1.jpg",
             },
           ]}
           name="door"

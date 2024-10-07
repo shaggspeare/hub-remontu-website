@@ -68,7 +68,7 @@ const ClientsFeedbackSlider: React.FC = () => {
         <div className="container">
           <div className="section-title d-flex justify-content-center">
             <h2>
-              <span>Наші відгуки </span> говорять за нас
+              Наші відгуки <span> говорять за нас</span>
             </h2>
           </div>
 

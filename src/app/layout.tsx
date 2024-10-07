@@ -2,7 +2,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../public/css/animate.min.css";
 import "remixicon/fonts/remixicon.css";
 import "swiper/css/bundle";
-import 'react-accessible-accordion/dist/fancy-example.css';
+import "react-accessible-accordion/dist/fancy-example.css";
 import "../../public/css/flaticon_astle.css";
 import "../../public/css/navbar.scss";
 import "../../public/css/services-details.scss";

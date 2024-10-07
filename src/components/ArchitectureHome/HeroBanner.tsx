@@ -51,7 +51,8 @@ const HeroBanner: React.FC = () => {
               data-aos-duration="600"
               data-aos-once="false"
             >
-              Створимо простір, в якому <span>хочеться жити</span>
+              Створимо простiр,
+              <br /> в якому <span>хочеться жити</span>
             </h1>
             <p
               data-aos="fade-up"
