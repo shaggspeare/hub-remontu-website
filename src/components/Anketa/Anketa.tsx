@@ -66,7 +66,7 @@ const OptionCard: React.FC<OptionCardProps> = ({
           className={`card h-100 ${
             value.includes(typeof option === "string" ? option : option.label)
               ? styles.optionSelected
-              : ""
+              : styles.option
           }`}
           style={{
             cursor: "pointer",
