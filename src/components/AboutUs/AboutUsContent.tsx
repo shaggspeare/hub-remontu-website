@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import FsLightbox from "fslightbox-react";
 import Image from "next/image";
 
-import aboutImg from "../../../public/images/about/about5.jpg";
 import arrowIcon from "../../../public/images/about/arrow2.svg";
 import videoThumb from "../../../public/images/about/about4.png";
 import videoCircleImg from "../../../public/images/about/wrap.png";
@@ -14,30 +13,30 @@ import OurMissionAndVision from "./OurMissionAndVision";
 
 const AboutUsContent: React.FC = () => {
   // To open the lightbox change the value of the "toggler" prop.
-  const [toggler, setToggler] = useState<boolean>(false);
+  // const [toggler, setToggler] = useState<boolean>(false);
 
   return (
     <>
       {/* Use here youtube Embed video link */}
-      <FsLightbox
-        toggler={toggler}
-        sources={[
-          "https://www.youtube.com/embed/sVi2pdF1aIc?si=wuP0-H9KuJnEk0Js",
-        ]}
-      />
+      {/*<FsLightbox*/}
+      {/*  toggler={toggler}*/}
+      {/*  sources={[*/}
+      {/*    "https://www.youtube.com/embed/sVi2pdF1aIc?si=wuP0-H9KuJnEk0Js",*/}
+      {/*  ]}*/}
+      {/*/>*/}
 
       <div className="about-area pt-100">
         <div className="container">
           <div className="about-three-title">
-            <span>ABOUT US</span>
+            <span>ПРО НАС</span>
             <h2 style={{ color: "var(--whiteColor)" }}>
-              We Are <b>Traz.</b> We Create Unique And Sustainable Living
-              Spaces, Designed For Sharing
+              <b>HUB REMONTU.</b> Допоможемо створити та реалізуємо інтер’єр
+              вашої мрії
             </h2>
           </div>
 
           <div className="about-image-three">
-            <Image src={aboutImg} alt="image" width={1320} height={430} />
+            <Image src={'/images/new-images/backgrounds/about-2.png'} alt="image" width={1320} height={430} />
           </div>
 
           <div className="about-three-inner">
@@ -45,10 +44,10 @@ const AboutUsContent: React.FC = () => {
               <div className="col-lg-6 col-md-12">
                 <div className="about-three-left-content">
                   <p className="mb-0">
-                    We are leading architecture firm dedicated to creating
-                    visionary designs that transcend expectations. With our team
-                    of highly skilled architects and designers, we specialize in
-                    crafting.
+                    З нами Ви отримуєте сервіс, якість та повну турботу про
+                    кожну деталь Вашого ремонту. Комплексний підхід,
+                    вузькопрофільні спеціалісти та професійний досвід допоможуть
+                    реалізувати всі Ваші побажання в реальність.
                   </p>
 
                   <ul className="list">
@@ -59,7 +58,7 @@ const AboutUsContent: React.FC = () => {
                         width={28}
                         height={10}
                       />
-                      Innovative Design Approach
+                      Уточнимо всі деталі
                     </li>
                     <li>
                       <Image
@@ -68,7 +67,7 @@ const AboutUsContent: React.FC = () => {
                         width={28}
                         height={10}
                       />
-                      Highly Skilled Expertise and Specialization
+                      Проконтролюємо абсолютно всі процеси
                     </li>
                     <li>
                       <Image
@@ -77,16 +76,7 @@ const AboutUsContent: React.FC = () => {
                         width={28}
                         height={10}
                       />{" "}
-                      A client-centric approach for an architectural company
-                    </li>
-                    <li>
-                      <Image
-                        src={arrowIcon}
-                        alt="arrow"
-                        width={28}
-                        height={10}
-                      />
-                      Sustainable Design Practices
+                      Надамо повну та прозору звітність
                     </li>
                   </ul>
 
@@ -98,21 +88,21 @@ const AboutUsContent: React.FC = () => {
                       height={1120}
                     />
 
-                    <div className="wrap-video">
-                      <Image
-                        src={videoCircleImg}
-                        alt="image"
-                        width={184}
-                        height={184}
-                      />
+                    {/*<div className="wrap-video">*/}
+                    {/*  <Image*/}
+                    {/*    src={videoCircleImg}*/}
+                    {/*    alt="image"*/}
+                    {/*    width={184}*/}
+                    {/*    height={184}*/}
+                    {/*  />*/}
 
-                      <div
-                        className="video-btn text-decoration-none"
-                        onClick={() => setToggler(!toggler)}
-                      >
-                        <i className="ri-play-fill"></i>
-                      </div>
-                    </div>
+                    {/*  <div*/}
+                    {/*    className="video-btn text-decoration-none"*/}
+                    {/*    onClick={() => setToggler(!toggler)}*/}
+                    {/*  >*/}
+                    {/*    <i className="ri-play-fill"></i>*/}
+                    {/*  </div>*/}
+                    {/*</div>*/}
                   </div>
                 </div>
               </div>
@@ -123,22 +113,22 @@ const AboutUsContent: React.FC = () => {
                   <OurMissionAndVision />
 
                   <div className="about-wrap-content">
-                    <h2>
-                      Architecture & Interior Is Where We Belong, We Really Love
-                      Our Job
+                    <h2 style={{ color: "var(--whiteColor)" }}>
+                      Задоволені клієнти – найкраща реклама
                     </h2>
                     <p>
-                      Traz is a full-service design firm providing architecture,
-                      master planning, urban design, interior architecture,
-                      space planning and programming. Our portfolio of completed
-                      work includes highly acclaimed and award-winning projects.
+                      Абсолютно всі організаційні питання вашого ремонту
+                      закриває наша команда, Вам не потрібно нагадувати нам про
+                      терміни, перевіряти роботу майстрів, чи приймати доставку
+                      матеріалів на об’єкт, чи постійно тримати в голові якісь
+                      деталі вашого проекту– ми потурбуємось про все,
+                      проконтролюємо абсолютно всі процеси, надамо повну та
+                      прозору звітність, уточнимо всі деталі, та будемо
+                      пам’ятати про все.
                     </p>
                     <p>
-                      At Traz, we believe that architecture goes beyond mere
-                      structures, it is an art form that shapes the way we live,
-                      work, and interact with our surroundings. With a deep
-                      understanding of the built environment and an unwavering
-                      commitment.
+                      Наша відвертість, щирість та прозорість – це запорука
+                      плідної співпраці та крутого результату.
                     </p>
                   </div>
                 </div>

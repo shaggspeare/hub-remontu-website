@@ -126,7 +126,7 @@ img {
 .pb-75 {
     padding-bottom: 75px;
 }
-  
+
 // Section Area With Line CSS
 .section-area-with-line {
     position: relative;
@@ -141,7 +141,7 @@ img {
         margin: auto;
         width: 90vw;
         z-index: -1;
-    
+
         .line {
             position: absolute;
             height: 80%;
@@ -150,7 +150,7 @@ img {
             border: 1px dashed #f3f3f3;
             overflow: hidden;
             z-index: -1;
-            
+
             &:nth-child(1) {
                 margin-left: -25%;
             }
@@ -192,7 +192,7 @@ Section Title CSS
         font-size: 40px;
         color: #E1DBD6;
         margin-bottom: 0;
-        
+
         span {
             color: transparent;
             -webkit-text-stroke: 0.5px var(--whiteColor);
@@ -247,7 +247,7 @@ Section Title CSS
     }
     h2 {
         font-size: 40px;
-        font-weight: 400; 
+        font-weight: 400;
         margin-bottom: 0;
     }
     .link-btn {
@@ -257,7 +257,7 @@ Section Title CSS
             font-size: 15px;
             letter-spacing: 1.5px;
             position: relative;
-    
+
             &::before {
                 position: absolute;
                 content: "";
@@ -271,7 +271,7 @@ Section Title CSS
             }
             &:hover {
                 color: var(--primaryColor);
-    
+
                 &::before {
                     width: 100%;
                 }
@@ -344,7 +344,7 @@ Preloader Area CSS
 }
 @keyframes flip {
     0%, 80% {
-        transform: rotateY(360deg) 
+        transform: rotateY(360deg)
     }
 }
 
@@ -581,17 +581,17 @@ Main Banner Animation Area CSS
     }
     &:hover {
         animation-play-state: paused;
-    } 
+    }
     h1 {
         display: none;
     }
 }
 @keyframes marquee-banner {
-    0% { 
-        transform: translateX(0); 
+    0% {
+        transform: translateX(0);
     }
-    100% { 
-        transform: translateX(-100%); 
+    100% {
+        transform: translateX(-100%);
     }
 }
 
@@ -885,7 +885,7 @@ About Area CSS
 .about-image-two {
     position: relative;
     text-align: center;
-    
+
     .wrap-video {
         position: absolute;
         left: 0;
@@ -990,7 +990,7 @@ About Area CSS
         text-align: center;
         max-width: 500px;
         margin-top: 100px;
-        
+
         .wrap-video {
             position: absolute;
             left: 0;
@@ -998,7 +998,7 @@ About Area CSS
             top: 50%;
             transform: translateY(-50%);
             text-align: center;
-    
+
             img {
                 animation-name: rotateme;
                 animation-duration: 10s;
@@ -1012,7 +1012,7 @@ About Area CSS
                 top: 50%;
                 transform: translateY(-50%);
                 cursor: pointer;
-    
+
                 i {
                     display: inline-block;
                     height: 85px;
@@ -1024,7 +1024,7 @@ About Area CSS
                     text-align: center;
                     border-radius: 50%;
                     transition: var(--transition);
-    
+
                     &:hover {
                         background-color: var(--primaryColor);
                         color: var(--whiteColor);
@@ -1213,7 +1213,7 @@ Services Area CSS
             &:hover, &.active {
                 color: var(--blackColor);
             }
-            
+
         }
     }
     .tab-content {
@@ -1248,7 +1248,7 @@ Services Area CSS
             &:hover {
                 &::before {
                     width: 100%;
-                } 
+                }
             }
         }
     }
@@ -1836,7 +1836,7 @@ Projects Area CSS
             font-size: 24px;
             font-weight: 500;
             margin-bottom: 15px;
-    
+
             a {
                 color: var(--blackColor);
             }
@@ -1897,7 +1897,7 @@ Projects Area CSS
         position: absolute;
         left: -2px;
         top: -450px;
-        
+
         &:after {
             display: none;
         }
@@ -1925,7 +1925,7 @@ Projects Area CSS
 .projects-area {
     &.bg-wrap-with-black {
         background-color: var(--blackColor);
-        
+
         .section-title-wrap {
             padding-left: 35px;
 
@@ -2047,9 +2047,9 @@ Projects Area CSS
     }
 }
 
-.tabs-nav { 
+.tabs-nav {
     display: inline-block;
-    
+
     .tab-btn {
         border: none;
         background: #F2EFEB;
@@ -2059,7 +2059,7 @@ Projects Area CSS
         color: var(--blackColor);
         margin-right: 12px;
         margin-bottom: 10px;
-        
+
         &:last-child {
             margin-right: 0;
         }
@@ -2103,7 +2103,7 @@ Animation View Area CSS
         span {
             display: inline-block;
             margin: 0 10px;
-            
+
             &:nth-child(odd) {
                 color: transparent;
                 -webkit-text-stroke: 0.5px #9C9C9C;
@@ -2114,15 +2114,15 @@ Animation View Area CSS
         }
         &:hover {
             animation-play-state: paused;
-        } 
+        }
     }
 }
 @keyframes marquee {
-    0% { 
-        transform: translateX(0); 
+    0% {
+        transform: translateX(0);
     }
-    100% { 
-        transform: translateX(-66.6%); 
+    100% {
+        transform: translateX(-66.6%);
     }
 }
 
@@ -2282,7 +2282,7 @@ Process Area CSS
     }
     .process-content {
         margin-top: 30px;
-        
+
         h3 {
             font-size: 20px;
             color: #BDBDBD;
@@ -2316,7 +2316,7 @@ Client Area CSS
     max-width: 870px;
     margin: auto;
     padding-bottom: 40px;
-    
+
     .icon {
         margin-bottom: 20px;
     }
@@ -2357,8 +2357,8 @@ Client Area CSS
         }
     }
 }
- 
- 
+
+
 .client-shape1 {
     position: absolute;
     bottom: 18%;
@@ -2519,7 +2519,7 @@ Client Area CSS
         .swiper-button-next {
             position: relative;
             right: 0;
-    
+
             &:after {
                 display: none;
             }
@@ -2527,7 +2527,7 @@ Client Area CSS
         .swiper-button-prev {
             position: relative;
             right: 0;
-    
+
             &:after {
                 display: none;
             }
@@ -2540,7 +2540,7 @@ Blog Area CSS
 =================================================*/
 .blog-slider {
     .swiper-pagination {
-        position: initial; 
+        position: initial;
 
         .swiper-pagination-bullet {
             width: 10px;
@@ -2756,7 +2756,7 @@ Blog Area CSS
 
             &.wrap-color {
                 background: var(--blackColor);
-    
+
                 h3 {
                     a {
                         color: var(--whiteColor);
@@ -2947,7 +2947,7 @@ Contact Area CSS
             font-size: 40px;
             color: #E1DBD6;
             margin-bottom: 18px;
-    
+
             span {
                 color: transparent;
                 -webkit-text-stroke: 0.5px var(--whiteColor);
@@ -3052,7 +3052,7 @@ Contact Area CSS
         .social {
             padding-left: 0;
             display: flex;
-            
+
             li {
                 display: inline-block;
                 margin: {
@@ -3134,7 +3134,7 @@ Elevating Area CSS
             transform: translateY(-50%);
             text-align: center;
             cursor: pointer;
-            
+
             i {
                 font-size: 35px;
                 background: linear-gradient(135deg, rgba(216, 183, 152, 0.80) 0%, rgba(186, 141, 109, 0.80) 100%);
@@ -3236,12 +3236,20 @@ Partner Area CSS
 }
 .partner-item {
     margin-bottom: 25px;
-    border: 1px dashed #E7E0E0;
-    padding: 85px 70px;
+    //border: 1px dashed #E7E0E0;
+    padding: 30px;
 
     &.without-border {
         padding: 0;
         border: none;
+    }
+    .image {
+        filter: grayscale(100%);
+        transition: filter 0.2s ease;
+
+        &:hover {
+            filter: none;
+        }
     }
 }
 
@@ -3532,7 +3540,7 @@ Projects Gallery Area CSS
 .projects-gallery-area {
     margin-top: 50px;
     overflow: hidden;
-    
+
     .title {
         font-size: 30px;
         font-weight: 400;
@@ -3661,7 +3669,7 @@ Profile Authentication Area CSS
             &:focus {
                 border-color: var(--primaryColor);
                 background-color: transparent;
-                
+
                 &::placeholder {
                     color: transparent;
                 }
@@ -3673,10 +3681,10 @@ Profile Authentication Area CSS
 
         .form-check {
             color: var(--paragraphColor);
-            
+
             a {
                 color: var(--primaryColor);
-    
+
                 &:hover {
                     text-decoration: underline;
                 }
@@ -3685,7 +3693,7 @@ Profile Authentication Area CSS
                 margin-top: 0.24em;
                 box-shadow: unset !important;
                 font-size: 15px;
-    
+
                 &[type=checkbox] {
                     border-radius: 0;
                 }
@@ -3717,7 +3725,7 @@ Profile Authentication Area CSS
     }
     .text {
         margin-top: 20px;
-        
+
         p {
             a {
                 color: var(--blackColor);
@@ -3792,7 +3800,7 @@ Profile Authentication Area CSS
                 &:focus {
                     border-color: var(--primaryColor);
                     background-color: transparent;
-                    
+
                     &::placeholder {
                         color: transparent;
                     }
@@ -3810,7 +3818,7 @@ Profile Authentication Area CSS
         }
         .text {
             margin-top: 20px;
-            
+
             p {
                 a {
                     color: var(--blackColor);
@@ -3863,7 +3871,7 @@ Profile Authentication Area CSS
         &:focus {
             border-color: var(--primaryColor);
             background-color: transparent;
-            
+
             &::placeholder {
                 color: transparent;
             }
@@ -3908,7 +3916,7 @@ Privacy Policy Area CSS
 
             a {
                 color: var(--primaryColor);
-    
+
                 &:hover {
                     text-decoration: underline;
                 }
@@ -3953,7 +3961,7 @@ Terms & Conditions Area CSS
 
             a {
                 color: var(--primaryColor);
-    
+
                 &:hover {
                     text-decoration: underline;
                 }
@@ -3998,7 +4006,7 @@ Widget Area CSS
     background: #F4F4F4;
     padding: 40px;
     margin-left: 20px;
- 
+
     .widget {
         margin-bottom: 55px;
 
@@ -4028,7 +4036,7 @@ Widget Area CSS
                 padding: 15px 25px 15px 50px;
                 width: 100%;
                 font-size: 15px;
-        
+
                 &::placeholder {
                     color: var(--paragraphColor);
                     transition: var(--transition);
@@ -4202,7 +4210,7 @@ Pagination Area CSS
     }
     .page-numbers {
         width: 45px;
-        height: 45px; 
+        height: 45px;
         line-height: 45px;
         overflow: hidden;
         border-radius: 0;
@@ -4251,11 +4259,11 @@ Pagination Area CSS
             background-color: transparent;
 
             .pagination-area {
-                
+
                 .page-numbers {
                     background: #423E3A;
                     color: #B0ADA4;
-                    
+
                     &:hover, &.current {
                         color: var(--whiteColor);
                         background: var(--primaryColor);
@@ -4313,7 +4321,7 @@ Pagination Area CSS
 
 .author-content {
     margin-bottom: 50px;
-    
+
     img {
         width: 200px;
         height: 200px;
