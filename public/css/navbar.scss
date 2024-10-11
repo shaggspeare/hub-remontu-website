@@ -516,11 +516,11 @@ Mobile Mnu Modal Area CSS
                 }
             }
             .nav-link {
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: 400;
                 color: var(--blackColor);
                 display: block;
-                padding: 4px 0;
+                padding: 8px 0;
                 margin: 7px 0;
 
                 &.active, &:hover {
@@ -540,10 +540,9 @@ Mobile Mnu Modal Area CSS
             }
         }
         .btn-close {
-            color: red;
-            font-size: 20px;
+            color: black;
+            font-size: 30px;
             outline: 0 !important;
-            line-height: initial;
             transition: var(--transition);
             background-color: transparent;
             border: none;

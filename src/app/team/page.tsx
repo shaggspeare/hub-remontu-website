@@ -9,8 +9,8 @@ export default function Page() {
       <Navbar />
 
       <PageTitle 
-        title="Team"
-        homeText="Home"
+        title="Команда"
+        homeText="Головна"
         homeUrl="/"
       />
 
