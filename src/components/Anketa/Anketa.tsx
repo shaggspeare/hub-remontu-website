@@ -189,10 +189,29 @@ const MultiPartForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(formValues);
+
+    try {
+      const response = await fetch('/api/sendTelegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ formData: formValues }),
+      });
+
+      if (response.ok) {
+        alert('Form submitted successfully to Telegram!');
+      } else {
+        alert('Error submitting form');
+      }
+    } catch (error) {
+      console.error('Error submitting form: ', error);
+      alert('Error submitting form');
+    }
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="wpcf7-form">
