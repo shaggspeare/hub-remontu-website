@@ -5,25 +5,25 @@ import FsLightbox from "fslightbox-react";
 import Image from "next/image";
 
 import arrowIcon from "../../../public/images/about/arrow2.svg";
-import videoThumb from "../../../public/images/about/about4.png";
-import videoCircleImg from "../../../public/images/about/wrap.png";
+import videoThumb from "../../../public/images/new-images/past-projects/2k_dibrova-min.png";
+import videoCircleImg from "../../../public/images/main-banner/text.png";
 import textShape from "../../../public/images/about/archi-text2.png";
 
 import OurMissionAndVision from "./OurMissionAndVision";
 
 const AboutUsContent: React.FC = () => {
   // To open the lightbox change the value of the "toggler" prop.
-  // const [toggler, setToggler] = useState<boolean>(false);
+  const [toggler, setToggler] = useState<boolean>(false);
 
   return (
     <>
-      {/* Use here youtube Embed video link */}
-      {/*<FsLightbox*/}
-      {/*  toggler={toggler}*/}
-      {/*  sources={[*/}
-      {/*    "https://www.youtube.com/embed/sVi2pdF1aIc?si=wuP0-H9KuJnEk0Js",*/}
-      {/*  ]}*/}
-      {/*/>*/}
+       Use here youtube Embed video link
+      <FsLightbox
+        toggler={toggler}
+        sources={[
+          "https://www.youtube.com/embed/qsWuXD7tRvc?si=GtQnpcuF1HDT57QZ",
+        ]}
+      />
 
       <div className="about-area pt-100">
         <div className="container">
@@ -86,30 +86,30 @@ const AboutUsContent: React.FC = () => {
                       alt="image"
                       width={1052}
                       height={1120}
+                      style={{filter: 'brightness(50%)'}}
                     />
 
-                    {/*<div className="wrap-video">*/}
-                    {/*  <Image*/}
-                    {/*    src={videoCircleImg}*/}
-                    {/*    alt="image"*/}
-                    {/*    width={184}*/}
-                    {/*    height={184}*/}
-                    {/*  />*/}
+                    <div className="wrap-video">
+                      <Image
+                        src={videoCircleImg}
+                        alt="image"
+                        width={184}
+                        height={184}
+                      />
 
-                    {/*  <div*/}
-                    {/*    className="video-btn text-decoration-none"*/}
-                    {/*    onClick={() => setToggler(!toggler)}*/}
-                    {/*  >*/}
-                    {/*    <i className="ri-play-fill"></i>*/}
-                    {/*  </div>*/}
-                    {/*</div>*/}
+                      <div
+                        className="video-btn text-decoration-none"
+                        onClick={() => setToggler(!toggler)}
+                      >
+                        <i className="ri-play-fill"></i>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="col-lg-6 col-md-12">
                 <div className="about-three-right-content">
-                  {/* OurMissionAndVision */}
                   <OurMissionAndVision />
 
                   <div className="about-wrap-content">

@@ -20,7 +20,7 @@ import BackToTop from "@/components/Layout/BackToTop";
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 
-const jost = Jost({ subsets: ["latin"] });
+const jost = Jost({ subsets: ["cyrillic", "latin"] });
 
 export const metadata: Metadata = {
   title: "Hub Remontu",

@@ -38,7 +38,7 @@ const HeroBanner: React.FC = () => {
       <FsLightbox
         toggler={toggler}
         sources={[
-          "https://www.youtube.com/embed/sVi2pdF1aIc?si=wuP0-H9KuJnEk0Js",
+          "https://www.youtube.com/embed/qsWuXD7tRvc?si=GtQnpcuF1HDT57QZ",
         ]}
       />
 
