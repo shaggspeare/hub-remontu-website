@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
             <ul className="navbar-nav ms-auto">
               <a
                 style={{
-                  marginRight: "60px",
+                  marginRight: "10px",
                   backgroundColor: "transparent",
                   border: "1px solid var(--primaryColor)",
                   padding: "10px",

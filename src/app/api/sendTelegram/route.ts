@@ -7,7 +7,7 @@ export async function POST(req: Request) {
 
   try {
     const message = `
-*Нове Заповнення Форми*
+*Нове Заповнення Анкети*
 ======================
 👤 *Ім'я*: ${formData["your-name"]}
 

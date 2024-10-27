@@ -21,6 +21,7 @@ const ContactForm: React.FC = () => {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,10 +33,30 @@ const ContactForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add your form submission logic here.
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/sendContactMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        alert("Failed to submit the form");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error submitting form");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,7 +64,7 @@ const ContactForm: React.FC = () => {
       <div className="contact-area ptb-100">
         <div className="container">
           <div className="row justify-content-center">
-            <div 
+            <div
               className="col-lg-5 col-md-12 pe-5"
               data-aos="fade-up"
               data-aos-delay="100"
@@ -51,12 +72,17 @@ const ContactForm: React.FC = () => {
               data-aos-once="true"
             >
               <div className="contact-image">
-                <Image src={contactImg} alt="contact" width={700} height={1012} />
+                <Image
+                  src={contactImg}
+                  alt="contact"
+                  width={700}
+                  height={1012}
+                />
               </div>
             </div>
 
             <div className="col-lg-7 col-md-12 ps-5">
-              <div 
+              <div
                 className="contact-form-wrap"
                 data-aos="fade-up"
                 data-aos-delay="200"
@@ -68,7 +94,9 @@ const ContactForm: React.FC = () => {
                     <span>Зв`язатись</span> з нами
                   </h2>
                   <p>
-                    Разом з нами Ваш проєкт стане реальністю, а процес ремонту перетвориться на приємне та комфортне втілення усіх побажань.
+                    Разом з нами Ваш проєкт стане реальністю, а процес ремонту
+                    перетвориться на приємне та комфортне втілення усіх
+                    побажань.
                   </p>
                 </div>
 
@@ -130,14 +158,17 @@ const ContactForm: React.FC = () => {
                         ></textarea>
                       </div>
 
-                      <button type="submit" className="default-btn">
-                        Надіслати
+                      <button
+                        type="submit"
+                        className="default-btn"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Надсилання..." : "Надіслати"}
                       </button>
                     </form>
                   </div>
 
                   <div className="col-lg-5 col-md-6">
-                    {/* ContactInfo */}
                     <ContactInfo />
                   </div>
                 </div>

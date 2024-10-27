@@ -3390,11 +3390,11 @@ Team Area CSS
         .content {
             background-color: var(--blackColor);
             padding: 30px 25px;
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            max-width: 250px;
+            //position: absolute;
+            //left: 10px;
+            //bottom: 10px;
             width: 100%;
+            min-height: 160px;
 
             h3 {
                 font-size: 18px;
