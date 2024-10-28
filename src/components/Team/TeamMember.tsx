@@ -6,9 +6,9 @@ import Image from "next/image";
 const teamMemberData = [
   {
     id: "1",
-    image: "/images/new-images/team/lena.jpg",
-    name: "Олена",
-    designation: "Co-founder",
+    image: "/images/new-images/team/zhenya-lena.jpg",
+    name: "Євген та Олена",
+    designation: "Co-founders",
     socialLink: [
       // {
       //   id: "1",
@@ -28,18 +28,10 @@ const teamMemberData = [
     ],
   },
   {
-    id: "2",
-    image: "/images/new-images/team/zhenya.jpg",
-    name: "Євген",
-    designation: "Co-founder",
-    socialLink: [],
-  },
-  {
     id: "3",
     image: "/images/new-images/team/valeria.jpg",
     name: "Валерія",
-    designation: "Дизайнер інтер'єрів. \n" +
-      "Працює на 2 країни - Італія та Україна",
+    designation: "Дизайнер інтер'єрів",
 
     socialLink: [],
   },
@@ -55,7 +47,7 @@ const teamMemberData = [
     id: "5",
     image: "/images/new-images/team/vlada.JPG",
     name: "Владислава",
-    designation: "спеціаліст з маркетингових рішень (керівник напряму маркетингу та реклами)",
+    designation: "спеціаліст з маркетингових рішень",
 
     socialLink: [],
   },
@@ -76,7 +68,6 @@ const TeamMember: React.FC = () => {
             <div className="row justify-content-center">
               <div className="col-lg-5 col-md-12">
                 <div className="team-left-content">
-
                   {teamMemberData &&
                     teamMemberData.slice(0, 1).map((value, i) => (
                       <div className="team-card" key={i}>
@@ -116,7 +107,7 @@ const TeamMember: React.FC = () => {
                 <div className="team-right-content">
                   <div className="row">
                     {teamMemberData &&
-                      teamMemberData.slice(2, 50).map((value, i) => (
+                      teamMemberData.slice(1, 50).map((value, i) => (
                         <div className="col-lg-6 col-md-6" key={i}>
                           <div className="team-card">
                             <div className="team-image">
@@ -148,52 +139,6 @@ const TeamMember: React.FC = () => {
                           </div>
                         </div>
                       ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-5 col-md-12">
-                <div className="team-left-content">
-
-                  {teamMemberData &&
-                    teamMemberData.slice(1, 2).map((value, i) => (
-                      <div className="team-card" key={i}>
-                        <div className="team-image">
-                          <Image
-                            src={value.image}
-                            alt="team"
-                            width={790}
-                            height={790}
-                          />
-
-                          <div className="content">
-                            <h3>{value.name}</h3>
-                            <span>{value.designation}</span>
-                          </div>
-                        </div>
-
-                        {/*<ul className="team-social">*/}
-                        {/*  {teamMemberData &&*/}
-                        {/*    value.socialLink.map((value, i) => (*/}
-                        {/*      <li key={i}>*/}
-                        {/*        <a*/}
-                        {/*          href={value.link}*/}
-                        {/*          target="_blank"*/}
-                        {/*        >*/}
-                        {/*          <i className={value.icon}></i>*/}
-                        {/*        </a>*/}
-                        {/*      </li>*/}
-                        {/*    ))}*/}
-                        {/*</ul>*/}
-                      </div>
-                    ))}
-                </div>
-              </div>
-
-              <div className="col-lg-7 col-md-12">
-                <div className="team-right-content">
-                  <div className="row">
                   </div>
                 </div>
               </div>

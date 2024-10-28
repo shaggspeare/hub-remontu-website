@@ -217,6 +217,14 @@ const Navbar: React.FC = () => {
                   Про нас
                 </Link>
                 <Link
+                  href="/team/"
+                  className={`nav-link ${
+                    currentRoute === "/team/" ? "active" : ""
+                  }`}
+                >
+                  Команда
+                </Link>
+                <Link
                   href="/portfolio/"
                   className={`nav-link ${
                     currentRoute === "/portfolio/" ? "active" : ""

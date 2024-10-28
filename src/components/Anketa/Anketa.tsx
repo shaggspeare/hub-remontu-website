@@ -201,8 +201,34 @@ const MultiPartForm: React.FC = () => {
         body: JSON.stringify({ formData: formValues }),
       });
 
-      if (!response.ok) {
-        alert("Error submitting form");
+      if (response.ok) {
+        setFormValues({
+          "your-name": "",
+          building_type: "Квартира",
+          design: "Так, маю",
+          design_detail: ["Технічний"],
+          age: "Новобудова",
+          planning: "Часткове",
+          constructions:
+            "Повна заміна/монтаж з нуля електропроводки та сантехнічних труб",
+          bedroom: "Одна",
+          style: [],
+          floor: [],
+          "floor-other": "",
+          wall: [],
+          "wall-other": "",
+          roof: [],
+          bathroom: "Один",
+          bathroommat: "Широкоформатна плитка",
+          door: "Звичайні",
+          main: [],
+          "main-other": "",
+          lighting: "Верхнє світло (люстри, світильники, трекові системи)",
+          phone: "",
+          time: "",
+        });
+      } else {
+        alert("Failed to submit the form");
       }
     } catch (error) {
       console.error("Error submitting form: ", error);
