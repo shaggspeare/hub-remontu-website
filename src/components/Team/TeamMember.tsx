@@ -60,9 +60,8 @@ const TeamMember: React.FC = () => {
         <div className="team-area different-wrap-color with-margin-top pt-100 pb-75">
           <div className="container">
             <div className="section-title-wrap">
-              <span>OUR TEAM</span>
-              <h2 style={{color: 'var(--whiteColor)'}}>We Have A Passionate Dedicated Team Behind Our Design Master
-                Pieces</h2>
+              <span>КОМАНДА</span>
+              <h2 style={{color: 'var(--whiteColor)'}}>Наша команда професіоналів до Ваших послуг</h2>
             </div>
 
             <div className="row justify-content-center">
