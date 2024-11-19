@@ -14,7 +14,7 @@ export default function Page() {
         homeUrl="/"
       />
  
-      <GalleryImage />
+      <GalleryImage galleryImageData={[]}/>
  
       <Footer />
     </>

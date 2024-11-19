@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import Image from "next/image";
+
 import styles from "./Anketa.module.scss";
 
 interface FormValues {
@@ -86,10 +88,12 @@ const OptionCard: React.FC<OptionCardProps> = ({
             style={{ display: "none" }}
           />
           {typeof option !== "string" && option.imgSrc && (
-            <img
+            <Image
               src={option.imgSrc}
               className="card-img-top"
               alt={option.label}
+              width={238}
+              height={346}
             />
           )}
           <div className="card-body text-center flex-grow-1 d-flex align-items-center justify-content-center">
