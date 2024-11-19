@@ -6,53 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
+import { ProjectShortInfo } from "@/data/projectsShortInfo";
 
-const projectsData = [
-  {
-    id: "1",
-    image: "/images/projects/projects5.jpg",
-    title: "Building Decor",
-    category: "Exterior",
-    link: "/portfolio-details",
-  },
-  {
-    id: "2",
-    image: "/images/projects/projects6.jpg",
-    title: "Museum",
-    category: "Architecture",
-    link: "/portfolio-details",
-  },
-  {
-    id: "3",
-    image: "/images/projects/projects1.jpg",
-    title: "Tower House",
-    category: "Architecture",
-    link: "/portfolio-details",
-  },
-  {
-    id: "4",
-    image: "/images/projects/projects2.jpg",
-    title: "Roof Top",
-    category: "Exterior",
-    link: "/portfolio-details",
-  },
-  {
-    id: "5",
-    image: "/images/projects/projects3.jpg",
-    title: "Triangle House",
-    category: "Architecture",
-    link: "/portfolio-details",
-  },
-  {
-    id: "6",
-    image: "/images/projects/projects4.jpg",
-    title: "Glass Building",
-    category: "Exterior",
-    link: "/portfolio-details",
-  },
-];
+interface IProps {
+  data: ProjectShortInfo[];
+}
 
-const InteriorTabContent: React.FC = () => {
+const ProjectsShortInfo: React.FC<IProps> = ({ data }) => {
   return (
     <>
       <div
@@ -61,7 +21,7 @@ const InteriorTabContent: React.FC = () => {
         data-aos-duration="600"
         data-aos-once="true"
       >
-        {projectsData && (
+        {data && (
           <ResponsiveMasonry
             columnsCountBreakPoints={{
               300: 1,
@@ -70,8 +30,8 @@ const InteriorTabContent: React.FC = () => {
             }}
           >
             <Masonry gutter="30px">
-              {projectsData &&
-                projectsData.map((value, i) => (
+              {data &&
+                data.map((value, i) => (
                   <div className="projects-item m-0" key={i}>
                     <div className="projects-image">
                       <Link href={value.link}>
@@ -85,14 +45,23 @@ const InteriorTabContent: React.FC = () => {
 
                       <div className="icon">
                         <Link href={value.link}>
-                          <Image src={rightArrowIcon} alt="arrow-right" width={24} height={24} />
+                          <Image
+                            src={rightArrowIcon}
+                            alt="arrow-right"
+                            width={24}
+                            height={24}
+                          />
                         </Link>
                       </div>
                     </div>
                     <div className="projects-content">
                       <h3>
-                        <Link style={{color: 'white'}} href={value.link}>{value.title}</Link>
-                        <span className="ms-2">{value.category}</span>
+                        <Link
+                          style={{ color: "white", marginBottom: 40 }}
+                          href={value.link}
+                        >
+                          {value.title}
+                        </Link>
                       </h3>
                     </div>
                   </div>
@@ -105,4 +74,4 @@ const InteriorTabContent: React.FC = () => {
   );
 };
 
-export default InteriorTabContent;
+export default ProjectsShortInfo;

@@ -17,7 +17,6 @@ const AboutUsContent: React.FC = () => {
 
   return (
     <>
-       Use here youtube Embed video link
       <FsLightbox
         toggler={toggler}
         sources={[

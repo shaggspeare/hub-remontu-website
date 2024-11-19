@@ -5,82 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
+import { commercialProjects, livingProjects } from "@/data/projectsShortInfo";
 
-const projectsData = [
-  {
-    id: "1",
-    image: "/images/new-images/past-projects/2k-syretski-sady-min.png",
-    title: "2-к квартира, 62 м2 у ЖК Сирецькі Сади",
-    link: "/portfolio-details",
-  },
-  {
-    id: "2",
-    image: "/images/new-images/past-projects/3k_faynatown-min.png",
-    title: "3-к квартира, 72 м2 у ЖК Файна Таун",
-    link: "/portfolio-details",
-  },
-  {
-    id: "3",
-    image: "/images/new-images/past-projects/3k_galaktyka-min.png",
-    title: "3-к квартира, 72 м2 у ЖК Галактика",
-    link: "/portfolio-details",
-  },
-  {
-    id: "4",
-    image: "/images/new-images/past-projects/3k_trinity-min.png",
-    title: "3-к квартира, 100 м2 у ЖК Triiinity",
-    link: "/portfolio-details",
-  },
-  {
-    id: "5",
-    image: "/images/new-images/past-projects/3k_sanfran-min.png",
-    title: "3-к квартира, 99 м2 у ЖК San Francisco Creative House",
-    link: "/portfolio-details",
-  },
-
-  {
-    id: "6",
-    image: "/images/new-images/past-projects/2k_start-1-min.png",
-    title: "2-к квартира, 59 м2 у ЖК Старт",
-    link: "/portfolio-details",
-  },
-  {
-    id: "7",
-    image: "/images/new-images/past-projects/2k-start-2-min.png",
-    title: "2-к квартира, 53 м2 у ЖК Старт",
-    link: "/portfolio-details",
-  },
-  {
-    id: "8",
-    image: "/images/new-images/past-projects/2k_start-3-min.png",
-    title: "2-к квартира, 80 м2 у ЖК Старт",
-    link: "/portfolio-details",
-  },
-  {
-    id: "9",
-    image: "/images/new-images/past-projects/2k_great-min.png",
-    title: "2-к квартира, 71 м2 у ЖК Great",
-    link: "/portfolio-details",
-  },
-  {
-    id: "10",
-    image: "/images/new-images/past-projects/2k_dibrova-min.png",
-    title: "2-к квартира, 72 м2 у ЖК Діброва Парк",
-    link: "/portfolio-details",
-  },
-  {
-    id: "11",
-    image: "/images/new-images/past-projects/2k_campus-min.png",
-    title: "2-к квартира, 70 м2 у ЖК Campus",
-    link: "/portfolio-details",
-  },
-  {
-    id: "12",
-    image: "/images/new-images/past-projects/2lvl_zarichnyi-min.png",
-    title: "2-рівнева квартира,140 м2 у ЖК Зарічний",
-    link: "/portfolio-details",
-  },
-];
+const projectsData = [...livingProjects, ...commercialProjects];
 
 const RecentProjects: React.FC = () => {
   return (
@@ -98,7 +25,7 @@ const RecentProjects: React.FC = () => {
               <div className="col-lg-4 col-md-6">
                 <div className="projects-inner-border">
                   {projectsData &&
-                    projectsData.slice(0, 4).map((value, i) => (
+                    projectsData.slice(0, 3).map((value, i) => (
                       <div className="projects-item" key={i}>
                         <div className="projects-image">
                           <Link href={value.link}>
@@ -134,7 +61,7 @@ const RecentProjects: React.FC = () => {
               <div className="col-lg-4 col-md-6">
                 <div className="projects-inner-border">
                   {projectsData &&
-                    projectsData.slice(4, 8).map((value, i) => (
+                    projectsData.slice(3, 6).map((value, i) => (
                       <div className="projects-item" key={i}>
                         <div className="projects-image">
                           <Link href={value.link}>
@@ -170,7 +97,7 @@ const RecentProjects: React.FC = () => {
               <div className="col-lg-4 col-md-6">
                 <div className="projects-inner-border">
                   {projectsData &&
-                    projectsData.slice(8, 12).map((value, i) => (
+                    projectsData.slice(6, 9).map((value, i) => (
                       <div className="projects-item" key={i}>
                         <div className="projects-image">
                           <Link href={value.link}>

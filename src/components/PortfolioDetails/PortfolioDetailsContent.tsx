@@ -4,6 +4,11 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import Image from "next/image";
 
+export interface PortfolioDetailsData {
+  id: string;
+  image: string;
+}
+
 export interface PortfolioDetailsInfo {
   title: string;
   mainImage: string;
@@ -18,14 +23,14 @@ export interface PortfolioDetailsInfo {
     squareMeters: string;
     services: string;
   };
-  galleryImages: string[];
+  galleryImages: PortfolioDetailsData[];
 }
 
-interface PortfolioDetailsContentProps {
+interface Props {
   portfolioDetailsInfo: PortfolioDetailsInfo;
 }
 
-const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
+const PortfolioDetailsContent: React.FC<Props> = ({
   portfolioDetailsInfo,
 }) => {
   return (

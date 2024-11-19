@@ -4,15 +4,19 @@ import { useParams } from "next/navigation"; // For app router
 import PageTitle from "@/components/Common/PageTitle";
 import PortfolioDetailsContent from "@/components/PortfolioDetails/PortfolioDetailsContent";
 import Footer from "@/components/Layout/Footer";
-import ProjectGallery from "@/components/PortfolioDetails/ProjectGallery";
 import Navbar from "@/components/Layout/Navbar";
 import { getPortfolioDetailsById } from "@/data/portfolioDetails";
+import GalleryImage from "@/components/Gallery/GalleryImage";
 
 export default function PortfolioPage() {
   const params = useParams();
 
   // Ensure the ID is always a string, and default to '1' if no ID is provided
-  const id = params.id ? (Array.isArray(params.id) ? params.id[0] : params.id) : "1";
+  const id = params.id
+    ? Array.isArray(params.id)
+      ? params.id[0]
+      : params.id
+    : "1";
 
   const portfolioDetailsInfo = getPortfolioDetailsById(id);
 
@@ -25,7 +29,7 @@ export default function PortfolioPage() {
       <Navbar />
       <PageTitle title="Портфоліо" homeText="Головна" homeUrl="/" />
       <PortfolioDetailsContent portfolioDetailsInfo={portfolioDetailsInfo} />
-      <ProjectGallery />
+      <GalleryImage galleryImageData={portfolioDetailsInfo.galleryImages} />
       <Footer />
     </div>
   );

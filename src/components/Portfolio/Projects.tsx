@@ -1,18 +1,22 @@
 "use client";
 
 import React, { useState } from "react";
-import AllProjects from "./AllProjects";
-import ExteriorTabContent from "./ExteriorTabContent";
-import InteriorTabContent from "./InteriorTabContent";
-import IndustryTabContent from "./IndustryTabContent";
-import UrbanTabContent from "./UrbanTabContent";
+import ProjectsShortInfo from "./ProjectsShortInfo";
+import { commercialProjects, livingProjects } from "@/data/projectsShortInfo";
 
 const Projects: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState("all");
 
-  const handleTabClick = (index: number) => {
+  const handleTabClick = (index: string) => {
     setActiveTab(index);
   };
+
+  const data =
+    activeTab === "commercial"
+      ? commercialProjects
+      : activeTab === "living"
+      ? livingProjects
+      : [...livingProjects, ...commercialProjects];
 
   return (
     <>
@@ -20,51 +24,36 @@ const Projects: React.FC = () => {
         <div className="container">
           <div className="section-title-wrap d-flex d-md-block d-xl-flex align-items-end justify-content-between">
             <div className="title">
-              <span>ПРОЕКТИ</span>
-              <h2 style={{color: 'white'}}>Проекти, якими ми пишаємось</h2>
+              <span>ПРОЄКТИ</span>
+              <h2 style={{ color: "white" }}>Проєкти, якими ми пишаємось</h2>
             </div>
 
-            {/*<div className="tabs-nav">*/}
-            {/*  <button*/}
-            {/*    onClick={() => handleTabClick(0)}*/}
-            {/*    className={`tab-btn ${activeTab === 0 ? "active" : ""}`}*/}
-            {/*  >*/}
-            {/*    All*/}
-            {/*  </button>*/}
-            {/*  <button*/}
-            {/*    onClick={() => handleTabClick(1)}*/}
-            {/*    className={`tab-btn ${activeTab === 1 ? "active" : ""}`}*/}
-            {/*  >*/}
-            {/*    Exterior*/}
-            {/*  </button>*/}
-            {/*  <button*/}
-            {/*    onClick={() => handleTabClick(2)}*/}
-            {/*    className={`tab-btn ${activeTab === 2 ? "active" : ""}`}*/}
-            {/*  >*/}
-            {/*    Interior*/}
-            {/*  </button>*/}
-            {/*  <button*/}
-            {/*    onClick={() => handleTabClick(3)}*/}
-            {/*    className={`tab-btn ${activeTab === 3 ? "active" : ""}`}*/}
-            {/*  >*/}
-            {/*    Industry*/}
-            {/*  </button>*/}
-            {/*  <button*/}
-            {/*    onClick={() => handleTabClick(4)}*/}
-            {/*    className={`tab-btn ${activeTab === 4 ? "active" : ""}`}*/}
-            {/*  >*/}
-            {/*    Urban*/}
-            {/*  </button>*/}
-            {/*</div>*/}
+            <div className="tabs-nav">
+              <button
+                onClick={() => handleTabClick("all")}
+                className={`tab-btn ${activeTab === "all" ? "active" : ""}`}
+              >
+                Всі
+              </button>
+              <button
+                onClick={() => handleTabClick("commercial")}
+                className={`tab-btn ${
+                  activeTab === "commercial" ? "active" : ""
+                }`}
+              >
+                Комерційні
+              </button>
+              <button
+                onClick={() => handleTabClick("living")}
+                className={`tab-btn ${activeTab === "living" ? "active" : ""}`}
+              >
+                Житлові
+              </button>
+            </div>
           </div>
 
           <div>
-            <AllProjects />
-            {/*{activeTab === 0 && <AllProjects />}*/}
-            {/*{activeTab === 1 && <ExteriorTabContent />}*/}
-            {/*{activeTab === 2 && <InteriorTabContent />}*/}
-            {/*{activeTab === 3 && <IndustryTabContent />}*/}
-            {/*{activeTab === 4 && <UrbanTabContent />}*/}
+            <ProjectsShortInfo data={data} />
           </div>
         </div>
       </div>
