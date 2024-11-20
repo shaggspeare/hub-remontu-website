@@ -52,7 +52,7 @@ Default CSS
     --blackColor: #161512;
     --whiteColor: #ffffff;
     --paragraphColor: #7C7772;
-    --fontSize: 17px;
+    --fontSize: 16px;
     --transition: .6s;
 }
 body {
@@ -1151,6 +1151,7 @@ Services Area CSS
 .services-card {
     margin-bottom: 25px;
     padding: 50px;
+    min-height: 400px;
 
     .icon {
         line-height: 0;

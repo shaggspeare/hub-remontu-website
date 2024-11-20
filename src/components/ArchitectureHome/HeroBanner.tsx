@@ -72,7 +72,7 @@ const HeroBanner: React.FC = () => {
               data-aos-once="false"
             >
               <Link href="/contact-us" className="default-btn">
-                Замовити проект
+                Замовити проєкт
               </Link>
             </div>
           </div>

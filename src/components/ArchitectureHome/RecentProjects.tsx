@@ -16,7 +16,7 @@ const RecentProjects: React.FC = () => {
         <div className="container">
           <div className="section-title d-flex justify-content-center">
             <h2>
-              Останні <span>Проекти</span>
+              Останні <span>Проєкти</span>
             </h2>
           </div>
 
@@ -133,7 +133,7 @@ const RecentProjects: React.FC = () => {
           )}
 
           <div className="projects-btn">
-            <Link href="/portfolio">ДО ВСІХ ПРОЕКТІВ</Link>
+            <Link href="/portfolio">ДО ВСІХ ПРОЄКТІВ</Link>
           </div>
         </div>
       </div>

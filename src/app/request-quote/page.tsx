@@ -20,7 +20,7 @@ export default function Page() {
               color: "white",
             }}
           >
-            Анкета
+            Заповнити анкету для прорахунку проєкту
           </h1>
           <Anketa />
         </div>

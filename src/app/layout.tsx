@@ -18,9 +18,9 @@ import AosAnimation from "@/components/Layout/AosAnimation";
 import BackToTop from "@/components/Layout/BackToTop";
 
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
+import { Geologica } from "next/font/google";
 
-const jost = Jost({ subsets: ["cyrillic", "latin"] });
+const font = Geologica({ subsets: ["cyrillic", "latin"] });
 
 export const metadata: Metadata = {
   title: "Hub Remontu",
@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jost.className}>
+      <body className={font.className}>
         {children}
 
         {/* AosAnimation */}

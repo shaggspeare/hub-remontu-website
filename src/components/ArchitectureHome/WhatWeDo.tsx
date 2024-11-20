@@ -11,25 +11,26 @@ const servicesData = [
     id: "1",
     icon: "flaticon-interior-design",
     title: "Дизайн",
-    text: "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
+    text: "Ми допоможемо Вам створити унікальний та оригінальний дизайн проєкт Вашого будинку, квартири, приміщення, який буде практичним та продуманим до дрібниць.",
     link: "/services/service-details",
     aosDelay: "100",
   },
   {
     id: "2",
-    icon: "flaticon-mansory",
-    title: "Ремонт",
-    text: "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
+    icon: "flaticon-measuring",
+    title: "Проєктування",
+    text: "Зробимо точний проєкт та підготуємо технічне завдання для виконання всіх робіт.",
     link: "/services/service-details",
-    aosDelay: "200",
+    aosDelay: "300",
   },
   {
     id: "3",
-    icon: "flaticon-measuring",
-    title: "Проектування",
-    text: "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
+    icon: "flaticon-mansory",
+    title: "Ремонт",
+    text:
+      "Виконуємо якісно та в строки ремонт будинків, квартир, офісів, ресторанів, магазинів, комерційних приміщень будь-якого призначення та складності.",
     link: "/services/service-details",
-    aosDelay: "300",
+    aosDelay: "200",
   },
 ];
 
@@ -48,7 +49,7 @@ const WhatWeDo: React.FC = () => {
             <h2>
               Що <span>ми робимо</span> для Вас
             </h2>
-            <Link href="/services">ПОДИВИТИСЬ ВСІ ПОСЛУГИ</Link>
+            {/*<Link href="/services">ПОДИВИТИСЬ ВСІ ПОСЛУГИ</Link>*/}
           </div>
 
           {servicesData && (
@@ -71,9 +72,9 @@ const WhatWeDo: React.FC = () => {
                         <Link href={value.link}>{value.title}</Link>
                       </h3>
                       <p>{value.text}</p>
-                      <Link href={value.link} className="services-btn">
-                        <Image src={arrowRightIcon} alt="arrow-right" width={18} height={18} />
-                      </Link>
+                      {/*<Link href={value.link} className="services-btn">*/}
+                      {/*  <Image src={arrowRightIcon} alt="arrow-right" width={18} height={18} />*/}
+                      {/*</Link>*/}
                     </div>
                   </div>
                 ))}

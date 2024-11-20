@@ -82,7 +82,7 @@ const AboutUsContent: React.FC = () => {
                             width={28}
                             height={10}
                           />
-                          Індивідуальне проектування
+                          Індивідуальне проєктування
                         </li>
                         <li>
                           <Image

@@ -10,7 +10,7 @@ const TextSlide: React.FC = () => {
           <div className="animation-view-content">
             <h1>
               <span>Студія дизайнерського ремонту</span>
-              <span>Проектування комерційних приміщень</span>
+              <span>Проєктування комерційних приміщень</span>
               <span>Надiйний партнер у бiзнесi</span>
               <span>Професіонали з досвідом у будівництві</span>
               <span>Ремонт під ключ</span>

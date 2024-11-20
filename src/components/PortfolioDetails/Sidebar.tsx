@@ -32,17 +32,21 @@ const Sidebar: React.FC<Props> = ({
             </span>
             <h4 style={{ color: "var(--whiteColor)" }}>{client}</h4>
           </li>
-          <li>
-            <span
-              style={{
-                color: "var(--primaryColor)",
-                textTransform: "uppercase",
-              }}
-            >
-              Тривалість
-            </span>
-            <h4 style={{ color: "var(--whiteColor)" }}>{duration}</h4>
-          </li>
+
+          {!!duration && (
+            <li>
+              <span
+                style={{
+                  color: "var(--primaryColor)",
+                  textTransform: "uppercase",
+                }}
+              >
+                Тривалість
+              </span>
+              <h4 style={{ color: "var(--whiteColor)" }}>{duration}</h4>
+            </li>
+          )}
+
           <li>
             <span
               style={{
