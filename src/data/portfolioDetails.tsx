@@ -3,6 +3,7 @@ import { PortfolioDetailsInfo } from "@/components/PortfolioDetails/PortfolioDet
 export function getPortfolioDetailsById(
   id: string,
 ): PortfolioDetailsInfo | undefined {
+
   const portfolioData: { [key: string]: PortfolioDetailsInfo } = {
     "1": {
       title: "Сонячна квартира у стилі мінімалізм у ЖК Сирецькі Сади",
@@ -70,22 +71,7 @@ export function getPortfolioDetailsById(
           id: "6",
           image: "/images/new-images/sample-project/6.jpg",
         },
-        {
-          id: "7",
-          image: "/images/new-images/sample-project/7.jpg",
-        },
-        {
-          id: "8",
-          image: "/images/new-images/sample-project/8.jpg",
-        },
-        {
-          id: "9",
-          image: "/images/new-images/sample-project/9.jpg",
-        },
-        {
-          id: "10",
-          image: "/images/new-images/sample-project/10.jpg",
-        },
+
         {
           id: "11",
           image: "/images/new-images/sample-project/11.jpg",
@@ -115,6 +101,22 @@ export function getPortfolioDetailsById(
           image: "/images/new-images/sample-project/17.jpg",
         },
         {
+          id: "7",
+          image: "/images/new-images/sample-project/7.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/sample-project/8.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/sample-project/9.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/sample-project/10.jpg",
+        },
+        {
           id: "18",
           image: "/images/new-images/sample-project/18.jpg",
         },
@@ -138,10 +140,9 @@ export function getPortfolioDetailsById(
     },
     "2": {
       title: "3-к квартира, 72 м2 у ЖК Файна Таун",
-      mainImage: "/images/new-images/past-projects/3k_faynatown-min.png",
+      mainImage: "/images/new-images/past-projects/3k_faynatown/IMG_5523.jpg",
       description: {
-        part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
+        part1: <p>Стильна квартира у витриманих кольорах у ЖК Файна Таун.</p>,
       },
       servicesCovered: [],
       projectDetails: {
@@ -150,7 +151,116 @@ export function getPortfolioDetailsById(
         squareMeters: "72 м2",
         services: "Дизайн-проєкт, ремонт",
       },
-      galleryImages: [],
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5480.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5482.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5487.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5491.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5501.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5502.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5508.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5509.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5517.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5518.jpg",
+        },
+        {
+          id: "11",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5523.jpg",
+        },
+        {
+          id: "12",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5525.jpg",
+        },
+        {
+          id: "13",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5534.jpg",
+        },
+        {
+          id: "14",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5535.jpg",
+        },
+        {
+          id: "15",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5537.jpg",
+        },
+        {
+          id: "17",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5542.jpg",
+        },
+        {
+          id: "18",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5543.jpg",
+        },
+        {
+          id: "19",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5548.jpg",
+        },
+        {
+          id: "20",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5549.jpg",
+        },
+        {
+          id: "21",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5552.jpg",
+        },
+        {
+          id: "22",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5555.jpg",
+        },
+        {
+          id: "23",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5557.jpg",
+        },
+        {
+          id: "24",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5564.jpg",
+        },
+        {
+          id: "25",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5567.jpg",
+        },
+        {
+          id: "26",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5569.jpg",
+        },
+        {
+          id: "27",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5580.jpg",
+        },
+        {
+          id: "28",
+          image: "/images/new-images/past-projects/3k_faynatown/IMG_5619.jpg",
+        },
+      ],
     },
     "3": {
       title: "3-к квартира, 72 м2 у ЖК Галактика",
@@ -242,22 +352,22 @@ export function getPortfolioDetailsById(
       },
       galleryImages: [],
     },
-    "7": {
-      title: "2-к квартира, 53 м2 у ЖК Старт",
-      mainImage: "/images/new-images/past-projects/2k-start-2-min.png",
-      description: {
-        part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
-      },
-      servicesCovered: [],
-      projectDetails: {
-        client: "Молода пара з маленькою донькою",
-        duration: "3 місяці",
-        squareMeters: "53 м2",
-        services: "Дизайн-проєкт",
-      },
-      galleryImages: [],
-    },
+    // "7": {
+    //   title: "2-к квартира, 53 м2 у ЖК Старт",
+    //   mainImage: "/images/new-images/past-projects/2k-start-2-min.png",
+    //   description: {
+    //     part1: <p>Опис проєкту додамо пізніше.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода пара з маленькою донькою",
+    //     duration: "3 місяці",
+    //     squareMeters: "53 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
     "8": {
       title: "2-к квартира, 80 м2 у ЖК Старт",
       mainImage: "/images/new-images/past-projects/2k_start-3-min.png",
@@ -408,15 +518,20 @@ export function getPortfolioDetailsById(
       },
       galleryImages: [],
     },
+
     "16": {
       title: "Beauty-простір, клініка-косметології 'palamarenko.clinic' ",
-      mainImage: "/images/new-images/past-commerce/clinic-palamrenko.png",
+      mainImage: "/images/new-images/past-commerce/med-clinic/IMG_3649.jpg",
       description: {
         part1: (
           <p>
             Hеймовірний проект косметологічної клініки - @palamarenko.clinic. І
             неймовірна та смілива власниця Ксенія - @dr.ksenia_palamarenko. Це
             той випадок, коли повна довіра приводить до крутого результату.
+          </p>
+        ),
+        part2: (
+          <p>
             Власниця клініки цінує та захоплюється природньою красою, тож дизайн
             та оздоблення клініки були виконано з природніх матеріалів які
             наповнили простір теплом та затишком, поєднання дерева, каменю та
@@ -433,7 +548,108 @@ export function getPortfolioDetailsById(
         squareMeters: "72 м2",
         services: "Реалізація проєкту",
       },
-      galleryImages: [],
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3534.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3579.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3581.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3591.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3602.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3605.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3607.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3616.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3617.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3620.jpg",
+        },
+        {
+          id: "11",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3629.jpg",
+        },
+        {
+          id: "12",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3630.jpg",
+        },
+        {
+          id: "13",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3636.jpg",
+        },
+        {
+          id: "14",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3643.jpg",
+        },
+        {
+          id: "15",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3645.jpg",
+        },
+        {
+          id: "16",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3647.jpg",
+        },
+        {
+          id: "17",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3649.jpg",
+        },
+        {
+          id: "18",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3677.jpg",
+        },
+        {
+          id: "19",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3759.jpg",
+        },
+        {
+          id: "20",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3547.jpg",
+        },
+        {
+          id: "21",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3567.jpg",
+        },
+        {
+          id: "22",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3578.jpg",
+        },
+        {
+          id: "23",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3583.jpg",
+        },
+        {
+          id: "24",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3588.jpg",
+        },
+        {
+          id: "25",
+          image: "/images/new-images/past-commerce/med-clinic/IMG_3764.jpg",
+        },
+      ],
     },
     "17": {
       title: "Military-магазин",
@@ -501,7 +717,6 @@ export function getPortfolioDetailsById(
         part1: (
           <p>Концептуальне офісне приміщення, створене швидко та якісно.</p>
         ),
-        part2: <p>Опис проєкту додамо пізніше.</p>,
       },
       servicesCovered: [],
       projectDetails: {
@@ -510,11 +725,88 @@ export function getPortfolioDetailsById(
         squareMeters: "700 м2",
         services: "Реалізація проєкту",
       },
-      galleryImages: [],
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-commerce/ny-office/1-min.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-commerce/ny-office/2-min.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-commerce/ny-office/3-min.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-commerce/ny-office/4-min.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-commerce/ny-office/5-min.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-commerce/ny-office/6-min.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-commerce/ny-office/7-min.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-commerce/ny-office/8-min.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/past-commerce/ny-office/9-min.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/past-commerce/ny-office/10-min.jpg",
+        },
+        {
+          id: "11",
+          image: "/images/new-images/past-commerce/ny-office/11-min.jpg",
+        },
+        {
+          id: "12",
+          image: "/images/new-images/past-commerce/ny-office/12-min.jpg",
+        },
+        {
+          id: "13",
+          image: "/images/new-images/past-commerce/ny-office/13-min.jpg",
+        },
+        {
+          id: "14",
+          image: "/images/new-images/past-commerce/ny-office/14-min.jpg",
+        },
+        {
+          id: "15",
+          image: "/images/new-images/past-commerce/ny-office/15-min.jpg",
+        },
+        {
+          id: "16",
+          image: "/images/new-images/past-commerce/ny-office/16-min.jpg",
+        },
+        {
+          id: "17",
+          image: "/images/new-images/past-commerce/ny-office/17-min.jpg",
+        },
+        {
+          id: "18",
+          image: "/images/new-images/past-commerce/ny-office/18-min.jpg",
+        },
+        {
+          id: "19",
+          image: "/images/new-images/past-commerce/ny-office/19-min.jpg",
+        },
+      ],
     },
     "20": {
-      title: "Кав’ярня метро Лівобережна",
-      mainImage: "/images/new-images/past-commerce/cafe-livoberezhna.png",
+      title: "Кав’ярня, метро Лівобережна",
+      mainImage: "/images/new-images/past-commerce/cafe-livoberezhna/5.jpg",
       description: {
         part1: (
           <p>
@@ -528,7 +820,7 @@ export function getPortfolioDetailsById(
         "️сантехнічні роботи",
         "️вкладання плитки на робочій зоні",
         "️підлогове покриття - керамограніт (плитка)",
-        "гіпсокартонні роботи ( стеля + ГКЛ конструкція під рекламну вивіску",
+        "гіпсокартонні роботи (стеля + ГКЛ конструкція під рекламну вивіску)",
         "️малярні роботи",
         "️оздоблення стін: декоративна штукатурка під бетон, віконний профіль перефарбовувався в чорний колір",
         "️стеля - гіпсокартонна + дерев’яні рейки ",
@@ -542,7 +834,68 @@ export function getPortfolioDetailsById(
         squareMeters: "70 м2",
         services: "Комплексний ремонт",
       },
-      galleryImages: [],
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/1.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/2.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/3.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/4.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/5.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/6.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/7.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/8.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/9.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/10.jpg",
+        },
+        {
+          id: "11",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/11.jpg",
+        },
+        {
+          id: "12",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/12.jpg",
+        },
+        {
+          id: "13",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/13.jpg",
+        },
+        {
+          id: "14",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/14.jpg",
+        },
+        {
+          id: "15",
+          image: "/images/new-images/past-commerce/cafe-livoberezhna/15.jpg",
+        },
+      ],
     },
   };
 

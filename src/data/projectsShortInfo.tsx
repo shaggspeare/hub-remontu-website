@@ -56,14 +56,14 @@ export const livingProjects = [
     category: "living",
     displayType: "render",
   },
-  {
-    id: "7",
-    image: "/images/new-images/past-projects/2k-start-2-min.png",
-    title: "2-к квартира, 53 м2 у ЖК Старт",
-    link: "/portfolio-details/7",
-    category: "living",
-    displayType: "render",
-  },
+  // {
+  //   id: "7",
+  //   image: "/images/new-images/past-projects/2k-start-2-min.png",
+  //   title: "2-к квартира, 53 м2 у ЖК Старт",
+  //   link: "/portfolio-details/7",
+  //   category: "living",
+  //   displayType: "render",
+  // },
   {
     id: "8",
     image: "/images/new-images/past-projects/2k_start-3-min.png",

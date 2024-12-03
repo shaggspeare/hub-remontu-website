@@ -3,7 +3,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import Image from "next/image";
-import Link from "next/link";
 
 export interface PortfolioDetailsData {
   id: string;
@@ -44,6 +43,7 @@ const PortfolioDetailsContent: React.FC<Props> = ({ portfolioDetailsInfo }) => {
             alt={portfolioDetailsInfo.title}
             width={900}
             height={530}
+            quality={100}
           />
         </div>
 
@@ -62,7 +62,7 @@ const PortfolioDetailsContent: React.FC<Props> = ({ portfolioDetailsInfo }) => {
                     <div className="col-lg-6 col-md-6">
                       <ul className="list">
                         {portfolioDetailsInfo.servicesCovered
-                          .slice(0, 3)
+                          .slice(0, 5)
                           .map((item, index) => (
                             <li key={index}>
                               <Image
@@ -80,7 +80,7 @@ const PortfolioDetailsContent: React.FC<Props> = ({ portfolioDetailsInfo }) => {
                     <div className="col-lg-6 col-md-6">
                       <ul className="list">
                         {portfolioDetailsInfo.servicesCovered
-                          .slice(3, 6)
+                          .slice(5, 10)
                           .map((item, index) => (
                             <li key={index}>
                               <Image
@@ -107,11 +107,11 @@ const PortfolioDetailsContent: React.FC<Props> = ({ portfolioDetailsInfo }) => {
             <Sidebar {...portfolioDetailsInfo.projectDetails} />
           </div>
 
-          <div className="projects-details-leave-quote">
-            <Link href="/request-quote" className="default-btn">
-              Хочу такий ремонт
-            </Link>
-          </div>
+          {/*<div className="projects-details-leave-quote">*/}
+          {/*  <Link href="/request-quote" className="default-btn">*/}
+          {/*    Хочу такий ремонт*/}
+          {/*  </Link>*/}
+          {/*</div>*/}
         </div>
       </div>
     </div>

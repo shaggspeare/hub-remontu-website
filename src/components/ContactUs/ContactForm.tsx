@@ -4,7 +4,6 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 
-import contactImg from "../../../public/images/contact/contact.png";
 import shape from "../../../public/images/contact/shape.png";
 
 interface FormData {
@@ -73,7 +72,7 @@ const ContactForm: React.FC = () => {
             >
               <div className="contact-image">
                 <Image
-                  src={contactImg}
+                  src='/images/new-images/past-projects/3k_sanfran-min.png'
                   alt="contact"
                   width={700}
                   height={1012}
