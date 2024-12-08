@@ -3,7 +3,7 @@ import { PortfolioDetailsInfo } from "@/components/PortfolioDetails/PortfolioDet
 export function getPortfolioDetailsById(
   id: string,
 ): PortfolioDetailsInfo | undefined {
-   const living = {
+  const living = {
     "1": {
       title: "Сонячна квартира у стилі мінімалізм у ЖК Сирецькі Сади",
       mainImage: "/images/new-images/sample-project/10.jpg",
@@ -414,117 +414,206 @@ export function getPortfolioDetailsById(
         },
       ],
     },
-    "4": {
-      title: "3-к квартира, 100 м2 у ЖК Triiinity",
-      mainImage: "/images/new-images/past-projects/3k_trinity-min.png",
+    // "4": {
+    //   title: "3-к квартира, 100 м2 у ЖК Triiinity",
+    //   mainImage: "/images/new-images/past-projects/3k_trinity-min.png",
+    //   description: {
+    //     part1: <p>Опис проєкту додамо пізніше.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода сімейна пара з двома дітьми",
+    //     duration: "4 місяці",
+    //     squareMeters: "100 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    // "5": {
+    //   title: "3-к квартира, 99 м2 у ЖК San Francisco Creative House",
+    //   mainImage: "/images/new-images/past-projects/3k_sanfran-min.png",
+    //   description: {
+    //     part1: <p>Стильна та функціональна квартира у ЖК `San Francisco`.</p>,
+    //     part2: (
+    //       <p>
+    //         Одним із запитів замовників було створити затишок не тільки для них,
+    //         але й для їх домашнього улюбленця, тому місце для котика стало
+    //         родзинкою цього інтер`єру.
+    //       </p>
+    //     ),
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода пара",
+    //     duration: "4 місяці",
+    //     squareMeters: "99 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    // "6": {
+    //   title: "2-к квартира, 59 м2 у ЖК Старт",
+    //   mainImage: "/images/new-images/past-projects/2k_start-1-min.png",
+    //   description: {
+    //     part1: <p>Опис проєкту додамо пізніше.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молодий хлопець, ІТ-спеціаліст",
+    //     duration: "2,5 місяці",
+    //     squareMeters: "59 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    "7": {
+      title: "Простора квартира у ЖК Медовий",
+      mainImage: "/images/new-images/past-projects/medovyi/IMG_4846.jpg",
       description: {
         part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
       },
       servicesCovered: [],
       projectDetails: {
-        client: "Молода сімейна пара з двома дітьми",
+        client: "молода сім’я з сином підлітком",
         duration: "4 місяці",
-        squareMeters: "100 м2",
-        services: "Дизайн-проєкт",
+        squareMeters: "82 м2",
+        services: "Дизайн-проєкт, реалізація",
       },
-      galleryImages: [],
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-projects/medovyi/IMG_4710.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-projects/medovyi/IMG_4711.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-projects/medovyi/IMG_4739.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-projects/medovyi/IMG_4746.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-projects/medovyi/IMG_4748.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-projects/medovyi/IMG_4756.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-projects/medovyi/IMG_4762.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-projects/medovyi/IMG_4775.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/past-projects/medovyi/IMG_4786.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/past-projects/medovyi/IMG_4805.jpg",
+        },
+        {
+          id: "11",
+          image: "/images/new-images/past-projects/medovyi/IMG_4825.jpg",
+        },
+        {
+          id: "12",
+          image: "/images/new-images/past-projects/medovyi/IMG_4845.jpg",
+        },
+        {
+          id: "13",
+          image: "/images/new-images/past-projects/medovyi/IMG_4846.jpg",
+        },
+        {
+          id: "14",
+          image: "/images/new-images/past-projects/medovyi/IMG_4891.jpg",
+        },
+        {
+          id: "15",
+          image: "/images/new-images/past-projects/medovyi/IMG_4898.jpg",
+        },
+        {
+          id: "16",
+          image: "/images/new-images/past-projects/medovyi/IMG_4904.jpg",
+        },
+        {
+          id: "17",
+          image: "/images/new-images/past-projects/medovyi/IMG_4917.jpg",
+        },
+        {
+          id: "18",
+          image: "/images/new-images/past-projects/medovyi/IMG_4960.jpg",
+        },
+      ],
     },
-    "5": {
-      title: "3-к квартира, 99 м2 у ЖК San Francisco Creative House",
-      mainImage: "/images/new-images/past-projects/3k_sanfran-min.png",
-      description: {
-        part1: <p>Стильна та функціональна квартира у ЖК `San Francisco`.</p>,
-        part2: (
-          <p>
-            Одним із запитів замовників було створити затишок не тільки для них,
-            але й для їх домашнього улюбленця, тому місце для котика стало
-            родзинкою цього інтер`єру.
-          </p>
-        ),
-      },
-      servicesCovered: [],
-      projectDetails: {
-        client: "Молода пара",
-        duration: "4 місяці",
-        squareMeters: "99 м2",
-        services: "Дизайн-проєкт",
-      },
-      galleryImages: [],
-    },
-    "6": {
-      title: "2-к квартира, 59 м2 у ЖК Старт",
-      mainImage: "/images/new-images/past-projects/2k_start-1-min.png",
-      description: {
-        part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
-      },
-      servicesCovered: [],
-      projectDetails: {
-        client: "Молодий хлопець, ІТ-спеціаліст",
-        duration: "2,5 місяці",
-        squareMeters: "59 м2",
-        services: "Дизайн-проєкт",
-      },
-      galleryImages: [],
-    },
-    "8": {
-      title: "2-к квартира, 80 м2 у ЖК Старт",
-      mainImage: "/images/new-images/past-projects/2k_start-3-min.png",
-      description: {
-        part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
-      },
-      servicesCovered: [],
-      projectDetails: {
-        client: "Сім’я з дорослою донькою",
-        duration: "3 місяці",
-        squareMeters: "80 м2",
-        services: "Дизайн-проєкт",
-      },
-      galleryImages: [],
-    },
-    "9": {
-      title: "2-к квартира, 71 м2 у ЖК Great",
-      mainImage: "/images/new-images/past-projects/2k_great-min.png",
-      description: {
-        part1: (
-          <p>
-            ЖК `GREAT` - затишна, стильна та функціональна квартира. Головною
-            задачею для HUB remontu було зробити приміщення таким, щоб воно
-            повністю відображало замовників.
-          </p>
-        ),
-        part2: <p>Опис проєкту додамо пізніше.</p>,
-      },
-      servicesCovered: [],
-      projectDetails: {
-        client: "Молода пара, працюють у ресторанній сфері",
-        duration: "2 місяці",
-        squareMeters: "71 м2",
-        services: "Дизайн-проєкт",
-      },
-      galleryImages: [],
-    },
-    "10": {
-      title: "2-к квартира, 72 м2 у ЖК Діброва Парк",
-      mainImage: "/images/new-images/past-projects/2k_dibrova-min.png",
-      description: {
-        part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
-      },
-      servicesCovered: [],
-      projectDetails: {
-        client: "Молода дівчина, яка працює в сфері маркетингу",
-        duration: "3 місяці",
-        squareMeters: "72 м2",
-        services: "Дизайн-проєкт",
-      },
-      galleryImages: [],
-    },
+    // "8": {
+    //   title: "2-к квартира, 80 м2 у ЖК Старт",
+    //   mainImage: "/images/new-images/past-projects/2k_start-3-min.png",
+    //   description: {
+    //     part1: <p>Опис проєкту додамо пізніше.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Сім’я з дорослою донькою",
+    //     duration: "3 місяці",
+    //     squareMeters: "80 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    // "9": {
+    //   title: "2-к квартира, 71 м2 у ЖК Great",
+    //   mainImage: "/images/new-images/past-projects/2k_great-min.png",
+    //   description: {
+    //     part1: (
+    //       <p>
+    //         ЖК `GREAT` - затишна, стильна та функціональна квартира. Головною
+    //         задачею для HUB remontu було зробити приміщення таким, щоб воно
+    //         повністю відображало замовників.
+    //       </p>
+    //     ),
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода пара, працюють у ресторанній сфері",
+    //     duration: "2 місяці",
+    //     squareMeters: "71 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    // "10": {
+    //   title: "2-к квартира, 72 м2 у ЖК Діброва Парк",
+    //   mainImage: "/images/new-images/past-projects/2k_dibrova-min.png",
+    //   description: {
+    //     part1: <p>Опис проєкту додамо пізніше.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода дівчина, яка працює в сфері маркетингу",
+    //     duration: "3 місяці",
+    //     squareMeters: "72 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
     "11": {
       title: "Сонячна квартира в ЖК Campus",
-      mainImage: "/images/new-images/past-projects/2k-campus/IMG_20210905_192322_207.jpg",
+      mainImage:
+        "/images/new-images/past-projects/2k-campus/IMG_20210905_192322_207.jpg",
       description: {
         part1: (
           <p>
@@ -566,18 +655,66 @@ export function getPortfolioDetailsById(
         services: "Комплексний ремонт",
       },
       galleryImages: [
-        { id: '1', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192312_766.jpg' },
-        { id: '2', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192322_207.jpg' },
-        { id: '3', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192325_458.jpg' },
-        { id: '4', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192328_684.jpg' },
-        { id: '5', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192333_406.jpg' },
-        { id: '6', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192337_600.jpg' },
-        { id: '7', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192347_039.jpg' },
-        { id: '8', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192405_393.jpg' },
-        { id: '9', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192411_375.jpg' },
-        { id: '10', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192414_347.jpg' },
-        { id: '11', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192416_699.jpg' },
-        { id: '12', image: '/images/new-images/past-projects/2k-campus/IMG_20210905_192420_158.jpg' }
+        {
+          id: "1",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192312_766.jpg",
+        },
+        {
+          id: "2",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192322_207.jpg",
+        },
+        {
+          id: "3",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192325_458.jpg",
+        },
+        {
+          id: "4",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192328_684.jpg",
+        },
+        {
+          id: "5",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192333_406.jpg",
+        },
+        {
+          id: "6",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192337_600.jpg",
+        },
+        {
+          id: "7",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192347_039.jpg",
+        },
+        {
+          id: "8",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192405_393.jpg",
+        },
+        {
+          id: "9",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192411_375.jpg",
+        },
+        {
+          id: "10",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192414_347.jpg",
+        },
+        {
+          id: "11",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192416_699.jpg",
+        },
+        {
+          id: "12",
+          image:
+            "/images/new-images/past-projects/2k-campus/IMG_20210905_192420_158.jpg",
+        },
       ],
     },
     "12": {
@@ -586,9 +723,10 @@ export function getPortfolioDetailsById(
       description: {
         part1: (
           <p>
-            Двоповерхова 3к квартира  140кв.м.
-            Три спальні кімнати, велика кухня-студіо, 2 санвузли, 2 великих гардероба, кладова, ігрова кімната для дітей.
-            Кожний квадратний метр квартири продуманий та максимально ергономічний.
+            Двоповерхова 3к квартира 140кв.м. Три спальні кімнати, велика
+            кухня-студіо, 2 санвузли, 2 великих гардероба, кладова, ігрова
+            кімната для дітей. Кожний квадратний метр квартири продуманий та
+            максимально ергономічний.
           </p>
         ),
         part2: (
@@ -597,224 +735,352 @@ export function getPortfolioDetailsById(
           </p>
         ),
       },
-      servicesCovered: ['2 санвузли', "2 великих гардероба" ,'ігрова кімната для дітей'],
+      servicesCovered: [
+        "2 санвузли",
+        "2 великих гардероба",
+        "ігрова кімната для дітей",
+      ],
       projectDetails: {
         client: "Молода сімейна пара з двома дітьми",
         duration: "6 місяців",
         squareMeters: "140 м2",
         services: "Дизайн-проєкт, ремонт",
       },
-      galleryImages:
-        [
-          {
-            id: "1",
-            image: "/images/new-images/past-projects/zarichnyi/1.jpg",
-          },
-          {
-            id: "2",
-            image: "/images/new-images/past-projects/zarichnyi/2.jpg",
-          },
-          {
-            id: "3",
-            image: "/images/new-images/past-projects/zarichnyi/3.jpg",
-          },
-          {
-            id: "4",
-            image: "/images/new-images/past-projects/zarichnyi/4.jpg",
-          },
-          {
-            id: "5",
-            image: "/images/new-images/past-projects/zarichnyi/5.jpg",
-          },
-          {
-            id: "6",
-            image: "/images/new-images/past-projects/zarichnyi/6.jpg",
-          },
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-projects/zarichnyi/1.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-projects/zarichnyi/2.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-projects/zarichnyi/3.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-projects/zarichnyi/4.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-projects/zarichnyi/5.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-projects/zarichnyi/6.jpg",
+        },
 
-          {
-            id: "11",
-            image: "/images/new-images/past-projects/zarichnyi/11.jpg",
-          },
-          {
-            id: "12",
-            image: "/images/new-images/past-projects/zarichnyi/12.jpg",
-          },
-          {
-            id: "13",
-            image: "/images/new-images/past-projects/zarichnyi/13.jpg",
-          },
-          {
-            id: "14",
-            image: "/images/new-images/past-projects/zarichnyi/14.jpg",
-          },
-          {
-            id: "15",
-            image: "/images/new-images/past-projects/zarichnyi/15.jpg",
-          },
-          {
-            id: "16",
-            image: "/images/new-images/past-projects/zarichnyi/16.jpg",
-          },
-          {
-            id: "17",
-            image: "/images/new-images/past-projects/zarichnyi/17.jpg",
-          },
-          {
-            id: "7",
-            image: "/images/new-images/past-projects/zarichnyi/7.jpg",
-          },
-          {
-            id: "8",
-            image: "/images/new-images/past-projects/zarichnyi/8.jpg",
-          },
-          {
-            id: "9",
-            image: "/images/new-images/past-projects/zarichnyi/9.jpg",
-          },
-          {
-            id: "10",
-            image: "/images/new-images/past-projects/zarichnyi/10.jpg",
-          },
-          {
-            id: "18",
-            image: "/images/new-images/past-projects/zarichnyi/18.jpg",
-          },
-          {
-            id: "19",
-            image: "/images/new-images/past-projects/zarichnyi/19.jpg",
-          },
-          {
-            id: "20",
-            image: "/images/new-images/past-projects/zarichnyi/20.jpg",
-          },
-          {
-            id: "21",
-            image: "/images/new-images/past-projects/zarichnyi/21.jpg",
-          },
-          {
-            id: "22",
-            image: "/images/new-images/past-projects/zarichnyi/22.jpg",
-          },
-          {
-            id: "23",
-            image: "/images/new-images/past-projects/zarichnyi/23.jpg",
-          },
-          {
-            id: "24",
-            image: "/images/new-images/past-projects/zarichnyi/24.jpg",
-          },
-          {
-            id: "25",
-            image: "/images/new-images/past-projects/zarichnyi/25.jpg",
-          },
-          {
-            id: "26",
-            image: "/images/new-images/past-projects/zarichnyi/26.jpg",
-          },
-          {
-            id: "27",
-            image: "/images/new-images/past-projects/zarichnyi/27.jpg",
-          },
+        {
+          id: "11",
+          image: "/images/new-images/past-projects/zarichnyi/11.jpg",
+        },
+        {
+          id: "12",
+          image: "/images/new-images/past-projects/zarichnyi/12.jpg",
+        },
+        {
+          id: "13",
+          image: "/images/new-images/past-projects/zarichnyi/13.jpg",
+        },
+        {
+          id: "14",
+          image: "/images/new-images/past-projects/zarichnyi/14.jpg",
+        },
+        {
+          id: "15",
+          image: "/images/new-images/past-projects/zarichnyi/15.jpg",
+        },
+        {
+          id: "16",
+          image: "/images/new-images/past-projects/zarichnyi/16.jpg",
+        },
+        {
+          id: "17",
+          image: "/images/new-images/past-projects/zarichnyi/17.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-projects/zarichnyi/7.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-projects/zarichnyi/8.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/past-projects/zarichnyi/9.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/past-projects/zarichnyi/10.jpg",
+        },
+        {
+          id: "18",
+          image: "/images/new-images/past-projects/zarichnyi/18.jpg",
+        },
+        {
+          id: "19",
+          image: "/images/new-images/past-projects/zarichnyi/19.jpg",
+        },
+        {
+          id: "20",
+          image: "/images/new-images/past-projects/zarichnyi/20.jpg",
+        },
+        {
+          id: "21",
+          image: "/images/new-images/past-projects/zarichnyi/21.jpg",
+        },
+        {
+          id: "22",
+          image: "/images/new-images/past-projects/zarichnyi/22.jpg",
+        },
+        {
+          id: "23",
+          image: "/images/new-images/past-projects/zarichnyi/23.jpg",
+        },
+        {
+          id: "24",
+          image: "/images/new-images/past-projects/zarichnyi/24.jpg",
+        },
+        {
+          id: "25",
+          image: "/images/new-images/past-projects/zarichnyi/25.jpg",
+        },
+        {
+          id: "26",
+          image: "/images/new-images/past-projects/zarichnyi/26.jpg",
+        },
+        {
+          id: "27",
+          image: "/images/new-images/past-projects/zarichnyi/27.jpg",
+        },
       ],
     },
-    "13": {
-      title: "2-кімнатна квартира, 69 м2 у ЖК Great 232",
-      mainImage: "/images/new-images/past-projects/2k_zhk-great-232-min.png",
+    // "13": {
+    //   title: "2-кімнатна квартира, 69 м2 у ЖК Great 232",
+    //   mainImage: "/images/new-images/past-projects/2k_zhk-great-232-min.png",
+    //   description: {
+    //     part1: <p>Стильна та функціональна квартира у ЖК Great.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода сім’я з сином",
+    //     duration: "3 місяці",
+    //     squareMeters: "69 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    // "14": {
+    //   title: "1-кімнатна квартира, 43 м2 у ЖК Кришталеві Джерела",
+    //   mainImage: "/images/new-images/past-projects/1k_crystal_dzherela-min.png",
+    //   description: {
+    //     part1: <p>Опис проєкту додамо пізніше.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода пара лікарів",
+    //     duration: "2 місяці",
+    //     squareMeters: "43 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    // "15": {
+    //   title: "2-кімнатна квартира, 72 м2 у ЖК Great 233",
+    //   mainImage: "/images/new-images/past-projects/2k_zhk-great-233-min.png",
+    //   description: {
+    //     part1: <p>Опис проєкту додамо пізніше.</p>,
+    //     part2: <p>Опис проєкту додамо пізніше.</p>,
+    //   },
+    //   servicesCovered: [],
+    //   projectDetails: {
+    //     client: "Молода пара з двома синами",
+    //     duration: "3 місяці",
+    //     squareMeters: "72 м2",
+    //     services: "Дизайн-проєкт",
+    //   },
+    //   galleryImages: [],
+    // },
+    "16": {
+      title: "Світла та затишна квартира в ЖК Central Park",
+      mainImage: "/images/new-images/past-projects/central-park/3.jpg",
       description: {
-        part1: <p>Стильна та функціональна квартира у ЖК Great.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
+        part1: (
+          <p>
+            Cтильна, затишна, функціональна квартирка в центрі міста. Цільове
+            призначення - здача в оренду.{" "}
+          </p>
+        ),
       },
       servicesCovered: [],
       projectDetails: {
-        client: "Молода сім’я з сином",
+        client: "інвестори",
         duration: "3 місяці",
-        squareMeters: "69 м2",
+        squareMeters: "48 м2",
         services: "Дизайн-проєкт",
       },
-      galleryImages: [],
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-projects/central-park/1.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-projects/central-park/2.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-projects/central-park/3.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-projects/central-park/4.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-projects/central-park/5.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-projects/central-park/6.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-projects/central-park/7.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-projects/central-park/8.jpg",
+        },
+      ],
     },
-    "14": {
-      title: "1-кімнатна квартира, 43 м2 у ЖК Кришталеві Джерела",
-      mainImage: "/images/new-images/past-projects/1k_crystal_dzherela-min.png",
+    "17": {
+      title: "Стильна та функціональна у ЖК Галактика",
+      mainImage: "/images/new-images/past-projects/2k-galaktika/IMG_5735.jpg",
       description: {
         part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
       },
       servicesCovered: [],
       projectDetails: {
-        client: "Молода пара лікарів",
-        duration: "2 місяці",
-        squareMeters: "43 м2",
-        services: "Дизайн-проєкт",
-      },
-      galleryImages: [],
-    },
-    "15": {
-      title: "2-кімнатна квартира, 72 м2 у ЖК Great 233",
-      mainImage: "/images/new-images/past-projects/2k_zhk-great-233-min.png",
-      description: {
-        part1: <p>Опис проєкту додамо пізніше.</p>,
-        part2: <p>Опис проєкту додамо пізніше.</p>,
-      },
-      servicesCovered: [],
-      projectDetails: {
-        client: "Молода пара з двома синами",
+        client: "Mолода сімейна пара",
         duration: "3 місяці",
         squareMeters: "72 м2",
         services: "Дизайн-проєкт",
       },
-      galleryImages: [],
+      galleryImages: [
+        {
+          id: "1",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5651.jpg",
+        },
+        {
+          id: "2",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5643.jpg",
+        },
+        {
+          id: "3",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5633.jpg",
+        },
+        {
+          id: "4",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5632.jpg",
+        },
+        {
+          id: "5",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5753.jpg",
+        },
+        {
+          id: "6",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5727.jpg",
+        },
+        {
+          id: "7",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5671.jpg",
+        },
+        {
+          id: "8",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5654.jpg",
+        },
+        {
+          id: "9",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5673.jpg",
+        },
+        {
+          id: "10",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5669.jpg",
+        },
+        {
+          id: "11",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5665.jpg",
+        },
+        {
+          id: "12",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5663.jpg",
+        },
+        {
+          id: "13",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5653.jpg",
+        },
+        {
+          id: "14",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5652.jpg",
+        },
+        {
+          id: "15",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5755.jpg",
+        },
+        {
+          id: "16",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5748.jpg",
+        },
+        {
+          id: "17",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5745.jpg",
+        },
+        {
+          id: "18",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5739.jpg",
+        },
+        {
+          id: "19",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5735.jpg",
+        },
+        {
+          id: "20",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5730.jpg",
+        },
+        {
+          id: "21",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5725.jpg",
+        },
+        {
+          id: "22",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5700.jpg",
+        },
+        {
+          id: "23",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5777.jpg",
+        },
+        {
+          id: "24",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5770.jpg",
+        },
+        {
+          id: "25",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5768.jpg",
+        },
+        {
+          id: "26",
+          image: "/images/new-images/past-projects/2k-galaktika/IMG_5766.jpg",
+        },
+      ],
     },
-     "16": {
-       title: "Світла та затишна квартира в ЖК Central Park",
-       mainImage: "/images/new-images/past-projects/central-park/3.jpg",
-       description: {
-         part1: <p>Cтильна, затишна, функціональна квартирка в центрі міста. Цільове призначення - здача в оренду. </p>,
-       },
-       servicesCovered: [],
-       projectDetails: {
-         client: "інвестори",
-         duration: "3 місяці",
-         squareMeters: "48 м2",
-         services: "Дизайн-проєкт",
-       },
-       galleryImages: [
-         {
-           id: "1",
-           image: "/images/new-images/past-projects/central-park/1.jpg",
-         },
-         {
-           id: "2",
-           image: "/images/new-images/past-projects/central-park/2.jpg",
-         },
-         {
-           id: "3",
-           image: "/images/new-images/past-projects/central-park/3.jpg",
-         },
-         {
-           id: "4",
-           image: "/images/new-images/past-projects/central-park/4.jpg",
-         },
-         {
-           id: "5",
-           image: "/images/new-images/past-projects/central-park/5.jpg",
-         },
-         {
-           id: "6",
-           image: "/images/new-images/past-projects/central-park/6.jpg",
-         },
-         {
-           id: "7",
-           image: "/images/new-images/past-projects/central-park/7.jpg",
-         },
-         {
-           id: "8",
-           image: "/images/new-images/past-projects/central-park/8.jpg",
-         },
-       ],
-     },
   };
-  
+
   const commercial = {
     "116": {
       title: "Beauty-простір, клініка-косметології 'palamarenko.clinic' ",
