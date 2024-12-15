@@ -100,7 +100,7 @@ const Navbar: React.FC = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  href="/src/app/(app)/about-us/"
+                  href="/about-us/"
                   className={`nav-link ${
                     currentRoute === "/about-us/" ? "active" : ""
                   }`}
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  href="/src/app/(app)/portfolio/"
+                  href="/portfolio/"
                   className={`nav-link ${
                     currentRoute === "/portfolio/" ? "active" : ""
                   }`}
@@ -120,7 +120,7 @@ const Navbar: React.FC = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  href="/src/app/(app)/team/"
+                  href="/team/"
                   className={`nav-link ${
                     currentRoute === "/team/" ? "active" : ""
                   }`}
@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  href="/src/app/(app)/faq/"
+                  href="/faq/"
                   className={`nav-link ${
                     currentRoute === "/faq/" ? "active" : ""
                   }`}
@@ -140,7 +140,7 @@ const Navbar: React.FC = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  href="/src/app/(app)/contact-us/"
+                  href="/contact-us/"
                   className={`nav-link ${
                     currentRoute === "/contact-us/" ? "active" : ""
                   }`}
@@ -209,7 +209,7 @@ const Navbar: React.FC = () => {
               {/*  </Link>*/}
 
               {/*  <Link*/}
-              {/*    href="/src/app/(app)/about-us/"*/}
+              {/*    href="/about-us/"*/}
               {/*    className={`nav-link ${*/}
               {/*      currentRoute === "/about-us/" ? "active" : ""*/}
               {/*    }`}*/}
@@ -217,7 +217,7 @@ const Navbar: React.FC = () => {
               {/*    Про нас*/}
               {/*  </Link>*/}
               {/*  <Link*/}
-              {/*    href="/src/app/(app)/team/"*/}
+              {/*    href="/team/"*/}
               {/*    className={`nav-link ${*/}
               {/*      currentRoute === "/team/" ? "active" : ""*/}
               {/*    }`}*/}
@@ -225,7 +225,7 @@ const Navbar: React.FC = () => {
               {/*    Команда*/}
               {/*  </Link>*/}
               {/*  <Link*/}
-              {/*    href="/src/app/(app)/portfolio/"*/}
+              {/*    href="/portfolio/"*/}
               {/*    className={`nav-link ${*/}
               {/*      currentRoute === "/portfolio/" ? "active" : ""*/}
               {/*    }`}*/}
@@ -529,7 +529,7 @@ const Navbar: React.FC = () => {
               {/*  /!*</AccordionItem>*!/*/}
 
               {/*  <Link*/}
-              {/*    href="/src/app/(app)/contact-us/"*/}
+              {/*    href="/contact-us/"*/}
               {/*    className={`nav-link ${*/}
               {/*      currentRoute === "/contact-us/" ? "active" : ""*/}
               {/*    }`}*/}
@@ -537,7 +537,7 @@ const Navbar: React.FC = () => {
               {/*    Контакти*/}
               {/*  </Link>*/}
               {/*  <Link*/}
-              {/*    href="/src/app/(app)/request-quote/"*/}
+              {/*    href="/request-quote/"*/}
               {/*    className={`nav-link ${*/}
               {/*      currentRoute === "/request-quote/" ? "active" : ""*/}
               {/*    }`}*/}

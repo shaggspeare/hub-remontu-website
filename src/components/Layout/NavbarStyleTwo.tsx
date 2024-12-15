@@ -103,7 +103,7 @@ const NavbarStyleTwo: React.FC = () => {
                       className={`nav-link ${
                         currentRoute === "/interior-home/" ? "active" : ""
                       }`}
-                      href="/src/app/(app)/interior-home/"
+                      href="/interior-home/"
                     >
                       Interior Home
                     </Link>
@@ -114,7 +114,7 @@ const NavbarStyleTwo: React.FC = () => {
                       className={`nav-link ${
                         currentRoute === "/architecture-studio/" ? "active" : ""
                       }`}
-                      href="/src/app/(app)/architecture-studio/"
+                      href="/architecture-studio/"
                     >
                       Architecture Studio
                     </Link>
@@ -124,7 +124,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               <li className="nav-item">
                 <Link
-                  href="/src/app/(app)/about-us/"
+                  href="/about-us/"
                   className={`nav-link ${
                     currentRoute === "/about-us/" ? "active" : ""
                   }`}
@@ -145,7 +145,7 @@ const NavbarStyleTwo: React.FC = () => {
                 <ul className="dropdown-menu">
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/portfolio/"
+                      href="/portfolio/"
                       className={`nav-link ${
                         currentRoute === "/portfolio/" ? "active" : ""
                       }`}
@@ -167,7 +167,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/portfolio-details/"
+                      href="/portfolio-details/"
                       className={`nav-link ${
                         currentRoute === "/portfolio-details/"
                           ? "active"
@@ -202,7 +202,7 @@ const NavbarStyleTwo: React.FC = () => {
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link
-                          href="/src/app/(app)/services/"
+                          href="/services/"
                           className={`nav-link ${
                             currentRoute === "/services/" ? "active" : ""
                           }`}
@@ -213,7 +213,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                       <li className="nav-item">
                         <Link
-                          href="/src/app/(app)/services/service-details/"
+                          href="/services/service-details/"
                           className={`nav-link ${
                             currentRoute === "/services/service-details/" ? "active" : ""
                           }`}
@@ -226,7 +226,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/pricing/"
+                      href="/pricing/"
                       className={`nav-link ${
                         currentRoute === "/pricing/" ? "active" : ""
                       }`}
@@ -237,7 +237,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/team/"
+                      href="/team/"
                       className={`nav-link ${
                         currentRoute === "/team/" ? "active" : ""
                       }`}
@@ -248,7 +248,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/gallery/"
+                      href="/gallery/"
                       className={`nav-link ${
                         currentRoute === "/gallery/" ? "active" : ""
                       }`}
@@ -259,7 +259,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/faq/"
+                      href="/faq/"
                       className={`nav-link ${
                         currentRoute === "/faq/" ? "active" : ""
                       }`}
@@ -270,7 +270,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/testimonials/"
+                      href="/testimonials/"
                       className={`nav-link ${
                         currentRoute === "/testimonials/" ? "active" : ""
                       }`}
@@ -291,7 +291,7 @@ const NavbarStyleTwo: React.FC = () => {
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link
-                          href="/src/app/(app)/login/"
+                          href="/login/"
                           className={`nav-link ${
                             currentRoute === "/login/" ? "active" : ""
                           }`}
@@ -302,7 +302,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                       <li className="nav-item">
                         <Link
-                          href="/src/app/(app)/register/"
+                          href="/register/"
                           className={`nav-link ${
                             currentRoute === "/register/" ? "active" : ""
                           }`}
@@ -315,7 +315,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/privacy-policy/"
+                      href="/privacy-policy/"
                       className={`nav-link ${
                         currentRoute === "/privacy-policy/" ? "active" : ""
                       }`}
@@ -326,7 +326,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/terms-conditions/"
+                      href="/terms-conditions/"
                       className={`nav-link ${
                         currentRoute === "/terms-conditions/" ? "active" : ""
                       }`}
@@ -337,7 +337,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/request-quote/"
+                      href="/request-quote/"
                       className={`nav-link ${
                         currentRoute === "/request-quote/" ? "active" : ""
                       }`}
@@ -360,7 +360,7 @@ const NavbarStyleTwo: React.FC = () => {
                 <ul className="dropdown-menu">
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/blog/"
+                      href="/blog/"
                       className={`nav-link ${
                         currentRoute === "/blog/" ? "active" : ""
                       }`}
@@ -371,7 +371,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/blog-right-sidebar/"
+                      href="/blog-right-sidebar/"
                       className={`nav-link ${
                         currentRoute === "/blog-right-sidebar/" ? "active" : ""
                       }`}
@@ -382,7 +382,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/blog-left-sidebar/"
+                      href="/blog-left-sidebar/"
                       className={`nav-link ${
                         currentRoute === "/blog-left-sidebar/" ? "active" : ""
                       }`}
@@ -393,7 +393,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/src/app/(app)/single-blog/"
+                      href="/single-blog/"
                       className={`nav-link ${
                         currentRoute === "/single-blog/" ? "active" : ""
                       }`}
@@ -414,7 +414,7 @@ const NavbarStyleTwo: React.FC = () => {
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link
-                          href="/src/app/(app)/author/"
+                          href="/author/"
                           className={`nav-link ${
                             currentRoute === "/author/" ? "active" : ""
                           }`}
@@ -425,7 +425,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                       <li className="nav-item">
                         <Link
-                          href="/src/app/(app)/categories/"
+                          href="/categories/"
                           className={`nav-link ${
                             currentRoute === "/categories/" ? "active" : ""
                           }`}
@@ -436,7 +436,7 @@ const NavbarStyleTwo: React.FC = () => {
 
                       <li className="nav-item">
                         <Link
-                          href="/src/app/(app)/tags/"
+                          href="/tags/"
                           className={`nav-link ${
                             currentRoute === "/tags/" ? "active" : ""
                           }`}
@@ -451,7 +451,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               <li className="nav-item">
                 <Link
-                  href="/src/app/(app)/contact-us/"
+                  href="/contact-us/"
                   className={`nav-link ${
                     currentRoute === "/contact-us/" ? "active" : ""
                   }`}
@@ -533,7 +533,7 @@ const NavbarStyleTwo: React.FC = () => {
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/interior-home/" ? "active" : ""*/}
               {/*            }`}*/}
-              {/*            href="/src/app/(app)/interior-home/"*/}
+              {/*            href="/interior-home/"*/}
               {/*          >*/}
               {/*            Interior Home*/}
               {/*          </Link>*/}
@@ -546,7 +546,7 @@ const NavbarStyleTwo: React.FC = () => {
               {/*                ? "active"*/}
               {/*                : ""*/}
               {/*            }`}*/}
-              {/*            href="/src/app/(app)/architecture-studio/"*/}
+              {/*            href="/architecture-studio/"*/}
               {/*          >*/}
               {/*            Architecture Studio*/}
               {/*          </Link>*/}
@@ -556,7 +556,7 @@ const NavbarStyleTwo: React.FC = () => {
               {/*  </AccordionItem>*/}
 
               {/*  <Link*/}
-              {/*    href="/src/app/(app)/about-us/"*/}
+              {/*    href="/about-us/"*/}
               {/*    className={`nav-link ${*/}
               {/*      currentRoute === "/about-us/" ? "active" : ""*/}
               {/*    }`}*/}
@@ -573,7 +573,7 @@ const NavbarStyleTwo: React.FC = () => {
               {/*      <ul className="menu-list">*/}
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/portfolio/"*/}
+              {/*            href="/portfolio/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/portfolio/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -595,7 +595,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/portfolio-details/"*/}
+              {/*            href="/portfolio-details/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/portfolio-details/"*/}
               {/*                ? "active"*/}
@@ -618,7 +618,7 @@ const NavbarStyleTwo: React.FC = () => {
               {/*      <ul className="menu-list">*/}
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/services/"*/}
+              {/*            href="/services/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/services/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -629,7 +629,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/services/service-details/"*/}
+              {/*            href="/services/service-details/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/services/service-details/"*/}
               {/*                ? "active"*/}
@@ -642,7 +642,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/pricing/"*/}
+              {/*            href="/pricing/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/pricing/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -653,7 +653,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/team/"*/}
+              {/*            href="/team/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/team/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -664,7 +664,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/gallery/"*/}
+              {/*            href="/gallery/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/gallery/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -675,7 +675,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/faq/"*/}
+              {/*            href="/faq/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/faq/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -686,7 +686,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/testimonials/"*/}
+              {/*            href="/testimonials/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/testimonials/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -697,7 +697,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/login/"*/}
+              {/*            href="/login/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/login/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -708,7 +708,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/register/"*/}
+              {/*            href="/register/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/register/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -719,7 +719,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/privacy-policy/"*/}
+              {/*            href="/privacy-policy/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/privacy-policy/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -730,7 +730,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/terms-conditions/"*/}
+              {/*            href="/terms-conditions/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/terms-conditions/"*/}
               {/*                ? "active"*/}
@@ -743,7 +743,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/request-quote/"*/}
+              {/*            href="/request-quote/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/request-quote/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -764,7 +764,7 @@ const NavbarStyleTwo: React.FC = () => {
               {/*      <ul className="menu-list">*/}
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/blog/"*/}
+              {/*            href="/blog/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/blog/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -775,7 +775,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/blog-right-sidebar/"*/}
+              {/*            href="/blog-right-sidebar/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/blog-right-sidebar/"*/}
               {/*                ? "active"*/}
@@ -788,7 +788,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/blog-left-sidebar/"*/}
+              {/*            href="/blog-left-sidebar/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/blog-left-sidebar/"*/}
               {/*                ? "active"*/}
@@ -801,7 +801,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/single-blog/"*/}
+              {/*            href="/single-blog/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/single-blog/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -812,7 +812,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/author/"*/}
+              {/*            href="/author/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/author/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -823,7 +823,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/categories/"*/}
+              {/*            href="/categories/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/categories/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -834,7 +834,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/src/app/(app)/tags/"*/}
+              {/*            href="/tags/"*/}
               {/*            className={`nav-link ${*/}
               {/*              currentRoute === "/tags/" ? "active" : ""*/}
               {/*            }`}*/}
@@ -847,7 +847,7 @@ const NavbarStyleTwo: React.FC = () => {
               {/*  </AccordionItem>*/}
 
               {/*  <Link*/}
-              {/*    href="/src/app/(app)/contact-us/"*/}
+              {/*    href="/contact-us/"*/}
               {/*    className={`nav-link ${*/}
               {/*      currentRoute === "/contact-us/" ? "active" : ""*/}
               {/*    }`}*/}
