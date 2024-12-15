@@ -22,7 +22,6 @@
     "next": "15.1.0",
     "payload": "^3.7.0",
     "react": "19.0.0",
-    "react-accessible-accordion": "^5.0.0",
     "react-dom": "19.0.0",
     "react-responsive-masonry": "^2.1.7",
     "remixicon": "^3.7.0",
