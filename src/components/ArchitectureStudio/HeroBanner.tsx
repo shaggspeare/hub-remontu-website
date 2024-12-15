@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import ReactCompareImage from "react-compare-image";
+// import ReactCompareImage from "react-compare-image";
 
 const HeroBanner: React.FC = () => {
   return (
@@ -10,10 +10,10 @@ const HeroBanner: React.FC = () => {
       <div className="as-banner-area">
         <div className="container-fluid">
           <div className="as-banner-image">
-            <ReactCompareImage
-              leftImage="/images/main-banner/as-banner-after.jpg"
-              rightImage="/images/main-banner/as-banner-before.jpg"
-            />
+            {/*<ReactCompareImage*/}
+            {/*  leftImage="/images/main-banner/as-banner-after.jpg"*/}
+            {/*  rightImage="/images/main-banner/as-banner-before.jpg"*/}
+            {/*/>*/}
           </div>
 
           <div 
