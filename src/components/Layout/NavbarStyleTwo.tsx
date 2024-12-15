@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemButton,
-  AccordionItemPanel,
-} from "react-accessible-accordion";
+// import {
+//   Accordion,
+//   AccordionItem,
+//   AccordionItemHeading,
+//   AccordionItemButton,
+//   AccordionItemPanel,
+// } from "react-accessible-accordion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -509,352 +509,352 @@ const NavbarStyleTwo: React.FC = () => {
             </div>
 
             <div className="modal-body">
-              <Accordion allowZeroExpanded>
-                <AccordionItem uuid="a">
-                  <AccordionItemHeading>
-                    <AccordionItemButton>Home</AccordionItemButton>
-                  </AccordionItemHeading>
+              {/*<Accordion allowZeroExpanded>*/}
+              {/*  <AccordionItem uuid="a">*/}
+              {/*    <AccordionItemHeading>*/}
+              {/*      <AccordionItemButton>Home</AccordionItemButton>*/}
+              {/*    </AccordionItemHeading>*/}
 
-                  <AccordionItemPanel>
-                    <ul className="menu-list">
-                      <li>
-                        <Link
-                          className={`nav-link ${
-                            currentRoute === "/" ? "active" : ""
-                          }`}
-                          href="/"
-                        >
-                          Architecture Home
-                        </Link>
-                      </li>
+              {/*    <AccordionItemPanel>*/}
+              {/*      <ul className="menu-list">*/}
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*            href="/"*/}
+              {/*          >*/}
+              {/*            Architecture Home*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          className={`nav-link ${
-                            currentRoute === "/interior-home/" ? "active" : ""
-                          }`}
-                          href="/interior-home/"
-                        >
-                          Interior Home
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/interior-home/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*            href="/interior-home/"*/}
+              {/*          >*/}
+              {/*            Interior Home*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          className={`nav-link ${
-                            currentRoute === "/architecture-studio/"
-                              ? "active"
-                              : ""
-                          }`}
-                          href="/architecture-studio/"
-                        >
-                          Architecture Studio
-                        </Link>
-                      </li>
-                    </ul>
-                  </AccordionItemPanel>
-                </AccordionItem>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/architecture-studio/"*/}
+              {/*                ? "active"*/}
+              {/*                : ""*/}
+              {/*            }`}*/}
+              {/*            href="/architecture-studio/"*/}
+              {/*          >*/}
+              {/*            Architecture Studio*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
+              {/*      </ul>*/}
+              {/*    </AccordionItemPanel>*/}
+              {/*  </AccordionItem>*/}
 
-                <Link
-                  href="/about-us/"
-                  className={`nav-link ${
-                    currentRoute === "/about-us/" ? "active" : ""
-                  }`}
-                >
-                  About Us
-                </Link>
+              {/*  <Link*/}
+              {/*    href="/about-us/"*/}
+              {/*    className={`nav-link ${*/}
+              {/*      currentRoute === "/about-us/" ? "active" : ""*/}
+              {/*    }`}*/}
+              {/*  >*/}
+              {/*    About Us*/}
+              {/*  </Link>*/}
 
-                <AccordionItem uuid="b">
-                  <AccordionItemHeading>
-                    <AccordionItemButton>Portfolio</AccordionItemButton>
-                  </AccordionItemHeading>
+              {/*  <AccordionItem uuid="b">*/}
+              {/*    <AccordionItemHeading>*/}
+              {/*      <AccordionItemButton>Portfolio</AccordionItemButton>*/}
+              {/*    </AccordionItemHeading>*/}
 
-                  <AccordionItemPanel>
-                    <ul className="menu-list">
-                      <li>
-                        <Link
-                          href="/portfolio/"
-                          className={`nav-link ${
-                            currentRoute === "/portfolio/" ? "active" : ""
-                          }`}
-                        >
-                          Portfolio Style 01
-                        </Link>
-                      </li>
+              {/*    <AccordionItemPanel>*/}
+              {/*      <ul className="menu-list">*/}
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/portfolio/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/portfolio/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Portfolio Style 01*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/portfolio-2/"
-                          className={`nav-link ${
-                            currentRoute === "/portfolio-2/" ? "active" : ""
-                          }`}
-                        >
-                          Portfolio Style 02
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/portfolio-2/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/portfolio-2/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Portfolio Style 02*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/portfolio-details/"
-                          className={`nav-link ${
-                            currentRoute === "/portfolio-details/"
-                              ? "active"
-                              : ""
-                          }`}
-                        >
-                          Portfolio Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </AccordionItemPanel>
-                </AccordionItem>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/portfolio-details/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/portfolio-details/"*/}
+              {/*                ? "active"*/}
+              {/*                : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Portfolio Details*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
+              {/*      </ul>*/}
+              {/*    </AccordionItemPanel>*/}
+              {/*  </AccordionItem>*/}
 
-                <AccordionItem uuid="c">
-                  <AccordionItemHeading>
-                    <AccordionItemButton>Pages</AccordionItemButton>
-                  </AccordionItemHeading>
+              {/*  <AccordionItem uuid="c">*/}
+              {/*    <AccordionItemHeading>*/}
+              {/*      <AccordionItemButton>Pages</AccordionItemButton>*/}
+              {/*    </AccordionItemHeading>*/}
 
-                  <AccordionItemPanel>
-                    <ul className="menu-list">
-                      <li>
-                        <Link
-                          href="/services/"
-                          className={`nav-link ${
-                            currentRoute === "/services/" ? "active" : ""
-                          }`}
-                        >
-                          Services
-                        </Link>
-                      </li>
+              {/*    <AccordionItemPanel>*/}
+              {/*      <ul className="menu-list">*/}
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/services/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/services/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Services*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/services/service-details/"
-                          className={`nav-link ${
-                            currentRoute === "/services/service-details/"
-                              ? "active"
-                              : ""
-                          }`}
-                        >
-                          Services Details
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/services/service-details/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/services/service-details/"*/}
+              {/*                ? "active"*/}
+              {/*                : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Services Details*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/pricing/"
-                          className={`nav-link ${
-                            currentRoute === "/pricing/" ? "active" : ""
-                          }`}
-                        >
-                          Pricing
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/pricing/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/pricing/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Pricing*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/team/"
-                          className={`nav-link ${
-                            currentRoute === "/team/" ? "active" : ""
-                          }`}
-                        >
-                          Team
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/team/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/team/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Team*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/gallery/"
-                          className={`nav-link ${
-                            currentRoute === "/gallery/" ? "active" : ""
-                          }`}
-                        >
-                          Gallery
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/gallery/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/gallery/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Gallery*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/faq/"
-                          className={`nav-link ${
-                            currentRoute === "/faq/" ? "active" : ""
-                          }`}
-                        >
-                          FAQs
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/faq/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/faq/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            FAQs*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/testimonials/"
-                          className={`nav-link ${
-                            currentRoute === "/testimonials/" ? "active" : ""
-                          }`}
-                        >
-                          Testimonials
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/testimonials/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/testimonials/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Testimonials*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/login/"
-                          className={`nav-link ${
-                            currentRoute === "/login/" ? "active" : ""
-                          }`}
-                        >
-                          Login
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/login/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/login/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Login*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/register/"
-                          className={`nav-link ${
-                            currentRoute === "/register/" ? "active" : ""
-                          }`}
-                        >
-                          Register
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/register/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/register/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Register*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/privacy-policy/"
-                          className={`nav-link ${
-                            currentRoute === "/privacy-policy/" ? "active" : ""
-                          }`}
-                        >
-                          Privacy Policy
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/privacy-policy/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/privacy-policy/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Privacy Policy*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/terms-conditions/"
-                          className={`nav-link ${
-                            currentRoute === "/terms-conditions/"
-                              ? "active"
-                              : ""
-                          }`}
-                        >
-                          Terms & Conditions
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/terms-conditions/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/terms-conditions/"*/}
+              {/*                ? "active"*/}
+              {/*                : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Terms & Conditions*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/request-quote/"
-                          className={`nav-link ${
-                            currentRoute === "/request-quote/" ? "active" : ""
-                          }`}
-                        >
-                          Request A Quote
-                        </Link>
-                      </li>
-                    </ul>
-                  </AccordionItemPanel>
-                </AccordionItem>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/request-quote/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/request-quote/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Request A Quote*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
+              {/*      </ul>*/}
+              {/*    </AccordionItemPanel>*/}
+              {/*  </AccordionItem>*/}
 
-                <AccordionItem uuid="d">
-                  <AccordionItemHeading>
-                    <AccordionItemButton>Blog</AccordionItemButton>
-                  </AccordionItemHeading>
+              {/*  <AccordionItem uuid="d">*/}
+              {/*    <AccordionItemHeading>*/}
+              {/*      <AccordionItemButton>Blog</AccordionItemButton>*/}
+              {/*    </AccordionItemHeading>*/}
 
-                  <AccordionItemPanel>
-                    <ul className="menu-list">
-                      <li>
-                        <Link
-                          href="/blog/"
-                          className={`nav-link ${
-                            currentRoute === "/blog/" ? "active" : ""
-                          }`}
-                        >
-                          Blog Grid
-                        </Link>
-                      </li>
+              {/*    <AccordionItemPanel>*/}
+              {/*      <ul className="menu-list">*/}
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/blog/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/blog/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Blog Grid*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/blog-right-sidebar/"
-                          className={`nav-link ${
-                            currentRoute === "/blog-right-sidebar/"
-                              ? "active"
-                              : ""
-                          }`}
-                        >
-                          Right Sidebar
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/blog-right-sidebar/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/blog-right-sidebar/"*/}
+              {/*                ? "active"*/}
+              {/*                : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Right Sidebar*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/blog-left-sidebar/"
-                          className={`nav-link ${
-                            currentRoute === "/blog-left-sidebar/"
-                              ? "active"
-                              : ""
-                          }`}
-                        >
-                          Left Sidebar
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/blog-left-sidebar/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/blog-left-sidebar/"*/}
+              {/*                ? "active"*/}
+              {/*                : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Left Sidebar*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/single-blog/"
-                          className={`nav-link ${
-                            currentRoute === "/single-blog/" ? "active" : ""
-                          }`}
-                        >
-                          Single Blog
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/single-blog/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/single-blog/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Single Blog*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/author/"
-                          className={`nav-link ${
-                            currentRoute === "/author/" ? "active" : ""
-                          }`}
-                        >
-                          Author
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/author/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/author/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Author*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/categories/"
-                          className={`nav-link ${
-                            currentRoute === "/categories/" ? "active" : ""
-                          }`}
-                        >
-                          Categories
-                        </Link>
-                      </li>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/categories/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/categories/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Categories*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
 
-                      <li>
-                        <Link
-                          href="/tags/"
-                          className={`nav-link ${
-                            currentRoute === "/tags/" ? "active" : ""
-                          }`}
-                        >
-                          Tags
-                        </Link>
-                      </li>
-                    </ul>
-                  </AccordionItemPanel>
-                </AccordionItem>
+              {/*        <li>*/}
+              {/*          <Link*/}
+              {/*            href="/tags/"*/}
+              {/*            className={`nav-link ${*/}
+              {/*              currentRoute === "/tags/" ? "active" : ""*/}
+              {/*            }`}*/}
+              {/*          >*/}
+              {/*            Tags*/}
+              {/*          </Link>*/}
+              {/*        </li>*/}
+              {/*      </ul>*/}
+              {/*    </AccordionItemPanel>*/}
+              {/*  </AccordionItem>*/}
 
-                <Link
-                  href="/contact-us/"
-                  className={`nav-link ${
-                    currentRoute === "/contact-us/" ? "active" : ""
-                  }`}
-                >
-                  Contact Us
-                </Link>
-              </Accordion>
+              {/*  <Link*/}
+              {/*    href="/contact-us/"*/}
+              {/*    className={`nav-link ${*/}
+              {/*      currentRoute === "/contact-us/" ? "active" : ""*/}
+              {/*    }`}*/}
+              {/*  >*/}
+              {/*    Contact Us*/}
+              {/*  </Link>*/}
+              {/*</Accordion>*/}
             </div>
           </div>
         </div>
