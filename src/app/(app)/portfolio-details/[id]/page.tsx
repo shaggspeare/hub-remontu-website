@@ -13,7 +13,7 @@ interface PortfolioPageProps {
 }
 
 export default async function PortfolioPage({ params }: PortfolioPageProps) {
-  const { id } = await params;
+  const { id } = params;
 
   const payload = await getPayload({ config });
   const { docs } = await payload.find({
