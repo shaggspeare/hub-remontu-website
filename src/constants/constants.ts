@@ -1,0 +1,1 @@
+export const apiURL = 'https://hub-remontu.payloadcms.app/api'

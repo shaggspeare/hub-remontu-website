@@ -1,4 +1,26 @@
-import { PortfolioDetailsInfo } from "@/components/PortfolioDetails/PortfolioDetailsContent";
+import React from "react";
+
+export interface PortfolioDetailsData {
+  id: string;
+  image: string;
+}
+
+export interface PortfolioDetailsInfo {
+  title: string;
+  mainImage: string;
+  description: {
+    part1: React.ReactElement;
+    part2?: React.ReactElement;
+  };
+  servicesCovered: string[];
+  projectDetails: {
+    client: string;
+    duration: string;
+    squareMeters: string;
+    services: string;
+  };
+  galleryImages: PortfolioDetailsData[];
+}
 
 export function getPortfolioDetailsById(
   id: string,

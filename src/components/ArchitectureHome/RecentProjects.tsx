@@ -1,15 +1,37 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import config from "@payload-config";
+import { getPayload } from "payload";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
-import { commercialProjects, livingProjects } from "@/data/projectsShortInfo";
+import { Media } from "@/payload-types";
 
-const projectsData = [...livingProjects, ...commercialProjects];
+export interface ProjectShortInfo {
+  id: string;
+  image?: string | Media | null;
+  title: string;
+  link: string;
+  category: string;
+}
 
-const RecentProjects: React.FC = () => {
+const RecentProjects: React.FC = async () => {
+  const payload = await getPayload({ config });
+
+  const { docs: projects } = await payload.find({ collection: "projects" });
+
+  console.log(projects);
+
+  const projectsData: ProjectShortInfo[] = projects.map((project) => {
+    return {
+      id: project.id,
+      image: project.verticalImage,
+      title: project.title,
+      link: `/portfolio-details/${project.id}`,
+      category: project.category,
+    };
+  });
+
   return (
     <>
       <div className="projects-area ptb-100">
@@ -22,111 +44,123 @@ const RecentProjects: React.FC = () => {
 
           {projectsData && (
             <div className="row justify-content-center">
+              {/* First Column: Projects 0-2 */}
               <div className="col-lg-4 col-md-6">
                 <div className="projects-inner-border">
-                  {projectsData &&
-                    projectsData.slice(0, 3).map((value, i) => (
-                      <div className="projects-item" key={i}>
-                        <div className="projects-image">
-                          <Link href={value.link}>
+                  {projectsData.slice(0, 3).map((value, i) => (
+                    <div className="projects-item" key={i}>
+                      <div className="projects-image">
+                        <Link href={value.link}>
+                          {value.image &&
+                          typeof value.image !== "string" &&
+                          "url" in value.image ? (
                             <Image
-                              src={value.image}
-                              alt="image"
+                              src={value.image.url || ""}
+                              alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
                             />
-                          </Link>
+                          ) : null}
+                        </Link>
 
-                          <div className="icon">
-                            <Link href={value.link}>
-                              <Image
-                                src={rightArrowIcon}
-                                alt="arrow-right"
-                                width={24}
-                                height={24}
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="projects-content">
-                          <h3>
-                            <Link href={value.link}>{value.title}</Link>
-                          </h3>
+                        <div className="icon">
+                          <Link href={value.link}>
+                            <Image
+                              src={rightArrowIcon}
+                              alt="arrow-right"
+                              width={24}
+                              height={24}
+                            />
+                          </Link>
                         </div>
                       </div>
-                    ))}
+                      <div className="projects-content">
+                        <h3>
+                          <Link href={value.link}>{value.title}</Link>
+                        </h3>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
+              {/* Second Column: Projects 3-5 */}
               <div className="col-lg-4 col-md-6">
                 <div className="projects-inner-border">
-                  {projectsData &&
-                    projectsData.slice(3, 6).map((value, i) => (
-                      <div className="projects-item" key={i}>
-                        <div className="projects-image">
-                          <Link href={value.link}>
+                  {projectsData.slice(3, 6).map((value, i) => (
+                    <div className="projects-item" key={i}>
+                      <div className="projects-image">
+                        <Link href={value.link}>
+                          {value.image &&
+                          typeof value.image !== "string" &&
+                          "url" in value.image ? (
                             <Image
-                              src={value.image}
-                              alt="image"
+                              src={value.image.url || ""}
+                              alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
                             />
-                          </Link>
+                          ) : null}
+                        </Link>
 
-                          <div className="icon">
-                            <Link href={value.link}>
-                              <Image
-                                src={rightArrowIcon}
-                                alt="arrow-right"
-                                width={24}
-                                height={24}
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="projects-content">
-                          <h3>
-                            <Link href={value.link}>{value.title}</Link>
-                          </h3>
+                        <div className="icon">
+                          <Link href={value.link}>
+                            <Image
+                              src={rightArrowIcon}
+                              alt="arrow-right"
+                              width={24}
+                              height={24}
+                            />
+                          </Link>
                         </div>
                       </div>
-                    ))}
+                      <div className="projects-content">
+                        <h3>
+                          <Link href={value.link}>{value.title}</Link>
+                        </h3>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
+              {/* Third Column: Projects 6-8 */}
               <div className="col-lg-4 col-md-6">
                 <div className="projects-inner-border">
-                  {projectsData &&
-                    projectsData.slice(6, 9).map((value, i) => (
-                      <div className="projects-item" key={i}>
-                        <div className="projects-image">
-                          <Link href={value.link}>
+                  {projectsData.slice(6, 9).map((value, i) => (
+                    <div className="projects-item" key={i}>
+                      <div className="projects-image">
+                        <Link href={value.link}>
+                          {value.image &&
+                          typeof value.image !== "string" &&
+                          "url" in value.image ? (
                             <Image
-                              src={value.image}
-                              alt="image"
+                              src={value.image.url || ""}
+                              alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
                             />
-                          </Link>
+                          ) : null}
+                        </Link>
 
-                          <div className="icon">
-                            <Link href={value.link}>
-                              <Image
-                                src={rightArrowIcon}
-                                alt="arrow-right"
-                                width={24}
-                                height={24}
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="projects-content">
-                          <h3>
-                            <Link href={value.link}>{value.title}</Link>
-                          </h3>
+                        <div className="icon">
+                          <Link href={value.link}>
+                            <Image
+                              src={rightArrowIcon}
+                              alt="arrow-right"
+                              width={24}
+                              height={24}
+                            />
+                          </Link>
                         </div>
                       </div>
-                    ))}
+                      <div className="projects-content">
+                        <h3>
+                          <Link href={value.link}>{value.title}</Link>
+                        </h3>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

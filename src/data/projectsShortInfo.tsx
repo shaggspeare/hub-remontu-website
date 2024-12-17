@@ -1,10 +1,10 @@
-export interface ProjectShortInfo {
+interface ProjectShortInfo {
   id: string;
   image: string;
   title: string;
   category: string;
   link: string;
-  displayType: string;
+  displayType?: string;
 }
 
 export const livingProjects = [

@@ -16,7 +16,6 @@ export default function Page() {
 
       <AboutUsContent />
 
-
       <QuoteText />
 
       <TextSlide />

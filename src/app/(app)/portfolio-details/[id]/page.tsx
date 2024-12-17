@@ -1,35 +1,42 @@
-"use client";
-
-import { useParams } from "next/navigation"; // For app router
 import PageTitle from "@/components/Common/PageTitle";
-import PortfolioDetailsContent from "@/components/PortfolioDetails/PortfolioDetailsContent";
 import Footer from "@/components/Layout/Footer";
 import Navbar from "@/components/Layout/Navbar";
-import { getPortfolioDetailsById } from "@/data/portfolioDetails";
-import GalleryImage from "@/components/Gallery/GalleryImage";
+import PortfolioDetailsContent from "@/components/PortfolioDetails/PortfolioDetailsContent";
+import { notFound } from "next/navigation";
+import { getPayload } from "payload";
+import config from "@payload-config";
 
-export default function PortfolioPage() {
-  const params = useParams();
+interface PortfolioPageProps {
+  params: {
+    id: string;
+  };
+}
 
-  // Ensure the ID is always a string, and default to '1' if no ID is provided
-  const id = params.id
-    ? Array.isArray(params.id)
-      ? params.id[0]
-      : params.id
-    : "1";
+export default async function PortfolioPage({ params }: PortfolioPageProps) {
+  const { id } = await params;
 
-  const portfolioDetailsInfo = getPortfolioDetailsById(id);
+  const payload = await getPayload({ config });
+  const { docs } = await payload.find({
+    collection: "projects",
+    where: {
+      id: { equals: id },
+    },
+  });
 
-  if (!portfolioDetailsInfo) {
-    return <div>Portfolio details not found.</div>;
+  if (!docs || docs.length === 0) {
+    notFound();
   }
+
+  const project = docs[0];
+
+  console.log("project", id, project);
 
   return (
     <div className="full-bg-black-color">
       <Navbar />
       <PageTitle title="Портфоліо" homeText="Головна" homeUrl="/" />
-      <PortfolioDetailsContent portfolioDetailsInfo={portfolioDetailsInfo} />
-      <GalleryImage galleryImageData={portfolioDetailsInfo.galleryImages} />
+      {/* Pass the raw `project` data to our client component. */}
+      <PortfolioDetailsContent project={project} />
       <Footer />
     </div>
   );
