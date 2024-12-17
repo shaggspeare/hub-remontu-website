@@ -6,13 +6,11 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
-interface PortfolioPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default async function PortfolioPage({ params }: PortfolioPageProps) {
+export default async function PortfolioPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { id } = params;
 
   const payload = await getPayload({ config });
