@@ -6,12 +6,9 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
-export default async function PortfolioPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = params;
+// @ts-ignore
+export default async function PortfolioPage({ params }) {
+  const { id } = await params;
 
   const payload = await getPayload({ config });
   const { docs } = await payload.find({
