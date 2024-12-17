@@ -26,11 +26,12 @@ export default async function PortfolioPage({ params }) {
 
   console.log("project", id, project);
 
+
   return (
     <div className="full-bg-black-color">
       <Navbar />
       <PageTitle title="Портфоліо" homeText="Головна" homeUrl="/" />
-      {/* Pass the raw `project` data to our client component. */}
+      {/* @ts-ignore */}
       <PortfolioDetailsContent project={project} />
       <Footer />
     </div>
