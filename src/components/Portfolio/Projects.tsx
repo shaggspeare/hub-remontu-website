@@ -34,10 +34,17 @@ const ProjectsPage: React.FC = async () => {
         <div className="section-title-wrap d-flex d-md-block d-xl-flex align-items-end justify-content-between">
           <div className="title">
             <span>ПРОЄКТИ</span>
-            <h2 style={{ color: "white" }}>Проєкти, якими ми пишаємось</h2>
+            <h2 style={{color: "white"}}>Проєкти, якими ми пишаємось</h2>
           </div>
         </div>
-        <Tabs projectsData={projectsData} />
+        <Tabs projectsData={projectsData}/>
+
+        <pre>
+          {JSON.stringify(projects, null, 2)}
+        </pre>
+        <pre>
+          {JSON.stringify(projectsData, null, 2)}
+        </pre>
       </div>
     </div>
   );
