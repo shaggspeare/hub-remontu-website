@@ -8,16 +8,10 @@ export default function Page() {
   return (
     <div className="full-bg-black-color">
       <Navbar />
-      <PageTitle 
-        title="Портфоліо"
-        homeText="Головна"
-        homeUrl="/"
-      />
+      <PageTitle title="Портфоліо" homeText="Головна" homeUrl="/" />
       <Projects />
-      <div className="pb-100">
-        <ContactForm/>
-      </div>
+      <ContactForm />
       <Footer />
     </div>
-  )
+  );
 }

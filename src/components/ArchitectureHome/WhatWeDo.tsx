@@ -12,7 +12,7 @@ const servicesData = [
     icon: "flaticon-interior-design",
     title: "Дизайн",
     text: "Ми допоможемо Вам створити унікальний та оригінальний дизайн проєкт Вашого будинку, квартири, приміщення, який буде практичним та продуманим до дрібниць.",
-    link: "/services/service-details",
+    link: "/services/_service-details",
     aosDelay: "100",
   },
   {
@@ -20,7 +20,7 @@ const servicesData = [
     icon: "flaticon-measuring",
     title: "Проєктування",
     text: "Зробимо точний проєкт та підготуємо технічне завдання для виконання всіх робіт.",
-    link: "/services/service-details",
+    link: "/services/_service-details",
     aosDelay: "300",
   },
   {
@@ -29,7 +29,7 @@ const servicesData = [
     title: "Ремонт",
     text:
       "Виконуємо якісно та в строки ремонт будинків, квартир, офісів, ресторанів, магазинів, комерційних приміщень будь-якого призначення та складності.",
-    link: "/services/service-details",
+    link: "/services/_service-details",
     aosDelay: "200",
   },
 ];

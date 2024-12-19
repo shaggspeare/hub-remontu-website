@@ -82,7 +82,7 @@ const partnerData = [
 
 const Partner: React.FC = () => {
   return (
-    <>
+    <div className="pt-100">
       {partnerData && (
         <div className="partner-area pb-75">
           <div className="container-fluid">
@@ -110,7 +110,7 @@ const Partner: React.FC = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

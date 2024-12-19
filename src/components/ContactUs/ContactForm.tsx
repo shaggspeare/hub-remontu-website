@@ -82,7 +82,7 @@ const ContactForm: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="pb-100">
       <div className="contact-area ptb-100">
         <div className="container">
           <div className="row justify-content-center">
@@ -232,7 +232,7 @@ const ContactForm: React.FC = () => {
           transform: translateY(0);
         }
       `}</style>
-    </>
+    </div>
   );
 };
 

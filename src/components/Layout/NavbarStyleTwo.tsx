@@ -213,9 +213,9 @@ const NavbarStyleTwo: React.FC = () => {
 
                       <li className="nav-item">
                         <Link
-                          href="/services/service-details/"
+                          href="/src/app/(app)/services/_service-details/"
                           className={`nav-link ${
-                            currentRoute === "/services/service-details/" ? "active" : ""
+                            currentRoute === "/services/_service-details/" ? "active" : ""
                           }`}
                         >
                           Services Details
@@ -248,9 +248,9 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/gallery/"
+                      href="/src/app/(app)/_gallery/"
                       className={`nav-link ${
-                        currentRoute === "/gallery/" ? "active" : ""
+                        currentRoute === "/_gallery/" ? "active" : ""
                       }`}
                     >
                       Gallery
@@ -629,9 +629,9 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/services/service-details/"*/}
+              {/*            href="/services/_service-details/"*/}
               {/*            className={`nav-link ${*/}
-              {/*              currentRoute === "/services/service-details/"*/}
+              {/*              currentRoute === "/services/_service-details/"*/}
               {/*                ? "active"*/}
               {/*                : ""*/}
               {/*            }`}*/}
@@ -664,9 +664,9 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/gallery/"*/}
+              {/*            href="/_gallery/"*/}
               {/*            className={`nav-link ${*/}
-              {/*              currentRoute === "/gallery/" ? "active" : ""*/}
+              {/*              currentRoute === "/_gallery/" ? "active" : ""*/}
               {/*            }`}*/}
               {/*          >*/}
               {/*            Gallery*/}

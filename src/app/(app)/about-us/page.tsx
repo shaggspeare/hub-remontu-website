@@ -20,13 +20,9 @@ export default function Page() {
 
       <TextSlide />
 
-      <div className="pt-100">
-        <Partner />
-      </div>
+      <Partner />
 
-      <div className="pb-100">
-        <ContactForm />
-      </div>
+      <ContactForm />
 
       <Footer />
     </div>

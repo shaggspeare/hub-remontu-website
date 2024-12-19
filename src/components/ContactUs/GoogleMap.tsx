@@ -4,7 +4,7 @@ import React from "react";
 
 const GoogleMap: React.FC = () => {
   return (
-    <>
+    <div className="pb-100">
       <div className="map-area">
         <div className="container">
           <iframe
@@ -17,7 +17,7 @@ const GoogleMap: React.FC = () => {
           ></iframe>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

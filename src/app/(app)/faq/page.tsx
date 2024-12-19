@@ -9,19 +9,13 @@ export default function Page() {
     <div className="full-bg-black-color">
       <Navbar />
 
-      <PageTitle 
-        title="FAQs"
-        homeText="Home"
-        homeUrl="/"
-      />
+      <PageTitle title="FAQs" homeText="Home" homeUrl="/" />
 
       <FaqsContent />
 
-      <div className="pb-100">
-        <ContactForm />
-      </div>
- 
+      <ContactForm />
+
       <Footer />
     </div>
-  )
+  );
 }

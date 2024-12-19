@@ -13,7 +13,7 @@ const servicesData = [
     title: "Urban Design",
     shortText:
       "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
-    link: "/services/service-details",
+    link: "/services/_service-details",
   },
   {
     id: "2",
@@ -21,7 +21,7 @@ const servicesData = [
     title: "Architecture",
     shortText:
       "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
-    link: "/services/service-details",
+    link: "/services/_service-details",
   },
   {
     id: "3",
@@ -29,7 +29,7 @@ const servicesData = [
     title: "Interior Design",
     shortText:
       "We are a leading architecture firm dedicated to creating visionary designs that transcend expectations.",
-    link: "/services/service-details",
+    link: "/services/_service-details",
   },
 ];
 

@@ -9,21 +9,13 @@ export default function Page() {
     <div className="full-bg-black-color">
       <Navbar />
 
-      <PageTitle 
-        title="Контакти"
-        homeText="Головна"
-        homeUrl="/"
-      />
+      <PageTitle title="Контакти" homeText="Головна" homeUrl="/" />
 
-      <div className="ptb-100">
-        <ContactForm />
-      </div>
+      <ContactForm />
 
-      <div className="pb-100">
-        <GoogleMap />
-      </div>
- 
+      <GoogleMap />
+
       <Footer />
     </div>
-  )
+  );
 }
