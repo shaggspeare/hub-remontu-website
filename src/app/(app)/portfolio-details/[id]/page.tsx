@@ -5,6 +5,12 @@ import PortfolioDetailsContent from "@/components/PortfolioDetails/PortfolioDeta
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/utils/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata("portfolio-details");
+}
 
 // @ts-ignore
 export default async function PortfolioPage({ params }) {

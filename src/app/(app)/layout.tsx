@@ -17,15 +17,9 @@ import "../../../public/css/responsive.scss";
 import AosAnimation from "@/components/Layout/AosAnimation";
 import BackToTop from "@/components/Layout/BackToTop";
 
-import type { Metadata } from "next";
 import { Geologica } from "next/font/google";
 
 const font = Geologica({ subsets: ["cyrillic", "latin"] });
-
-export const metadata: Metadata = {
-  title: "Hub Remontu",
-  description: "Hub Remontu",
-};
 
 export default function RootLayout({
   children,

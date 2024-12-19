@@ -1,13 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-// import {
-//   Accordion,
-//   AccordionItem,
-//   AccordionItemHeading,
-//   AccordionItemButton,
-//   AccordionItemPanel,
-// } from "react-accessible-accordion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";

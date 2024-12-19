@@ -6,6 +6,14 @@ import Partner from "@/components/Common/Partner";
 import Footer from "@/components/Layout/Footer";
 import Navbar from "@/components/Layout/Navbar";
 import ContactForm from "@/components/ContactUs/ContactForm";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/utils/seo";
+
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata("about-us");
+}
 
 export default function Page() {
   return (
