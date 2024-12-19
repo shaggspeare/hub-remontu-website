@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 const TermsConditionsContent: React.FC = () => {
   return (
@@ -53,7 +54,7 @@ const TermsConditionsContent: React.FC = () => {
             <h4>How We Use Personal Information</h4>
             <p>
               This data is intended to identify you as our{" "}
-              <a href="#">customer subscriber</a> and deliver
+              <Link href="#">customer subscriber</Link> and deliver
               products/information and other marketing elements. Visitors aren’t
               allowed to purchase any product or subscribe to the newsletter or
               make a comment anonymously. So, this information is the only means
@@ -74,9 +75,9 @@ const TermsConditionsContent: React.FC = () => {
               We store personal information on secure servers managed by us, and
               our service providers and files are kept in a secure location.
               Personal{" "}
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 information
-              </a>{" "}
+              </Link>{" "}
               that we store is protected by security and access controls,
               including username and password authentication, two-factor
               authentication, and data encryption where appropriate.
@@ -145,7 +146,7 @@ const TermsConditionsContent: React.FC = () => {
               If you have any questions about our privacy practices or how we
               have been managing your personal information, please get in touch
               with our support at{" "}
-              <a href="mailto:hello@traz.com">hello@traz.com</a>.
+              <Link href="mailto:hello@traz.com">hello@traz.com</Link>.
             </p>
             <p>
               Both personal information and personal data have the same meaning

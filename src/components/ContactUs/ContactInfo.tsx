@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 // Social Links
 const socialLinksData = [
@@ -33,8 +34,8 @@ const ContactInfo: React.FC = () => {
 
         <li>
           <span>CONTACT</span>
-          <a href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</a>
-          <a href="tel:380683833838">+38 (068) 383 38 38</a>
+          <Link href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</Link>
+          <Link href="tel:380683833838">+38 (068) 383 38 38</Link>
         </li>
 
         <li>
@@ -45,9 +46,9 @@ const ContactInfo: React.FC = () => {
               {socialLinksData &&
                 socialLinksData.map((value, i) => (
                   <li key={i}>
-                    <a href={value.link} target="_blank">
+                    <Link href={value.link} target="_blank">
                       <i className={value.icon}></i>
-                    </a>
+                    </Link>
                   </li>
                 ))}
             </ul>

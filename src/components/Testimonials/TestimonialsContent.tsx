@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 import quoteIcon from "../../../public/images/client/quote.svg";
+import Link from "next/link";
 
 const clientsFeedbackData = [
   {
@@ -115,19 +116,19 @@ const TestimonialsContent: React.FC = () => {
               <div className="col-lg-12 col-md-12">
                 <div className="pagination-area">
                   <div className="nav-links">
-                    <a href="#" className="prev">
+                    <Link href="#" className="prev">
                       <i className="ri-arrow-left-s-line"></i>
-                    </a>
+                    </Link>
                     <span className="page-numbers current">1</span>
-                    <a href="#" className="page-numbers">
+                    <Link href="#" className="page-numbers">
                       2
-                    </a>
-                    <a href="#" className="page-numbers">
+                    </Link>
+                    <Link href="#" className="page-numbers">
                       3
-                    </a>
-                    <a href="#" className="next">
+                    </Link>
+                    <Link href="#" className="next">
                       <i className="ri-arrow-right-s-line"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

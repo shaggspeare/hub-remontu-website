@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const teamMemberData = [
   {
@@ -161,12 +162,12 @@ const TeamMemberStyle2: React.FC = () => {
                           {teamMemberData &&
                             value.socialLink.map((value, i) => (
                               <li key={i}>
-                                <a
+                                <Link
                                   href="https://www.facebook.com/"
                                   target="_blank"
                                 >
                                   <i className={value.icon}></i>
-                                </a>
+                                </Link>
                               </li>
                             ))}
                         </ul>
@@ -199,12 +200,12 @@ const TeamMemberStyle2: React.FC = () => {
                               {teamMemberData &&
                                 value.socialLink.map((value, i) => (
                                   <li key={i}>
-                                    <a
+                                    <Link
                                       href={value.link}
                                       target="_blank"
                                     >
                                       <i className={value.icon}></i>
-                                    </a>
+                                    </Link>
                                   </li>
                                 ))}
                             </ul>

@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
           {/* Menu For Desktop Device */}
           <div className={classOne} id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto">
-              <a
+              <Link
                 style={{
                   marginRight: "10px",
                   backgroundColor: "transparent",
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
                 href="tel:380683833838"
               >
                 +38(068) 383 38 38
-              </a>
+              </Link>
               <li className="nav-item">
                 <Link
                   className={`nav-link ${currentRoute === "/" ? "active" : ""}`}

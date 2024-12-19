@@ -142,10 +142,10 @@ const SingleBlogContent: React.FC = () => {
                 <Link href="/categories">Exterior</Link>
               </li>
               <li>
-                <a href="/categories">Architectural Design</a>
+                <Link href="/categories">Architectural Design</Link>
               </li>
               <li>
-                <a href="/categories">Interior</a>
+                <Link href="/categories">Interior</Link>
               </li>
             </ul>
 
@@ -169,19 +169,19 @@ const SingleBlogContent: React.FC = () => {
 
         <ul className="bd-social">
           <li>
-            <a href="https://www.facebook.com/" target="_blank">
+            <Link href="https://www.facebook.com/" target="_blank">
               <i className="ri-facebook-line"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="https://www.instagram.com/" target="_blank">
+            <Link href="https://www.instagram.com/" target="_blank">
               <i className="ri-instagram-line"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="https://twitter.com/" target="_blank">
+            <Link href="https://twitter.com/" target="_blank">
               <i className="ri-twitter-fill"></i>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

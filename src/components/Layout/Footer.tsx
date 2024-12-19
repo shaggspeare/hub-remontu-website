@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import whiteLogo from "../../../public/images/logo_en.svg";
-import NewsletterForm from "./NewsletterForm";
 
 // Social Links
 const socialLinksData = [
@@ -81,9 +80,9 @@ const Footer: React.FC = () => {
                     {socialLinksData &&
                       socialLinksData.map((value, i) => (
                         <li key={i}>
-                          <a href={value.link} target="_blank">
+                          <Link href={value.link} target="_blank">
                             <i className="ri-arrow-right-line"></i> {value.name}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                   </ul>
@@ -100,7 +99,7 @@ const Footer: React.FC = () => {
                     {pageLinksData &&
                       pageLinksData.map((value, i) => (
                         <li key={i}>
-                          <a href={value.link}>{value.name}</a>
+                          <Link href={value.link}>{value.name}</Link>
                         </li>
                       ))}
                   </ul>
@@ -121,10 +120,10 @@ const Footer: React.FC = () => {
           <div className="copyright-area-content">
             <p>
               © <span>HUB REMONTU</span> All Rights Reserved By
-              <a href="https://envytheme.com/" target="_blank">
+              <Link href="https://envytheme.com/" target="_blank">
                 {" "}
                 HUB REMONTU
-              </a>
+              </Link>
             </p>
           </div>
         </div>

@@ -104,9 +104,9 @@ const HeroBanner: React.FC = () => {
             {socialLinksData &&
               socialLinksData.map((value, i) => (
                 <li key={i}>
-                  <a href={value.link} target="_blank">
+                  <Link href={value.link} target="_blank">
                     <i className={value.icon}></i>
-                  </a>
+                  </Link>
                 </li>
               ))}
           </ul>
@@ -126,11 +126,11 @@ const HeroBanner: React.FC = () => {
         <ul className="main-banner-info">
           <li>
             <span>Дзвони: </span>
-            <a href="tel:380683833838">+38(068) 383 38 38</a>
+            <Link href="tel:380683833838">+38(068) 383 38 38</Link>
           </li>
           <li>
             <span>Пиши: </span>
-            <a href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</a>
+            <Link href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</Link>
           </li>
         </ul>
       </div>

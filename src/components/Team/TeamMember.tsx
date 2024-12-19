@@ -88,12 +88,12 @@ const TeamMember: React.FC = () => {
                         {/*  {teamMemberData &&*/}
                         {/*    value.socialLink.map((value, i) => (*/}
                         {/*      <li key={i}>*/}
-                        {/*        <a*/}
+                        {/*        <Link*/}
                         {/*          href={value.link}*/}
                         {/*          target="_blank"*/}
                         {/*        >*/}
                         {/*          <i className={value.icon}></i>*/}
-                        {/*        </a>*/}
+                        {/*        </Link>*/}
                         {/*      </li>*/}
                         {/*    ))}*/}
                         {/*</ul>*/}
@@ -126,12 +126,12 @@ const TeamMember: React.FC = () => {
                             {/*  {teamMemberData &&*/}
                             {/*    value.socialLink.map((value, i) => (*/}
                             {/*      <li key={i}>*/}
-                            {/*        <a*/}
+                            {/*        <Link*/}
                             {/*          href="https://www.facebook.com/"*/}
                             {/*          target="_blank"*/}
                             {/*        >*/}
                             {/*          <i className={value.icon}></i>*/}
-                            {/*        </a>*/}
+                            {/*        </Link>*/}
                             {/*      </li>*/}
                             {/*    ))}*/}
                             {/*</ul>*/}

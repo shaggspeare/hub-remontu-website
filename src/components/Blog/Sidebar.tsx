@@ -138,7 +138,7 @@ const Sidebar: React.FC = () => {
                   </Link>
                   <div className="info">
                     <h4 className="title usmall">
-                      <a href={value.link}>{value.title}</a>
+                      <Link href={value.link}>{value.title}</Link>
                     </h4>
                     <span>{value.date}</span>
                   </div>

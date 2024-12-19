@@ -92,7 +92,7 @@ const BlogGridPost: React.FC = () => {
                   <div className="form-group">
                     <select className="form-select">
                       <option value="0">
-                        Sort <b>By Date</b>
+                        Sort By Date
                       </option>
                       <option value="1">Popularity</option>
                       <option value="2">Latest</option>
@@ -122,7 +122,7 @@ const BlogGridPost: React.FC = () => {
                       <div className="content wrap-color">
                         <span className="date">{value.date}</span>
                         <h3>
-                          <a href={value.link}>{value.title}</a>
+                          <Link href={value.link}>{value.title}</Link>
                         </h3>
                       </div>
                     </div>

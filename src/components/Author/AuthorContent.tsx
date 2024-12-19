@@ -109,9 +109,9 @@ const AuthorContent: React.FC = () => {
                   {socialLinksData &&
                     socialLinksData.map((value, i) => (
                       <li key={i}>
-                        <a href={value.link} target="_blank">
-                          <i className={value.icon}></i>
-                        </a>
+                        {/*<Link href={value.link} target="_blank">*/}
+                        {/*  <i className={value.icon}></i>*/}
+                        {/*</Link>*/}
                       </li>
                     ))}
                 </ul>
@@ -138,7 +138,7 @@ const AuthorContent: React.FC = () => {
                       <div className="content wrap-color">
                         <span className="date">{value.date}</span>
                         <h3>
-                          <a href={value.link}>{value.title}</a>
+                          {/*<Link href={value.link}>{value.title}</Link>*/}
                         </h3>
                       </div>
                     </div>

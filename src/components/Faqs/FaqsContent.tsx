@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 const FaqsContent: React.FC = () => {
   const [openItems, setOpenItems] = useState<string[]>(["a"]);
@@ -34,12 +35,12 @@ const FaqsContent: React.FC = () => {
         <>
           Все просто! Залиште заявку на нашому сайті або зателефонуйте нам за
           номером{" "}
-          <a
+          <Link
             style={{ textDecoration: "underline", color: "var(--whiteColor)" }}
             href="tel:380683833838"
           >
             +38(068) 383 38 38
-          </a>{" "}
+          </Link>{" "}
           і ми обговоримо майбутню співпрацю.
         </>
       ),
