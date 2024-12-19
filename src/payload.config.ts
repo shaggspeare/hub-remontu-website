@@ -42,5 +42,5 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
-  // serverURL: 'https://hubremontu.ua'
+  serverURL: 'https://hubremontu.ua'
 });
