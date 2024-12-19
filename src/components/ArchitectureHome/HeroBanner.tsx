@@ -9,7 +9,6 @@ import shapeImg from "../../../public/images/main-banner/shape.png";
 import textShapeImg from "../../../public/images/main-banner/text.png";
 import arrowRightIcon from "../../../public/images/main-banner/arrow-right.svg";
 
-// Social Links
 const socialLinksData = [
   {
     id: "1",
@@ -29,12 +28,10 @@ const socialLinksData = [
 ];
 
 const HeroBanner: React.FC = () => {
-  // To open the lightbox change the value of the "toggler" prop.
   const [toggler, setToggler] = useState<boolean>(false);
 
   return (
     <>
-      {/* Use here youtube Embed video link */}
       <FsLightbox
         toggler={toggler}
         sources={[

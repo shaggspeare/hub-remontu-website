@@ -342,11 +342,20 @@ Preloader Area CSS
         }
     }
 }
+
+@media only screen and (max-width : 960px) {
+    .preloader-area .loader .waviy span {
+        font-size: 25px;
+        margin-right: 2px;
+    }
+}
+
 @keyframes flip {
     0%, 80% {
         transform: rotateY(360deg)
     }
 }
+
 
 /*================================================
 Main Banner Area CSS

@@ -1,12 +1,21 @@
 "use client";
 
 import React from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
 import { ProjectShortInfo } from "@/components/Portfolio/Projects";
+
+// Dynamically import Masonry components with SSR disabled
+const ResponsiveMasonry = dynamic(
+  () => import("react-responsive-masonry").then((mod) => mod.ResponsiveMasonry),
+  { ssr: false },
+);
+const Masonry = dynamic(() => import("react-responsive-masonry"), {
+  ssr: false,
+});
 
 interface ProjectsShortInfoProps {
   data: ProjectShortInfo[];
@@ -14,12 +23,7 @@ interface ProjectsShortInfoProps {
 
 const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-delay="100"
-      data-aos-duration="600"
-      data-aos-once="true"
-    >
+    <div>
       <ResponsiveMasonry
         columnsCountBreakPoints={{
           300: 1,

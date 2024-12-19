@@ -34,8 +34,6 @@ const ContactFormStyleTwo: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add your form submission logic here.
-    console.log("Form submitted:", formData);
   };
 
   return (

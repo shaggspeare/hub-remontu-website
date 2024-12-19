@@ -1,9 +1,14 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  ChangeEvent,
+  FormEvent,
+} from "react";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
-
 import shape from "../../../public/images/contact/shape.png";
 
 interface FormData {
@@ -21,15 +26,13 @@ const ContactForm: React.FC = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const fadeRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -58,21 +61,40 @@ const ContactForm: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-up-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    fadeRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <div className="contact-area ptb-100">
         <div className="container">
           <div className="row justify-content-center">
             <div
-              className="col-lg-5 col-md-12 pe-5"
-              data-aos="fade-up"
-              data-aos-delay="100"
-              data-aos-duration="600"
-              data-aos-once="true"
+              ref={(el) => {
+                if (el) fadeRefs.current.push(el);
+              }}
+              className="col-lg-5 col-md-12 pe-5 fade-up"
             >
               <div className="contact-image">
                 <Image
-                  src='/images/new-images/past-projects/3k_sanfran-min.png'
+                  src="/images/new-images/past-projects/3k_sanfran-min.png"
                   alt="contact"
                   width={700}
                   height={1012}
@@ -80,14 +102,13 @@ const ContactForm: React.FC = () => {
               </div>
             </div>
 
-            <div className="col-lg-7 col-md-12 ps-5">
-              <div
-                className="contact-form-wrap"
-                data-aos="fade-up"
-                data-aos-delay="200"
-                data-aos-duration="600"
-                data-aos-once="true"
-              >
+            <div
+              ref={(el) => {
+                if (el) fadeRefs.current.push(el);
+              }}
+              className="col-lg-7 col-md-12 ps-5 fade-up"
+            >
+              <div className="contact-form-wrap">
                 <div className="title">
                   <h2>
                     <span>Зв`язатись</span> з нами
@@ -167,7 +188,12 @@ const ContactForm: React.FC = () => {
                     </form>
                   </div>
 
-                  <div className="col-lg-5 col-md-6">
+                  <div
+                    ref={(el) => {
+                      if (el) fadeRefs.current.push(el);
+                    }}
+                    className="col-lg-5 col-md-6 fade-up"
+                  >
                     <ContactInfo />
                   </div>
                 </div>
@@ -180,6 +206,32 @@ const ContactForm: React.FC = () => {
           <Image src={shape} alt="image" width={116} height={82} />
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .fade-up {
+          opacity: 0;
+          transform: translateY(40px);
+          transition:
+            opacity 0.6s ease-out,
+            transform 0.6s ease-out;
+        }
+
+        .fade-up-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </>
   );
 };

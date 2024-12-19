@@ -8,7 +8,7 @@ import GalleryImage from "@/components/Gallery/GalleryImage";
 interface PayloadProject {
   id: string;
   title: string;
-  mainImage:any; // <-- allow a string fallback
+  mainImage: any; // <-- allow a string fallback
   description1?: string;
   description2?: string;
   servicesCovered?: { service: string }[];
@@ -19,8 +19,11 @@ interface PayloadProject {
     services?: string;
   };
   galleryImages?: {
-    id: string;
-    url: string;
+    galleryImage: {
+      id: string;
+      url: string;
+      alt: string;
+    };
   }[];
 }
 interface PortfolioDetailsContentProps {
@@ -48,9 +51,10 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
       squareMeters: project.projectDetails?.squareMeters ?? "",
       services: project.projectDetails?.services ?? "",
     },
-    galleryImages: (project.galleryImages ?? []).map((img) => ({
-      id: img.id,
-      image: img.url,
+    galleryImages: (project.galleryImages ?? []).map(({ galleryImage }) => ({
+      id: galleryImage.id,
+      image: galleryImage.url,
+      alt: galleryImage.alt,
     })),
   };
 
@@ -61,15 +65,17 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
           <h1 className="projects-details-main-title">
             {portfolioDetailsInfo.title}
           </h1>
-          <div className="projects-details-image">
-            <Image
-              src={portfolioDetailsInfo.mainImage}
-              alt={portfolioDetailsInfo.title}
-              width={900}
-              height={530}
-              quality={100}
-            />
-          </div>
+          {!!portfolioDetailsInfo.mainImage && (
+            <div className="projects-details-image">
+              <Image
+                src={portfolioDetailsInfo.mainImage}
+                alt={portfolioDetailsInfo.title || 'project main image'}
+                width={900}
+                height={530}
+                quality={100}
+              />
+            </div>
+          )}
 
           <div className="row justify-content-center">
             <div className="col-lg-9 col-md-12">

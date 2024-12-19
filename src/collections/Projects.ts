@@ -183,17 +183,21 @@ export const Projects: CollectionConfig = {
         uk: "Галерея зображень",
         ru: "Галерея изображений",
       },
-      type: "relationship",
-      relationTo: "media",
-      hasMany: true,
-      required: false, // can set true if needed
-      admin: {
-        description: {
-          en: "Select or upload multiple images for your gallery in one go.",
-          uk: "Виберіть або завантажте кілька зображень для галереї одночасно.",
-          ru: "Выберите или загрузите несколько изображений для галереи за один раз.",
+      fields: [
+        {
+          name: "galleryImage",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+          label: {
+            en: "GalleryImage",
+            uk: "Зображення",
+            ru: "Изображение",
+          },
         },
-      },
+      ],
+      type: "array",
+      required: false, // can set true if needed
     },
   ],
 };

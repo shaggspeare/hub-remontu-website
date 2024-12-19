@@ -120,7 +120,12 @@ export interface Project {
     squareMeters?: string | null;
     services?: string | null;
   };
-  galleryImages?: (string | Media)[] | null;
+  galleryImages?:
+    | {
+        galleryImage: string | Media;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -244,7 +249,12 @@ export interface ProjectsSelect<T extends boolean = true> {
         squareMeters?: T;
         services?: T;
       };
-  galleryImages?: T;
+  galleryImages?:
+    | T
+    | {
+        galleryImage?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

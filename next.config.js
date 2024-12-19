@@ -8,6 +8,9 @@ const nextConfig = {
     domains: ['hub-remontu.payloadcms.app'],
     unoptimized: false,
   },
+  compiler: {
+    removeConsole: false,
+  },
 }
 
 export default withPayload(nextConfig)

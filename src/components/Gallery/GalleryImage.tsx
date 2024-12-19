@@ -1,13 +1,22 @@
 "use client";
 
 import React, { useState } from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
+// Dynamically import Masonry components with SSR disabled
+const ResponsiveMasonry = dynamic(
+  () => import("react-responsive-masonry").then((mod) => mod.ResponsiveMasonry),
+  { ssr: false },
+);
+const Masonry = dynamic(() => import("react-responsive-masonry"), {
+  ssr: false,
+});
+
 interface Props {
-  galleryImageData: { id: string; image: string }[];
+  galleryImageData: { id: string; image: string; alt: string }[];
 }
 
 const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
@@ -36,6 +45,7 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
           <h2 className="mb-2">Фото</h2>
         </div>
 
+        {/* Render Masonry layout */}
         <ResponsiveMasonry
           columnsCountBreakPoints={{
             300: 1,
@@ -52,9 +62,10 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
               >
                 <Image
                   src={value.image}
-                  alt="gallery image"
+                  alt={value.alt || "gallery image"}
                   width={570}
                   height={720}
+                  quality={100}
                 />
               </div>
             ))}
@@ -62,6 +73,7 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
         </ResponsiveMasonry>
       </div>
 
+      {/* Lightbox for image previews */}
       {isOpen && (
         <Lightbox
           open={isOpen}
