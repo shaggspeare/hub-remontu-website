@@ -4,13 +4,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { componentMap } from "@/componentMap";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: any) {
   const { slug } = params;
 
   const payload = await getPayload({ config });
