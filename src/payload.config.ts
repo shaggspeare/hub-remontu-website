@@ -13,6 +13,7 @@ import { ru } from "@payloadcms/translations/languages/ru";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Projects } from "@/collections/Projects";
+import { Pages } from "@/collections/Pages";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,7 +28,7 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en, ru, uk },
   },
-  collections: [Users, Media, Projects],
+  collections: [Users, Media, Projects, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
@@ -41,4 +42,5 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  // serverURL: 'https://hubremontu.ua'
 });

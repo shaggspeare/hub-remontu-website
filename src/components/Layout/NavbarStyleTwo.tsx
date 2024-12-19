@@ -371,9 +371,9 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/blog-right-sidebar/"
+                      href="/src/app/(app)/_blog-right-sidebar/"
                       className={`nav-link ${
-                        currentRoute === "/blog-right-sidebar/" ? "active" : ""
+                        currentRoute === "/_blog-right-sidebar/" ? "active" : ""
                       }`}
                     >
                       Right Sidebar
@@ -775,9 +775,9 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/blog-right-sidebar/"*/}
+              {/*            href="/_blog-right-sidebar/"*/}
               {/*            className={`nav-link ${*/}
-              {/*              currentRoute === "/blog-right-sidebar/"*/}
+              {/*              currentRoute === "/_blog-right-sidebar/"*/}
               {/*                ? "active"*/}
               {/*                : ""*/}
               {/*            }`}*/}

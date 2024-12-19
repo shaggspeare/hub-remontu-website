@@ -14,6 +14,7 @@ export interface Config {
     users: User;
     media: Media;
     projects: Project;
+    pages: Page;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -23,6 +24,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -131,6 +133,44 @@ export interface Project {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  title: string;
+  metaDescription: string;
+  keywords?: string | null;
+  slug?: string | null;
+  canonicalURL?: string | null;
+  ogTags?: {
+    ogTitle?: string | null;
+    ogDescription?: string | null;
+    ogImage?: (string | null) | Media;
+  };
+  layout?:
+    | {
+        component:
+          | 'HeroBanner'
+          | 'AboutUsContent'
+          | 'WhatWeDo'
+          | 'RecentProjects'
+          | 'TextSlide'
+          | 'Process'
+          | 'ClientsFeedbackSlider'
+          | 'ContactForm'
+          | 'Navbar'
+          | 'Footer';
+        props?: {
+          content?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -147,6 +187,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: string | Project;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -253,6 +297,37 @@ export interface ProjectsSelect<T extends boolean = true> {
     | T
     | {
         galleryImage?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  metaDescription?: T;
+  keywords?: T;
+  slug?: T;
+  canonicalURL?: T;
+  ogTags?:
+    | T
+    | {
+        ogTitle?: T;
+        ogDescription?: T;
+        ogImage?: T;
+      };
+  layout?:
+    | T
+    | {
+        component?: T;
+        props?:
+          | T
+          | {
+              content?: T;
+            };
         id?: T;
       };
   updatedAt?: T;
