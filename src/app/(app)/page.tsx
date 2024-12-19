@@ -12,6 +12,8 @@ import Footer from "@/components/Layout/Footer";
 import { getPageMetadata } from "@/utils/seo";
 import { Metadata } from "next";
 
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   return getPageMetadata("home");
 }

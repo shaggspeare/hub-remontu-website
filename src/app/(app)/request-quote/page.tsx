@@ -5,6 +5,8 @@ import Anketa from "@/components/Anketa/Anketa";
 import { Metadata } from "next";
 import { getPageMetadata } from "@/utils/seo";
 
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   return getPageMetadata("request-quote");
 }
