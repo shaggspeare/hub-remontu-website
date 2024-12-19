@@ -5,7 +5,7 @@ import config from "@payload-config";
 import { componentMap } from "@/componentMap";
 
 export default async function Page({ params }: any) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const payload = await getPayload({ config });
   const { docs } = await payload.find({

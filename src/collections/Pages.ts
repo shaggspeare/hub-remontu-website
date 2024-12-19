@@ -14,7 +14,6 @@ export const Pages: CollectionConfig = {
       ru: "Страницы",
     },
   },
-
   admin: {
     useAsTitle: "title",
     group: {
@@ -91,7 +90,6 @@ export const Pages: CollectionConfig = {
         },
       },
     },
-
     {
       name: "canonicalURL",
       type: "text",
