@@ -62,7 +62,7 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
               >
                 <Image
                   src={value.image}
-                  alt={value.alt || "_gallery image"}
+                  alt={value.alt || "gallery image"}
                   width={570}
                   height={720}
                   quality={100}

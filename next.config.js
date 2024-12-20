@@ -5,8 +5,14 @@ const nextConfig = {
   // For Static Export
   trailingSlash: true,
   images: {
-    domains: ['hub-remontu.payloadcms.app'],
-    unoptimized: false,
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'hubremontu.ua',
+        pathname: '/api/media/file/**',
+      },
+    ],
   },
   compiler: {
     removeConsole: false,
