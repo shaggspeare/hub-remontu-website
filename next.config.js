@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: 'hubremontu.ua',
         pathname: '/api/media/file/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'hub-remontu.payloadcms.app',
+        pathname: '/api/media/file/**',
+      },
     ],
   },
   compiler: {

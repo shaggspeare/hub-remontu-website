@@ -1105,7 +1105,7 @@ export function getPortfolioDetailsById(
 
   const commercial = {
     "116": {
-      title: "Beauty-простір, клініка-косметології 'palamarenko.clinic' ",
+      title: "Beauty-простір, клініка-косметології 'palamarenko.clinic'",
       mainImage: "/images/new-images/past-commerce/med-clinic/IMG_3649.jpg",
       description: {
         part1: (
