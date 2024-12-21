@@ -19,11 +19,9 @@ interface PayloadProject {
     services?: string;
   };
   galleryImages?: {
-    galleryImage: {
-      id: string;
-      url: string;
-      alt: string;
-    };
+    id: string;
+    url: string;
+    alt: string;
   }[];
 }
 interface PortfolioDetailsContentProps {
@@ -51,7 +49,7 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
       squareMeters: project.projectDetails?.squareMeters ?? "",
       services: project.projectDetails?.services ?? "",
     },
-    galleryImages: (project.galleryImages ?? []).map(({ galleryImage }) => ({
+    galleryImages: (project.galleryImages ?? []).map(( galleryImage ) => ({
       id: galleryImage.id,
       image: galleryImage.url,
       alt: galleryImage.alt,

@@ -124,12 +124,14 @@ export interface Project {
     squareMeters?: string | null;
     services?: string | null;
   };
-  galleryImages?:
-    | {
-        galleryImage: string | Image;
-        id?: string | null;
-      }[]
-    | null;
+  /**
+   * Select or upload multiple images for the gallery.
+   */
+  galleryImages?: (string | Image)[] | null;
+  /**
+   * Not displayed on site
+   */
+  commentary?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -313,12 +315,8 @@ export interface ProjectsSelect<T extends boolean = true> {
         squareMeters?: T;
         services?: T;
       };
-  galleryImages?:
-    | T
-    | {
-        galleryImage?: T;
-        id?: T;
-      };
+  galleryImages?: T;
+  commentary?: T;
   updatedAt?: T;
   createdAt?: T;
 }

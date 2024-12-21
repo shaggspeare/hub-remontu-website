@@ -183,21 +183,34 @@ export const Projects: CollectionConfig = {
         uk: "Галерея зображень",
         ru: "Галерея изображений",
       },
-      fields: [
-        {
-          name: "galleryImage",
-          type: "upload",
-          relationTo: "images",
-          required: true,
-          label: {
-            en: "GalleryImage",
-            uk: "Зображення",
-            ru: "Изображение",
-          },
+      type: "relationship",
+      relationTo: "images",
+      hasMany: true, // Allows multiple images to be linked
+      required: false, // Optional, set true if needed
+      admin: {
+        description: {
+          en: "Select or upload multiple images for the gallery.",
+          uk: "Виберіть або завантажте кілька зображень для галереї.",
+          ru: "Выберите или загрузите несколько изображений для галереи.",
         },
-      ],
-      type: "array",
-      required: false, // can set true if needed
+      },
+    },
+    {
+      name: "commentary",
+      label: {
+        en: "Commentary",
+        uk: "Коментар",
+        ru: "Комментарий",
+      },
+      admin: {
+        description: {
+          en: "Not displayed on site",
+          uk: "Не показується на сайті",
+          ru: "Не показывается на сайте",
+        },
+
+      },
+      type: "textarea",
     },
   ],
 };
