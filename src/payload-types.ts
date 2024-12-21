@@ -12,6 +12,7 @@ export interface Config {
   };
   collections: {
     users: User;
+    images: Image;
     projects: Project;
     pages: Page;
     seo: Seo;
@@ -22,6 +23,7 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
+    images: ImagesSelect<false> | ImagesSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     seo: SeoSelect<false> | SeoSelect<true>;
@@ -80,12 +82,34 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "images".
+ */
+export interface Image {
+  id: string;
+  alt?: string | null;
+  folder?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
  */
 export interface Project {
   id: string;
   title: string;
   category: 'living' | 'commercial';
+  mainImage: string | Image;
+  verticalImage: string | Image;
   description1?: string | null;
   servicesCovered?:
     | {
@@ -100,6 +124,12 @@ export interface Project {
     squareMeters?: string | null;
     services?: string | null;
   };
+  galleryImages?:
+    | {
+        galleryImage: string | Image;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -117,6 +147,7 @@ export interface Page {
   ogTags?: {
     ogTitle?: string | null;
     ogDescription?: string | null;
+    ogImage?: (string | null) | Image;
   };
   layout?:
     | {
@@ -150,6 +181,7 @@ export interface Seo {
   title?: string | null;
   description?: string | null;
   keywords?: string | null;
+  ogImage?: (string | null) | Image;
   updatedAt: string;
   createdAt: string;
 }
@@ -163,6 +195,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: string | User;
+      } | null)
+    | ({
+        relationTo: 'images';
+        value: string | Image;
       } | null)
     | ({
         relationTo: 'projects';
@@ -235,11 +271,32 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "images_select".
+ */
+export interface ImagesSelect<T extends boolean = true> {
+  alt?: T;
+  folder?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   category?: T;
+  mainImage?: T;
+  verticalImage?: T;
   description1?: T;
   servicesCovered?:
     | T
@@ -255,6 +312,12 @@ export interface ProjectsSelect<T extends boolean = true> {
         duration?: T;
         squareMeters?: T;
         services?: T;
+      };
+  galleryImages?:
+    | T
+    | {
+        galleryImage?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -274,6 +337,7 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         ogTitle?: T;
         ogDescription?: T;
+        ogImage?: T;
       };
   layout?:
     | T
@@ -298,6 +362,7 @@ export interface SeoSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   keywords?: T;
+  ogImage?: T;
   updatedAt?: T;
   createdAt?: T;
 }

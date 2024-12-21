@@ -133,16 +133,16 @@ export const Pages: CollectionConfig = {
             ru: "OG Описание",
           },
         },
-        // {
-        //   name: "ogImage",
-        //   type: "upload",
-        //   relationTo: "media",
-        //   label: {
-        //     en: "OG Image",
-        //     uk: "OG Зображення",
-        //     ru: "OG Изображение",
-        //   },
-        // },
+        {
+          name: "ogImage",
+          type: "upload",
+          relationTo: "images",
+          label: {
+            en: "OG Image",
+            uk: "OG Зображення",
+            ru: "OG Изображение",
+          },
+        },
       ],
     },
     {
