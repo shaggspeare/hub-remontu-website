@@ -56,28 +56,28 @@ export const Projects: CollectionConfig = {
       ],
       required: true,
     },
-    {
-      name: "mainImage",
-      type: "upload",
-      label: {
-        en: "Main Image",
-        uk: "Головне зображення",
-        ru: "Главное изображение",
-      },
-      relationTo: "media",
-      required: true,
-    },
-    {
-      name: "verticalImage",
-      type: "upload",
-      label: {
-        en: "In Grid Image",
-        uk: "Зображення в сітці",
-        ru: "Изображение в сетке",
-      },
-      relationTo: "media",
-      required: true,
-    },
+    // {
+    //   name: "mainImage",
+    //   type: "upload",
+    //   label: {
+    //     en: "Main Image",
+    //     uk: "Головне зображення",
+    //     ru: "Главное изображение",
+    //   },
+    //   relationTo: "media",
+    //   required: true,
+    // },
+    // {
+    //   name: "verticalImage",
+    //   type: "upload",
+    //   label: {
+    //     en: "In Grid Image",
+    //     uk: "Зображення в сітці",
+    //     ru: "Изображение в сетке",
+    //   },
+    //   relationTo: "media",
+    //   required: true,
+    // },
     {
       name: "description1",
       label: {
@@ -176,28 +176,28 @@ export const Projects: CollectionConfig = {
         },
       ],
     },
-    {
-      name: "galleryImages",
-      label: {
-        en: "Gallery Images",
-        uk: "Галерея зображень",
-        ru: "Галерея изображений",
-      },
-      fields: [
-        {
-          name: "galleryImage",
-          type: "upload",
-          relationTo: "media",
-          required: true,
-          label: {
-            en: "GalleryImage",
-            uk: "Зображення",
-            ru: "Изображение",
-          },
-        },
-      ],
-      type: "array",
-      required: false, // can set true if needed
-    },
+    // {
+    //   name: "galleryImages",
+    //   label: {
+    //     en: "Gallery Images",
+    //     uk: "Галерея зображень",
+    //     ru: "Галерея изображений",
+    //   },
+    //   fields: [
+    //     {
+    //       name: "galleryImage",
+    //       type: "upload",
+    //       relationTo: "media",
+    //       required: true,
+    //       label: {
+    //         en: "GalleryImage",
+    //         uk: "Зображення",
+    //         ru: "Изображение",
+    //       },
+    //     },
+    //   ],
+    //   type: "array",
+    //   required: false, // can set true if needed
+    // },
   ],
 };

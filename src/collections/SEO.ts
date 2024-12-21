@@ -14,7 +14,7 @@ export const SEO: CollectionConfig = {
     { name: "title", label: "Title", type: "text" },
     { name: "description", label: "Description", type: "textarea" },
     { name: "keywords", label: "Keywords", type: "text" },
-    { name: "ogImage", label: "OG Image", type: "upload", relationTo: "media" },
+    // { name: "ogImage", label: "OG Image", type: "upload", relationTo: "media" },
   ],
 };
 

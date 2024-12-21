@@ -11,7 +11,7 @@ import { uk } from "@payloadcms/translations/languages/uk";
 import { ru } from "@payloadcms/translations/languages/ru";
 
 import { Users } from "./collections/Users";
-import { Media } from "./collections/Media";
+// import { Media } from "./collections/Media";
 import { Projects } from "@/collections/Projects";
 import { Pages } from "@/collections/Pages";
 import { SEO } from "@/collections/SEO";
@@ -29,7 +29,7 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en, ru, uk },
   },
-  collections: [Users, Media, Projects, Pages, SEO],
+  collections: [Users, Projects, Pages, SEO],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

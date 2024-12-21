@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Head from "next/head";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import { componentMap } from "@/componentMap";
+import { componentMap } from "@/utils/componentMap";
 
 export default async function Page({ params }: any) {
   const { slug } = await params;
