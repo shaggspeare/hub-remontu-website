@@ -5,11 +5,10 @@ import config from "@payload-config";
 import { getPayload } from "payload";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
-import { Media } from "@/payload-types";
 
 export interface ProjectShortInfo {
   id: string;
-  image?: string | Media | null;
+  image?: any;
   title: string;
   link: string;
   category: string;
