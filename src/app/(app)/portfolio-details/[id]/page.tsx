@@ -10,8 +10,10 @@ import { getPageMetadata } from "@/utils/seo";
 
 export const revalidate = 60;
 
-export async function generateMetadata(): Promise<Metadata> {
-  return getPageMetadata("portfolio-details");
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const { id } = await params;
+
+  return getPageMetadata(`portfolio-details/${id}`);
 }
 
 // @ts-ignore
