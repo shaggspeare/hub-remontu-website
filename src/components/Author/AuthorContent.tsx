@@ -109,7 +109,7 @@ const AuthorContent: React.FC = () => {
                   {socialLinksData &&
                     socialLinksData.map((value, i) => (
                       <li key={i}>
-                        {/*<Link href={value.link} target="_blank">*/}
+                        {/*<Link href={value.link}target="_blank" rel="noopener noreferrer">*/}
                         {/*  <i className={value.icon}></i>*/}
                         {/*</Link>*/}
                       </li>

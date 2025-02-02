@@ -104,7 +104,7 @@ const FaqsContent: React.FC = () => {
         <div className="container">
           <div className="section-title-wrap">
             <span>FAQ</span>
-            <h2 style={{ color: "var(--whiteColor)" }}>FAQ</h2>
+            <h1 style={{ color: "var(--whiteColor)" }}>FAQ</h1>
           </div>
 
           <div style={{ margin: "0 auto" }}>

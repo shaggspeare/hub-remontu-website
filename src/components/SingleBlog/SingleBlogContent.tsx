@@ -169,17 +169,17 @@ const SingleBlogContent: React.FC = () => {
 
         <ul className="bd-social">
           <li>
-            <Link href="https://www.facebook.com/" target="_blank">
+            <Link href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
               <i className="ri-facebook-line"></i>
             </Link>
           </li>
           <li>
-            <Link href="https://www.instagram.com/" target="_blank">
+            <Link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
               <i className="ri-instagram-line"></i>
             </Link>
           </li>
           <li>
-            <Link href="https://twitter.com/" target="_blank">
+            <Link href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
               <i className="ri-twitter-fill"></i>
             </Link>
           </li>

@@ -28,10 +28,10 @@ const AboutUsContent: React.FC = () => {
         <div className="container">
           <div className="about-three-title">
             <span>ПРО НАС</span>
-            <h2 style={{ color: "var(--whiteColor)" }}>
+            <h1 style={{ color: "var(--whiteColor)" }}>
               <b>HUB REMONTU.</b> Допоможемо створити та реалізуємо інтер’єр
               вашої мрії
-            </h2>
+            </h1>
           </div>
 
           <div className="about-image-three">

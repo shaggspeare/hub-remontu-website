@@ -13,7 +13,7 @@ const partnerData = [
   {
     id: "2",
     image: "/images/new-images/partners/2.png",
-    link: "https://www.wakewood.ua/",
+    link: "https://wakewood.ua/",
   },
   {
     id: "3",
@@ -50,7 +50,7 @@ const partnerData = [
   {
     id: "9",
     image: "/images/new-images/partners/9.png",
-    link: "https://www.pivduyma.ua/",
+    link: "https://pivduyma.ua/",
   },
 
   {
@@ -76,7 +76,7 @@ const partnerData = [
   {
     id: "14",
     image: "/images/new-images/partners/14.png",
-    link: "https://laterem.ua/",
+    link: "https://laterem.ua/ua/",
   },
 ];
 

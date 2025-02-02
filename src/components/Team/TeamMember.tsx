@@ -61,7 +61,7 @@ const TeamMember: React.FC = () => {
           <div className="container">
             <div className="section-title-wrap">
               <span>КОМАНДА</span>
-              <h2 style={{color: 'var(--whiteColor)'}}>Наша команда професіоналів до Ваших послуг</h2>
+              <h1 style={{color: 'var(--whiteColor)'}}>Наша команда професіоналів до Ваших послуг</h1>
             </div>
 
             <div className="row justify-content-center">
@@ -79,7 +79,7 @@ const TeamMember: React.FC = () => {
                           />
 
                           <div className="content">
-                            <h3>{value.name}</h3>
+                            <h2>{value.name}</h2>
                             <span>{value.designation}</span>
                           </div>
                         </div>
@@ -90,7 +90,7 @@ const TeamMember: React.FC = () => {
                         {/*      <li key={i}>*/}
                         {/*        <Link*/}
                         {/*          href={value.link}*/}
-                        {/*          target="_blank"*/}
+                        {/*         target="_blank" rel="noopener noreferrer"*/}
                         {/*        >*/}
                         {/*          <i className={value.icon}></i>*/}
                         {/*        </Link>*/}
@@ -117,7 +117,7 @@ const TeamMember: React.FC = () => {
                                 height={790}
                               />
                               <div className="content">
-                                <h3>{value.name}</h3>
+                                <h2>{value.name}</h2>
                                 <span>{value.designation}</span>
                               </div>
                             </div>
@@ -128,7 +128,7 @@ const TeamMember: React.FC = () => {
                             {/*      <li key={i}>*/}
                             {/*        <Link*/}
                             {/*          href="https://www.facebook.com/"*/}
-                            {/*          target="_blank"*/}
+                            {/*         target="_blank" rel="noopener noreferrer"*/}
                             {/*        >*/}
                             {/*          <i className={value.icon}></i>*/}
                             {/*        </Link>*/}

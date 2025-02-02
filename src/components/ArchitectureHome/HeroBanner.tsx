@@ -23,7 +23,7 @@ const socialLinksData = [
   {
     id: "3",
     icon: "ri-telegram-line",
-    link: "https://t.me/HUBremontu",
+    link: "https://t.me/Hub_remontu",
   },
 ];
 
@@ -104,7 +104,11 @@ const HeroBanner: React.FC = () => {
             {socialLinksData &&
               socialLinksData.map((value, i) => (
                 <li key={i}>
-                  <Link href={value.link} target="_blank">
+                  <Link
+                    href={value.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className={value.icon}></i>
                   </Link>
                 </li>

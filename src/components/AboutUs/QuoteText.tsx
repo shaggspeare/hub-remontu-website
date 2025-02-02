@@ -11,11 +11,11 @@ const QuoteText: React.FC = () => {
       <div className="box-style-area"  style={{marginBottom: '40px'}}>
         <div className="container-fluid">
           <div className="box-style-inner">
-            <h3>
+            <h2>
               Дім – це місце «сили», місце затишку та комфорту кожної людини, те
               місце, де можна сховатись від турбот, віднайти себе, обійняти
               близьку людину та побути на самоті з собою.
-            </h3>
+            </h2>
             <div className="wrap-shape">
               <Image src={shapeImg} alt="image" width={260} height={276} />
             </div>

@@ -75,7 +75,7 @@ const PrivacyPolicyContent: React.FC = () => {
               We store personal information on secure servers managed by us, and
               our service providers and files are kept in a secure location.
               Personal{" "}
-              <Link href="#" target="_blank">
+              <Link href="#" target="_blank" rel="noopener noreferrer">
                 information
               </Link>{" "}
               that we store is protected by security and access controls,

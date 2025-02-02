@@ -164,7 +164,7 @@ const TeamMember: React.FC = () => {
                               <li key={i}>
                                 <Link
                                   href={value.link}
-                                  target="_blank"
+                                 target="_blank" rel="noopener noreferrer"
                                 >
                                   <i className={value.icon}></i>
                                 </Link>
@@ -202,7 +202,7 @@ const TeamMember: React.FC = () => {
                                   <li key={i}>
                                     <Link
                                       href="https://www.facebook.com/"
-                                      target="_blank"
+                                     target="_blank" rel="noopener noreferrer"
                                     >
                                       <i className={value.icon}></i>
                                     </Link>

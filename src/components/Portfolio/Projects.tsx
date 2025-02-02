@@ -39,7 +39,7 @@ const ProjectsPage: React.FC = async () => {
         <div className="section-title-wrap d-flex d-md-block d-xl-flex align-items-end justify-content-between">
           <div className="title">
             <span>ПРОЄКТИ</span>
-            <h2 style={{ color: "white" }}>Проєкти, якими ми пишаємось</h2>
+            <h1 style={{ color: "white" }}>Проєкти, якими ми пишаємось</h1>
           </div>
         </div>
         <Tabs projectsData={projectsData} />

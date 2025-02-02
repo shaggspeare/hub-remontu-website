@@ -85,28 +85,32 @@ const ContactForm: React.FC = () => {
     <div className="pb-100">
       <div className="contact-area ptb-100">
         <div className="container">
+          <div className="section-title-wrap">
+            <span>КОНТАКТИ</span>
+            <h1 style={{color: 'var(--whiteColor)'}}>Найкращий час познайомитись - вже зараз!</h1>
+          </div>
           <div className="row justify-content-center">
             <div
-              ref={(el) => {
-                if (el) fadeRefs.current.push(el);
-              }}
-              className="col-lg-5 col-md-12 pe-5 fade-up"
+                ref={(el) => {
+                  if (el) fadeRefs.current.push(el);
+                }}
+                className="col-lg-5 col-md-12 pe-5 fade-up"
             >
               <div className="contact-image">
                 <Image
-                  src="/images/new-images/past-projects/3k_sanfran-min.png"
-                  alt="contact"
-                  width={700}
-                  height={1012}
+                    src="/images/new-images/past-projects/3k_sanfran-min.png"
+                    alt="contact"
+                    width={700}
+                    height={1012}
                 />
               </div>
             </div>
 
             <div
-              ref={(el) => {
-                if (el) fadeRefs.current.push(el);
-              }}
-              className="col-lg-7 col-md-12 ps-5 fade-up"
+                ref={(el) => {
+                  if (el) fadeRefs.current.push(el);
+                }}
+                className="col-lg-7 col-md-12 ps-5 fade-up"
             >
               <div className="contact-form-wrap">
                 <div className="title">
@@ -128,12 +132,12 @@ const ContactForm: React.FC = () => {
                           ВАШЕ ІМ`Я<span>*</span>
                         </label>
                         <input
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="form-control"
-                          placeholder="Ваше ім'я"
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Ваше ім'я"
                         />
                       </div>
 
@@ -142,12 +146,12 @@ const ContactForm: React.FC = () => {
                           EMAIL<span>*</span>
                         </label>
                         <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="form-control"
-                          placeholder="ваш_мейл@gmail.com"
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="ваш_мейл@gmail.com"
                         />
                       </div>
 
@@ -156,12 +160,12 @@ const ContactForm: React.FC = () => {
                           ТЕЛЕФОН<span>*</span>
                         </label>
                         <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="form-control"
-                          placeholder="+380 00 000 00 00"
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="+380 00 000 00 00"
                         />
                       </div>
 
@@ -170,18 +174,18 @@ const ContactForm: React.FC = () => {
                           ВАШ КОМЕНТАР<span>*</span>
                         </label>
                         <textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          className="form-control"
-                          placeholder="Напишіть ваш коментар..."
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Напишіть ваш коментар..."
                         ></textarea>
                       </div>
 
                       <button
-                        type="submit"
-                        className="default-btn"
-                        disabled={isSubmitting}
+                          type="submit"
+                          className="default-btn"
+                          disabled={isSubmitting}
                       >
                         {isSubmitting ? "Надсилання..." : "Надіслати"}
                       </button>
@@ -189,12 +193,12 @@ const ContactForm: React.FC = () => {
                   </div>
 
                   <div
-                    ref={(el) => {
-                      if (el) fadeRefs.current.push(el);
-                    }}
-                    className="col-lg-5 col-md-6 fade-up"
+                      ref={(el) => {
+                        if (el) fadeRefs.current.push(el);
+                      }}
+                      className="col-lg-5 col-md-6 fade-up"
                   >
-                    <ContactInfo />
+                    <ContactInfo/>
                   </div>
                 </div>
               </div>
@@ -203,7 +207,7 @@ const ContactForm: React.FC = () => {
         </div>
 
         <div className="contact-shape1">
-          <Image src={shape} alt="image" width={116} height={82} />
+          <Image src={shape} alt="image" width={116} height={82}/>
         </div>
       </div>
 

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 
 const servicesData = [
   {
@@ -9,7 +8,7 @@ const servicesData = [
     icon: "flaticon-interior-design",
     title: "Дизайн",
     text: "Ми допоможемо Вам створити унікальний та оригінальний дизайн проєкт Вашого будинку, квартири, приміщення, який буде практичним та продуманим до дрібниць.",
-    link: "/services/_service-details",
+    // link: "/services/_service-details",
     aosDelay: "100",
   },
   {
@@ -17,16 +16,15 @@ const servicesData = [
     icon: "flaticon-measuring",
     title: "Проєктування",
     text: "Зробимо точний проєкт та підготуємо технічне завдання для виконання всіх робіт.",
-    link: "/services/_service-details",
+    // link: "/services/_service-details",
     aosDelay: "300",
   },
   {
     id: "3",
     icon: "flaticon-mansory",
     title: "Ремонт",
-    text:
-      "Виконуємо якісно та в строки ремонт будинків, квартир, офісів, ресторанів, магазинів, комерційних приміщень будь-якого призначення та складності.",
-    link: "/services/_service-details",
+    text: "Виконуємо якісно та в строки ремонт будинків, квартир, офісів, ресторанів, магазинів, комерційних приміщень будь-якого призначення та складності.",
+    // link: "/services/_service-details",
     aosDelay: "200",
   },
 ];
@@ -65,9 +63,7 @@ const WhatWeDo: React.FC = () => {
                       <div className="icon">
                         <i className={value.icon}></i>
                       </div>
-                      <h3>
-                        <Link href={value.link}>{value.title}</Link>
-                      </h3>
+                      <h3 style={{ color: "#E1DBD6" }}>{value.title}</h3>
                       <p>{value.text}</p>
                       {/*<Link href={value.link} className="services-btn">*/}
                       {/*  <Image src={arrowRightIcon} alt="arrow-right" width={18} height={18} />*/}

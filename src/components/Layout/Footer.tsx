@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import whiteLogo from "../../../public/images/logo_en.svg";
+import ContactInfo from "@/components/ContactUs/ContactInfo";
 
 // Social Links
 const socialLinksData = [
@@ -21,7 +22,7 @@ const socialLinksData = [
   {
     id: "3",
     name: "Telegram",
-    link: "https://t.me/HUBremontu",
+    link: "https://t.me/Hub_remontu",
   },
 ];
 
@@ -32,20 +33,30 @@ const pageLinksData = [
     name: "Портфоліо",
     link: "/portfolio",
   },
-  // {
-  //   id: "2",
-  //   name: "News And Articles",
-  //   link: "/blog",
-  // },
+  {
+    id: "2",
+    name: "Про компанію",
+    link: "/about-us",
+  },
   {
     id: "3",
-    name: "Анкета",
-    link: "/anketa",
+    name: "Заповнити анкету",
+    link: "/request-quote",
   },
   {
     id: "4",
-    name: "Послуги",
-    link: "/services",
+    name: "Наша команда",
+    link: "/team",
+  },
+  {
+    id: "5",
+    name: "FAQ",
+    link: "/faq",
+  },
+  {
+    id: "6",
+    name: "Контакти",
+    link: "/contact-us",
   },
 ];
 
@@ -80,7 +91,7 @@ const Footer: React.FC = () => {
                     {socialLinksData &&
                       socialLinksData.map((value, i) => (
                         <li key={i}>
-                          <Link href={value.link} target="_blank">
+                          <Link href={value.link} target="_blank" rel="noopener noreferrer">
                             <i className="ri-arrow-right-line"></i> {value.name}
                           </Link>
                         </li>
@@ -108,8 +119,11 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="col-lg-3 col-sm-6">
-              {/* NewsletterForm */}
-              {/*<NewsletterForm />*/}
+              <div className="single-footer-widget ps-5">
+                <h3 style={{paddingLeft: '30px'}}>НАШІ КОНТАКТИ</h3>
+
+                <ContactInfo />
+              </div>
             </div>
           </div>
         </div>
@@ -119,8 +133,8 @@ const Footer: React.FC = () => {
         <div className="container">
           <div className="copyright-area-content">
             <p>
-              © <span>HUB REMONTU</span> All Rights Reserved By
-              <Link href="https://envytheme.com/" target="_blank">
+              © <span>HUB REMONTU</span> - Всі права захищені
+              <Link href="https://hubremontu.ua/" target="_blank" rel="noopener noreferrer">
                 {" "}
                 HUB REMONTU
               </Link>
