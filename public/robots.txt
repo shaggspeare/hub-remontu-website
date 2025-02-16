@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /temp/
+
+Sitemap: https://hubremontu.ua/sitemap.xml

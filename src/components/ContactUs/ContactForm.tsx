@@ -87,7 +87,7 @@ const ContactForm: React.FC = () => {
         <div className="container">
           <div className="section-title-wrap">
             <span>КОНТАКТИ</span>
-            <h1 style={{color: 'var(--whiteColor)'}}>Найкращий час познайомитись - вже зараз!</h1>
+            <h2 style={{color: 'var(--whiteColor)'}}>Найкращий час познайомитись - вже зараз!</h2>
           </div>
           <div className="row justify-content-center">
             <div
