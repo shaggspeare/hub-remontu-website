@@ -13,7 +13,6 @@ import shape from "../../../public/images/contact/shape.png";
 
 interface FormData {
   name: string;
-  email: string;
   phone: string;
   message: string;
 }
@@ -21,7 +20,6 @@ interface FormData {
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    email: "",
     phone: "",
     message: "",
   });
@@ -49,7 +47,7 @@ const ContactForm: React.FC = () => {
       });
 
       if (response.ok) {
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({ name: "", phone: "", message: "" });
       } else {
         alert("Failed to submit the form");
       }
@@ -141,19 +139,19 @@ const ContactForm: React.FC = () => {
                         />
                       </div>
 
-                      <div className="form-group">
-                        <label>
-                          EMAIL<span>*</span>
-                        </label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="form-control"
-                            placeholder="ваш_мейл@gmail.com"
-                        />
-                      </div>
+                      {/*<div className="form-group">*/}
+                      {/*  <label>*/}
+                      {/*    EMAIL<span>*</span>*/}
+                      {/*  </label>*/}
+                      {/*  <input*/}
+                      {/*      type="email"*/}
+                      {/*      name="email"*/}
+                      {/*      value={formData.email}*/}
+                      {/*      onChange={handleChange}*/}
+                      {/*      className="form-control"*/}
+                      {/*      placeholder="ваш_мейл@gmail.com"*/}
+                      {/*  />*/}
+                      {/*</div>*/}
 
                       <div className="form-group">
                         <label>

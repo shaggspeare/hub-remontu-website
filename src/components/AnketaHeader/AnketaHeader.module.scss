@@ -1,0 +1,84 @@
+/* AnketaPage.module.scss */
+
+.anketaPageContainer {
+  /* Mobile First: Hide elements on mobile */
+  @media (max-width: 767px) {
+    /* Hide the PageTitle component */
+    > *:first-child {
+      display: none;
+    }
+
+    /* Adjust the main content wrapper */
+    .anketaWrapper {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+
+      .anketaInnerContainer {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* Hide the h1 title on mobile */
+      h1 {
+        display: none;
+      }
+    }
+  }
+
+  /* Desktop and tablet styles */
+  @media (min-width: 768px) {
+    .anketaWrapper {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    .anketaInnerContainer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 36px;
+      color: white;
+    }
+  }
+
+  /* Tablet specific adjustments */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 28px;
+    }
+  }
+}
+
+/* Alternative approach using global styles if needed */
+.mobileAnketaOnly {
+  @media (max-width: 767px) {
+    /* Hide all direct children except the form container */
+    > * {
+      display: none !important;
+    }
+
+    /* Show only the div containing Anketa */
+    > div:last-child {
+      display: block !important;
+      padding: 0 !important;
+
+      > div {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+
+        /* Hide the h1 */
+        > h1 {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

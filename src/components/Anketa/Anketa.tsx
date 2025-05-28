@@ -58,23 +58,18 @@ const OptionCard: React.FC<OptionCardProps> = ({
   handleChange,
   multiSelect = false,
 }) => (
-  <div className="row">
+  <div className={styles.optionsGrid}>
     {options.map((option) => (
       <div
         key={typeof option === "string" ? option : option.label}
-        className={`col-md-4 mb-3`}
+        className={styles.optionWrapper}
       >
         <label
-          className={`card h-100 ${
+          className={`${styles.optionCard} ${
             value.includes(typeof option === "string" ? option : option.label)
               ? styles.optionSelected
-              : styles.option
+              : ""
           }`}
-          style={{
-            cursor: "pointer",
-            display: "flex",
-            flexDirection: "column",
-          }}
         >
           <input
             type={multiSelect ? "checkbox" : "radio"}
@@ -82,24 +77,25 @@ const OptionCard: React.FC<OptionCardProps> = ({
             name={name}
             value={typeof option === "string" ? option : option.label}
             checked={value.includes(
-              typeof option === "string" ? option : option.label
+              typeof option === "string" ? option : option.label,
             )}
             onChange={handleChange}
             style={{ display: "none" }}
           />
           {typeof option !== "string" && option.imgSrc && (
-            <Image
-              src={option.imgSrc}
-              className="card-img-top"
-              alt={option.label}
-              width={238}
-              height={346}
-            />
+            <div className={styles.optionImageWrapper}>
+              <Image
+                src={option.imgSrc}
+                className={styles.optionImage}
+                alt={option.label}
+                width={238}
+                height={346}
+                layout="responsive"
+              />
+            </div>
           )}
-          <div className="card-body text-center flex-grow-1 d-flex align-items-center justify-content-center">
-            <h5 className="card-title">
-              {typeof option === "string" ? option : option.label}
-            </h5>
+          <div className={styles.optionLabel}>
+            <span>{typeof option === "string" ? option : option.label}</span>
           </div>
         </label>
       </div>
@@ -128,6 +124,7 @@ const TextInput: React.FC<TextInputProps> = ({
 );
 
 const MultiPartForm: React.FC = () => {
+  const [currentStep, setCurrentStep] = useState(0);
   const [formValues, setFormValues] = useState<FormValues>({
     "your-name": "",
     building_type: "Квартира",
@@ -193,6 +190,489 @@ const MultiPartForm: React.FC = () => {
     }
   };
 
+  const steps = [
+    {
+      title: "Ваше ім'я",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Ваше ім&#39;я:</h3>
+          <input
+            className={styles.inputField}
+            required
+            placeholder="Введіть відповідь"
+            value={formValues["your-name"]}
+            type="text"
+            name="your-name"
+            onChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Тип нерухомості",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Тип нерухомості:</h3>
+          <OptionCard
+            options={["Квартира", "Будинок", "Комерційне приміщення"]}
+            name="building_type"
+            value={[formValues.building_type]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Дизайн-проєкт",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Чи маєте дизайн-проєкт?</h3>
+          <OptionCard
+            options={["Так, маю", "Ні, але планую", "Ні, не планую"]}
+            name="design"
+            value={[formValues.design]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    ...(formValues.design === "Ні, але планую"
+      ? [
+          {
+            title: "Тип дизайн-проєкту",
+            component: (
+              <div className={styles.formStep}>
+                <h3 className={styles.stepTitle}>Тип дизайн-проєкту:</h3>
+                <OptionCard
+                  options={["Технічний", "Повний"]}
+                  name="design_detail"
+                  value={formValues.design_detail}
+                  handleChange={handleChange}
+                />
+                <div className={styles.designDetailBox}>
+                  <h4 className={styles.boldText}>Чим вони відрізняються?</h4>
+                  <div className="box_show">
+                    <p className={styles.infoText}>
+                      <strong>Технічний дизайн-проєкт включає:</strong> усі
+                      креслення та планування — все що потрібно для виконання
+                      ремонту бригадою.
+                    </p>
+                    <p className={styles.infoText}>
+                      <strong>Повний дизайн-проєкт включає:</strong> технічний
+                      дизайн-проєкт + розгортки по стінам, специфікація по
+                      оздоблювальним матеріалам, розкладки по підлозі, підбір
+                      кольорів та чистових матеріалів + 3D-візуалізації.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ),
+          },
+        ]
+      : []),
+    {
+      title: "Вік будинку",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>
+            Скільки років будинку, де знаходиться приміщення?
+          </h3>
+          <OptionCard
+            options={[
+              {
+                label: "Новобудова",
+                imgSrc: "/images/new-images/anketa/age/age1.jpg",
+              },
+              {
+                label: "1-10 років",
+                imgSrc: "/images/new-images/anketa/age/age2.jpg",
+              },
+              {
+                label: "11-30 років",
+                imgSrc: "/images/new-images/anketa/age/age3.jpg",
+              },
+              {
+                label: "від 30 років і більше",
+                imgSrc: "/images/new-images/anketa/age/age4.jpg",
+              },
+              {
+                label: "Пам'ятка архітектури",
+                imgSrc: "/images/new-images/anketa/age/age5.jpg",
+              },
+            ]}
+            name="age"
+            value={[formValues.age]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Перепланування",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Перепланування:</h3>
+          <OptionCard
+            options={["Часткове", "Повне", "Без перепланування"]}
+            name="planning"
+            value={[formValues.planning]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Комунікації",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Заміна існуючих комунікацій:</h3>
+          <OptionCard
+            options={[
+              "Повна заміна/монтаж з нуля електропроводки та сантехнічних труб",
+              "Часткова заміна електропроводки та сантехнічних труб",
+              "Все залишаємо як є",
+              "Потрібна консультація",
+            ]}
+            name="constructions"
+            value={[formValues.constructions]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Кількість спалень",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Кількість спалень:</h3>
+          <OptionCard
+            options={["Одна", "Дві", "Три та більше"]}
+            name="bedroom"
+            value={[formValues.bedroom]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Стиль інтер'єру",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>
+            Уподобання у стилістиці інтер&#39;єру:
+          </h3>
+          <OptionCard
+            options={[
+              {
+                label: "Класика",
+                imgSrc: "/images/new-images/anketa/style/style1.jpg",
+              },
+              {
+                label: "Модерн",
+                imgSrc: "/images/new-images/anketa/style/style2.jpg",
+              },
+              {
+                label: "Арт Деко",
+                imgSrc: "/images/new-images/anketa/style/style3.jpg",
+              },
+              {
+                label: "Хай-Тек",
+                imgSrc: "/images/new-images/anketa/style/style4.jpg",
+              },
+              {
+                label: "Лофт",
+                imgSrc: "/images/new-images/anketa/style/style5.jpg",
+              },
+              {
+                label: "Мінімалізм",
+                imgSrc: "/images/new-images/anketa/style/style6.jpg",
+              },
+              {
+                label: "Скандинавський",
+                imgSrc: "/images/new-images/anketa/style/style7.jpg",
+              },
+              {
+                label: "Бохо",
+                imgSrc: "/images/new-images/anketa/style/style8.jpg",
+              },
+              {
+                label: "Джапанді",
+                imgSrc: "/images/new-images/anketa/style/style9.jpg",
+              },
+              {
+                label: "Вабі-сабі",
+                imgSrc: "/images/new-images/anketa/style/style10.jpg",
+              },
+            ]}
+            name="style"
+            value={formValues.style}
+            handleChange={handleChange}
+            multiSelect
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Підлога",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Уподобання по підлозі:</h3>
+          <OptionCard
+            options={[
+              {
+                label: "Паркет",
+                imgSrc: "/images/new-images/anketa/floor/floor1.jpg",
+              },
+              {
+                label: "Ламінат",
+                imgSrc: "/images/new-images/anketa/floor/floor2.jpg",
+              },
+              {
+                label: "Плитка",
+                imgSrc: "/images/new-images/anketa/floor/floor3.jpg",
+              },
+              {
+                label: "Вініл",
+                imgSrc: "/images/new-images/anketa/floor/floor4.jpg",
+              },
+            ]}
+            name="floor"
+            value={formValues.floor}
+            handleChange={handleChange}
+            multiSelect
+          />
+          <TextInput
+            label="Інше:"
+            placeholder="Введіть відповідь"
+            name="floor-other"
+            value={formValues["floor-other"]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Стіни",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Уподобання по стінах:</h3>
+          <OptionCard
+            options={[
+              {
+                label: "Фарбування",
+                imgSrc: "/images/new-images/anketa/wall/wall1.jpg",
+              },
+              {
+                label: "Шпалери",
+                imgSrc: "/images/new-images/anketa/wall/wall2.jpg",
+              },
+              {
+                label: "Декоративна штукатурка",
+                imgSrc: "/images/new-images/anketa/wall/wall3.jpg",
+              },
+              {
+                label: "Художнє оформлення",
+                imgSrc: "/images/new-images/anketa/wall/wall4.jpg",
+              },
+              {
+                label: "Гіпсові панелі",
+                imgSrc: "/images/new-images/anketa/wall/wall5.jpg",
+              },
+              {
+                label: "Панелі МДФ",
+                imgSrc: "/images/new-images/anketa/wall/wall6.jpg",
+              },
+              {
+                label: "Молдинги",
+                imgSrc: "/images/new-images/anketa/wall/wall7.jpg",
+              },
+              {
+                label: "Комбінований варіант",
+                imgSrc: "/images/new-images/anketa/wall/wall8.jpg",
+              },
+            ]}
+            name="wall"
+            value={formValues.wall}
+            handleChange={handleChange}
+            multiSelect
+          />
+          <TextInput
+            label="Інше:"
+            placeholder="Введіть відповідь"
+            name="wall-other"
+            value={formValues["wall-other"]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Стеля",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Уподобання по стелі:</h3>
+          <OptionCard
+            options={[
+              {
+                label: "Гіпсокартонна",
+                imgSrc: "/images/new-images/anketa/roof/roof1.jpg",
+              },
+              {
+                label: "Натяжна",
+                imgSrc: "/images/new-images/anketa/roof/roof2.jpg",
+              },
+            ]}
+            name="roof"
+            value={formValues.roof}
+            handleChange={handleChange}
+            multiSelect
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Санвузли",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Кількість санвузлів:</h3>
+          <OptionCard
+            options={["Один", "Два", "Три і більше"]}
+            name="bathroom"
+            value={[formValues.bathroom]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Оздоблення санвузла",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Оздоблення санвузла:</h3>
+          <OptionCard
+            options={[
+              {
+                label: "Широкоформатна плитка",
+                imgSrc:
+                  "/images/new-images/anketa/bathroommat/bathroommat1.jpg",
+              },
+              {
+                label: "Дрібноформатна плитка",
+                imgSrc:
+                  "/images/new-images/anketa/bathroommat/bathroommat2.jpg",
+              },
+            ]}
+            name="bathroommat"
+            value={[formValues.bathroommat]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Тип дверей",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Тип дверей:</h3>
+          <OptionCard
+            options={[
+              {
+                label: "Звичайні",
+                imgSrc: "/images/new-images/anketa/door/door2.jpg",
+              },
+              {
+                label: "Прихованого монтажу",
+                imgSrc: "/images/new-images/anketa/door/door1.jpg",
+              },
+            ]}
+            name="door"
+            value={[formValues.door]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Пріоритети",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>
+            Що для Вас найважливіше в інтер&#39;єрі?
+          </h3>
+          <OptionCard
+            options={["Простір", "Місткість", "Функціональність", "Дизайн"]}
+            name="main"
+            value={formValues.main}
+            handleChange={handleChange}
+            multiSelect
+          />
+          <TextInput
+            label="Інше:"
+            placeholder="Введіть відповідь"
+            name="main-other"
+            value={formValues["main-other"]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Освітлення",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Освітлення:</h3>
+          <OptionCard
+            options={[
+              "Верхнє світло (люстри, світильники, трекові системи)",
+              "Настінне/декоративне (підсвітки, бра, торшери)",
+              "І те, і інше",
+            ]}
+            name="lighting"
+            value={[formValues.lighting]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Контакти",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>
+            Ваш номер телефону для зв&#39;язку:
+          </h3>
+          <label className={styles.inputLabel}>
+            <span>Телефон</span>
+            <input
+              className={styles.inputField}
+              required
+              placeholder="+ 380 __ ___ __ __"
+              value={formValues.phone}
+              type="tel"
+              name="phone"
+              onChange={handleChange}
+            />
+          </label>
+
+          <h3 className={styles.stepTitle} style={{ marginTop: "24px" }}>
+            Зручний час для зв&#39;язку:
+          </h3>
+          <label className={styles.inputLabel}>
+            <span>Введіть час</span>
+            <input
+              className={styles.inputField}
+              placeholder="10:00"
+              value={formValues.time}
+              type="text"
+              name="time"
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+      ),
+    },
+  ];
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -206,6 +686,8 @@ const MultiPartForm: React.FC = () => {
       });
 
       if (response.ok) {
+        alert("Форму успішно відправлено!");
+        // Reset form
         setFormValues({
           "your-name": "",
           building_type: "Квартира",
@@ -231,452 +713,111 @@ const MultiPartForm: React.FC = () => {
           phone: "",
           time: "",
         });
+        setCurrentStep(0);
       } else {
-        alert("Failed to submit the form");
+        alert("Помилка при відправці форми");
       }
     } catch (error) {
       console.error("Error submitting form: ", error);
-      alert("Error submitting form");
+      alert("Помилка при відправці форми");
     }
   };
 
+  const handleNext = () => {
+    if (currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+      // Scroll to top of form with offset for header
+      const formContainer = document.querySelector(`.${styles.formContainer}`);
+      if (formContainer) {
+        const rect = formContainer.getBoundingClientRect();
+        const offset = window.innerWidth <= 768 ? 70 : 100; // 70px mobile, 100px desktop
+        window.scrollTo({
+          top: rect.top + window.pageYOffset - offset,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+      // Scroll to top of form with offset for header
+      const formContainer = document.querySelector(`.${styles.formContainer}`);
+      if (formContainer) {
+        const rect = formContainer.getBoundingClientRect();
+        const offset = window.innerWidth <= 768 ? 70 : 100; // 70px mobile, 100px desktop
+        window.scrollTo({
+          top: rect.top + window.pageYOffset - offset,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  const isStepValid = () => {
+    // Add validation logic here based on the current step
+    if (currentStep === 0) return formValues["your-name"].length > 0;
+    if (currentStep === steps.length - 1) return formValues.phone.length > 0;
+    return true;
+  };
+
+  const progressPercentage = ((currentStep + 1) / steps.length) * 100;
+
   return (
-    <form onSubmit={handleSubmit} className="wpcf7-form">
-      {/* Ваше імʼя */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Ваше імʼя:</h3>
-        <p>
-          <input
-            className={styles.inputField}
-            required
-            placeholder="Введіть відповідь"
-            value={formValues["your-name"]}
-            type="text"
-            name="your-name"
-            onChange={handleChange}
+    <div className={styles.formContainer}>
+      {/* Progress Bar */}
+      <div className={styles.progressContainer}>
+        <div className={styles.progressBar}>
+          <div
+            className={styles.progressFill}
+            style={{ width: `${progressPercentage}%` }}
           />
-        </p>
-      </div>
-
-      {/* Тип нерухомості */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Тип нерухомості:</h3>
-        <OptionCard
-          options={["Квартира", "Будинок", "Комерційне приміщення"]}
-          name="building_type"
-          value={[formValues.building_type]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Чи маєте дизайн-проєкт? */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Чи маєте дизайн-проєкт?</h3>
-        <OptionCard
-          options={["Так, маю", "Ні, але планую", "Ні, не планую"]}
-          name="design"
-          value={[formValues.design]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {formValues.design === "Ні, але планую" && (
-        <div className={`${styles.formStep} ${styles.lightBackground}`}>
-          <OptionCard
-            options={["Технічний", "Повний"]}
-            name="design_detail"
-            value={formValues.design_detail}
-            handleChange={handleChange}
-          />
-          <div className={styles.designDetailBox}>
-            <h3 className={styles.boldText}>Чим вони відрізняються?</h3>
-            <div className="box_show">
-              <p className={styles.infoText}>
-                <strong>Технічний дизайн-проєкт включає:</strong> усі креслення
-                та планування — все що потрібно для виконання ремонту бригадою.
-              </p>
-              <p className={styles.infoText}>
-                <strong>Повний дизайн-проєкт включає:</strong> технічний
-                дизайн-проєкт + розгортки по стінам, специфікація по
-                оздоблювальним матеріалам, розкладки по підлозі, підбір кольорів
-                та чистових матеріалів + 3D-візуалізації.
-              </p>
-              <p className={styles.infoText}>
-                Пройдіть цю анкету до кінця та дізнайтеся вартість не тільки
-                дизайн-проєкту за вашими запитами, а й вашого ремонту!
-              </p>
-            </div>
-          </div>
         </div>
-      )}
-
-      {/* Скільки років будинку */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>
-          Скільки років будинку, де знаходиться приміщення?
-        </h3>
-        <OptionCard
-          options={[
-            {
-              label: "Новобудова",
-              imgSrc: "/images/new-images/anketa/age/age1.jpg",
-            },
-            {
-              label: "1-10 років",
-              imgSrc: "/images/new-images/anketa/age/age2.jpg",
-            },
-            {
-              label: "11-30 років",
-              imgSrc: "/images/new-images/anketa/age/age3.jpg",
-            },
-            {
-              label: "від 30 років і більше",
-              imgSrc: "/images/new-images/anketa/age/age4.jpg",
-            },
-            {
-              label: "Пам'ятка архітектури",
-              imgSrc: "/images/new-images/anketa/age/age5.jpg",
-            },
-          ]}
-          name="age"
-          value={[formValues.age]}
-          handleChange={handleChange}
-        />
+        <div className={styles.progressText}>
+          Крок {currentStep + 1} з {steps.length}
+        </div>
       </div>
 
-      {/* Перепланування */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Перепланування:</h3>
-        <OptionCard
-          options={["Часткове", "Повне", "Без перепланування"]}
-          name="planning"
-          value={[formValues.planning]}
-          handleChange={handleChange}
-        />
-      </div>
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="wpcf7-form">
+        <div className={styles.stepContainer}>
+          {steps[currentStep].component}
+        </div>
 
-      {/* Заміна існуючих комунікацій */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Заміна існуючих комунікацій:</h3>
-        <OptionCard
-          options={[
-            "Повна заміна/монтаж з нуля електропроводки та сантехнічних труб",
-            "Часткова заміна електропроводки та сантехнічних труб",
-            "Все залишаємо як є",
-            "Потрібна консультація",
-          ]}
-          name="constructions"
-          value={[formValues.constructions]}
-          handleChange={handleChange}
-        />
-      </div>
+        {/* Navigation Buttons */}
+        <div className={styles.navigationButtons}>
+          {currentStep > 0 && (
+            <button
+              type="button"
+              onClick={handlePrev}
+              className={styles.prevButton}
+            >
+              Назад
+            </button>
+          )}
 
-      {/* Кількість спалень */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Кількість спалень:</h3>
-        <OptionCard
-          options={["Одна", "Дві", "Три та більше"]}
-          name="bedroom"
-          value={[formValues.bedroom]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Уподобання у стилістиці інтер'єру */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Уподобання у стилістиці інтер`єру:</h3>
-        <OptionCard
-          options={[
-            {
-              label: "Класика",
-              imgSrc: "/images/new-images/anketa/style/style1.jpg",
-            },
-            {
-              label: "Модерн",
-              imgSrc: "/images/new-images/anketa/style/style2.jpg",
-            },
-            {
-              label: "Арт Деко",
-              imgSrc: "/images/new-images/anketa/style/style3.jpg",
-            },
-            {
-              label: "Хай-Тек",
-              imgSrc: "/images/new-images/anketa/style/style4.jpg",
-            },
-            {
-              label: "Лофт",
-              imgSrc: "/images/new-images/anketa/style/style5.jpg",
-            },
-            {
-              label: "Мінімалізм",
-              imgSrc: "/images/new-images/anketa/style/style6.jpg",
-            },
-            {
-              label: "Скандинавський",
-              imgSrc: "/images/new-images/anketa/style/style7.jpg",
-            },
-            {
-              label: "Бохо",
-              imgSrc: "/images/new-images/anketa/style/style8.jpg",
-            },
-            {
-              label: "Джапанді",
-              imgSrc: "/images/new-images/anketa/style/style9.jpg",
-            },
-            {
-              label: "Вабі-сабі",
-              imgSrc: "/images/new-images/anketa/style/style10.jpg",
-            },
-          ]}
-          name="style"
-          value={formValues.style}
-          handleChange={handleChange}
-          multiSelect
-        />
-      </div>
-
-      {/* Уподобання по підлозі */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Уподобання по підлозі:</h3>
-        <OptionCard
-          options={[
-            {
-              label: "Паркет",
-              imgSrc: "/images/new-images/anketa/floor/floor1.jpg",
-            },
-            {
-              label: "Ламінат",
-              imgSrc: "/images/new-images/anketa/floor/floor2.jpg",
-            },
-            {
-              label: "Плитка",
-              imgSrc: "/images/new-images/anketa/floor/floor3.jpg",
-            },
-            {
-              label: "Вініл",
-              imgSrc: "/images/new-images/anketa/floor/floor4.jpg",
-            },
-          ]}
-          name="floor"
-          value={formValues.floor}
-          handleChange={handleChange}
-          multiSelect
-        />
-        <TextInput
-          label="Інше:"
-          placeholder="Введіть відповідь"
-          name="floor-other"
-          value={formValues["floor-other"]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Уподобання по стінах */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Уподобання по стінах:</h3>
-        <OptionCard
-          options={[
-            {
-              label: "Фарбування",
-              imgSrc: "/images/new-images/anketa/wall/wall1.jpg",
-            },
-            {
-              label: "Шпалери",
-              imgSrc: "/images/new-images/anketa/wall/wall2.jpg",
-            },
-            {
-              label: "Декоративна штукатурка",
-              imgSrc: "/images/new-images/anketa/wall/wall3.jpg",
-            },
-            {
-              label: "Художнє оформлення",
-              imgSrc: "/images/new-images/anketa/wall/wall4.jpg",
-            },
-            {
-              label: "Гіпсові панелі",
-              imgSrc: "/images/new-images/anketa/wall/wall5.jpg",
-            },
-            {
-              label: "Панелі МДФ",
-              imgSrc: "/images/new-images/anketa/wall/wall6.jpg",
-            },
-            {
-              label: "Молдинги",
-              imgSrc: "/images/new-images/anketa/wall/wall7.jpg",
-            },
-            {
-              label: "Комбінований варіант",
-              imgSrc: "/images/new-images/anketa/wall/wall8.jpg",
-            },
-          ]}
-          name="wall"
-          value={formValues.wall}
-          handleChange={handleChange}
-          multiSelect
-        />
-        <TextInput
-          label="Інше:"
-          placeholder="Введіть відповідь"
-          name="wall-other"
-          value={formValues["wall-other"]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Уподобання по стелі */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Уподобання по стелі:</h3>
-        <OptionCard
-          options={[
-            {
-              label: "Гіпсокартонна",
-              imgSrc: "/images/new-images/anketa/roof/roof1.jpg",
-            },
-            {
-              label: "Натяжна",
-              imgSrc: "/images/new-images/anketa/roof/roof2.jpg",
-            },
-          ]}
-          name="roof"
-          value={formValues.roof}
-          handleChange={handleChange}
-          multiSelect
-        />
-      </div>
-
-      {/* Кількість санвузлів */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Кількість санвузлів:</h3>
-        <OptionCard
-          options={["Один", "Два", "Три і більше"]}
-          name="bathroom"
-          value={[formValues.bathroom]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Оздоблення санвузла */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Оздоблення санвузла:</h3>
-        <OptionCard
-          options={[
-            {
-              label: "Широкоформатна плитка",
-              imgSrc: "/images/new-images/anketa/bathroommat/bathroommat1.jpg",
-            },
-            {
-              label: "Дрібноформатна плитка",
-              imgSrc: "/images/new-images/anketa/bathroommat/bathroommat2.jpg",
-            },
-          ]}
-          name="bathroommat"
-          value={[formValues.bathroommat]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Тип дверей */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Тип дверей:</h3>
-        <OptionCard
-          options={[
-            {
-              label: "Звичайні",
-              imgSrc: "/images/new-images/anketa/door/door2.jpg",
-            },
-            {
-              label: "Прихованого монтажу",
-              imgSrc: "/images/new-images/anketa/door/door1.jpg",
-            },
-          ]}
-          name="door"
-          value={[formValues.door]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Що для Вас найважливіше в інтер'єрі? */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>
-          Що для Вас найважливіше в інтер`єрі?
-        </h3>
-        <OptionCard
-          options={["Простір", "Місткість", "Функціональність", "Дизайн"]}
-          name="main"
-          value={formValues.main}
-          handleChange={handleChange}
-          multiSelect
-        />
-        <TextInput
-          label="Інше:"
-          placeholder="Введіть відповідь"
-          name="main-other"
-          value={formValues["main-other"]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Освітлення */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Освітлення:</h3>
-        <OptionCard
-          options={[
-            "Верхнє світло (люстри, світильники, трекові системи)",
-            "Настінне/декоративне (підсвітки, бра, торшери)",
-            "І те, і інше",
-          ]}
-          name="lighting"
-          value={[formValues.lighting]}
-          handleChange={handleChange}
-        />
-      </div>
-
-      {/* Ваш номер телефону для зв'язку */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Ваш номер телефону для зв`язку:</h3>
-        <p>
-          <label className={styles.textWhite}>
-            <span>Телефон</span>
-            <input
-              className={styles.inputField}
-              required
-              placeholder="+ 380 __ ___ __ __"
-              value={formValues.phone}
-              type="tel"
-              name="phone"
-              onChange={handleChange}
-            />
-          </label>
-        </p>
-      </div>
-
-      {/* Зручний час для звʼязку */}
-      <div className={styles.formStep}>
-        <h3 className={styles.textWhite}>Зручний час для звʼязку:</h3>
-        <p>
-          <label className={styles.textWhite}>
-            <span>Введіть час</span>
-            <input
-              className={styles.inputField}
-              placeholder="10:00"
-              value={formValues.time}
-              type="text"
-              name="time"
-              onChange={handleChange}
-            />
-          </label>
-        </p>
-      </div>
-
-      {/* Submit button */}
-      <div className={styles.formStep}>
-        <p>
-          <button className={styles.submitButton} type="submit">
-            Відправити форму
-          </button>
-        </p>
-      </div>
-    </form>
+          {currentStep < steps.length - 1 ? (
+            <button
+              type="button"
+              onClick={handleNext}
+              className={styles.nextButton}
+              disabled={!isStepValid()}
+            >
+              Далі
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={!isStepValid()}
+            >
+              Відправити форму
+            </button>
+          )}
+        </div>
+      </form>
+    </div>
   );
 };
 

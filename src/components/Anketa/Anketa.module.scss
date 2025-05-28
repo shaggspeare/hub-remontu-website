@@ -1,109 +1,607 @@
 /* Anketa.module.scss */
 
-/* Common Styles */
-.textWhite {
-  color: #ffffff;
+/* Container and Layout */
+.formContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-h3.textWhite {
+/* Progress Bar */
+.progressContainer {
+  margin-bottom: 32px;
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 0;
+  z-index: 100;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.progressBar {
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--primaryColor);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.progressText {
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Step Container */
+.stepContainer {
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+/* Form Steps */
+.formStep {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typography */
+.stepTitle {
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* Options Grid - Mobile First */
+.optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
   margin-bottom: 16px;
 }
 
-.formStep {
-  margin-bottom: 48px;
+/* For larger phones and tablets */
+@media (min-width: 480px) {
+  .optionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
 }
 
+/* For desktop */
+@media (min-width: 768px) {
+  .optionsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.optionWrapper {
+  width: 100%;
+}
+
+.optionCard {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.optionCard:hover {
+  border-color: var(--primaryColor);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.optionSelected {
+  border-color: var(--primaryColor);
+  background-color: #f0f9ff;
+}
+
+.optionImageWrapper {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.optionImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.optionLabel {
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.optionSelected .optionLabel {
+  color: var(--primaryColor);
+  font-weight: 600;
+}
+
+/* Input Fields */
 .inputField {
   width: 100%;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  padding: 8px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+  background-color: #ffffff;
 }
 
-.radioLabel,
-.checkboxLabel {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 16px;
+.inputField:focus {
+  outline: none;
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 0 3px rgba(var(--primaryColor-rgb), 0.1);
 }
 
-.checkboxArea {
-  display: flex;
+.inputField::placeholder {
+  color: #9ca3af;
 }
 
-.checkboxLabelBlock {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.checkboxLabelBlockInput {
-  margin-right: 4px;
-}
-
-.radioLabel span,
-.checkboxLabel span,
-.checkboxLabelBlock span {
-  margin-right: 16px;
-}
-
-.radioLabelBlock,
-.checkboxLabelBlock {
+.inputLabel {
   display: block;
   margin-bottom: 16px;
+}
+
+.inputLabel span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.inputOtherField {
+  display: block;
+  margin-top: 16px;
+}
+
+.inputOtherField span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* Design Detail Box */
+.designDetailBox {
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.boldText {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.infoText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+.infoText:last-child {
+  margin-bottom: 0;
+}
+
+.infoText strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Navigation Buttons */
+.navigationButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.prevButton,
+.nextButton,
+.submitButton {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  min-width: 120px;
+}
+
+.prevButton {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.prevButton:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.nextButton {
+  background-color: var(--primaryColor);
+  color: white;
+  margin-left: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.nextButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.nextButton:disabled,
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .submitButton {
   background-color: var(--primaryColor);
-  color: var(--whiteColor);
-  display: inline-block;
-  padding: 15px 80px;
-  font-size: 18px;
-  font-weight: 500;
-  transition: var(--transition);
-  cursor: pointer;
-  border: 1px solid transparent;
+  color: white;
+  margin-left: auto;
+  min-width: 160px;
 }
 
-.submitButton:hover {
-  background-color: transparent;
-  border: 1px solid var(--primaryColor);
+.submitButton:hover:not(:disabled) {
+  background-color: var(--primaryColor-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.designDetailBox {
-  background-color: #ffffff;
-  padding: 16px;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 16px;
+    padding-bottom: 0;
+    //height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .progressContainer {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-shrink: 0;
+  }
+
+  .stepContainer {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+  }
+
+  .formStep {
+    min-height: 0;
+  }
+
+  .stepTitle {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  /* Text-only options - compact mode */
+  .optionsGrid:not(:has(.optionImageWrapper)) {
+    gap: 8px;
+
+    .optionCard {
+      min-height: auto;
+    }
+
+    .optionLabel {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+  }
+
+  /* Image options - tile layout */
+  .optionsGrid:has(.optionImageWrapper) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    .optionCard {
+      flex-direction: column;
+    }
+
+    .optionImageWrapper {
+      aspect-ratio: 1;
+      height: auto;
+    }
+
+    .optionLabel {
+      padding: 8px;
+      font-size: 13px;
+      min-height: 40px;
+    }
+  }
+
+  /* Special handling for many options */
+  .optionsGrid:has(.optionCard:nth-child(6)):not(:has(.optionImageWrapper)) {
+    /* For 6+ text options, use 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+
+    .optionLabel {
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+  }
+
+  /* For style section with 10 image options */
+  .optionsGrid:has(.optionCard:nth-child(10)):has(.optionImageWrapper) {
+    gap: 8px;
+
+    .optionImageWrapper {
+      aspect-ratio: 4/3;
+    }
+
+    .optionLabel {
+      padding: 6px;
+      font-size: 12px;
+      min-height: 36px;
+    }
+  }
+
+  /* Wall section with 8 image options */
+  .optionsGrid:has(.optionCard:nth-child(8)):has(.optionImageWrapper) {
+    gap: 8px;
+
+    .optionLabel {
+      padding: 6px;
+      font-size: 12px;
+      min-height: 36px;
+    }
+  }
+
+  .navigationButtons {
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-shrink: 0;
+    backdrop-filter: blur(10px);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-top: 1px solid var(--primaryColor);
+  }
+
+  .prevButton,
+  .nextButton,
+  .submitButton {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+
+  .designDetailBox {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .boldText {
+    font-size: 16px;
+  }
+
+  .infoText {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  /* Input fields on mobile */
+  .inputField {
+    padding: 10px 14px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .inputOtherField {
+    margin-top: 12px;
+  }
 }
 
-.lightBackground {
-  background-color: #f9fafb;
-  padding: 16px;
-  border-radius: 4px;
+/* Responsive adjustments for text-only options */
+@media (min-width: 480px) {
+  /* For options without images, we can fit more per row */
+  .optionsGrid:has(.optionCard:not(:has(.optionImageWrapper))) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.inputOtherField {
-  margin-top: 8px;
+@media (min-width: 768px) {
+  .optionsGrid:has(.optionCard:not(:has(.optionImageWrapper))) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.boldText {
-  margin-bottom: 8px;
-  color: #000000;
+/* Ensure smooth scrolling on iOS */
+.formContainer {
+  -webkit-overflow-scrolling: touch;
 }
 
-.infoText {
-  margin-top: 8px;
-  color: #000000;
+/* Prevent text selection on option cards */
+.optionCard {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.option {
-  transition: all 0.2s ease-in-out;
+/* Additional mobile optimizations */
+@media (max-width: 375px) {
+  /* iPhone 12 mini and smaller */
+  .optionsGrid:has(.optionImageWrapper) {
+    gap: 6px;
+
+    .optionLabel {
+      font-size: 11px;
+      padding: 4px;
+      min-height: 32px;
+    }
+  }
+
+  .optionsGrid:not(:has(.optionImageWrapper)) {
+    gap: 6px;
+
+    .optionLabel {
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+  }
 }
 
-.optionSelected {
-  border: 5px solid var(--primaryColor);
-  background-color: var(--primaryColor);
-  color: var(--whiteColor);
-  padding: 4px;
-  transition: all 0.1s ease-in-out;
+/* Landscape mode on mobile */
+@media (max-width: 812px) and (orientation: landscape) {
+  .formContainer {
+    height: 100vh;
+  }
+
+  .stepContainer {
+    max-height: calc(100vh - 120px);
+  }
+
+  .optionsGrid:has(.optionImageWrapper) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+
+    .optionImageWrapper {
+      aspect-ratio: 4/3;
+    }
+
+    .optionLabel {
+      font-size: 12px;
+      padding: 4px;
+    }
+  }
+
+  .optionsGrid:not(:has(.optionImageWrapper)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .formContainer {
+    background-color: #1f2937;
+  }
+
+  .progressContainer {
+    background-color: rgba(31, 41, 55, 0.95);
+  }
+
+  .progressBar {
+    background-color: #374151;
+  }
+
+  .progressText {
+    color: #9ca3af;
+  }
+
+  .stepTitle {
+    color: #f3f4f6;
+  }
+
+  .optionCard {
+    background-color: #374151;
+    border-color: #4b5563;
+  }
+
+  .optionLabel {
+    color: #f3f4f6;
+  }
+
+  .inputField {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f3f4f6;
+  }
+
+  .inputField::placeholder {
+    color: #6b7280;
+  }
+
+  .designDetailBox {
+    background-color: #374151;
+    border-color: #4b5563;
+  }
+
+  .boldText {
+    color: #f3f4f6;
+  }
+
+  .infoText {
+    color: #d1d5db;
+  }
+
+  .infoText strong {
+    color: #f3f4f6;
+  }
+
+  .prevButton {
+    background-color: #4b5563;
+    color: #f3f4f6;
+  }
+
+  .prevButton:hover {
+    background-color: #6b7280;
+  }
 }
