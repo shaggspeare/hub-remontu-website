@@ -5,7 +5,7 @@ const nextConfig = {
   // For Static Export
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
