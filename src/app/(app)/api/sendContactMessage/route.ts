@@ -3,14 +3,13 @@ import { NextResponse } from "next/server";
 const TELEGRAM_API = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
 
 export async function POST(req: Request) {
-  const { name, email, phone, message } = await req.json();
+  const { name, phone, message } = await req.json();
 
   try {
     const telegramMessage = `
 *Нове Заповнення Форми Контакту*
 ======================
 👤 *Ім'я*: ${name}
-📧 *Email*: ${email}
 📞 *Телефон*: ${phone}
 💬 *Коментар*: ${message}
 `;
