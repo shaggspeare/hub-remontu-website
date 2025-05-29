@@ -43,5 +43,6 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
-  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
+  cors: ["http://localhost:3000", "https://hubremontu.ua"],
 });
