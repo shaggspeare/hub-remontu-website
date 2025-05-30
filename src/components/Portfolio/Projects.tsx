@@ -16,14 +16,8 @@ const ProjectsPage: React.FC = async () => {
 
   const { docs: projects } = await payload.find({
     collection: "projects",
+    limit: 50,
   });
-
-  const { docs: pages } = await payload.find({
-    collection: "pages",
-  });
-
-  console.log("Payload Projects:", projects);
-  console.log("Payload pages:", pages);
 
   const projectsData: ProjectShortInfo[] = projects.map((project: any) => ({
     id: project.id,

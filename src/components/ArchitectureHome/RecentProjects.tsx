@@ -19,8 +19,6 @@ const RecentProjects: React.FC = async () => {
 
   const { docs: projects } = await payload.find({ collection: "projects" });
 
-  console.log(projects);
-
   const projectsData: ProjectShortInfo[] = projects.map((project) => {
     return {
       id: project.id,

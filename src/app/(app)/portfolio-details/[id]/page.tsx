@@ -35,8 +35,6 @@ export default async function PortfolioPage({ params }) {
 
   const project = docs[0];
 
-  console.log("project", id, project);
-
   return (
     <div className="full-bg-black-color">
       <Navbar />
