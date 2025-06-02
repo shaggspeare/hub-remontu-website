@@ -30,7 +30,7 @@ export default buildConfig({
     supportedLanguages: { en, ru, uk },
   },
   collections: [Users, Images, Projects, Pages, SEO],
-  editor: lexicalEditor(),
+  editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),

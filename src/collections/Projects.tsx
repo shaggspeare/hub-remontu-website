@@ -1,9 +1,112 @@
 import { CollectionConfig } from "payload";
 
+// Helper function to convert plain text to Lexical format
+function convertTextToLexical(text: string) {
+  if (!text || typeof text !== "string") return null;
+
+  const paragraphs = text.split("\n").filter((p) => p.trim());
+
+  const children = paragraphs.map((paragraph) => ({
+    children: [
+      {
+        detail: 0,
+        format: 0,
+        mode: "normal",
+        style: "",
+        text: paragraph.trim(),
+        type: "text",
+        version: 1,
+      },
+    ],
+    direction: "ltr",
+    format: "",
+    indent: 0,
+    type: "paragraph",
+    version: 1,
+  }));
+
+  if (children.length === 0 && text.trim()) {
+    children.push({
+      children: [
+        {
+          detail: 0,
+          format: 0,
+          mode: "normal",
+          style: "",
+          text: text.trim(),
+          type: "text",
+          version: 1,
+        },
+      ],
+      direction: "ltr",
+      format: "",
+      indent: 0,
+      type: "paragraph",
+      version: 1,
+    });
+  }
+
+  return {
+    root: {
+      type: "root",
+      format: "",
+      indent: 0,
+      version: 1,
+      children: children,
+      direction: "ltr",
+    },
+  };
+}
+
 export const Projects: CollectionConfig = {
   slug: "projects",
   access: {
     read: () => true,
+  },
+  hooks: {
+    // This hook will run before reading data
+    afterRead: [
+      async ({ doc }) => {
+        let modified = false;
+        const updatedDoc = { ...doc };
+
+        // Convert description1 if it's a string
+        if (doc.description1 && typeof doc.description1 === "string") {
+          updatedDoc.description1 = convertTextToLexical(doc.description1);
+          modified = true;
+        }
+
+        // Convert description2 if it's a string
+        if (doc.description2 && typeof doc.description2 === "string") {
+          updatedDoc.description2 = convertTextToLexical(doc.description2);
+          modified = true;
+        }
+
+        return modified ? updatedDoc : doc;
+      },
+    ],
+    // This hook will save the converted data when updating
+    beforeChange: [
+      async ({ data, originalDoc }) => {
+        // If original had string descriptions and new data has them as objects,
+        // ensure they're properly formatted
+        if (originalDoc) {
+          if (
+            typeof originalDoc.description1 === "string" &&
+            data.description1
+          ) {
+            // Data is already converted by afterRead hook
+          }
+          if (
+            typeof originalDoc.description2 === "string" &&
+            data.description2
+          ) {
+            // Data is already converted by afterRead hook
+          }
+        }
+        return data;
+      },
+    ],
   },
   labels: {
     singular: {
@@ -85,7 +188,7 @@ export const Projects: CollectionConfig = {
         uk: "Перша частина опису",
         ru: "Первое описание",
       },
-      type: "textarea",
+      type: "richText",
     },
     {
       name: "servicesCovered",
@@ -127,7 +230,7 @@ export const Projects: CollectionConfig = {
         uk: "Друга частина опису",
         ru: "Второе описание",
       },
-      type: "textarea",
+      type: "richText",
     },
     {
       name: "projectDetails",
@@ -185,8 +288,8 @@ export const Projects: CollectionConfig = {
       },
       type: "relationship",
       relationTo: "images",
-      hasMany: true, // Allows multiple images to be linked
-      required: false, // Optional, set true if needed
+      hasMany: true,
+      required: false,
       admin: {
         description: {
           en: "Select or upload multiple images for the gallery.",
@@ -208,7 +311,6 @@ export const Projects: CollectionConfig = {
           uk: "Не показується на сайті",
           ru: "Не показывается на сайте",
         },
-
       },
       type: "textarea",
     },

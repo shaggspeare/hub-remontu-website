@@ -4,28 +4,12 @@ import React from "react";
 import Image from "next/image";
 import Sidebar from "./Sidebar";
 import GalleryImage from "@/components/Gallery/GalleryImage";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+// Import your generated types - adjust the path as needed
+import type { Project } from "@/payload-types";
 
-interface PayloadProject {
-  id: string;
-  title: string;
-  mainImage: any; // <-- allow a string fallback
-  description1?: string;
-  description2?: string;
-  servicesCovered?: { service: string }[];
-  projectDetails?: {
-    client?: string;
-    duration?: string;
-    squareMeters?: string;
-    services?: string;
-  };
-  galleryImages?: {
-    id: string;
-    url: string;
-    alt: string;
-  }[];
-}
 interface PortfolioDetailsContentProps {
-  project: PayloadProject;
+  project: Project;
 }
 
 const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
@@ -35,12 +19,18 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
     return <div style={{ color: "#fff" }}>Project not found.</div>;
   }
 
+  // Helper function to safely get image URL
+  const getImageUrl = (image: any): string => {
+    if (typeof image === "string") return image;
+    return image?.url || "";
+  };
+
   const portfolioDetailsInfo = {
     title: project.title || "",
-    mainImage: project.mainImage?.url || "",
+    mainImage: getImageUrl(project.mainImage),
     description: {
-      part1: <p>{project.description1}</p>,
-      part2: <p>{project.description2}</p>,
+      part1: project.description1,
+      part2: project.description2,
     },
     servicesCovered: project.servicesCovered?.map((item) => item.service) || [],
     projectDetails: {
@@ -49,11 +39,21 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
       squareMeters: project.projectDetails?.squareMeters ?? "",
       services: project.projectDetails?.services ?? "",
     },
-    galleryImages: (project.galleryImages ?? []).map(( galleryImage ) => ({
-      id: galleryImage.id,
-      image: galleryImage.url,
-      alt: galleryImage.alt,
-    })),
+    galleryImages: (project.galleryImages ?? []).map((galleryImage) => {
+      // Handle both string and object types for images
+      if (typeof galleryImage === "string") {
+        return {
+          id: galleryImage,
+          image: galleryImage,
+          alt: "",
+        };
+      }
+      return {
+        id: galleryImage.id,
+        image: galleryImage.url || "",
+        alt: galleryImage.alt || "",
+      };
+    }),
   };
 
   return (
@@ -67,7 +67,7 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
             <div className="projects-details-image">
               <Image
                 src={portfolioDetailsInfo.mainImage}
-                alt={portfolioDetailsInfo.title || 'project main image'}
+                alt={portfolioDetailsInfo.title || "project main image"}
                 width={900}
                 height={530}
                 quality={100}
@@ -83,7 +83,12 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
                   {portfolioDetailsInfo.title}
                 </h2>
 
-                {portfolioDetailsInfo.description.part1}
+                {/* Render Rich Text for description1 */}
+                {portfolioDetailsInfo.description.part1 && (
+                  <div className="rich-text-content">
+                    <RichText data={portfolioDetailsInfo.description.part1} />
+                  </div>
+                )}
 
                 {!!portfolioDetailsInfo.servicesCovered.length && (
                   <div className="box-content">
@@ -128,7 +133,12 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
                   </div>
                 )}
 
-                {portfolioDetailsInfo.description.part2}
+                {/* Render Rich Text for description2 */}
+                {portfolioDetailsInfo.description.part2 && (
+                  <div className="rich-text-content">
+                    <RichText data={portfolioDetailsInfo.description.part2} />
+                  </div>
+                )}
               </div>
             </div>
 
