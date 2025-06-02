@@ -229,12 +229,12 @@ export const Projects: CollectionConfig = {
   },
   fields: [
     {
-      name: 'viewOnSite',
-      type: 'ui',
+      name: "viewOnSite",
+      type: "ui",
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
         components: {
-          Field: '@/components/ViewOnSiteButton/ViewOnSiteButton',
+          Field: "@/components/ViewOnSiteButton/ViewOnSiteButton",
         },
       },
     },
@@ -270,6 +270,26 @@ export const Projects: CollectionConfig = {
           value: "commercial",
         },
       ],
+      required: true,
+    },
+    {
+      name: "type",
+      type: "select",
+      label: {
+        en: "Project Type",
+        uk: "Тип проєкту",
+      },
+      options: [
+        {
+          label: "Дизайн проект",
+          value: "design",
+        },
+        {
+          label: "Реалізація",
+          value: "implementation",
+        },
+      ],
+      defaultValue: "implementation",
       required: true,
     },
     {

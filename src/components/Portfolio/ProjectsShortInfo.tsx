@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
-import { ProjectShortInfo } from "@/components/Portfolio/Projects";
+import { ProjectShortInfo } from "@/types/project";
 
 // Dynamically import Masonry components with SSR disabled
 const ResponsiveMasonry = dynamic(

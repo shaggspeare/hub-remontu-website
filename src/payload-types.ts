@@ -164,6 +164,7 @@ export interface Project {
   id: string;
   title: string;
   category: 'living' | 'commercial';
+  type: 'design' | 'implementation';
   mainImage: string | Image;
   verticalImage: string | Image;
   /**
@@ -387,6 +388,7 @@ export interface ImagesSelect<T extends boolean = true> {
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   category?: T;
+  type?: T;
   mainImage?: T;
   verticalImage?: T;
   description1?: T;
