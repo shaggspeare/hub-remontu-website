@@ -1,8 +1,36 @@
 import { CollectionConfig } from "payload";
+import {
+  lexicalEditor,
+  // Text formatting features
+  BoldFeature,
+  ItalicFeature,
+  UnderlineFeature,
+  StrikethroughFeature,
+  SubscriptFeature,
+  SuperscriptFeature,
+  InlineCodeFeature,
+  // Paragraph features
+  ParagraphFeature,
+  HeadingFeature,
+  // List features
+  OrderedListFeature,
+  UnorderedListFeature,
+  ChecklistFeature,
+  // Block features
+  BlockquoteFeature,
+  HorizontalRuleFeature,
+  // Link features
+  LinkFeature,
+  // Advanced features
+  AlignFeature,
+  IndentFeature,
+  // Upload feature for inline images
+  UploadFeature,
+} from "@payloadcms/richtext-lexical";
 
 // Helper function to convert plain text to Lexical format
 function convertTextToLexical(text: string) {
-  if (!text || typeof text !== "string") return null;
+  if (!text) return null;
 
   const paragraphs = text.split("\n").filter((p) => p.trim());
 
@@ -57,6 +85,87 @@ function convertTextToLexical(text: string) {
     },
   };
 }
+
+// Create a rich editor configuration with all features
+const createRichEditor = () => {
+  return lexicalEditor({
+    features: [
+      // Paragraph types
+      ParagraphFeature(),
+      HeadingFeature({
+        enabledHeadingSizes: ["h1", "h2", "h3", "h4", "h5", "h6"],
+      }),
+
+      // Text formatting
+      BoldFeature(),
+      ItalicFeature(),
+      UnderlineFeature(),
+      StrikethroughFeature(),
+      SubscriptFeature(),
+      SuperscriptFeature(),
+      InlineCodeFeature(),
+
+      // Lists
+      OrderedListFeature(),
+      UnorderedListFeature(),
+      ChecklistFeature(),
+
+      // Blocks
+      BlockquoteFeature(),
+      HorizontalRuleFeature(),
+
+      // Links
+      LinkFeature({
+        enabledCollections: ["pages",], // Add your collection names here
+        fields: [
+          {
+            name: "rel",
+            type: "select",
+            label: "Rel Attribute",
+            options: ["nofollow", "noopener", "noreferrer"],
+          },
+          {
+            name: "newTab",
+            type: "checkbox",
+            label: "Open in new tab",
+          },
+        ],
+      }),
+
+      // Layout
+      AlignFeature(),
+      IndentFeature(),
+
+      // Media
+      UploadFeature({
+        collections: {
+          images: {
+            fields: [
+              {
+                name: "alt",
+                type: "text",
+                label: "Alt Text",
+                required: true,
+              },
+              {
+                name: "caption",
+                type: "text",
+                label: "Caption",
+              },
+            ],
+          },
+        },
+      }),
+
+      // You can also add custom blocks if needed
+      // BlocksFeature({
+      //   blocks: [
+      //     // Add your custom block configs here
+      //   ],
+      // }),
+    ],
+  });
+};
 
 export const Projects: CollectionConfig = {
   slug: "projects",
@@ -189,6 +298,14 @@ export const Projects: CollectionConfig = {
         ru: "Первое описание",
       },
       type: "richText",
+      editor: createRichEditor(),
+      admin: {
+        description: {
+          en: "Full rich text editor with formatting, lists, links, and media",
+          uk: "Повний текстовий редактор з форматуванням, списками, посиланнями та медіа",
+          ru: "Полный текстовый редактор с форматированием, списками, ссылками и медиа",
+        },
+      },
     },
     {
       name: "servicesCovered",
@@ -231,6 +348,14 @@ export const Projects: CollectionConfig = {
         ru: "Второе описание",
       },
       type: "richText",
+      editor: createRichEditor(),
+      admin: {
+        description: {
+          en: "Full rich text editor with formatting, lists, links, and media",
+          uk: "Повний текстовий редактор з форматуванням, списками, посиланнями та медіа",
+          ru: "Полный текстовый редактор с форматированием, списками, ссылками и медиа",
+        },
+      },
     },
     {
       name: "projectDetails",

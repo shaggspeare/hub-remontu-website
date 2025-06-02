@@ -166,6 +166,9 @@ export interface Project {
   category: 'living' | 'commercial';
   mainImage: string | Image;
   verticalImage: string | Image;
+  /**
+   * Full rich text editor with formatting, lists, links, and media
+   */
   description1?: {
     root: {
       type: string;
@@ -187,6 +190,9 @@ export interface Project {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Full rich text editor with formatting, lists, links, and media
+   */
   description2?: {
     root: {
       type: string;

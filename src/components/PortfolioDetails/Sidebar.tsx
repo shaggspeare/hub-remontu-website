@@ -58,17 +58,19 @@ const Sidebar: React.FC<Props> = ({
             </span>
             <h4 style={{ color: "var(--whiteColor)" }}>{squareMeters}</h4>
           </li>
-          <li>
-            <span
-              style={{
-                color: "var(--primaryColor)",
-                textTransform: "uppercase",
-              }}
-            >
-              Що робили для клієнта
-            </span>
-            <h4 style={{ color: "var(--whiteColor)" }}>{services}</h4>
-          </li>
+          {!!services.length && (
+            <li>
+              <span
+                style={{
+                  color: "var(--primaryColor)",
+                  textTransform: "uppercase",
+                }}
+              >
+                Що робили для клієнта
+              </span>
+              <h4 style={{ color: "var(--whiteColor)" }}>{services}</h4>
+            </li>
+          )}
         </ul>
       </div>
     </>

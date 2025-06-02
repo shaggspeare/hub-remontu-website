@@ -85,7 +85,10 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
 
                 {/* Render Rich Text for description1 */}
                 {portfolioDetailsInfo.description.part1 && (
-                  <div className="rich-text-content">
+                  <div
+                    className="rich-text-content"
+                    style={{ color: "#c0b6ad" }}
+                  >
                     <RichText data={portfolioDetailsInfo.description.part1} />
                   </div>
                 )}
@@ -94,7 +97,9 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
                   <div className="box-content">
                     <h3>Особливості</h3>
                     <div className="row justify-content-center">
-                      <div className="col-lg-6 col-md-6">
+                      <div
+                        className={`${portfolioDetailsInfo.servicesCovered.length > 5 ? "col-lg-6 col-md-6" : ""}`}
+                      >
                         <ul className="list">
                           {portfolioDetailsInfo.servicesCovered
                             .slice(0, 5)
@@ -111,31 +116,35 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
                             ))}
                         </ul>
                       </div>
-
-                      <div className="col-lg-6 col-md-6">
-                        <ul className="list">
-                          {portfolioDetailsInfo.servicesCovered
-                            .slice(5, 10)
-                            .map((item, index) => (
-                              <li key={index}>
-                                <Image
-                                  src={"/images/projects-details/arrow.svg"}
-                                  alt="arrow"
-                                  width={28}
-                                  height={10}
-                                />
-                                {item}
-                              </li>
-                            ))}
-                        </ul>
-                      </div>
+                      {portfolioDetailsInfo.servicesCovered.length > 5 && (
+                        <div className="col-lg-6 col-md-6">
+                          <ul className="list">
+                            {portfolioDetailsInfo.servicesCovered
+                              .slice(5, 10)
+                              .map((item, index) => (
+                                <li key={index}>
+                                  <Image
+                                    src={"/images/projects-details/arrow.svg"}
+                                    alt="arrow"
+                                    width={28}
+                                    height={10}
+                                  />
+                                  {item}
+                                </li>
+                              ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
 
                 {/* Render Rich Text for description2 */}
                 {portfolioDetailsInfo.description.part2 && (
-                  <div className="rich-text-content">
+                  <div
+                    className="rich-text-content"
+                    style={{ color: "#c0b6ad" }}
+                  >
                     <RichText data={portfolioDetailsInfo.description.part2} />
                   </div>
                 )}
