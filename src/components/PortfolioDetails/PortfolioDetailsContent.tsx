@@ -86,8 +86,7 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
                 {/* Render Rich Text for description1 */}
                 {portfolioDetailsInfo.description.part1 && (
                   <div
-                    className="rich-text-content"
-                    style={{ color: "#c0b6ad" }}
+                    className="rich-text-content portfolio-details-text"
                   >
                     <RichText data={portfolioDetailsInfo.description.part1} />
                   </div>
@@ -142,8 +141,7 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
                 {/* Render Rich Text for description2 */}
                 {portfolioDetailsInfo.description.part2 && (
                   <div
-                    className="rich-text-content"
-                    style={{ color: "#c0b6ad" }}
+                    className="rich-text-content portfolio-details-text"
                   >
                     <RichText data={portfolioDetailsInfo.description.part2} />
                   </div>

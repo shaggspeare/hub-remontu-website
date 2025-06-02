@@ -13,6 +13,11 @@ Projects Details Area CSS
     display: flex;
     justify-content: center;
 }
+
+.portfolio-details-text * {
+    color: #c0b6ad !important;
+}
+
 .projects-details-desc {
     position: relative;
     padding: {
