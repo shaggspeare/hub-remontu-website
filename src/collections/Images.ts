@@ -9,12 +9,10 @@ export const Images: CollectionConfig = {
         singular: {
             en: 'Image',
             uk: 'Медиа',
-            ru: 'Медиа',
         },
         plural: {
             en: 'Images',
             uk: 'Медиа',
-            ru: 'Медиа',
         },
     },
     upload: true,
@@ -23,7 +21,6 @@ export const Images: CollectionConfig = {
         group: {
             en: 'Content',
             uk: 'Контент',
-            ru: 'Контент',
         },
         // useAsTitle: 'folder', // (optional) pick a field to display as title
     },
@@ -35,13 +32,11 @@ export const Images: CollectionConfig = {
             label: {
                 en: 'Alt Text',
                 uk: 'Альт-текст',
-                ru: 'Альт-текст',
             },
             admin: {
                 placeholder: {
                     en: 'Enter alt text',
                     uk: 'Введіть альт-текст',
-                    ru: 'Введите альт-текст',
                 },
             },
         },
@@ -51,14 +46,12 @@ export const Images: CollectionConfig = {
             label: {
                 en: 'Folder Name',
                 uk: 'Назва теки',
-                ru: 'Имя папки',
             },
             required: false,
             admin: {
                 placeholder: {
                     en: 'Enter folder name',
                     uk: 'Введіть назву теки',
-                    ru: 'Введите имя папки',
                 },
             },
         },

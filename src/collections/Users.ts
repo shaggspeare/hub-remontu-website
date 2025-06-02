@@ -6,12 +6,10 @@ export const Users: CollectionConfig = {
     singular: {
       en: 'User',
       uk: 'Користувач',
-      ru: 'Пользователь',
     },
     plural: {
       en: 'Users',
       uk: 'Користувачі',
-      ru: 'Пользователи',
     },
   },
   admin: {
@@ -19,7 +17,6 @@ export const Users: CollectionConfig = {
     group: {
       en: 'Admin',
       uk: 'Адмін',
-      ru: 'Админ',
     },
   },
   auth: true,

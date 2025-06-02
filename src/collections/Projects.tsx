@@ -116,7 +116,7 @@ const createRichEditor = () => {
 
       // Links
       LinkFeature({
-        enabledCollections: ["pages",], // Add your collection names here
+        enabledCollections: ["pages"], // Add your collection names here
         fields: [
           {
             name: "rel",
@@ -221,15 +221,23 @@ export const Projects: CollectionConfig = {
     singular: {
       en: "Project",
       uk: "Проєкт",
-      ru: "Проект",
     },
     plural: {
       en: "Projects",
       uk: "Проєкти",
-      ru: "Проекты",
     },
   },
   fields: [
+    {
+      name: 'viewOnSite',
+      type: 'ui',
+      admin: {
+        position: 'sidebar',
+        components: {
+          Field: '@/components/ViewOnSiteButton/ViewOnSiteButton',
+        },
+      },
+    },
     {
       name: "title",
       type: "text",
@@ -237,7 +245,6 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Project Title",
         uk: "Назва проєкту",
-        ru: "Название проекта",
       },
     },
     {
@@ -246,14 +253,12 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Category",
         uk: "Категорія",
-        ru: "Категория",
       },
       options: [
         {
           label: {
             en: "Living",
             uk: "Житлова",
-            ru: "Жилая",
           },
           value: "living",
         },
@@ -261,7 +266,6 @@ export const Projects: CollectionConfig = {
           label: {
             en: "Commercial",
             uk: "Комерційна",
-            ru: "Коммерческая",
           },
           value: "commercial",
         },
@@ -274,7 +278,6 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Main Image",
         uk: "Головне зображення",
-        ru: "Главное изображение",
       },
       relationTo: "images",
       required: true,
@@ -285,7 +288,6 @@ export const Projects: CollectionConfig = {
       label: {
         en: "In Grid Image",
         uk: "Зображення в сітці",
-        ru: "Изображение в сетке",
       },
       relationTo: "images",
       required: true,
@@ -295,7 +297,6 @@ export const Projects: CollectionConfig = {
       label: {
         en: "First Description",
         uk: "Перша частина опису",
-        ru: "Первое описание",
       },
       type: "richText",
       editor: createRichEditor(),
@@ -303,7 +304,6 @@ export const Projects: CollectionConfig = {
         description: {
           en: "Full rich text editor with formatting, lists, links, and media",
           uk: "Повний текстовий редактор з форматуванням, списками, посиланнями та медіа",
-          ru: "Полный текстовый редактор с форматированием, списками, ссылками и медиа",
         },
       },
     },
@@ -312,19 +312,16 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Services Covered",
         uk: "Надані послуги",
-        ru: "Оказанные услуги",
       },
       type: "array",
       labels: {
         singular: {
           en: "Service",
           uk: "Послуга",
-          ru: "Услуга",
         },
         plural: {
           en: "Services",
           uk: "Послуги",
-          ru: "Услуги",
         },
       },
       fields: [
@@ -335,7 +332,6 @@ export const Projects: CollectionConfig = {
           label: {
             en: "Service",
             uk: "Послуга",
-            ru: "Услуга",
           },
         },
       ],
@@ -345,7 +341,6 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Second Description",
         uk: "Друга частина опису",
-        ru: "Второе описание",
       },
       type: "richText",
       editor: createRichEditor(),
@@ -353,7 +348,6 @@ export const Projects: CollectionConfig = {
         description: {
           en: "Full rich text editor with formatting, lists, links, and media",
           uk: "Повний текстовий редактор з форматуванням, списками, посиланнями та медіа",
-          ru: "Полный текстовый редактор с форматированием, списками, ссылками и медиа",
         },
       },
     },
@@ -362,7 +356,6 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Project Details",
         uk: "Деталі проєкту",
-        ru: "Детали проекта",
       },
       type: "group",
       fields: [
@@ -372,7 +365,6 @@ export const Projects: CollectionConfig = {
           label: {
             en: "Client",
             uk: "Клієнт",
-            ru: "Клиент",
           },
         },
         {
@@ -381,7 +373,6 @@ export const Projects: CollectionConfig = {
           label: {
             en: "Duration",
             uk: "Тривалість",
-            ru: "Продолжительность",
           },
         },
         {
@@ -390,7 +381,6 @@ export const Projects: CollectionConfig = {
           label: {
             en: "Square Meters",
             uk: "Площа (м²)",
-            ru: "Площадь (м²)",
           },
         },
         {
@@ -399,7 +389,6 @@ export const Projects: CollectionConfig = {
           label: {
             en: "Services",
             uk: "Послуги",
-            ru: "Услуги",
           },
         },
       ],
@@ -409,7 +398,6 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Gallery Images",
         uk: "Галерея зображень",
-        ru: "Галерея изображений",
       },
       type: "relationship",
       relationTo: "images",
@@ -419,7 +407,6 @@ export const Projects: CollectionConfig = {
         description: {
           en: "Select or upload multiple images for the gallery.",
           uk: "Виберіть або завантажте кілька зображень для галереї.",
-          ru: "Выберите или загрузите несколько изображений для галереи.",
         },
       },
     },
@@ -428,13 +415,11 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Commentary",
         uk: "Коментар",
-        ru: "Комментарий",
       },
       admin: {
         description: {
           en: "Not displayed on site",
           uk: "Не показується на сайті",
-          ru: "Не показывается на сайте",
         },
       },
       type: "textarea",

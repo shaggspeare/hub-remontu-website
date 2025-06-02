@@ -8,7 +8,6 @@ import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { en } from "@payloadcms/translations/languages/en";
 import { uk } from "@payloadcms/translations/languages/uk";
-import { ru } from "@payloadcms/translations/languages/ru";
 
 import { Users } from "./collections/Users";
 import { Images } from "./collections/Images";
@@ -27,7 +26,7 @@ export default buildConfig({
     },
   },
   i18n: {
-    supportedLanguages: { en, ru, uk },
+    supportedLanguages: { en, uk },
   },
   collections: [Users, Images, Projects, Pages, SEO],
   editor: lexicalEditor({}),

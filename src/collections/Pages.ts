@@ -6,12 +6,10 @@ export const Pages: CollectionConfig = {
     singular: {
       en: "Page",
       uk: "Сторінка",
-      ru: "Страница",
     },
     plural: {
       en: "Pages",
       uk: "Сторінки",
-      ru: "Страницы",
     },
   },
   admin: {
@@ -19,7 +17,6 @@ export const Pages: CollectionConfig = {
     group: {
       en: "Content",
       uk: "Контент",
-      ru: "Контент",
     },
   },
   fields: [
@@ -30,13 +27,11 @@ export const Pages: CollectionConfig = {
       label: {
         en: "Page Title",
         uk: "Заголовок сторінки",
-        ru: "Заголовок страницы",
       },
       admin: {
         placeholder: {
           en: "Enter page title",
           uk: "Введіть заголовок сторінки",
-          ru: "Введите заголовок страницы",
         },
       },
     },
@@ -47,13 +42,11 @@ export const Pages: CollectionConfig = {
       label: {
         en: "Meta Description",
         uk: "Мета-опис",
-        ru: "Мета-описание",
       },
       admin: {
         placeholder: {
           en: "Enter meta description",
           uk: "Введіть мета-опис",
-          ru: "Введите мета-описание",
         },
       },
     },
@@ -63,13 +56,11 @@ export const Pages: CollectionConfig = {
       label: {
         en: "Keywords",
         uk: "Ключові слова",
-        ru: "Ключевые слова",
       },
       admin: {
         placeholder: {
           en: "Comma-separated keywords",
           uk: "Ключові слова через кому",
-          ru: "Ключевые слова через запятую",
         },
       },
     },
@@ -96,13 +87,11 @@ export const Pages: CollectionConfig = {
       label: {
         en: "Canonical URL",
         uk: "Канонічний URL",
-        ru: "Канонический URL",
       },
       admin: {
         placeholder: {
           en: "Enter canonical URL (optional)",
           uk: "Введіть канонічний URL (необов'язково)",
-          ru: "Введите канонический URL (необязательно)",
         },
       },
     },
@@ -112,7 +101,6 @@ export const Pages: CollectionConfig = {
       label: {
         en: "Open Graph Tags",
         uk: "Open Graph теги",
-        ru: "Open Graph теги",
       },
       fields: [
         {
@@ -121,7 +109,6 @@ export const Pages: CollectionConfig = {
           label: {
             en: "OG Title",
             uk: "OG Заголовок",
-            ru: "OG Заголовок",
           },
         },
         {
@@ -130,7 +117,6 @@ export const Pages: CollectionConfig = {
           label: {
             en: "OG Description",
             uk: "OG Опис",
-            ru: "OG Описание",
           },
         },
         {
@@ -140,7 +126,6 @@ export const Pages: CollectionConfig = {
           label: {
             en: "OG Image",
             uk: "OG Зображення",
-            ru: "OG Изображение",
           },
         },
       ],
