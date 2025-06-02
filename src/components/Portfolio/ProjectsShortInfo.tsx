@@ -33,7 +33,7 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
       >
         <Masonry gutter="30px">
           {data.map((project) => (
-            <div className="projects-item m-0" key={project.id}>
+            <div className="projects-item mx-0 my-2" key={project.id}>
               <div className="projects-image">
                 <Link href={project.link}>
                   {/* If project.image is a Payload Media object, it might have a `.url` or `.filename` property */}
