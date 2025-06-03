@@ -6,44 +6,45 @@ export async function POST(req: Request) {
   const { formData } = await req.json();
 
   try {
+    // Using HTML formatting instead of Markdown to avoid parsing issues
     const message = `
-*Нове Заповнення Анкети*
+<b>Нове Заповнення Анкети</b>
 ======================
-👤 *Ім'я*: ${formData["your-name"]}
+👤 <b>Ім'я</b>: ${formData["your-name"]}
 
-📞 *Телефон*: ${formData.phone}
+📞 <b>Телефон</b>: ${formData.phone}
 
-🏢 *Тип Нерухомості*: ${formData.building_type}
+🏢 <b>Тип Нерухомості</b>: ${formData.building_type}
 
-📝 *Дизайн*: ${formData.design}
-🔍 *Деталі Дизайну*: ${formData.design_detail.join(", ")}
+📝 <b>Дизайн</b>: ${formData.design}
+🔍 <b>Деталі Дизайну</b>: ${Array.isArray(formData.design_detail) ? formData.design_detail.join(", ") : formData.design_detail || "Не обрано"}
 
-🏠 *Вік Будівлі*: ${formData.age}
-🔄 *Перепланування*: ${formData.planning}
-🔧 *Комунікації*: ${formData.constructions}
-🛏️ *Кількість Спалень*: ${formData.bedroom}
+🏠 <b>Вік Будівлі</b>: ${formData.age}
+🔄 <b>Перепланування</b>: ${formData.planning}
+🔧 <b>Комунікації</b>: ${formData.constructions}
+🛏️ <b>Кількість Спалень</b>: ${formData.bedroom}
 
-🎨 *Бажаний Стиль*: ${formData.style.join(", ") || "Не обрано"}
+🎨 <b>Бажаний Стиль</b>: ${Array.isArray(formData.style) ? formData.style.join(", ") : formData.style || "Не обрано"}
 
-🪵 *Уподобання по Підлозі*: ${formData.floor.join(", ") || "Не обрано"}
-🔧 *Інше по Підлозі*: ${formData["floor-other"]}
+🪵 <b>Уподобання по Підлозі</b>: ${Array.isArray(formData.floor) ? formData.floor.join(", ") : formData.floor || "Не обрано"}
+🔧 <b>Інше по Підлозі</b>: ${formData["floor-other"] || "Не вказано"}
 
-🧱 *Уподобання по Стінах*: ${formData.wall.join(", ") || "Не обрано"}
-🔧 *Інше по Стінах*: ${formData["wall-other"]}
+🧱 <b>Уподобання по Стінах</b>: ${Array.isArray(formData.wall) ? formData.wall.join(", ") : formData.wall || "Не обрано"}
+🔧 <b>Інше по Стінах</b>: ${formData["wall-other"] || "Не вказано"}
 
-🏠 *Уподобання по Стелі*: ${formData.roof.join(", ") || "Не обрано"}
+🏠 <b>Уподобання по Стелі</b>: ${Array.isArray(formData.roof) ? formData.roof.join(", ") : formData.roof || "Не обрано"}
 
-🚿 *Кількість Санвузлів*: ${formData.bathroom}
-🛁 *Матеріали Санвузла*: ${formData.bathroommat}
+🚿 <b>Кількість Санвузлів</b>: ${formData.bathroom}
+🛁 <b>Матеріали Санвузла</b>: ${formData.bathroommat}
 
-🚪 *Тип Дверей*: ${formData.door}
+🚪 <b>Тип Дверей</b>: ${formData.door}
 
-🌟 *Найважливіше в Інтер'єрі*: ${formData.main.join(", ") || "Не обрано"}
-🔧 *Інше, що важливо*: ${formData["main-other"]}
+🌟 <b>Найважливіше в Інтер'єрі</b>: ${Array.isArray(formData.main) ? formData.main.join(", ") : formData.main || "Не обрано"}
+🔧 <b>Інше, що важливо</b>: ${formData["main-other"] || "Не вказано"}
 
-💡 *Уподобання по Освітленню*: ${formData.lighting}
+💡 <b>Уподобання по Освітленню</b>: ${formData.lighting}
 
-⏰ *Зручний Час для Зв'язку*: ${formData.time}
+⏰ <b>Зручний Час для Зв'язку</b>: ${formData.time}
 `;
 
     const response = await fetch(TELEGRAM_API, {
@@ -54,12 +55,16 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         chat_id: process.env.TELEGRAM_USER_ID,
         text: message,
-        parse_mode: "Markdown",
+        parse_mode: "HTML",
       }),
     });
 
     if (!response.ok) {
-      throw new Error("Failed to send message to Telegram");
+      const errorText = await response.text();
+      console.error("Telegram API error:", errorText);
+      throw new Error(
+        `Failed to send message to Telegram: ${response.status} ${errorText}`,
+      );
     }
 
     return NextResponse.json({
@@ -69,7 +74,7 @@ export async function POST(req: Request) {
     console.error("Error sending message to Telegram: ", error);
     return NextResponse.json(
       { error: "Error sending message to Telegram" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
