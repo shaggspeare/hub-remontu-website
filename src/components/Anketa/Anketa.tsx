@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 
 import styles from "./Anketa.module.scss";
+import { useRouter } from "next/navigation";
 
 interface FormValues {
   "your-name": string;
@@ -124,6 +125,8 @@ const TextInput: React.FC<TextInputProps> = ({
 );
 
 const MultiPartForm: React.FC = () => {
+  const router = useRouter();
+
   const [currentStep, setCurrentStep] = useState(0);
   const [formValues, setFormValues] = useState<FormValues>({
     "your-name": "",
@@ -686,7 +689,6 @@ const MultiPartForm: React.FC = () => {
       });
 
       if (response.ok) {
-        alert("Форму успішно відправлено!");
         // Reset form
         setFormValues({
           "your-name": "",
@@ -714,6 +716,8 @@ const MultiPartForm: React.FC = () => {
           time: "",
         });
         setCurrentStep(0);
+
+        router.push("/thank-you");
       } else {
         alert("Помилка при відправці форми");
       }
