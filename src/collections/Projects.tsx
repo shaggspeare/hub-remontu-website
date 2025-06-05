@@ -1,4 +1,5 @@
-import { CollectionConfig } from "payload";
+import { CollectionConfig, getPayload } from "payload";
+import config from "@payload-config";
 import {
   lexicalEditor,
   // Text formatting features
@@ -200,7 +201,7 @@ export const Projects: CollectionConfig = {
         // Auto-assign order if not provided
         if (data.order === undefined || data.order === null) {
           // Get the highest order number and add 1
-          const payload = this;
+          const payload = await getPayload({ config });
           const existingProjects = await payload.find({
             collection: "projects",
             sort: "-order",
