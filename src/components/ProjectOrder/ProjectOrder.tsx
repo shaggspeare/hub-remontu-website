@@ -12,6 +12,7 @@ interface Project {
 const ProjectOrder: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const { value, setValue } = useField<number>({ path: "order" });
 
@@ -125,206 +126,297 @@ const ProjectOrder: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      <h4
+      <div
         style={{
-          color: "#E1DBD6",
-          fontSize: "24px",
-          fontWeight: "400",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
           marginBottom: "30px",
         }}
       >
-        Управління порядком проектів
-      </h4>
+        <h4
+          style={{
+            color: "#E1DBD6",
+            fontSize: "24px",
+            fontWeight: "400",
+            margin: "0",
+          }}
+        >
+          Управління порядком проектів
+        </h4>
 
+        <button
+          type="button"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          style={{
+            background: "transparent",
+            border: "1px solid #44433F",
+            color: "#9D9A97",
+            padding: "8px 12px",
+            fontSize: "14px",
+            cursor: "pointer",
+            transition: "var(--transition, .6s)",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "var(--primaryColor, #BA8D6D)";
+            e.currentTarget.style.borderColor = "var(--primaryColor, #BA8D6D)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "#9D9A97";
+            e.currentTarget.style.borderColor = "#44433F";
+          }}
+        >
+          <span>{isCollapsed ? "Розгорнути" : "Згорнути"}</span>
+          <span
+            style={{
+              transform: isCollapsed ? "rotate(0deg)" : "rotate(180deg)",
+              transition: "transform 0.3s ease",
+              fontSize: "12px",
+            }}
+          >
+            ▼
+          </span>
+        </button>
+      </div>
+
+      {/* Show current project info even when collapsed */}
       {currentProject && (
         <div
           style={{
             backgroundColor: "#161512",
-            padding: "30px",
-            marginBottom: "30px",
+            padding: "20px 30px",
+            marginBottom: isCollapsed ? "0" : "30px",
             border: "1px dashed #5F5F5F",
-            position: "relative",
-            zIndex: 1,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <div style={{ marginBottom: "25px" }}>
+          <div>
+            <span
+              style={{
+                color: "var(--primaryColor, #BA8D6D)",
+                fontSize: "14px",
+                fontWeight: "500",
+              }}
+            >
+              Поточний проект:
+            </span>
             <p
               style={{
                 color: "#DEDEDE",
-                fontSize: "18px",
+                fontSize: "16px",
                 fontWeight: "500",
-                marginBottom: "15px",
+                margin: "5px 0 0 0",
               }}
             >
-              <span style={{ color: "var(--primaryColor, #BA8D6D)" }}>
-                Поточний проект:
-              </span>{" "}
               {currentProject.title}
             </p>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <span
+              style={{
+                color: "var(--primaryColor, #BA8D6D)",
+                fontSize: "14px",
+                fontWeight: "500",
+              }}
+            >
+              Позиція:
+            </span>
             <p
               style={{
                 color: "#B7B3AF",
-                fontSize: "15px",
-                marginBottom: "0",
+                fontSize: "16px",
+                margin: "5px 0 0 0",
               }}
             >
-              <span style={{ color: "var(--primaryColor, #BA8D6D)" }}>
-                Позиція:
-              </span>{" "}
               {currentIndex + 1} з {projects.length}
             </p>
-          </div>
-
-          <div style={{ display: "flex", gap: "12px" }}>
-            <button
-              type="button"
-              onClick={() => handleOrderChange("up")}
-              disabled={currentIndex === 0}
-              style={{
-                padding: "15px 30px",
-                background:
-                  currentIndex === 0
-                    ? "#3A3835"
-                    : "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)",
-                color: currentIndex === 0 ? "#7C7772" : "#ffffff",
-                border: "none",
-                fontSize: "15px",
-                fontWeight: "500",
-                cursor: currentIndex === 0 ? "not-allowed" : "pointer",
-                transition: "var(--transition, .6s)",
-              }}
-              onMouseEnter={(e) => {
-                if (currentIndex !== 0) {
-                  e.currentTarget.style.background = "#161512";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (currentIndex !== 0) {
-                  e.currentTarget.style.background =
-                    "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)";
-                }
-              }}
-            >
-              ↑ Перемістити вгору
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleOrderChange("down")}
-              disabled={currentIndex === sortedProjects.length - 1}
-              style={{
-                padding: "15px 30px",
-                background:
-                  currentIndex === sortedProjects.length - 1
-                    ? "#3A3835"
-                    : "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)",
-                color:
-                  currentIndex === sortedProjects.length - 1
-                    ? "#7C7772"
-                    : "#ffffff",
-                border: "none",
-                fontSize: "15px",
-                fontWeight: "500",
-                cursor:
-                  currentIndex === sortedProjects.length - 1
-                    ? "not-allowed"
-                    : "pointer",
-                transition: "var(--transition, .6s)",
-              }}
-              onMouseEnter={(e) => {
-                if (currentIndex !== sortedProjects.length - 1) {
-                  e.currentTarget.style.background = "#161512";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (currentIndex !== sortedProjects.length - 1) {
-                  e.currentTarget.style.background =
-                    "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)";
-                }
-              }}
-            >
-              ↓ Перемістити вниз
-            </button>
           </div>
         </div>
       )}
 
-      <div>
-        <h5
-          style={{
-            color: "#E1DBD6",
-            fontSize: "20px",
-            fontWeight: "400",
-            marginBottom: "25px",
-            paddingBottom: "15px",
-            borderBottom: "1px dashed #5F5F5F",
-          }}
-        >
-          Усі проекти (впорядковані):
-        </h5>
-
-        <div
-          style={{
-            backgroundColor: "#161512",
-            border: "1px dashed #44433F",
-            maxHeight: "300px",
-            overflowY: "auto",
-          }}
-        >
-          <ol
-            style={{
-              padding: "20px 40px",
-              margin: "0",
-              fontSize: "15px",
-              lineHeight: "1.6",
-            }}
-          >
-            {sortedProjects.map((project, index) => (
-              <li
-                key={project.id}
+      {!isCollapsed && (
+        <>
+          {/* Action buttons section when expanded */}
+          {currentProject && (
+            <div
+              style={{
+                backgroundColor: "#161512",
+                padding: "30px",
+                marginBottom: "30px",
+                border: "1px dashed #5F5F5F",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              <h5
                 style={{
-                  padding: "15px 20px",
-                  marginBottom: "10px",
-                  backgroundColor:
-                    project.order === value
-                      ? "rgba(186, 141, 109, 0.15)"
-                      : "transparent",
-                  fontWeight: project.order === value ? "500" : "400",
-                  color: project.order === value ? "#DEDEDE" : "#9D9A97",
-                  borderLeft:
-                    project.order === value
-                      ? "3px solid var(--primaryColor, #BA8D6D)"
-                      : "3px solid transparent",
-                  transition: "var(--transition, .6s)",
-                  borderBottom:
-                    index < sortedProjects.length - 1
-                      ? "1px dashed #44433F"
-                      : "none",
+                  color: "#E1DBD6",
+                  fontSize: "18px",
+                  fontWeight: "400",
+                  marginBottom: "20px",
                 }}
               >
-                <span
+                Дії з проектом:
+              </h5>
+
+              <div style={{ display: "flex", gap: "12px" }}>
+                <button
+                  type="button"
+                  onClick={() => handleOrderChange("up")}
+                  disabled={currentIndex === 0}
                   style={{
-                    color: project.order === value ? "#DEDEDE" : "#B7B3AF",
+                    padding: "15px 30px",
+                    background:
+                      currentIndex === 0
+                        ? "#3A3835"
+                        : "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)",
+                    color: currentIndex === 0 ? "#7C7772" : "#ffffff",
+                    border: "none",
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    cursor: currentIndex === 0 ? "not-allowed" : "pointer",
+                    transition: "var(--transition, .6s)",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (currentIndex !== 0) {
+                      e.currentTarget.style.background = "#161512";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (currentIndex !== 0) {
+                      e.currentTarget.style.background =
+                        "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)";
+                    }
                   }}
                 >
-                  {project.title}
-                </span>
-                <span
+                  ↑ Перемістити вгору
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleOrderChange("down")}
+                  disabled={currentIndex === sortedProjects.length - 1}
                   style={{
-                    color: "var(--primaryColor, #BA8D6D)",
-                    fontSize: "14px",
-                    fontWeight: "400",
-                    marginLeft: "15px",
-                    opacity: "0.8",
+                    padding: "15px 30px",
+                    background:
+                      currentIndex === sortedProjects.length - 1
+                        ? "#3A3835"
+                        : "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)",
+                    color:
+                      currentIndex === sortedProjects.length - 1
+                        ? "#7C7772"
+                        : "#ffffff",
+                    border: "none",
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    cursor:
+                      currentIndex === sortedProjects.length - 1
+                        ? "not-allowed"
+                        : "pointer",
+                    transition: "var(--transition, .6s)",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (currentIndex !== sortedProjects.length - 1) {
+                      e.currentTarget.style.background = "#161512";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (currentIndex !== sortedProjects.length - 1) {
+                      e.currentTarget.style.background =
+                        "linear-gradient(135deg, #D8B798 0%, #BA8D6D 100%)";
+                    }
                   }}
                 >
-                  (Порядок: {project.order})
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
+                  ↓ Перемістити вниз
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Projects list section */}
+          <div>
+            <h5
+              style={{
+                color: "#E1DBD6",
+                fontSize: "20px",
+                fontWeight: "400",
+                marginBottom: "25px",
+                paddingBottom: "15px",
+                borderBottom: "1px dashed #5F5F5F",
+              }}
+            >
+              Усі проекти (впорядковані):
+            </h5>
+
+            <div
+              style={{
+                backgroundColor: "#161512",
+                border: "1px dashed #44433F",
+                maxHeight: "300px",
+                overflowY: "auto",
+              }}
+            >
+              <ol
+                style={{
+                  padding: "20px 40px",
+                  margin: "0",
+                  fontSize: "15px",
+                  lineHeight: "1.6",
+                }}
+              >
+                {sortedProjects.map((project, index) => (
+                  <li
+                    key={project.id}
+                    style={{
+                      padding: "15px 20px",
+                      marginBottom: "10px",
+                      backgroundColor:
+                        project.order === value
+                          ? "rgba(186, 141, 109, 0.15)"
+                          : "transparent",
+                      fontWeight: project.order === value ? "500" : "400",
+                      color: project.order === value ? "#DEDEDE" : "#9D9A97",
+                      borderLeft:
+                        project.order === value
+                          ? "3px solid var(--primaryColor, #BA8D6D)"
+                          : "3px solid transparent",
+                      transition: "var(--transition, .6s)",
+                      borderBottom:
+                        index < sortedProjects.length - 1
+                          ? "1px dashed #44433F"
+                          : "none",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: project.order === value ? "#DEDEDE" : "#B7B3AF",
+                      }}
+                    >
+                      {project.title}
+                    </span>
+                    <span
+                      style={{
+                        color: "var(--primaryColor, #BA8D6D)",
+                        fontSize: "14px",
+                        fontWeight: "400",
+                        marginLeft: "15px",
+                        opacity: "0.8",
+                      }}
+                    >
+                      (Порядок: {project.order})
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Decorative shape similar to your dark sections */}
       <div
