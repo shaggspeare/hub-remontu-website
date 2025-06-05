@@ -10,12 +10,19 @@ import React, {
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 import shape from "../../../public/images/contact/shape.png";
-import { useRouter } from "next/navigation"; // Fixed import
+import { useRouter } from "next/navigation";
+import { trackFormSubmission } from "@/utils/gtm";
 
 interface FormData {
   name: string;
   phone: string;
   message: string;
+}
+
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
 }
 
 const ContactForm: React.FC = () => {
@@ -26,7 +33,7 @@ const ContactForm: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fadeRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const router = useRouter(); // Proper hook usage
+  const router = useRouter();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -49,13 +56,32 @@ const ContactForm: React.FC = () => {
       });
 
       if (response.ok) {
+        // Track successful form submission
+        trackFormSubmission("contact_form", true);
+
+        // Push conversion event to dataLayer
+        if (typeof window !== "undefined" && window.dataLayer) {
+          window.dataLayer.push({
+            event: "form_submission_success",
+            form_name: "contact_form",
+            user_name: formData.name,
+            user_phone: formData.phone,
+          });
+        }
+
         setFormData({ name: "", phone: "", message: "" });
-        router.push("/thank-you"); // Removed await - push is now synchronous
+
+        // Small delay to ensure GTM events are processed
+        setTimeout(() => {
+          router.push("/thank-you");
+        }, 100);
       } else {
+        trackFormSubmission("contact_form", false);
         alert("Failed to submit the form");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      trackFormSubmission("contact_form", false);
       alert("Error submitting form");
     } finally {
       setIsSubmitting(false);
@@ -141,22 +167,9 @@ const ContactForm: React.FC = () => {
                           onChange={handleChange}
                           className="form-control"
                           placeholder="Ваше ім'я"
+                          required
                         />
                       </div>
-
-                      {/*<div className="form-group">*/}
-                      {/*  <label>*/}
-                      {/*    EMAIL<span>*</span>*/}
-                      {/*  </label>*/}
-                      {/*  <input*/}
-                      {/*      type="email"*/}
-                      {/*      name="email"*/}
-                      {/*      value={formData.email}*/}
-                      {/*      onChange={handleChange}*/}
-                      {/*      className="form-control"*/}
-                      {/*      placeholder="ваш_мейл@gmail.com"*/}
-                      {/*  />*/}
-                      {/*</div>*/}
 
                       <div className="form-group">
                         <label>
@@ -169,6 +182,7 @@ const ContactForm: React.FC = () => {
                           onChange={handleChange}
                           className="form-control"
                           placeholder="+380 00 000 00 00"
+                          required
                         />
                       </div>
 
@@ -182,6 +196,7 @@ const ContactForm: React.FC = () => {
                           onChange={handleChange}
                           className="form-control"
                           placeholder="Напишіть ваш коментар..."
+                          required
                         ></textarea>
                       </div>
 
