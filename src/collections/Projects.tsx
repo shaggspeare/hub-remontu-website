@@ -197,7 +197,7 @@ export const Projects: CollectionConfig = {
     ],
     // This hook will save the converted data when updating
     beforeChange: [
-      async ({ data, originalDoc }) => {
+      async ({ data }) => {
         // Auto-assign order if not provided
         if (data.order === undefined || data.order === null) {
           // Get the highest order number and add 1
@@ -234,6 +234,15 @@ export const Projects: CollectionConfig = {
         position: "sidebar",
         components: {
           Field: "@/components/ViewOnSiteButton/ViewOnSiteButton",
+        },
+      },
+    },
+    {
+      name: "orderManagement",
+      type: "ui",
+      admin: {
+        components: {
+          Field: "@/components/ProjectOrder/ProjectOrder",
         },
       },
     },
