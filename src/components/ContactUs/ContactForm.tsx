@@ -188,7 +188,7 @@ const ContactForm: React.FC = () => {
 
                       <div className="form-group">
                         <label>
-                          ВАШ КОМЕНТАР<span>*</span>
+                          ВАШ КОМЕНТАР
                         </label>
                         <textarea
                           name="message"
@@ -196,7 +196,6 @@ const ContactForm: React.FC = () => {
                           onChange={handleChange}
                           className="form-control"
                           placeholder="Напишіть ваш коментар..."
-                          required
                         ></textarea>
                       </div>
 

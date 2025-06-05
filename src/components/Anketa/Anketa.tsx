@@ -5,6 +5,8 @@ import Image from "next/image";
 
 import styles from "./Anketa.module.scss";
 import { useRouter } from "next/navigation";
+import {trackFormSubmission} from "@/utils/gtm";
+
 
 interface FormValues {
   "your-name": string;
@@ -163,6 +165,19 @@ const MultiPartForm: React.FC = () => {
     "main",
   ];
 
+  // GTM tracking function for step progression
+  const trackStepProgress = (stepNumber: number, stepTitle: string) => {
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: "form_step_progress",
+        form_name: "anketa_form",
+        step_number: stepNumber + 1,
+        step_title: stepTitle,
+        total_steps: steps.length,
+      });
+    }
+  };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type } = e.target;
     const fieldName = name as keyof FormValues;
@@ -190,6 +205,17 @@ const MultiPartForm: React.FC = () => {
         ...prevState,
         [fieldName]: value,
       }));
+    }
+
+    // Track field interactions
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: "form_field_interaction",
+        form_name: "anketa_form",
+        field_name: fieldName,
+        field_value: value,
+        step_number: currentStep + 1,
+      });
     }
   };
 
@@ -689,6 +715,23 @@ const MultiPartForm: React.FC = () => {
       });
 
       if (response.ok) {
+        // Track successful form submission
+        trackFormSubmission("anketa_form", true);
+
+        // Push comprehensive conversion event to dataLayer
+        if (typeof window !== "undefined" && window.dataLayer) {
+          window.dataLayer.push({
+            event: "anketa_form_submission_success",
+            form_name: "anketa_form",
+            user_name: formValues["your-name"],
+            user_phone: formValues.phone,
+            building_type: formValues.building_type,
+            design_preference: formValues.design,
+            total_steps_completed: steps.length,
+            form_completion_rate: 100,
+          });
+        }
+
         // Reset form
         setFormValues({
           "your-name": "",
@@ -717,18 +760,26 @@ const MultiPartForm: React.FC = () => {
         });
         setCurrentStep(0);
 
-        router.push("/thank-you");
+        // Small delay to ensure GTM events are processed
+        setTimeout(() => {
+          router.push("/thank-you");
+        }, 100);
       } else {
+        trackFormSubmission("anketa_form", false);
         alert("Помилка при відправці форми");
       }
     } catch (error) {
       console.error("Error submitting form: ", error);
+      trackFormSubmission("anketa_form", false);
       alert("Помилка при відправці форми");
     }
   };
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
+      // Track step progression
+      trackStepProgress(currentStep + 1, steps[currentStep + 1].title);
+
       setCurrentStep(currentStep + 1);
       // Scroll to top of form with offset for header
       const formContainer = document.querySelector(`.${styles.formContainer}`);
@@ -745,6 +796,17 @@ const MultiPartForm: React.FC = () => {
 
   const handlePrev = () => {
     if (currentStep > 0) {
+      // Track going back
+      if (typeof window !== "undefined" && window.dataLayer) {
+        window.dataLayer.push({
+          event: "form_step_back",
+          form_name: "anketa_form",
+          from_step: currentStep + 1,
+          to_step: currentStep,
+          step_title: steps[currentStep - 1].title,
+        });
+      }
+
       setCurrentStep(currentStep - 1);
       // Scroll to top of form with offset for header
       const formContainer = document.querySelector(`.${styles.formContainer}`);
@@ -767,6 +829,22 @@ const MultiPartForm: React.FC = () => {
   };
 
   const progressPercentage = ((currentStep + 1) / steps.length) * 100;
+
+  // Track form abandonment when component unmounts
+  React.useEffect(() => {
+    return () => {
+      if (currentStep > 0 && currentStep < steps.length - 1) {
+        if (typeof window !== "undefined" && window.dataLayer) {
+          window.dataLayer.push({
+            event: "form_abandonment",
+            form_name: "anketa_form",
+            abandoned_at_step: currentStep + 1,
+            abandonment_rate: ((currentStep + 1) / steps.length) * 100,
+          });
+        }
+      }
+    };
+  }, [currentStep, steps.length]);
 
   return (
     <div className={styles.formContainer}>
