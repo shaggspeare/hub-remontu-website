@@ -116,7 +116,7 @@ const createRichEditor = () => {
 
       // Links
       LinkFeature({
-        enabledCollections: ["pages"], // Add your collection names here
+        enabledCollections: ["pages"],
         fields: [
           {
             name: "rel",
@@ -156,13 +156,6 @@ const createRichEditor = () => {
           },
         },
       }),
-
-      // You can also add custom blocks if needed
-      // BlocksFeature({
-      //   blocks: [
-      //     // Add your custom block configs here
-      //   ],
-      // }),
     ],
   });
 };
@@ -172,6 +165,13 @@ export const Projects: CollectionConfig = {
   access: {
     read: () => true,
   },
+  admin: {
+    // Set default sort by order field
+    defaultColumns: ["title", "category", "type", "order"],
+    useAsTitle: "title",
+  },
+  // Set default sort order
+  defaultSort: "order",
   hooks: {
     // This hook will run before reading data
     afterRead: [
@@ -197,22 +197,20 @@ export const Projects: CollectionConfig = {
     // This hook will save the converted data when updating
     beforeChange: [
       async ({ data, originalDoc }) => {
-        // If original had string descriptions and new data has them as objects,
-        // ensure they're properly formatted
-        if (originalDoc) {
-          if (
-            typeof originalDoc.description1 === "string" &&
-            data.description1
-          ) {
-            // Data is already converted by afterRead hook
-          }
-          if (
-            typeof originalDoc.description2 === "string" &&
-            data.description2
-          ) {
-            // Data is already converted by afterRead hook
-          }
+        // Auto-assign order if not provided
+        if (data.order === undefined || data.order === null) {
+          // Get the highest order number and add 1
+          const payload = this;
+          const existingProjects = await payload.find({
+            collection: "projects",
+            sort: "-order",
+            limit: 1,
+          });
+
+          const highestOrder = existingProjects.docs[0]?.order || 0;
+          data.order = highestOrder + 1;
         }
+
         return data;
       },
     ],
@@ -237,6 +235,22 @@ export const Projects: CollectionConfig = {
           Field: "@/components/ViewOnSiteButton/ViewOnSiteButton",
         },
       },
+    },
+    {
+      name: "order",
+      type: "number",
+      label: {
+        en: "Display Order",
+        uk: "Порядок відображення",
+      },
+      admin: {
+        position: "sidebar",
+        description: {
+          en: "Lower numbers appear first. Leave empty to auto-assign.",
+          uk: "Менші числа з'являються першими. Залиште порожнім для автопризначення.",
+        },
+      },
+      defaultValue: 0,
     },
     {
       name: "title",

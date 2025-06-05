@@ -162,6 +162,10 @@ export interface Image {
  */
 export interface Project {
   id: string;
+  /**
+   * Lower numbers appear first. Leave empty to auto-assign.
+   */
+  order?: number | null;
   title: string;
   category: 'living' | 'commercial';
   type: 'design' | 'implementation';
@@ -386,6 +390,7 @@ export interface ImagesSelect<T extends boolean = true> {
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
+  order?: T;
   title?: T;
   category?: T;
   type?: T;

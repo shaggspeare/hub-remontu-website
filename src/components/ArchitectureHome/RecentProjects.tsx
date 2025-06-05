@@ -17,7 +17,12 @@ export interface ProjectShortInfo {
 const RecentProjects: React.FC = async () => {
   const payload = await getPayload({ config });
 
-  const { docs: projects } = await payload.find({ collection: "projects" });
+  // Fetch projects sorted by order, limit to display only recent ones
+  const { docs: projects } = await payload.find({
+    collection: "projects",
+    sort: "order", // Sort by order field
+    limit: 9, // Limit to 9 projects for the 3x3 grid
+  });
 
   const projectsData: ProjectShortInfo[] = projects.map((project) => {
     return {
