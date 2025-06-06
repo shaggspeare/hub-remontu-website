@@ -7,6 +7,12 @@ interface Project {
   id: string;
   title: string;
   order: number;
+  verticalImage?:
+    | {
+        url?: string;
+        alt?: string;
+      }
+    | string;
 }
 
 const ProjectOrder: React.FC = () => {
@@ -93,6 +99,20 @@ const ProjectOrder: React.FC = () => {
         }),
       );
     }
+  };
+
+  // Helper function to get image URL
+  const getImageUrl = (image: Project["verticalImage"]): string => {
+    if (!image) return "";
+    if (typeof image === "string") return image;
+    return image.url || "";
+  };
+
+  // Helper function to get image alt text
+  const getImageAlt = (image: Project["verticalImage"]): string => {
+    if (!image) return "";
+    if (typeof image === "string") return "";
+    return image.alt || "";
   };
 
   if (loading) {
@@ -195,27 +215,69 @@ const ProjectOrder: React.FC = () => {
             alignItems: "center",
           }}
         >
-          <div>
-            <span
+          <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+            {/* Current project thumbnail */}
+            <div
               style={{
-                color: "var(--primaryColor, #BA8D6D)",
-                fontSize: "14px",
-                fontWeight: "500",
+                width: "60px",
+                height: "60px",
+                borderRadius: "4px",
+                overflow: "hidden",
+                border: "2px solid var(--primaryColor, #BA8D6D)",
+                flexShrink: 0,
               }}
             >
-              Поточний проект:
-            </span>
-            <p
-              style={{
-                color: "#DEDEDE",
-                fontSize: "16px",
-                fontWeight: "500",
-                margin: "5px 0 0 0",
-              }}
-            >
-              {currentProject.title}
-            </p>
+              {getImageUrl(currentProject.verticalImage) ? (
+                <img
+                  src={getImageUrl(currentProject.verticalImage)}
+                  alt={getImageAlt(currentProject.verticalImage)}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              ) : (
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "#3A3835",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#7C7772",
+                    fontSize: "12px",
+                  }}
+                >
+                  No Image
+                </div>
+              )}
+            </div>
+
+            <div>
+              <span
+                style={{
+                  color: "var(--primaryColor, #BA8D6D)",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                }}
+              >
+                Поточний проект:
+              </span>
+              <p
+                style={{
+                  color: "#DEDEDE",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  margin: "5px 0 0 0",
+                }}
+              >
+                {currentProject.title}
+              </p>
+            </div>
           </div>
+
           <div style={{ textAlign: "right" }}>
             <span
               style={{
@@ -338,7 +400,7 @@ const ProjectOrder: React.FC = () => {
             </div>
           )}
 
-          {/* Projects list section */}
+          {/* Projects list section with thumbnails */}
           <div>
             <h5
               style={{
@@ -357,16 +419,18 @@ const ProjectOrder: React.FC = () => {
               style={{
                 backgroundColor: "#161512",
                 border: "1px dashed #44433F",
-                maxHeight: "300px",
+                maxHeight: "400px",
                 overflowY: "auto",
               }}
             >
               <ol
                 style={{
-                  padding: "20px 40px",
+                  padding: "20px",
                   margin: "0",
                   fontSize: "15px",
                   lineHeight: "1.6",
+                  listStyle: "none",
+                  counterReset: "project-counter",
                 }}
               >
                 {sortedProjects.map((project, index) => (
@@ -374,7 +438,7 @@ const ProjectOrder: React.FC = () => {
                     key={project.id}
                     style={{
                       padding: "15px 20px",
-                      marginBottom: "10px",
+                      marginBottom: "15px",
                       backgroundColor:
                         project.order === value
                           ? "rgba(186, 141, 109, 0.15)"
@@ -390,26 +454,104 @@ const ProjectOrder: React.FC = () => {
                         index < sortedProjects.length - 1
                           ? "1px dashed #44433F"
                           : "none",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "15px",
+                      counterIncrement: "project-counter",
+                      position: "relative",
                     }}
                   >
-                    <span
+                    {/* Project number */}
+                    <div
                       style={{
-                        color: project.order === value ? "#DEDEDE" : "#B7B3AF",
-                      }}
-                    >
-                      {project.title}
-                    </span>
-                    <span
-                      style={{
-                        color: "var(--primaryColor, #BA8D6D)",
+                        minWidth: "30px",
+                        height: "30px",
+                        borderRadius: "50%",
+                        backgroundColor:
+                          project.order === value
+                            ? "var(--primaryColor, #BA8D6D)"
+                            : "#3A3835",
+                        color: project.order === value ? "#ffffff" : "#9D9A97",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         fontSize: "14px",
-                        fontWeight: "400",
-                        marginLeft: "15px",
-                        opacity: "0.8",
+                        fontWeight: "500",
+                        flexShrink: 0,
                       }}
                     >
-                      (Порядок: {project.order})
-                    </span>
+                      {index + 1}
+                    </div>
+
+                    {/* Project thumbnail */}
+                    <div
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        borderRadius: "4px",
+                        overflow: "hidden",
+                        border:
+                          project.order === value
+                            ? "2px solid var(--primaryColor, #BA8D6D)"
+                            : "1px solid #44433F",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {getImageUrl(project.verticalImage) ? (
+                        <img
+                          src={getImageUrl(project.verticalImage)}
+                          alt={getImageAlt(project.verticalImage)}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
+                      ) : (
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            backgroundColor: "#3A3835",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "#7C7772",
+                            fontSize: "10px",
+                          }}
+                        >
+                          📷
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Project info */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div
+                        style={{
+                          color:
+                            project.order === value ? "#DEDEDE" : "#B7B3AF",
+                          fontSize: "15px",
+                          fontWeight: project.order === value ? "500" : "400",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {project.title}
+                      </div>
+                      <div
+                        style={{
+                          color: "var(--primaryColor, #BA8D6D)",
+                          fontSize: "13px",
+                          fontWeight: "400",
+                          opacity: "0.8",
+                          marginTop: "2px",
+                        }}
+                      >
+                        Порядок: {project.order}
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ol>
