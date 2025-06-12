@@ -190,7 +190,7 @@ const TeamMember: React.FC = () => {
             <div className="col-lg-7 col-md-12">
               <div className="team-right-content">
                 <div className="row">
-                  {teamMemberData.slice(1).map((member, i) => (
+                  {teamMemberData.slice(1).map((member) => (
                     <div className="col-lg-6 col-md-6" key={member.id}>
                       <div className="team-card">
                         <div className="team-image">
