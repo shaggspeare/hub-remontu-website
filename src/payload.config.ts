@@ -14,6 +14,7 @@ import { Images } from "./collections/Images";
 import { Projects } from "@/collections/Projects";
 import { Pages } from "@/collections/Pages";
 import { SEO } from "@/collections/SEO";
+import TeamMembers from "@/collections/TeamMembers";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -28,7 +29,7 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en, uk },
   },
-  collections: [Users, Images, Projects, Pages, SEO],
+  collections: [Users, Images, Projects, Pages, SEO, TeamMembers],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

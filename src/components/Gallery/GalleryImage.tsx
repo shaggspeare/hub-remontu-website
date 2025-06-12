@@ -53,7 +53,7 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
             992: 3,
           }}
         >
-          <Masonry gutter="30px">
+          <Masonry gutter="50px">
             {galleryImageData.map((value, index) => (
               <div
                 key={value.id}

@@ -72,6 +72,7 @@ export interface Config {
     projects: Project;
     pages: Page;
     seo: Seo;
+    'team-members': TeamMember;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -83,6 +84,7 @@ export interface Config {
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     seo: SeoSelect<false> | SeoSelect<true>;
+    'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -284,6 +286,52 @@ export interface Seo {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members".
+ */
+export interface TeamMember {
+  id: string;
+  name: string;
+  designation: string;
+  image?: (string | null) | Image;
+  socialLinks?:
+    | {
+        platform: 'linkedin' | 'twitter' | 'instagram' | 'facebook' | 'github' | 'website' | 'other';
+        url: string;
+        customPlatformName?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Used to control the order in which team members appear
+   */
+  displayOrder?: number | null;
+  /**
+   * Uncheck to hide this team member from the website
+   */
+  isActive?: boolean | null;
+  /**
+   * Optional detailed biography
+   */
+  bio?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -308,6 +356,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'seo';
         value: string | Seo;
+      } | null)
+    | ({
+        relationTo: 'team-members';
+        value: string | TeamMember;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -458,6 +510,28 @@ export interface SeoSelect<T extends boolean = true> {
   description?: T;
   keywords?: T;
   ogImage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members_select".
+ */
+export interface TeamMembersSelect<T extends boolean = true> {
+  name?: T;
+  designation?: T;
+  image?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        customPlatformName?: T;
+        id?: T;
+      };
+  displayOrder?: T;
+  isActive?: T;
+  bio?: T;
   updatedAt?: T;
   createdAt?: T;
 }

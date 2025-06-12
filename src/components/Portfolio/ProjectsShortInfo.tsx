@@ -31,7 +31,7 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
           992: 3,
         }}
       >
-        <Masonry gutter="30px">
+        <Masonry gutter="50px">
           {data.map((project) => (
             <div className="projects-item mx-0 my-2" key={project.id}>
               <div className="projects-image">
