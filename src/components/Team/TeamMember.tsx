@@ -54,10 +54,6 @@ const TeamMember: React.FC = () => {
           },
         );
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch team members");
-        }
-
         const data = await response.json();
         setTeamMemberData(data.docs || []);
       } catch (err) {
