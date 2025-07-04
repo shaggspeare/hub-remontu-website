@@ -5,8 +5,8 @@ import Image from "next/image";
 
 import styles from "./Anketa.module.scss";
 import { useRouter } from "next/navigation";
-import {trackFormSubmission} from "@/utils/gtm";
-
+import { trackFormSubmission } from "@/utils/gtm";
+import { useUtmTracker } from "@/hooks/useUtmTracker";
 
 interface FormValues {
   "your-name": string;
@@ -53,6 +53,12 @@ type TextInputProps = {
   value: string;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
+
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 
 const OptionCard: React.FC<OptionCardProps> = ({
   options,
@@ -128,8 +134,10 @@ const TextInput: React.FC<TextInputProps> = ({
 
 const MultiPartForm: React.FC = () => {
   const router = useRouter();
+  const { utmParams } = useUtmTracker();
 
   const [currentStep, setCurrentStep] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formValues, setFormValues] = useState<FormValues>({
     "your-name": "",
     building_type: "Квартира",
@@ -151,7 +159,7 @@ const MultiPartForm: React.FC = () => {
     door: "Звичайні",
     main: [],
     "main-other": "",
-    lighting: "Верхнє світло (люстри, світильники, трекові системи)",
+    lighting: "Верхнє світло (люстри, світільники, трекові системи)",
     phone: "",
     time: "",
   });
@@ -652,7 +660,7 @@ const MultiPartForm: React.FC = () => {
           <h3 className={styles.stepTitle}>Освітлення:</h3>
           <OptionCard
             options={[
-              "Верхнє світло (люстри, світильники, трекові системи)",
+              "Верхнє світло (люстри, світільники, трекові системи)",
               "Настінне/декоративне (підсвітки, бра, торшери)",
               "І те, і інше",
             ]}
@@ -704,15 +712,27 @@ const MultiPartForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
+      // Combine form data with UTM parameters
+      const submitData = {
+        formData: formValues,
+        ...utmParams,
+      };
+
+      console.log("Submitting anketa form with UTM:", submitData);
+
       const response = await fetch("/api/sendTelegram", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ formData: formValues }),
+        body: JSON.stringify(submitData),
       });
+
+      const result = await response.json();
+      console.log("Anketa form response:", result);
 
       if (response.ok) {
         // Track successful form submission
@@ -729,6 +749,9 @@ const MultiPartForm: React.FC = () => {
             design_preference: formValues.design,
             total_steps_completed: steps.length,
             form_completion_rate: 100,
+            keycrm_status: result.keycrm || "unknown",
+            keycrm_id: result.keycrm_id || null,
+            ...utmParams,
           });
         }
 
@@ -754,7 +777,7 @@ const MultiPartForm: React.FC = () => {
           door: "Звичайні",
           main: [],
           "main-other": "",
-          lighting: "Верхнє світло (люстри, світильники, трекові системи)",
+          lighting: "Верхнє світло (люстри, світільники, трекові системи)",
           phone: "",
           time: "",
         });
@@ -772,6 +795,8 @@ const MultiPartForm: React.FC = () => {
       console.error("Error submitting form: ", error);
       trackFormSubmission("anketa_form", false);
       alert("Помилка при відправці форми");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -861,6 +886,27 @@ const MultiPartForm: React.FC = () => {
         </div>
       </div>
 
+      {/* Show UTM parameters in development mode */}
+      {process.env.NODE_ENV === "development" &&
+        Object.keys(utmParams).length > 0 && (
+          <div
+            style={{
+              marginBottom: "20px",
+              padding: "10px",
+              backgroundColor: "rgba(186, 141, 109, 0.1)",
+              border: "1px solid var(--primaryColor)",
+              borderRadius: "5px",
+              fontSize: "12px",
+              color: "var(--whiteColor)",
+            }}
+          >
+            <strong>UTM параметри:</strong>
+            <pre style={{ fontSize: "11px", margin: "5px 0 0 0" }}>
+              {JSON.stringify(utmParams, null, 2)}
+            </pre>
+          </div>
+        )}
+
       {/* Form */}
       <form onSubmit={handleSubmit} className="wpcf7-form">
         <div className={styles.stepContainer}>
@@ -874,6 +920,7 @@ const MultiPartForm: React.FC = () => {
               type="button"
               onClick={handlePrev}
               className={styles.prevButton}
+              disabled={isSubmitting}
             >
               Назад
             </button>
@@ -884,7 +931,7 @@ const MultiPartForm: React.FC = () => {
               type="button"
               onClick={handleNext}
               className={styles.nextButton}
-              disabled={!isStepValid()}
+              disabled={!isStepValid() || isSubmitting}
             >
               Далі
             </button>
@@ -892,9 +939,9 @@ const MultiPartForm: React.FC = () => {
             <button
               type="submit"
               className={styles.submitButton}
-              disabled={!isStepValid()}
+              disabled={!isStepValid() || isSubmitting}
             >
-              Відправити форму
+              {isSubmitting ? "Відправляємо..." : "Відправити форму"}
             </button>
           )}
         </div>

@@ -12,6 +12,7 @@ import Image from "next/image";
 import shape from "../../../public/images/contact/shape.png";
 import { useRouter } from "next/navigation";
 import { trackFormSubmission } from "@/utils/gtm";
+import { useUtmTracker } from "@/hooks/useUtmTracker";
 
 interface FormData {
   name: string;
@@ -34,6 +35,7 @@ const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fadeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const router = useRouter();
+  const { utmParams } = useUtmTracker();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -47,13 +49,24 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
+      // Объединяем данные формы с UTM параметрами
+      const submitData = {
+        ...formData,
+        ...utmParams,
+      };
+
+      console.log("Submitting contact form with UTM:", submitData);
+
       const response = await fetch("/api/sendContactMessage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submitData),
       });
+
+      const result = await response.json();
+      console.log("Contact form response:", result);
 
       if (response.ok) {
         // Track successful form submission
@@ -66,6 +79,9 @@ const ContactForm: React.FC = () => {
             form_name: "contact_form",
             user_name: formData.name,
             user_phone: formData.phone,
+            keycrm_status: result.keycrm || "unknown",
+            keycrm_id: result.keycrm_id || null,
+            ...utmParams,
           });
         }
 
@@ -155,6 +171,29 @@ const ContactForm: React.FC = () => {
 
                 <div className="row align-items-center">
                   <div className="col-lg-7 col-md-6">
+                    {/* Показываем UTM параметры в development режиме */}
+                    {process.env.NODE_ENV === "development" &&
+                      Object.keys(utmParams).length > 0 && (
+                        <div
+                          style={{
+                            marginBottom: "20px",
+                            padding: "10px",
+                            backgroundColor: "rgba(186, 141, 109, 0.1)",
+                            border: "1px solid var(--primaryColor)",
+                            borderRadius: "5px",
+                            fontSize: "12px",
+                            color: "var(--whiteColor)",
+                          }}
+                        >
+                          <strong>UTM параметри:</strong>
+                          <pre
+                            style={{ fontSize: "11px", margin: "5px 0 0 0" }}
+                          >
+                            {JSON.stringify(utmParams, null, 2)}
+                          </pre>
+                        </div>
+                      )}
+
                     <form onSubmit={handleSubmit}>
                       <div className="form-group">
                         <label>
@@ -187,9 +226,7 @@ const ContactForm: React.FC = () => {
                       </div>
 
                       <div className="form-group">
-                        <label>
-                          ВАШ КОМЕНТАР
-                        </label>
+                        <label>ВАШ КОМЕНТАР</label>
                         <textarea
                           name="message"
                           value={formData.message}
