@@ -46,6 +46,8 @@ class KeyCrmService {
         utm_campaign: leadData.utm_campaign || "",
         utm_term: leadData.utm_term || "",
         utm_content: leadData.utm_content || "",
+        fbclid: leadData.fbclid || "",
+        gclid: leadData.gclid || "",
         // Add custom fields if needed
         custom_fields: [
           {
@@ -244,9 +246,11 @@ class KeyCrmService {
 }
 
 export async function POST(req: Request) {
-  const { formData } = await req.json();
+  const requestData = await req.json();
+  const { formData, ...trackingParams } = requestData;
 
   console.log("Received Anketa form data:", formData);
+  console.log("Received tracking parameters:", trackingParams);
 
   try {
     // Initialize KeyCRM service
@@ -302,6 +306,15 @@ export async function POST(req: Request) {
 💡 <b>Уподобання по Освітленню</b>: ${formData.lighting}
 
 ⏰ <b>Зручний Час для Зв'язку</b>: ${formData.time}
+
+📊 <b>Дані Відстеження</b>:
+${trackingParams.utm_source ? `🔗 Джерело: ${trackingParams.utm_source}` : ""}
+${trackingParams.utm_medium ? `📱 Канал: ${trackingParams.utm_medium}` : ""}
+${trackingParams.utm_campaign ? `🎯 Кампанія: ${trackingParams.utm_campaign}` : ""}
+${trackingParams.utm_content ? `📄 Контент: ${trackingParams.utm_content}` : ""}
+${trackingParams.utm_term ? `🔍 Термін: ${trackingParams.utm_term}` : ""}
+${trackingParams.fbclid ? `📘 Facebook ID: ${trackingParams.fbclid.substring(0, 20)}...` : ""}
+${trackingParams.gclid ? `🔍 Google ID: ${trackingParams.gclid.substring(0, 20)}...` : ""}
 `;
 
     // Send to Telegram
@@ -346,6 +359,7 @@ export async function POST(req: Request) {
         main: formData.main,
         "main-other": formData["main-other"],
         lighting: formData.lighting,
+        ...trackingParams,
       });
 
       if (keyCrmResult) {

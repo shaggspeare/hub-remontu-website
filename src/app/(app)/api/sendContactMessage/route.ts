@@ -22,13 +22,13 @@ class KeyCrmService {
         throw new Error("KeyCRM API key or base URL is missing");
       }
 
-      // Determine source_id based on UTM parameters
+      // Determine source_id based on UTM parameters and click IDs
       let source_id = 1; // Default - website
 
-      if (leadData.utm_medium === "cpc") {
-        source_id = 2; // Contextual advertising
-      } else if (leadData.utm_medium === "social") {
-        source_id = 3; // Targeted advertising
+      if (leadData.utm_medium === "cpc" || leadData.gclid) {
+        source_id = 2; // Contextual advertising / Google Ads
+      } else if (leadData.utm_medium === "social" || leadData.fbclid) {
+        source_id = 3; // Targeted advertising / Social media
       }
 
       // Generate a unique title for the card (you can customize this)
@@ -50,6 +50,8 @@ class KeyCrmService {
         utm_campaign: leadData.utm_campaign || "",
         utm_term: leadData.utm_term || "",
         utm_content: leadData.utm_content || "",
+        fbclid: leadData.fbclid || "",
+        gclid: leadData.gclid || "",
         // Add custom fields if needed
         custom_fields: [
           {
@@ -189,7 +191,7 @@ export async function POST(req: Request) {
       console.log("Available pipelines:", pipelines);
     }
 
-    // Prepare Telegram message
+    // Prepare Telegram message with enhanced tracking information
     const telegramMessage = `
 *Нове Заповнення Форми Контакту*
 ======================
@@ -197,12 +199,14 @@ export async function POST(req: Request) {
 📞 *Телефон*: ${phone}
 💬 *Коментар*: ${message}
 
-📊 *UTM Дані*:
+📊 *Дані Відстеження*:
 ${utmParams.utm_source ? `🔗 Джерело: ${utmParams.utm_source}` : ""}
 ${utmParams.utm_medium ? `📱 Канал: ${utmParams.utm_medium}` : ""}
 ${utmParams.utm_campaign ? `🎯 Кампанія: ${utmParams.utm_campaign}` : ""}
 ${utmParams.utm_content ? `📄 Контент: ${utmParams.utm_content}` : ""}
 ${utmParams.utm_term ? `🔍 Термін: ${utmParams.utm_term}` : ""}
+${utmParams.fbclid ? `📘 Facebook ID: ${utmParams.fbclid.substring(0, 20)}...` : ""}
+${utmParams.gclid ? `🔍 Google ID: ${utmParams.gclid.substring(0, 20)}...` : ""}
 `;
 
     // Send to Telegram
