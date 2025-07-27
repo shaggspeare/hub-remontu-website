@@ -12,25 +12,9 @@ interface FormValues {
   "your-name": string;
   building_type: string;
   design: string;
-  design_detail: string[];
-  age: string;
-  planning: string;
-  constructions: string;
-  bedroom: string;
-  style: string[];
-  floor: string[];
-  "floor-other": string;
-  wall: string[];
-  "wall-other": string;
-  roof: string[];
-  bathroom: string;
-  bathroommat: string;
-  door: string;
-  main: string[];
-  "main-other": string;
-  lighting: string;
+  timing: string;
+  housing_type: string;
   phone: string;
-  time: string;
 }
 
 type Option = {
@@ -44,14 +28,6 @@ type OptionCardProps = {
   value: string[];
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   multiSelect?: boolean;
-};
-
-type TextInputProps = {
-  label: string;
-  placeholder: string;
-  name: keyof FormValues;
-  value: string;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 declare global {
@@ -112,26 +88,6 @@ const OptionCard: React.FC<OptionCardProps> = ({
   </div>
 );
 
-const TextInput: React.FC<TextInputProps> = ({
-  label,
-  placeholder,
-  name,
-  value,
-  handleChange,
-}) => (
-  <label className={styles.inputOtherField}>
-    <span>{label}</span>
-    <input
-      className={styles.inputField}
-      placeholder={placeholder}
-      value={value}
-      type="text"
-      name={name}
-      onChange={handleChange}
-    />
-  </label>
-);
-
 const MultiPartForm: React.FC = () => {
   const router = useRouter();
   const { utmParams } = useUtmTracker();
@@ -141,37 +97,11 @@ const MultiPartForm: React.FC = () => {
   const [formValues, setFormValues] = useState<FormValues>({
     "your-name": "",
     building_type: "Квартира",
-    design: "Так, маю",
-    design_detail: ["Технічний"],
-    age: "Новобудова",
-    planning: "Часткове",
-    constructions:
-      "Повна заміна/монтаж з нуля електропроводки та сантехнічних труб",
-    bedroom: "Одна",
-    style: [],
-    floor: [],
-    "floor-other": "",
-    wall: [],
-    "wall-other": "",
-    roof: [],
-    bathroom: "Один",
-    bathroommat: "Широкоформатна плитка",
-    door: "Звичайні",
-    main: [],
-    "main-other": "",
-    lighting: "Верхнє світло (люстри, світільники, трекові системи)",
+    design: "Так",
+    timing: "Якомога швидше",
+    housing_type: "Новобудова",
     phone: "",
-    time: "",
   });
-
-  const arrayFields: (keyof FormValues)[] = [
-    "design_detail",
-    "style",
-    "floor",
-    "wall",
-    "roof",
-    "main",
-  ];
 
   // GTM tracking function for step progression
   const trackStepProgress = (stepNumber: number, stepTitle: string) => {
@@ -187,33 +117,13 @@ const MultiPartForm: React.FC = () => {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     const fieldName = name as keyof FormValues;
 
-    if (type === "checkbox") {
-      const checked = e.target.checked;
-      if (arrayFields.includes(fieldName)) {
-        setFormValues((prevState) => {
-          const prevArray = prevState[fieldName] as string[];
-          if (checked) {
-            return {
-              ...prevState,
-              [fieldName]: [...prevArray, value],
-            };
-          } else {
-            return {
-              ...prevState,
-              [fieldName]: prevArray.filter((item) => item !== value),
-            };
-          }
-        });
-      }
-    } else {
-      setFormValues((prevState) => ({
-        ...prevState,
-        [fieldName]: value,
-      }));
-    }
+    setFormValues((prevState) => ({
+      ...prevState,
+      [fieldName]: value,
+    }));
 
     // Track field interactions
     if (typeof window !== "undefined" && window.dataLayer) {
@@ -229,29 +139,12 @@ const MultiPartForm: React.FC = () => {
 
   const steps = [
     {
-      title: "Ваше ім'я",
+      title: "Тип об'єкту",
       component: (
         <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Ваше ім&#39;я:</h3>
-          <input
-            className={styles.inputField}
-            required
-            placeholder="Введіть відповідь"
-            value={formValues["your-name"]}
-            type="text"
-            name="your-name"
-            onChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Тип нерухомості",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Тип нерухомості:</h3>
+          <h3 className={styles.stepTitle}>Тип об&#39;єкту:</h3>
           <OptionCard
-            options={["Квартира", "Будинок", "Комерційне приміщення"]}
+            options={["Квартира", "Будинок", "Комерція"]}
             name="building_type"
             value={[formValues.building_type]}
             handleChange={handleChange}
@@ -263,9 +156,9 @@ const MultiPartForm: React.FC = () => {
       title: "Дизайн-проєкт",
       component: (
         <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Чи маєте дизайн-проєкт?</h3>
+          <h3 className={styles.stepTitle}>Чи маєте ви дизайн проєкт?</h3>
           <OptionCard
-            options={["Так, маю", "Ні, але планую", "Ні, не планую"]}
+            options={["Так", "Ні", "Планую створити"]}
             name="design"
             value={[formValues.design]}
             handleChange={handleChange}
@@ -273,47 +166,29 @@ const MultiPartForm: React.FC = () => {
         </div>
       ),
     },
-    ...(formValues.design === "Ні, але планую"
-      ? [
-          {
-            title: "Тип дизайн-проєкту",
-            component: (
-              <div className={styles.formStep}>
-                <h3 className={styles.stepTitle}>Тип дизайн-проєкту:</h3>
-                <OptionCard
-                  options={["Технічний", "Повний"]}
-                  name="design_detail"
-                  value={formValues.design_detail}
-                  handleChange={handleChange}
-                />
-                <div className={styles.designDetailBox}>
-                  <h4 className={styles.boldText}>Чим вони відрізняються?</h4>
-                  <div className="box_show">
-                    <p className={styles.infoText}>
-                      <strong>Технічний дизайн-проєкт включає:</strong> усі
-                      креслення та планування — все що потрібно для виконання
-                      ремонту бригадою.
-                    </p>
-                    <p className={styles.infoText}>
-                      <strong>Повний дизайн-проєкт включає:</strong> технічний
-                      дизайн-проєкт + розгортки по стінам, специфікація по
-                      оздоблювальним матеріалам, розкладки по підлозі, підбір
-                      кольорів та чистових матеріалів + 3D-візуалізації.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ),
-          },
-        ]
-      : []),
     {
-      title: "Вік будинку",
+      title: "Терміни",
       component: (
         <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>
-            Скільки років будинку, де знаходиться приміщення?
-          </h3>
+          <h3 className={styles.stepTitle}>Коли хочете розпочати роботи?</h3>
+          <OptionCard
+            options={[
+              "Якомога швидше",
+              "Протягом місяця",
+              "Цікавлюсь на майбутнє",
+            ]}
+            name="timing"
+            value={[formValues.timing]}
+            handleChange={handleChange}
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Тип житла",
+      component: (
+        <div className={styles.formStep}>
+          <h3 className={styles.stepTitle}>Тип житла:</h3>
           <OptionCard
             options={[
               {
@@ -321,390 +196,44 @@ const MultiPartForm: React.FC = () => {
                 imgSrc: "/images/new-images/anketa/age/age1.jpg",
               },
               {
-                label: "1-10 років",
+                label: "Вторинна нерухомість",
                 imgSrc: "/images/new-images/anketa/age/age2.jpg",
               },
-              {
-                label: "11-30 років",
-                imgSrc: "/images/new-images/anketa/age/age3.jpg",
-              },
-              {
-                label: "від 30 років і більше",
-                imgSrc: "/images/new-images/anketa/age/age4.jpg",
-              },
-              {
-                label: "Пам'ятка архітектури",
-                imgSrc: "/images/new-images/anketa/age/age5.jpg",
-              },
             ]}
-            name="age"
-            value={[formValues.age]}
+            name="housing_type"
+            value={[formValues.housing_type]}
             handleChange={handleChange}
           />
         </div>
       ),
     },
     {
-      title: "Перепланування",
+      title: "Контактні дані",
       component: (
         <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Перепланування:</h3>
-          <OptionCard
-            options={["Часткове", "Повне", "Без перепланування"]}
-            name="planning"
-            value={[formValues.planning]}
-            handleChange={handleChange}
+          <h3 className={styles.stepTitle}>Ваше ім&#39;я:</h3>
+          <input
+            className={styles.inputField}
+            required
+            placeholder="Введіть ваше ім'я"
+            value={formValues["your-name"]}
+            type="text"
+            name="your-name"
+            onChange={handleChange}
           />
-        </div>
-      ),
-    },
-    {
-      title: "Комунікації",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Заміна існуючих комунікацій:</h3>
-          <OptionCard
-            options={[
-              "Повна заміна/монтаж з нуля електропроводки та сантехнічних труб",
-              "Часткова заміна електропроводки та сантехнічних труб",
-              "Все залишаємо як є",
-              "Потрібна консультація",
-            ]}
-            name="constructions"
-            value={[formValues.constructions]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Кількість спалень",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Кількість спалень:</h3>
-          <OptionCard
-            options={["Одна", "Дві", "Три та більше"]}
-            name="bedroom"
-            value={[formValues.bedroom]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Стиль інтер'єру",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>
-            Уподобання у стилістиці інтер&#39;єру:
-          </h3>
-          <OptionCard
-            options={[
-              {
-                label: "Класика",
-                imgSrc: "/images/new-images/anketa/style/style1.jpg",
-              },
-              {
-                label: "Модерн",
-                imgSrc: "/images/new-images/anketa/style/style2.jpg",
-              },
-              {
-                label: "Арт Деко",
-                imgSrc: "/images/new-images/anketa/style/style3.jpg",
-              },
-              {
-                label: "Хай-Тек",
-                imgSrc: "/images/new-images/anketa/style/style4.jpg",
-              },
-              {
-                label: "Лофт",
-                imgSrc: "/images/new-images/anketa/style/style5.jpg",
-              },
-              {
-                label: "Мінімалізм",
-                imgSrc: "/images/new-images/anketa/style/style6.jpg",
-              },
-              {
-                label: "Скандинавський",
-                imgSrc: "/images/new-images/anketa/style/style7.jpg",
-              },
-              {
-                label: "Бохо",
-                imgSrc: "/images/new-images/anketa/style/style8.jpg",
-              },
-              {
-                label: "Джапанді",
-                imgSrc: "/images/new-images/anketa/style/style9.jpg",
-              },
-              {
-                label: "Вабі-сабі",
-                imgSrc: "/images/new-images/anketa/style/style10.jpg",
-              },
-            ]}
-            name="style"
-            value={formValues.style}
-            handleChange={handleChange}
-            multiSelect
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Підлога",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Уподобання по підлозі:</h3>
-          <OptionCard
-            options={[
-              {
-                label: "Паркет",
-                imgSrc: "/images/new-images/anketa/floor/floor1.jpg",
-              },
-              {
-                label: "Ламінат",
-                imgSrc: "/images/new-images/anketa/floor/floor2.jpg",
-              },
-              {
-                label: "Плитка",
-                imgSrc: "/images/new-images/anketa/floor/floor3.jpg",
-              },
-              {
-                label: "Вініл",
-                imgSrc: "/images/new-images/anketa/floor/floor4.jpg",
-              },
-            ]}
-            name="floor"
-            value={formValues.floor}
-            handleChange={handleChange}
-            multiSelect
-          />
-          <TextInput
-            label="Інше:"
-            placeholder="Введіть відповідь"
-            name="floor-other"
-            value={formValues["floor-other"]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Стіни",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Уподобання по стінах:</h3>
-          <OptionCard
-            options={[
-              {
-                label: "Фарбування",
-                imgSrc: "/images/new-images/anketa/wall/wall1.jpg",
-              },
-              {
-                label: "Шпалери",
-                imgSrc: "/images/new-images/anketa/wall/wall2.jpg",
-              },
-              {
-                label: "Декоративна штукатурка",
-                imgSrc: "/images/new-images/anketa/wall/wall3.jpg",
-              },
-              {
-                label: "Художнє оформлення",
-                imgSrc: "/images/new-images/anketa/wall/wall4.jpg",
-              },
-              {
-                label: "Гіпсові панелі",
-                imgSrc: "/images/new-images/anketa/wall/wall5.jpg",
-              },
-              {
-                label: "Панелі МДФ",
-                imgSrc: "/images/new-images/anketa/wall/wall6.jpg",
-              },
-              {
-                label: "Молдинги",
-                imgSrc: "/images/new-images/anketa/wall/wall7.jpg",
-              },
-              {
-                label: "Комбінований варіант",
-                imgSrc: "/images/new-images/anketa/wall/wall8.jpg",
-              },
-            ]}
-            name="wall"
-            value={formValues.wall}
-            handleChange={handleChange}
-            multiSelect
-          />
-          <TextInput
-            label="Інше:"
-            placeholder="Введіть відповідь"
-            name="wall-other"
-            value={formValues["wall-other"]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Стеля",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Уподобання по стелі:</h3>
-          <OptionCard
-            options={[
-              {
-                label: "Гіпсокартонна",
-                imgSrc: "/images/new-images/anketa/roof/roof1.jpg",
-              },
-              {
-                label: "Натяжна",
-                imgSrc: "/images/new-images/anketa/roof/roof2.jpg",
-              },
-            ]}
-            name="roof"
-            value={formValues.roof}
-            handleChange={handleChange}
-            multiSelect
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Санвузли",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Кількість санвузлів:</h3>
-          <OptionCard
-            options={["Один", "Два", "Три і більше"]}
-            name="bathroom"
-            value={[formValues.bathroom]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Оздоблення санвузла",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Оздоблення санвузла:</h3>
-          <OptionCard
-            options={[
-              {
-                label: "Широкоформатна плитка",
-                imgSrc:
-                  "/images/new-images/anketa/bathroommat/bathroommat1.jpg",
-              },
-              {
-                label: "Дрібноформатна плитка",
-                imgSrc:
-                  "/images/new-images/anketa/bathroommat/bathroommat2.jpg",
-              },
-            ]}
-            name="bathroommat"
-            value={[formValues.bathroommat]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Тип дверей",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Тип дверей:</h3>
-          <OptionCard
-            options={[
-              {
-                label: "Звичайні",
-                imgSrc: "/images/new-images/anketa/door/door2.jpg",
-              },
-              {
-                label: "Прихованого монтажу",
-                imgSrc: "/images/new-images/anketa/door/door1.jpg",
-              },
-            ]}
-            name="door"
-            value={[formValues.door]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Пріоритети",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>
-            Що для Вас найважливіше в інтер&#39;єрі?
-          </h3>
-          <OptionCard
-            options={["Простір", "Місткість", "Функціональність", "Дизайн"]}
-            name="main"
-            value={formValues.main}
-            handleChange={handleChange}
-            multiSelect
-          />
-          <TextInput
-            label="Інше:"
-            placeholder="Введіть відповідь"
-            name="main-other"
-            value={formValues["main-other"]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Освітлення",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Освітлення:</h3>
-          <OptionCard
-            options={[
-              "Верхнє світло (люстри, світільники, трекові системи)",
-              "Настінне/декоративне (підсвітки, бра, торшери)",
-              "І те, і інше",
-            ]}
-            name="lighting"
-            value={[formValues.lighting]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Контакти",
-      component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>
-            Ваш номер телефону для зв&#39;язку:
-          </h3>
-          <label className={styles.inputLabel}>
-            <span>Телефон</span>
-            <input
-              className={styles.inputField}
-              required
-              placeholder="+ 380 __ ___ __ __"
-              value={formValues.phone}
-              type="tel"
-              name="phone"
-              onChange={handleChange}
-            />
-          </label>
 
           <h3 className={styles.stepTitle} style={{ marginTop: "24px" }}>
-            Зручний час для зв&#39;язку:
+            Ваш номер телефону:
           </h3>
-          <label className={styles.inputLabel}>
-            <span>Введіть час</span>
-            <input
-              className={styles.inputField}
-              placeholder="10:00"
-              value={formValues.time}
-              type="text"
-              name="time"
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            className={styles.inputField}
+            required
+            placeholder="+ 380 __ ___ __ __"
+            value={formValues.phone}
+            type="tel"
+            name="phone"
+            onChange={handleChange}
+          />
         </div>
       ),
     },
@@ -747,6 +276,8 @@ const MultiPartForm: React.FC = () => {
             user_phone: formValues.phone,
             building_type: formValues.building_type,
             design_preference: formValues.design,
+            timing: formValues.timing,
+            housing_type: formValues.housing_type,
             total_steps_completed: steps.length,
             form_completion_rate: 100,
             keycrm_status: result.keycrm || "unknown",
@@ -759,27 +290,10 @@ const MultiPartForm: React.FC = () => {
         setFormValues({
           "your-name": "",
           building_type: "Квартира",
-          design: "Так, маю",
-          design_detail: ["Технічний"],
-          age: "Новобудова",
-          planning: "Часткове",
-          constructions:
-            "Повна заміна/монтаж з нуля електропроводки та сантехнічних труб",
-          bedroom: "Одна",
-          style: [],
-          floor: [],
-          "floor-other": "",
-          wall: [],
-          "wall-other": "",
-          roof: [],
-          bathroom: "Один",
-          bathroommat: "Широкоформатна плитка",
-          door: "Звичайні",
-          main: [],
-          "main-other": "",
-          lighting: "Верхнє світло (люстри, світільники, трекові системи)",
+          design: "Так",
+          timing: "Якомога швидше",
+          housing_type: "Новобудова",
           phone: "",
-          time: "",
         });
         setCurrentStep(0);
 
@@ -848,8 +362,9 @@ const MultiPartForm: React.FC = () => {
 
   const isStepValid = () => {
     // Add validation logic here based on the current step
-    if (currentStep === 0) return formValues["your-name"].length > 0;
-    if (currentStep === steps.length - 1) return formValues.phone.length > 0;
+    if (currentStep === 4) {
+      return formValues["your-name"].length > 0 && formValues.phone.length > 0;
+    }
     return true;
   };
 

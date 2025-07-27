@@ -1,8 +1,8 @@
 import PageTitle from "@/components/Common/PageTitle";
 import Anketa from "@/components/Anketa/Anketa";
-import styles from "./AnketaHeader.module.scss";
+import styles from "./AnketaWrapper.module.scss";
 
-export default function AnketaHeader() {
+export default function AnketaWrapper() {
     return (
         <div className={styles.anketaPageContainer}>
             <PageTitle title="Анкета" homeText="Головна" homeUrl="/" />

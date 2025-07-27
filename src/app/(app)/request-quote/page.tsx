@@ -3,7 +3,7 @@ import Footer from "@/components/Layout/Footer";
 import Navbar from "@/components/Layout/Navbar";
 import { Metadata } from "next";
 import { getPageMetadata } from "@/utils/seo";
-import AnketaHeader from "@/components/AnketaHeader/AnketaHeader";
+import AnketaWrapper from "@/components/AnketaWrapper/AnketaWrapper";
 
 export const revalidate = 60;
 
@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <div className="full-bg-black-color">
       <Navbar />
-      <AnketaHeader/>
+      <AnketaWrapper/>
       <Footer />
     </div>
   );

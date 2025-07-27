@@ -7,7 +7,6 @@ import Image from "next/image";
 
 import shapeImg from "../../../public/images/main-banner/shape.png";
 import textShapeImg from "../../../public/images/main-banner/text.png";
-import arrowRightIcon from "../../../public/images/main-banner/arrow-right.svg";
 
 const socialLinksData = [
   {
@@ -48,8 +47,8 @@ const HeroBanner: React.FC = () => {
               data-aos-duration="600"
               data-aos-once="false"
             >
-              Створимо простiр,
-              <br /> в якому <span>хочеться жити</span>
+              Оплата лише за результат — впевненість
+              <span> у кожному етапі</span>
             </h1>
             <p
               data-aos="fade-up"
@@ -69,7 +68,7 @@ const HeroBanner: React.FC = () => {
               data-aos-once="false"
             >
               <Link href="/contact-us" className="default-btn">
-                Замовити проєкт
+                Отримати консультацію
               </Link>
             </div>
           </div>
@@ -116,27 +115,27 @@ const HeroBanner: React.FC = () => {
           </ul>
         )}
 
-        <div className="main-banner-arrow">
-          <Link href="/contact-us">
-            <Image
-              src={arrowRightIcon}
-              alt="arrow right"
-              width={24}
-              height={24}
-            />
-          </Link>
-        </div>
+        {/*<div className="main-banner-arrow">*/}
+        {/*  <Link href="/contact-us">*/}
+        {/*    <Image*/}
+        {/*      src={arrowRightIcon}*/}
+        {/*      alt="arrow right"*/}
+        {/*      width={24}*/}
+        {/*      height={24}*/}
+        {/*    />*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
 
-        <ul className="main-banner-info">
-          <li>
-            <span>Дзвони: </span>
-            <Link href="tel:380683833838">+38(068) 383 38 38</Link>
-          </li>
-          <li>
-            <span>Пиши: </span>
-            <Link href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</Link>
-          </li>
-        </ul>
+        {/*<ul className="main-banner-info">*/}
+        {/*  <li>*/}
+        {/*    <span>Дзвони: </span>*/}
+        {/*    <Link href="tel:380683833838">+38(068) 383 38 38</Link>*/}
+        {/*  </li>*/}
+        {/*  <li>*/}
+        {/*    <span>Пиши: </span>*/}
+        {/*    <Link href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</Link>*/}
+        {/*  </li>*/}
+        {/*</ul>*/}
       </div>
     </>
   );

@@ -27,7 +27,7 @@ class KeyCrmService {
       // Generate a unique title for the card
       const cardTitle = `Anketa Form #${Date.now()}`;
 
-      // Prepare additional details from the anketa form
+      // Prepare additional details from the simplified anketa form
       const detailedComment = this.formatAnketaDetails(leadData);
 
       // Correct payload structure based on KeyCRM documentation
@@ -52,7 +52,7 @@ class KeyCrmService {
         custom_fields: [
           {
             uuid: "form_type",
-            value: "anketa_form",
+            value: "anketa_form_simplified",
           },
           {
             uuid: "building_type",
@@ -63,8 +63,12 @@ class KeyCrmService {
             value: leadData.design || "",
           },
           {
-            uuid: "preferred_time",
-            value: leadData.time || "",
+            uuid: "timing",
+            value: leadData.timing || "",
+          },
+          {
+            uuid: "housing_type",
+            value: leadData.housing_type || "",
           },
         ],
       };
@@ -114,65 +118,11 @@ class KeyCrmService {
     const details = [];
 
     if (formData.building_type)
-      details.push(`Тип нерухомості: ${formData.building_type}`);
+      details.push(`Тип об'єкту: ${formData.building_type}`);
     if (formData.design) details.push(`Дизайн-проєкт: ${formData.design}`);
-    if (formData.design_detail && Array.isArray(formData.design_detail)) {
-      details.push(`Деталі дизайну: ${formData.design_detail.join(", ")}`);
-    }
-    if (formData.age) details.push(`Вік будівлі: ${formData.age}`);
-    if (formData.planning) details.push(`Перепланування: ${formData.planning}`);
-    if (formData.constructions)
-      details.push(`Комунікації: ${formData.constructions}`);
-    if (formData.bedroom)
-      details.push(`Кількість спалень: ${formData.bedroom}`);
-    if (
-      formData.style &&
-      Array.isArray(formData.style) &&
-      formData.style.length > 0
-    ) {
-      details.push(`Стиль: ${formData.style.join(", ")}`);
-    }
-    if (
-      formData.floor &&
-      Array.isArray(formData.floor) &&
-      formData.floor.length > 0
-    ) {
-      details.push(`Підлога: ${formData.floor.join(", ")}`);
-    }
-    if (formData["floor-other"])
-      details.push(`Інше по підлозі: ${formData["floor-other"]}`);
-    if (
-      formData.wall &&
-      Array.isArray(formData.wall) &&
-      formData.wall.length > 0
-    ) {
-      details.push(`Стіни: ${formData.wall.join(", ")}`);
-    }
-    if (formData["wall-other"])
-      details.push(`Інше по стінах: ${formData["wall-other"]}`);
-    if (
-      formData.roof &&
-      Array.isArray(formData.roof) &&
-      formData.roof.length > 0
-    ) {
-      details.push(`Стеля: ${formData.roof.join(", ")}`);
-    }
-    if (formData.bathroom)
-      details.push(`Кількість санвузлів: ${formData.bathroom}`);
-    if (formData.bathroommat)
-      details.push(`Матеріали санвузла: ${formData.bathroommat}`);
-    if (formData.door) details.push(`Тип дверей: ${formData.door}`);
-    if (
-      formData.main &&
-      Array.isArray(formData.main) &&
-      formData.main.length > 0
-    ) {
-      details.push(`Пріоритети: ${formData.main.join(", ")}`);
-    }
-    if (formData["main-other"])
-      details.push(`Інше важливе: ${formData["main-other"]}`);
-    if (formData.lighting) details.push(`Освітлення: ${formData.lighting}`);
-    if (formData.time) details.push(`Зручний час: ${formData.time}`);
+    if (formData.timing) details.push(`Терміни роботи: ${formData.timing}`);
+    if (formData.housing_type)
+      details.push(`Тип житла: ${formData.housing_type}`);
 
     return details.join("\n");
   }
@@ -267,7 +217,7 @@ export async function POST(req: Request) {
       console.log("Available pipelines:", pipelines);
     }
 
-    // Prepare Telegram message with detailed anketa information
+    // Prepare simplified Telegram message
     const message = `
 <b>Нове Заповнення Анкети</b>
 ======================
@@ -275,37 +225,13 @@ export async function POST(req: Request) {
 
 📞 <b>Телефон</b>: ${formData.phone}
 
-🏢 <b>Тип Нерухомості</b>: ${formData.building_type}
+🏢 <b>Тип об'єкту</b>: ${formData.building_type}
 
-📝 <b>Дизайн</b>: ${formData.design}
-🔍 <b>Деталі Дизайну</b>: ${Array.isArray(formData.design_detail) ? formData.design_detail.join(", ") : formData.design_detail || "Не обрано"}
+📝 <b>Дизайн-проєкт</b>: ${formData.design}
 
-🏠 <b>Вік Будівлі</b>: ${formData.age}
-🔄 <b>Перепланування</b>: ${formData.planning}
-🔧 <b>Комунікації</b>: ${formData.constructions}
-🛏️ <b>Кількість Спалень</b>: ${formData.bedroom}
+⏰ <b>Терміни роботи</b>: ${formData.timing}
 
-🎨 <b>Бажаний Стиль</b>: ${Array.isArray(formData.style) ? formData.style.join(", ") : formData.style || "Не обрано"}
-
-🪵 <b>Уподобання по Підлозі</b>: ${Array.isArray(formData.floor) ? formData.floor.join(", ") : formData.floor || "Не обрано"}
-🔧 <b>Інше по Підлозі</b>: ${formData["floor-other"] || "Не вказано"}
-
-🧱 <b>Уподобання по Стінах</b>: ${Array.isArray(formData.wall) ? formData.wall.join(", ") : formData.wall || "Не обрано"}
-🔧 <b>Інше по Стінах</b>: ${formData["wall-other"] || "Не вказано"}
-
-🏠 <b>Уподобання по Стелі</b>: ${Array.isArray(formData.roof) ? formData.roof.join(", ") : formData.roof || "Не обрано"}
-
-🚿 <b>Кількість Санвузлів</b>: ${formData.bathroom}
-🛁 <b>Матеріали Санвузла</b>: ${formData.bathroommat}
-
-🚪 <b>Тип Дверей</b>: ${formData.door}
-
-🌟 <b>Найважливіше в Інтер'єрі</b>: ${Array.isArray(formData.main) ? formData.main.join(", ") : formData.main || "Не обрано"}
-🔧 <b>Інше, що важливо</b>: ${formData["main-other"] || "Не вказано"}
-
-💡 <b>Уподобання по Освітленню</b>: ${formData.lighting}
-
-⏰ <b>Зручний Час для Зв'язку</b>: ${formData.time}
+🏠 <b>Тип житла</b>: ${formData.housing_type}
 
 📊 <b>Дані Відстеження</b>:
 ${trackingParams.utm_source ? `🔗 Джерело: ${trackingParams.utm_source}` : ""}
@@ -338,27 +264,11 @@ ${trackingParams.gclid ? `🔍 Google ID: ${trackingParams.gclid.substring(0, 20
       keyCrmResult = await keyCrm.createPipelineCard({
         name: formData["your-name"],
         phone: formData.phone,
-        email: "", // Anketa form doesn't have email field
-        time: formData.time,
+        email: "", // Simplified form doesn't have email field
         building_type: formData.building_type,
         design: formData.design,
-        design_detail: formData.design_detail,
-        age: formData.age,
-        planning: formData.planning,
-        constructions: formData.constructions,
-        bedroom: formData.bedroom,
-        style: formData.style,
-        floor: formData.floor,
-        "floor-other": formData["floor-other"],
-        wall: formData.wall,
-        "wall-other": formData["wall-other"],
-        roof: formData.roof,
-        bathroom: formData.bathroom,
-        bathroommat: formData.bathroommat,
-        door: formData.door,
-        main: formData.main,
-        "main-other": formData["main-other"],
-        lighting: formData.lighting,
+        timing: formData.timing,
+        housing_type: formData.housing_type,
         ...trackingParams,
       });
 

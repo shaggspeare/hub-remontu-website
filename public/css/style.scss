@@ -386,7 +386,7 @@ Main Banner Area CSS
     }
 }
 .main-banner-content {
-    max-width: 840px;
+    max-width: 66dvw;
     position: relative;
 
     h1 {
@@ -419,11 +419,11 @@ Main Banner Area CSS
 }
 .main-banner-image {
     position: absolute;
-    right: 80px;
+    top: 0;
     bottom: 0;
     z-index: -1;
     width: 100%;
-    height: 800px;
+    height: 100dvh;
     background-size: cover;
 }
 .main-banner-wrap-shape {
