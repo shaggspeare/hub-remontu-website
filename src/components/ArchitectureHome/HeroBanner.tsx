@@ -86,10 +86,6 @@ const HeroBanner: React.FC = () => {
           data-aos-once="false"
         ></div>
 
-        <div className="main-banner-wrap-shape">
-          <Image src={shapeImg} alt="Shape" width={502} height={287} />
-        </div>
-
         <div className="main-banner-video">
           <Image src={textShapeImg} alt="Text Shape" width={182} height={182} />
 
