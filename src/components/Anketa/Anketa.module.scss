@@ -10,19 +10,16 @@
   flex-direction: column;
 }
 
-/* Progress Bar */
 .progressContainer {
   margin-bottom: 32px;
   position: sticky;
   top: 0;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 16px 0;
+  padding: 16px 20px;
   z-index: 100;
   margin-left: -20px;
   margin-right: -20px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .progressBar {
