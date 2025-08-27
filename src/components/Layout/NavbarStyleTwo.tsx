@@ -337,9 +337,9 @@ const NavbarStyleTwo: React.FC = () => {
 
                   <li className="nav-item">
                     <Link
-                      href="/request-quote/"
+                      href="/anketa-form/"
                       className={`nav-link ${
-                        currentRoute === "/request-quote/" ? "active" : ""
+                        currentRoute === "/anketa-form/" ? "active" : ""
                       }`}
                     >
                       Request A Quote
@@ -471,7 +471,7 @@ const NavbarStyleTwo: React.FC = () => {
             </div>
 
             <div className="option-item">
-              <Link href="/request-quote" className="default-btn">
+              <Link href="/anketa-form" className="default-btn">
                 Request A Quote
               </Link>
             </div>
@@ -743,9 +743,9 @@ const NavbarStyleTwo: React.FC = () => {
 
               {/*        <li>*/}
               {/*          <Link*/}
-              {/*            href="/request-quote/"*/}
+              {/*            href="/anketa-form/"*/}
               {/*            className={`nav-link ${*/}
-              {/*              currentRoute === "/request-quote/" ? "active" : ""*/}
+              {/*              currentRoute === "/anketa-form/" ? "active" : ""*/}
               {/*            }`}*/}
               {/*          >*/}
               {/*            Request A Quote*/}

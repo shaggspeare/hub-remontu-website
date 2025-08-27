@@ -41,7 +41,7 @@ const pageLinksData = [
   {
     id: "3",
     name: "Заповніть анкету для консультації",
-    link: "/request-quote",
+    link: "/anketa-form",
   },
   {
     id: "4",

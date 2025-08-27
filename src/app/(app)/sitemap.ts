@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: "https://hubremontu.ua/", lastModified: new Date() },
     { url: "https://hubremontu.ua/portfolio", lastModified: new Date() },
-    { url: "https://hubremontu.ua/request-quote", lastModified: new Date() },
+    { url: "https://hubremontu.ua/anketa-form", lastModified: new Date() },
     { url: "https://hubremontu.ua/contact-us", lastModified: new Date() },
     { url: "https://hubremontu.ua/about-us", lastModified: new Date() },
     { url: "https://hubremontu.ua/team", lastModified: new Date() },
