@@ -3,7 +3,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 
-import styles from "./Anketa.module.scss";
 import { useRouter } from "next/navigation";
 import { trackFormSubmission } from "@/utils/gtm";
 import { useUtmTracker } from "@/hooks/useUtmTracker";
@@ -43,16 +42,16 @@ const OptionCard: React.FC<OptionCardProps> = ({
   handleChange,
   multiSelect = false,
 }) => (
-  <div className={styles.optionsGrid}>
+  <div className="options-grid">
     {options.map((option) => (
       <div
         key={typeof option === "string" ? option : option.label}
-        className={styles.optionWrapper}
+        className="option-wrapper"
       >
         <label
-          className={`${styles.optionCard} ${
+          className={`option-card ${
             value.includes(typeof option === "string" ? option : option.label)
-              ? styles.optionSelected
+              ? "option-selected"
               : ""
           }`}
         >
@@ -68,10 +67,10 @@ const OptionCard: React.FC<OptionCardProps> = ({
             style={{ display: "none" }}
           />
           {typeof option !== "string" && option.imgSrc && (
-            <div className={styles.optionImageWrapper}>
+            <div className="option-image-wrapper">
               <Image
                 src={option.imgSrc}
-                className={styles.optionImage}
+                className="option-image"
                 alt={option.label}
                 width={238}
                 height={346}
@@ -79,7 +78,7 @@ const OptionCard: React.FC<OptionCardProps> = ({
               />
             </div>
           )}
-          <div className={styles.optionLabel}>
+          <div className="option-label">
             <span>{typeof option === "string" ? option : option.label}</span>
           </div>
         </label>
@@ -141,8 +140,8 @@ const MultiPartForm: React.FC = () => {
     {
       title: "Тип об'єкту",
       component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Тип об&#39;єкту:</h3>
+        <div className="form-step">
+          <h3 className="step-title">Тип об&#39;єкту:</h3>
           <OptionCard
             options={["Квартира", "Будинок", "Комерція"]}
             name="building_type"
@@ -155,8 +154,8 @@ const MultiPartForm: React.FC = () => {
     {
       title: "Дизайн-проєкт",
       component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Чи маєте ви дизайн проєкт?</h3>
+        <div className="form-step">
+          <h3 className="step-title">Чи маєте ви дизайн проєкт?</h3>
           <OptionCard
             options={["Так", "Ні", "Планую створити"]}
             name="design"
@@ -169,8 +168,8 @@ const MultiPartForm: React.FC = () => {
     {
       title: "Терміни",
       component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Коли хочете розпочати роботи?</h3>
+        <div className="form-step">
+          <h3 className="step-title">Коли хочете розпочати роботи?</h3>
           <OptionCard
             options={[
               "Якомога швидше",
@@ -187,8 +186,8 @@ const MultiPartForm: React.FC = () => {
     {
       title: "Тип житла",
       component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Тип житла:</h3>
+        <div className="form-step">
+          <h3 className="step-title">Тип житла:</h3>
           <OptionCard
             options={[
               {
@@ -210,10 +209,10 @@ const MultiPartForm: React.FC = () => {
     {
       title: "Контактні дані",
       component: (
-        <div className={styles.formStep}>
-          <h3 className={styles.stepTitle}>Ваше ім&#39;я:</h3>
+        <div className="form-step">
+          <h3 className="step-title">Ваше ім&#39;я:</h3>
           <input
-            className={styles.inputField}
+            className="input-field"
             required
             placeholder="Введіть ваше ім'я"
             value={formValues["your-name"]}
@@ -222,11 +221,11 @@ const MultiPartForm: React.FC = () => {
             onChange={handleChange}
           />
 
-          <h3 className={styles.stepTitle} style={{ marginTop: "24px" }}>
+          <h3 className="step-title" style={{ marginTop: "24px" }}>
             Ваш номер телефону:
           </h3>
           <input
-            className={styles.inputField}
+            className="input-field"
             required
             placeholder="+ 380 __ ___ __ __"
             value={formValues.phone}
@@ -321,7 +320,7 @@ const MultiPartForm: React.FC = () => {
 
       setCurrentStep(currentStep + 1);
       // Scroll to top of form with offset for header
-      const formContainer = document.querySelector(`.${styles.formContainer}`);
+      const formContainer = document.querySelector(`.form-container`);
       if (formContainer) {
         const rect = formContainer.getBoundingClientRect();
         const offset = window.innerWidth <= 768 ? 70 : 100; // 70px mobile, 100px desktop
@@ -348,7 +347,7 @@ const MultiPartForm: React.FC = () => {
 
       setCurrentStep(currentStep - 1);
       // Scroll to top of form with offset for header
-      const formContainer = document.querySelector(`.${styles.formContainer}`);
+      const formContainer = document.querySelector(`.form-container`);
       if (formContainer) {
         const rect = formContainer.getBoundingClientRect();
         const offset = window.innerWidth <= 768 ? 70 : 100; // 70px mobile, 100px desktop
@@ -387,16 +386,16 @@ const MultiPartForm: React.FC = () => {
   }, [currentStep, steps.length]);
 
   return (
-    <div className={styles.formContainer}>
+    <div className="form-container">
       {/* Progress Bar */}
-      <div className={styles.progressContainer}>
-        <div className={styles.progressBar}>
+      <div className="progress-container">
+        <div className="progress-bar">
           <div
-            className={styles.progressFill}
+            className="progress-fill"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
-        <div className={styles.progressText}>
+        <div className="progress-text">
           Крок {currentStep + 1} з {steps.length}
         </div>
       </div>
@@ -424,17 +423,15 @@ const MultiPartForm: React.FC = () => {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="wpcf7-form">
-        <div className={styles.stepContainer}>
-          {steps[currentStep].component}
-        </div>
+        <div className="step-container">{steps[currentStep].component}</div>
 
         {/* Navigation Buttons */}
-        <div className={styles.navigationButtons}>
+        <div className="navigation-buttons">
           {currentStep > 0 && (
             <button
               type="button"
               onClick={handlePrev}
-              className={styles.prevButton}
+              className="prev-button"
               disabled={isSubmitting}
             >
               Назад
@@ -445,7 +442,7 @@ const MultiPartForm: React.FC = () => {
             <button
               type="button"
               onClick={handleNext}
-              className={styles.nextButton}
+              className="next-button"
               disabled={!isStepValid() || isSubmitting}
             >
               Далі
@@ -453,7 +450,7 @@ const MultiPartForm: React.FC = () => {
           ) : (
             <button
               type="submit"
-              className={styles.submitButton}
+              className="submit-button"
               disabled={!isStepValid() || isSubmitting}
             >
               {isSubmitting ? "Відправляємо..." : "Відправити форму"}

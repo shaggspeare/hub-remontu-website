@@ -1,4 +1,4 @@
-.anketaPageContainer {
+.anketa-page-container {
   /* Mobile First: Hide elements on mobile */
   @media (max-width: 767px) {
     /* Hide the PageTitle component */
@@ -7,11 +7,11 @@
     }
 
     /* Adjust the main content wrapper */
-    .anketaWrapper {
+    .anketa-wrapper {
       padding-top: 0 !important;
       padding-bottom: 0 !important;
 
-      .anketaInnerContainer {
+      .anketa-inner-container {
         max-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -26,12 +26,12 @@
 
   /* Desktop and tablet styles */
   @media (min-width: 768px) {
-    .anketaWrapper {
+    .anketa-wrapper {
       padding-top: 100px;
       padding-bottom: 100px;
     }
 
-    .anketaInnerContainer {
+    .anketa-inner-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 16px;
@@ -55,7 +55,7 @@
 }
 
 /* Alternative approach using global styles if needed */
-.mobileAnketaOnly {
+.mobile-anketa-only {
   @media (max-width: 767px) {
     /* Hide all direct children except the form container */
     > * {
