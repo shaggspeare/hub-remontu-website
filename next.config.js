@@ -23,6 +23,12 @@ const nextConfig = {
   compiler: {
     removeConsole: false,
   },
+  experimental: {
+    staleTimes: {
+      dynamic: 0,
+      static: 0,
+    },
+  },
 };
 
 export default withPayload(nextConfig);
