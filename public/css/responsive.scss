@@ -1794,6 +1794,7 @@
         }
     }
 
+
     // Home Three Responsive
     .as-banner-area {
         margin: 0 0;
@@ -3261,6 +3262,15 @@
     .team-area {
         &::before {
             width: 45.5%;
+        }
+    }
+}
+
+
+.contact-block {
+    @media (max-width : 1024px) {
+        .contact-image {
+            display: none;
         }
     }
 }

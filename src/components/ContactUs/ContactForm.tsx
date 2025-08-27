@@ -134,7 +134,7 @@ const ContactForm: React.FC = () => {
               Найкращий час познайомитись - вже зараз!
             </h2>
           </div>
-          <div className="row justify-content-center">
+          <div className="row justify-content-center contact-block">
             <div
               ref={(el) => {
                 if (el) fadeRefs.current.push(el);

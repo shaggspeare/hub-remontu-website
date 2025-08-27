@@ -154,7 +154,7 @@ const Navbar: React.FC = () => {
 
             <div className="option-item">
               <Link href="/request-quote" className="default-btn">
-                Заповнити анкету
+                Заповніть анкету для консультації
               </Link>
             </div>
           </div>
@@ -240,7 +240,7 @@ const Navbar: React.FC = () => {
                     currentRoute === "/request-quote/" ? "active" : ""
                   }`}
                 >
-                  Заповнити анкету
+                  Заповніть анкету для консультаціїу
                 </Link>
               {/*</Accordion>*/}
             </div>

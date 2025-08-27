@@ -29,35 +29,38 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
+    <head>
+      <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+      <meta httpEquiv="Pragma" content="no-cache"/>
+      <meta httpEquiv="Expires" content="0"/>
+      {/* Google Tag Manager */}
+      <Script id="google-tag-manager" strategy="afterInteractive">
+        {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-WBNG36TB');
           `}
-        </Script>
+      </Script>
 
-        {/* Google Analytics */}
-        <Script
+      {/* Google Analytics */}
+      <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DB220HDS6Y"
           strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-DB220HDS6Y');
           `}
-        </Script>
+      </Script>
 
-        {/* Meta Pixel Code */}
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
+      {/* Meta Pixel Code */}
+      <Script id="meta-pixel" strategy="afterInteractive">
+        {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -69,24 +72,24 @@ export default function RootLayout({
             fbq('init', '1387205899141887');
             fbq('track', 'PageView');
           `}
-        </Script>
+      </Script>
 
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+      <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
             alt="facebook pixel"
             height="1"
             width="1"
-            style={{ display: "none" }}
+            style={{display: "none"}}
             src="https://www.facebook.com/tr?id=1387205899141887&ev=PageView&noscript=1"
-          />
-        </noscript>
-      </head>
-      <body className={font.className}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WBNG36TB"
+        />
+      </noscript>
+    </head>
+    <body className={font.className}>
+    {/* Google Tag Manager (noscript) */}
+    <noscript>
+      <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-WBNG36TB"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}

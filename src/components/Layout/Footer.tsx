@@ -40,7 +40,7 @@ const pageLinksData = [
   },
   {
     id: "3",
-    name: "Заповнити анкету",
+    name: "Заповніть анкету для консультації",
     link: "/request-quote",
   },
   {

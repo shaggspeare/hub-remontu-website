@@ -5,7 +5,6 @@ import FsLightbox from "fslightbox-react";
 import Link from "next/link";
 import Image from "next/image";
 
-import shapeImg from "../../../public/images/main-banner/shape.png";
 import textShapeImg from "../../../public/images/main-banner/text.png";
 
 const socialLinksData = [
@@ -47,8 +46,8 @@ const HeroBanner: React.FC = () => {
               data-aos-duration="600"
               data-aos-once="false"
             >
-              Оплата лише за результат — впевненість
-              <span> у кожному етапі</span>
+              Дизайн у подарунок при замовленні
+              <span> ремонту під ключ</span>
             </h1>
             <p
               data-aos="fade-up"
