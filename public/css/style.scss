@@ -5340,70 +5340,67 @@ Client Feedback Redesigned Styles
   }
 }
 
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-  .form-container {
-    background-color: #1f2937;
-  }
+.form-container {
+  background-color: #1f2937;
+}
 
-  .progress-container {
-    background-color: rgba(31, 41, 55, 0.95);
-  }
+.progress-container {
+  background-color: rgba(31, 41, 55, 0.95);
+}
 
-  .progress-bar {
-    background-color: #374151;
-  }
+.progress-bar {
+  background-color: #374151;
+}
 
-  .progress-text {
-    color: #9ca3af;
-  }
+.progress-text {
+  color: #9ca3af;
+}
 
-  .step-title {
-    color: #f3f4f6;
-  }
+.step-title {
+  color: #f3f4f6;
+}
 
-  .option-card {
-    background-color: #374151;
-    border-color: #4b5563;
-  }
+.option-card {
+  background-color: #374151;
+  border-color: #4b5563;
+}
 
-  .option-label {
-    color: #f3f4f6;
-  }
+.option-label {
+  color: #f3f4f6;
+}
 
-  .input-field {
-    background-color: #374151;
-    border-color: #4b5563;
-    color: #f3f4f6;
-  }
+.input-field {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
 
-  .input-field::placeholder {
-    color: #6b7280;
-  }
+.input-field::placeholder {
+  color: #6b7280;
+}
 
-  .design-detail-box {
-    background-color: #374151;
-    border-color: #4b5563;
-  }
+.design-detail-box {
+  background-color: #374151;
+  border-color: #4b5563;
+}
 
-  .bold-text {
-    color: #f3f4f6;
-  }
+.bold-text {
+  color: #f3f4f6;
+}
 
-  .info-text {
-    color: #d1d5db;
-  }
+.info-text {
+  color: #d1d5db;
+}
 
-  .info-text strong {
-    color: #f3f4f6;
-  }
+.info-text strong {
+  color: #f3f4f6;
+}
 
-  .prev-button {
-    background-color: #4b5563;
-    color: #f3f4f6;
-  }
+.prev-button {
+  background-color: #4b5563;
+  color: #f3f4f6;
+}
 
-  .prev-button:hover {
-    background-color: #6b7280;
-  }
+.prev-button:hover {
+  background-color: #6b7280;
 }
