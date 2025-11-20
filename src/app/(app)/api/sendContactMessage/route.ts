@@ -5,6 +5,75 @@ const TELEGRAM_API = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOK
 const KEYCRM_API = process.env.KEYCRM_BASE_URL;
 const KEYCRM_API_KEY = process.env.KEYCRM_API_KEY;
 
+// Helper function to send Telegram message to multiple users
+async function sendToMultipleTelegramUsers(
+  message: string,
+  parseMode: "HTML" | "Markdown" = "HTML",
+): Promise<{ success: boolean; results: any[] }> {
+  // Get user IDs from environment variable (comma-separated)
+  const userIds =
+    process.env.TELEGRAM_USER_IDS?.split(",").map((id) => id.trim()) || [];
+
+  // Fallback to single user ID if TELEGRAM_USER_IDS is not set
+  if (userIds.length === 0 && process.env.TELEGRAM_USER_ID) {
+    userIds.push(process.env.TELEGRAM_USER_ID);
+  }
+
+  if (userIds.length === 0) {
+    throw new Error("No Telegram user IDs configured");
+  }
+
+  console.log(`📱 Sending message to ${userIds.length} Telegram user(s)`);
+
+  // Send message to all users
+  const results = await Promise.allSettled(
+    userIds.map((chatId) =>
+      fetch(TELEGRAM_API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          parse_mode: parseMode,
+        }),
+      }).then(async (response) => {
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(
+            `Failed for user ${chatId}: ${response.status} ${errorText}`,
+          );
+        }
+        return { chatId, status: "success" };
+      }),
+    ),
+  );
+
+  // Log results
+  const successful = results.filter((r) => r.status === "fulfilled").length;
+  const failed = results.filter((r) => r.status === "rejected").length;
+
+  console.log(
+    `✅ Telegram: ${successful} successful, ${failed} failed out of ${userIds.length}`,
+  );
+
+  results.forEach((result, index) => {
+    if (result.status === "rejected") {
+      console.error(`❌ Failed to send to user ${userIds[index]}:`, result.reason);
+    }
+  });
+
+  return {
+    success: successful > 0,
+    results: results.map((r, i) => ({
+      userId: userIds[i],
+      status: r.status,
+      error: r.status === "rejected" ? r.reason.message : null,
+    })),
+  };
+}
+
 // KeyCRM Service Class
 class KeyCrmService {
   private apiKey?: string;
@@ -209,19 +278,12 @@ ${utmParams.fbclid ? `📘 Facebook ID: ${utmParams.fbclid.substring(0, 20)}...`
 ${utmParams.gclid ? `🔍 Google ID: ${utmParams.gclid.substring(0, 20)}...` : ""}
 `;
 
-    // Send to Telegram
+    // Send to Telegram (multiple users)
     console.log("📱 Sending to Telegram...");
-    const telegramResponse = await fetch(TELEGRAM_API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        chat_id: process.env.TELEGRAM_USER_ID,
-        text: telegramMessage,
-        parse_mode: "Markdown",
-      }),
-    });
+    const telegramResult = await sendToMultipleTelegramUsers(
+      telegramMessage,
+      "Markdown",
+    );
 
     // Create Pipeline Card in KeyCRM
     let keyCrmResult = null;
@@ -247,15 +309,16 @@ ${utmParams.gclid ? `🔍 Google ID: ${utmParams.gclid.substring(0, 20)}...` : "
       console.log("⏩ Skipping KeyCRM due to connection issues");
     }
 
-    if (!telegramResponse.ok) {
-      console.error("❌ Telegram send failed");
-      throw new Error("Failed to send message to Telegram");
+    if (!telegramResult.success) {
+      console.error("❌ All Telegram sends failed");
+      throw new Error("Failed to send message to any Telegram users");
     }
     console.log("✅ Telegram message sent successfully");
 
     return NextResponse.json({
       message: "Message sent successfully!",
       telegram: "success",
+      telegram_results: telegramResult.results,
       keycrm: keyCrmResult ? "success" : "failed",
       keycrm_id: keyCrmResult?.id || null,
       keycrm_contact_id: keyCrmResult?.contact_id || null,
