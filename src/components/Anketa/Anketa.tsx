@@ -101,6 +101,7 @@ const MultiPartForm: React.FC = () => {
     housing_type: "Новобудова",
     phone: "",
   });
+
   // GTM tracking function for step progression
   const trackStepProgress = (stepNumber: number, stepTitle: string) => {
     if (typeof window !== "undefined" && window.dataLayer) {
