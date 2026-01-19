@@ -236,6 +236,10 @@ export interface Project {
    */
   galleryImages?: (string | Image)[] | null;
   /**
+   * Optional YouTube video link for this project
+   */
+  youtubeLink?: string | null;
+  /**
    * Not displayed on site
    */
   commentary?: string | null;
@@ -499,6 +503,7 @@ export interface ProjectsSelect<T extends boolean = true> {
         services?: T;
       };
   galleryImages?: T;
+  youtubeLink?: T;
   commentary?: T;
   updatedAt?: T;
   createdAt?: T;

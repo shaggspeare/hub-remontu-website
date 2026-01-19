@@ -42,7 +42,7 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
     <div style={{ padding: 20 }}>
       <div className="container">
         <div className="section-title-wrap p-0" style={{ maxWidth: "500px" }}>
-          <h2 className="mb-2">Фото</h2>
+          <h2 className="mb-2" style={{color: '#c0b6ad !important'}}>Фото</h2>
         </div>
 
         {/* Render Masonry layout */}

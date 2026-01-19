@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Sidebar from "./Sidebar";
 import GalleryImage from "@/components/Gallery/GalleryImage";
 import { RichText } from "@payloadcms/richtext-lexical/react";
@@ -39,6 +40,7 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
       squareMeters: project.projectDetails?.squareMeters ?? "",
       services: project.projectDetails?.services ?? "",
     },
+    youtubeLink: project.youtubeLink || "",
     galleryImages: (project.galleryImages ?? []).map((galleryImage) => {
       // Handle both string and object types for images
       if (typeof galleryImage === "string") {
@@ -155,6 +157,25 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
           </div>
         </div>
       </div>
+
+      {portfolioDetailsInfo.youtubeLink && (
+        <div className="container pt-100 pb-75">
+          <div className="row justify-content-center">
+            <div className="col-lg-12 text-center">
+              <div className="youtube-review-btn">
+                <Link
+                  href={portfolioDetailsInfo.youtubeLink}
+                  className="default-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Дивитись огляд проєкту
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <GalleryImage galleryImageData={portfolioDetailsInfo.galleryImages} />
     </>

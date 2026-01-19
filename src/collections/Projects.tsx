@@ -455,6 +455,21 @@ export const Projects: CollectionConfig = {
       },
     },
     {
+      name: "youtubeLink",
+      type: "text",
+      label: {
+        en: "YouTube Link",
+        uk: "Посилання на YouTube",
+      },
+      required: false,
+      admin: {
+        description: {
+          en: "Optional YouTube video link for this project",
+          uk: "Необов'язкове посилання на відео YouTube для цього проєкту",
+        },
+      },
+    },
+    {
       name: "commentary",
       label: {
         en: "Commentary",
