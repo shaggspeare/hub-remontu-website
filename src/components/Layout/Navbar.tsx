@@ -79,9 +79,9 @@ const Navbar: React.FC = () => {
                   color: "white",
                   lineHeight: "32px",
                 }}
-                href="tel:380683833838"
+                href="tel:380683833888"
               >
-                +38(068) 383 38 38
+                +38(068) 383 38 88
               </Link>
               <li className="nav-item">
                 <Link

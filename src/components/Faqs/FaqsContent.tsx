@@ -37,9 +37,9 @@ const FaqsContent: React.FC = () => {
           номером{" "}
           <Link
             style={{ textDecoration: "underline", color: "var(--whiteColor)" }}
-            href="tel:380683833838"
+            href="tel:380683833888"
           >
-            +38(068) 383 38 38
+            +38(068) 383 38 88
           </Link>{" "}
           і ми обговоримо майбутню співпрацю.
         </>

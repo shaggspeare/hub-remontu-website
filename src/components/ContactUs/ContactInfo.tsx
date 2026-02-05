@@ -29,13 +29,13 @@ const ContactInfo: React.FC = () => {
         <li>
           <span>АДРЕСА</span>
           м. Київ, ЖК Great,
-          Дніпровська набережна, 15к, приміщення 1
+          Дніпровська набережна, 15Ж, офіс 5 (2й поверх)
         </li>
 
         <li>
           <span>CONTACT</span>
           <Link href="mailto:hubremontu@gmail.com">hubremontu@gmail.com</Link>
-          <Link href="tel:380683833838">+38 (068) 383 38 38</Link>
+          <Link href="tel:380683833888">+38 (068) 383 38 88</Link>
         </li>
 
         <li>

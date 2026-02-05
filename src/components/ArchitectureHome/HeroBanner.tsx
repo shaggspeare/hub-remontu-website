@@ -124,7 +124,7 @@ const HeroBanner: React.FC = () => {
         {/*<ul className="main-banner-info">*/}
         {/*  <li>*/}
         {/*    <span>Дзвони: </span>*/}
-        {/*    <Link href="tel:380683833838">+38(068) 383 38 38</Link>*/}
+        {/*    <Link href="tel:380683833888">+38(068) 383 38 38</Link>*/}
         {/*  </li>*/}
         {/*  <li>*/}
         {/*    <span>Пиши: </span>*/}
