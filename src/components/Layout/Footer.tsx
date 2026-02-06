@@ -22,7 +22,7 @@ const socialLinksData = [
   {
     id: "3",
     name: "Telegram",
-    link: "https://t.me/Hub_remontu",
+    link: "https://t.me/Design_interiors_HUB",
   },
 ];
 

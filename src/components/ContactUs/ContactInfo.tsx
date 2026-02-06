@@ -18,7 +18,7 @@ const socialLinksData = [
   {
     id: "3",
     icon: "ri-telegram-line",
-    link: "https://t.me/Hub_remontu",
+    link: "https://t.me/Design_interiors_HUB",
   },
 ];
 
