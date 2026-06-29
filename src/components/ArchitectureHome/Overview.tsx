@@ -32,7 +32,6 @@ const Overview: React.FC = () => {
                   <Image
                     src={overviewImg1}
                     alt="overview"
-                    layout="responsive"
                     width={1320}
                     height={780}
                     style={{
@@ -66,7 +65,6 @@ const Overview: React.FC = () => {
                   <Image
                     src={overviewImg2}
                     alt="overview"
-                    layout="responsive"
                     width={1320}
                     height={780}
                     style={{

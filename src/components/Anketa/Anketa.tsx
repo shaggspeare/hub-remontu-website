@@ -74,7 +74,6 @@ const OptionCard: React.FC<OptionCardProps> = ({
                 alt={option.label}
                 width={238}
                 height={346}
-                layout="responsive"
               />
             </div>
           )}

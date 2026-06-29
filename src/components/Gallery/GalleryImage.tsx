@@ -65,7 +65,8 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
                   alt={value.alt || "gallery image"}
                   width={570}
                   height={720}
-                  quality={100}
+                  quality={85}
+                  sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
                 />
               </div>
             ))}

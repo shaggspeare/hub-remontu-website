@@ -61,6 +61,7 @@ const RecentProjects: React.FC = async () => {
                               alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
+                              sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
                             />
                           ) : null}
                         </Link>
@@ -101,6 +102,7 @@ const RecentProjects: React.FC = async () => {
                               alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
+                              sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
                             />
                           ) : null}
                         </Link>
@@ -141,6 +143,7 @@ const RecentProjects: React.FC = async () => {
                               alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
+                              sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
                             />
                           ) : null}
                         </Link>

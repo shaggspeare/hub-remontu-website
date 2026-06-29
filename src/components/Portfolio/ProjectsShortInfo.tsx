@@ -43,6 +43,7 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
                       alt={project.title}
                       width={570}
                       height={720}
+                      sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
                     />
                   ) : typeof project.image === "string" ? (
                     <Image
@@ -50,6 +51,7 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
                       alt={project.title}
                       width={570}
                       height={720}
+                      sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
                     />
                   ) : (
                     <div

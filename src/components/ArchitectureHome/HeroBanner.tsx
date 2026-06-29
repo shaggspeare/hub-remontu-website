@@ -86,7 +86,7 @@ const HeroBanner: React.FC = () => {
         ></div>
 
         <div className="main-banner-video">
-          <Image src={textShapeImg} alt="Text Shape" width={182} height={182} />
+          <Image src={textShapeImg} alt="Text Shape" width={182} height={182} priority />
 
           <div onClick={() => setToggler(!toggler)} className="video-btn">
             <i className="ri-play-fill"></i>

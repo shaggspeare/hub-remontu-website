@@ -72,7 +72,9 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
                 alt={portfolioDetailsInfo.title || "project main image"}
                 width={900}
                 height={530}
-                quality={100}
+                quality={85}
+                priority
+                sizes="(max-width: 768px) 100vw, 900px"
               />
             </div>
           )}
