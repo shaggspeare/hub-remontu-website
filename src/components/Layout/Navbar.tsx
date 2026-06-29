@@ -8,6 +8,15 @@ import Image from "next/image";
 import logo from "/public/images/logo_en.svg";
 import blackLogo from "/public/images/logo_en_black.svg";
 
+const services = [
+  { slug: "remont-kvartyr-pid-kliuch", name: "Ремонт квартир під ключ" },
+  { slug: "dyzajn-interieru", name: "Дизайн інтерʼєру" },
+  { slug: "dyzajnerskyj-remont", name: "Дизайнерський ремонт" },
+  { slug: "remont-ofisiv-ta-komertsii", name: "Ремонт офісів та комерції" },
+  { slug: "remont-budynkiv-ta-kotedzhiv", name: "Ремонт будинків і котеджів" },
+  { slug: "dyzajn-komertsii", name: "Дизайн комерції" },
+];
+
 const Navbar: React.FC = () => {
   const currentRoute = usePathname();
 
@@ -110,6 +119,28 @@ const Navbar: React.FC = () => {
                 >
                   Портфоліо
                 </Link>
+              </li>
+              <li className="nav-item dropdown">
+                <span
+                  className={`nav-link dropdown-toggle ${
+                    currentRoute.startsWith("/posluhy") ? "active" : ""
+                  }`}
+                  style={{ cursor: "pointer" }}
+                >
+                  Послуги
+                </span>
+                <ul className="dropdown-menu">
+                  {services.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/posluhy/${s.slug}/`}
+                        className="dropdown-item"
+                      >
+                        {s.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </li>
               <li className="nav-item">
                 <Link
@@ -225,6 +256,19 @@ const Navbar: React.FC = () => {
                 >
                   Портфоліо
                 </Link>
+
+                {services.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/posluhy/${s.slug}/`}
+                    className={`nav-link ${
+                      currentRoute === `/posluhy/${s.slug}/` ? "active" : ""
+                    }`}
+                    style={{ paddingLeft: "32px", fontSize: "14px" }}
+                  >
+                    {s.name}
+                  </Link>
+                ))}
 
                 <Link
                   href="/contact-us/"

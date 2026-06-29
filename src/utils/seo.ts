@@ -11,15 +11,9 @@ export async function getSEOByPath(path: string) {
     limit: 1,
   });
 
-  console.log(result);
-
   return result.docs[0] || null;
 }
 
-/**
- * Generates metadata for a given path dynamically.
- * @param path - The current path or slug
- */
 export async function getPageMetadata(path: string): Promise<Metadata> {
   const seoData = await getSEOByPath(path);
 
@@ -27,10 +21,13 @@ export async function getPageMetadata(path: string): Promise<Metadata> {
     title: seoData?.title || "HUB Remontu",
     description: seoData?.description || "HUB Remontu",
     keywords: seoData?.keywords || "",
+    alternates: { canonical: `/${path}/` },
     icons: {
-      icon: "/favicon.ico", // Path to the favicon in the public folder
+      icon: "/favicon.ico",
     },
     openGraph: {
+      locale: "uk_UA",
+      siteName: "Hub Remontu",
       images:
         seoData?.ogImage &&
         typeof seoData?.ogImage === "object" &&

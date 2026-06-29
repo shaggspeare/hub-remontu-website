@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 const servicesData = [
   {
@@ -8,7 +9,7 @@ const servicesData = [
     icon: "flaticon-interior-design",
     title: "Дизайн",
     text: "Ми допоможемо Вам створити унікальний та оригінальний дизайн проєкт Вашого будинку, квартири, приміщення, який буде практичним та продуманим до дрібниць.",
-    // link: "/services/_service-details",
+    link: "/posluhy/dyzajn-interieru/",
     aosDelay: "100",
   },
   {
@@ -16,7 +17,7 @@ const servicesData = [
     icon: "flaticon-measuring",
     title: "Проєктування",
     text: "Зробимо точний проєкт та підготуємо технічне завдання для виконання всіх робіт.",
-    // link: "/services/_service-details",
+    link: "/posluhy/dyzajnerskyj-remont/",
     aosDelay: "300",
   },
   {
@@ -24,7 +25,7 @@ const servicesData = [
     icon: "flaticon-mansory",
     title: "Ремонт",
     text: "Виконуємо якісно та в строки ремонт будинків, квартир, офісів, ресторанів, магазинів, комерційних приміщень будь-якого призначення та складності.",
-    // link: "/services/_service-details",
+    link: "/posluhy/remont-kvartyr-pid-kliuch/",
     aosDelay: "200",
   },
 ];
@@ -44,7 +45,7 @@ const WhatWeDo: React.FC = () => {
             <h2>
               Що <span>ми робимо</span> для Вас
             </h2>
-            {/*<Link href="/services">ПОДИВИТИСЬ ВСІ ПОСЛУГИ</Link>*/}
+            <Link href="/posluhy/remont-kvartyr-pid-kliuch/">ПОДИВИТИСЬ ВСІ ПОСЛУГИ</Link>
           </div>
 
           {servicesData && (
@@ -65,9 +66,9 @@ const WhatWeDo: React.FC = () => {
                       </div>
                       <h3 style={{ color: "#E1DBD6" }}>{value.title}</h3>
                       <p>{value.text}</p>
-                      {/*<Link href={value.link} className="services-btn">*/}
-                      {/*  <Image src={arrowRightIcon} alt="arrow-right" width={18} height={18} />*/}
-                      {/*</Link>*/}
+                      <Link href={value.link} className="services-btn" style={{ color: "var(--primaryColor)" }}>
+                        Детальніше →
+                      </Link>
                     </div>
                   </div>
                 ))}

@@ -17,10 +17,19 @@ import "../../../public/css/responsive.scss";
 import AosAnimation from "@/components/Layout/AosAnimation";
 import BackToTop from "@/components/Layout/BackToTop";
 import Script from "next/script";
+import type { Metadata } from "next";
+import JsonLd from "@/components/SEO/JsonLd";
+import { localBusinessSchema, websiteSchema } from "@/lib/schema";
 
 import { Geologica } from "next/font/google";
 
 const font = Geologica({ subsets: ["cyrillic", "latin"] });
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://hubremontu.ua"),
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", locale: "uk_UA", siteName: "Hub Remontu" },
+};
 
 export default function RootLayout({
   children,
@@ -28,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="uk">
     <head>
       <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
       <meta httpEquiv="Pragma" content="no-cache"/>
@@ -95,6 +104,8 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+
+        <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
 
         {children}
 

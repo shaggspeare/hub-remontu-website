@@ -3,6 +3,9 @@ import FaqsContent from "@/components/Faqs/FaqsContent";
 import Footer from "@/components/Layout/Footer";
 import Navbar from "@/components/Layout/Navbar";
 import ContactForm from "@/components/ContactUs/ContactForm";
+import JsonLd from "@/components/SEO/JsonLd";
+import { faqSchema } from "@/lib/schema";
+import { faqAnswerEngine } from "@/data/faqAnswerEngine";
 import { Metadata } from "next";
 import { getPageMetadata } from "@/utils/seo";
 
@@ -15,6 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Page() {
   return (
     <div className="full-bg-black-color">
+      <JsonLd data={faqSchema(faqAnswerEngine)} />
+
       <Navbar />
 
       <PageTitle title="FAQs" homeText="Home" homeUrl="/" />
