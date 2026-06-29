@@ -18,6 +18,11 @@ const nextConfig = {
         hostname: "hub-remontu.payloadcms.app",
         pathname: "/api/media/file/**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        pathname: "/api/**",
+      },
     ],
   },
   compiler: {
