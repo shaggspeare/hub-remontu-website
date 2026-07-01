@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/slava/Projects/hub-remontu/hub-remontu-website log --oneline --follow src/app/\\\\\\(app\\\\\\)/page.tsx)"
+    ]
+  }
+}
