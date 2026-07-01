@@ -95,22 +95,6 @@ export default async function ServicePage({
             </ul>
           </div>
 
-          {/* Price anchor */}
-          <div
-            style={{
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid var(--primaryColor)",
-              borderRadius: "8px",
-              padding: "24px",
-              marginBottom: "48px",
-            }}
-          >
-            <p style={{ color: "var(--whiteColor)", margin: 0, fontSize: "18px" }}>
-              <strong>Ремонт під ключ — від 1000 $/кв.м.</strong> Ціна
-              фіксується в договорі після затвердження дизайн-проєкту. Оплата
-              поетапно за фактом виконаних робіт.
-            </p>
-          </div>
 
           {/* Process */}
           <div style={{ marginBottom: "48px" }}>

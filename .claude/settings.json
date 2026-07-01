@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git -C /Users/slava/Projects/hub-remontu/hub-remontu-website log --oneline --follow src/app/\\\\\\(app\\\\\\)/page.tsx)"
+      "Bash(git -C /Users/slava/Projects/hub-remontu/hub-remontu-website log --oneline --follow src/app/\\\\\\(app\\\\\\)/page.tsx)",
+      "Bash(grep -rn \"1000 \\\\$/кв\\\\|Оплата поетапно\\\\|фіксується в договорі\" /Users/slava/Projects/hub-remontu/hub-remontu-website --include=\"*.tsx\" --include=\"*.ts\" --include=\"*.js\" --include=\"*.jsx\" --exclude-dir=node_modules)"
     ]
   }
 }
