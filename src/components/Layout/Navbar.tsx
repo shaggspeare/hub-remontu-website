@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -21,6 +21,7 @@ const Navbar: React.FC = () => {
   const currentRoute = usePathname();
 
   const [menu] = useState<boolean>(true);
+  const navbarRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     let elementId = document.getElementById("navbar");
@@ -31,6 +32,25 @@ const Navbar: React.FC = () => {
         elementId?.classList.remove("sticky");
       }
     });
+  }, []);
+
+  useEffect(() => {
+    const navbarEl = navbarRef.current;
+    if (!navbarEl) return;
+
+    const updateNavbarHeight = () => {
+      document.documentElement.style.setProperty(
+        "--navbar-height",
+        `${navbarEl.offsetHeight}px`,
+      );
+    };
+
+    updateNavbarHeight();
+
+    const resizeObserver = new ResizeObserver(updateNavbarHeight);
+    resizeObserver.observe(navbarEl);
+
+    return () => resizeObserver.disconnect();
   }, []);
 
   const classOne: string = menu
@@ -54,7 +74,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg" id="navbar">
+      <nav className="navbar navbar-expand-lg" id="navbar" ref={navbarRef}>
         <div className="container-fluid position-relative">
           <Link className="navbar-brand" href="/">
             <Image src={logo} alt="HUB Logo" width={80} height={54} />

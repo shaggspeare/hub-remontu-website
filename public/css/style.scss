@@ -54,6 +54,7 @@ Default CSS
   --paragraphColor: #7c7772;
   --fontSize: 16px;
   --transition: 0.6s;
+  --navbar-height: 100px;
 }
 body {
   margin: 0;
@@ -401,7 +402,7 @@ Main Banner Area CSS
   }
 }
 .main-banner-content {
-  max-width: 66dvw;
+  max-width: 46dvw;
   position: relative;
 
   @media (max-width: 767px) {
@@ -413,7 +414,7 @@ Main Banner Area CSS
     font-size: 70px;
     margin-bottom: 20px;
 
-    span {
+    .h1-outline-text {
       color: transparent;
       -webkit-text-stroke: 0.5px var(--whiteColor);
     }
@@ -446,14 +447,32 @@ Main Banner Area CSS
     }
   }
 }
-.main-banner-image {
+.hero-scroll-pin {
+  position: relative;
+  height: 400vh;
+}
+.main-banner-area--pinned {
+  position: sticky;
+  top: var(--navbar-height, 0px);
+  height: calc(100dvh - var(--navbar-height, 0px));
+}
+.hero-image-frame {
   position: absolute;
+  right: 0;
   top: 0;
-  bottom: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100dvh;
-  background-size: cover;
+  width: 50vw;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: -30px 0 60px rgba(0, 0, 0, 0.45);
+
+  &__img {
+    position: absolute !important;
+    inset: 0;
+  }
+}
+.main-banner-image--mobile {
+  display: none;
 }
 .main-banner-wrap-shape {
   position: absolute;
@@ -461,9 +480,8 @@ Main Banner Area CSS
   top: 35px;
 }
 .main-banner-video {
-  position: absolute;
-  right: 175px;
-  top: 175px;
+  position: relative;
+  flex-shrink: 0;
   z-index: 1;
 
   .video-btn {
@@ -503,21 +521,26 @@ Main Banner Area CSS
     transform: rotate(360deg);
   }
 }
-.main-banner-social {
-  padding-left: 0;
-  margin-bottom: 0;
+.main-banner-bottom-row {
   position: absolute;
   left: 30px;
   bottom: 55px;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--hero-row-width, 46dvw);
+}
+.main-banner-social {
+  padding-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   li {
     list-style-type: none;
-    margin-bottom: 20px;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
     a {
       i {
         width: 50px;
