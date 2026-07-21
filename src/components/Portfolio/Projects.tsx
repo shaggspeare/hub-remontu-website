@@ -14,6 +14,16 @@ const ProjectsPage: React.FC = async () => {
     sort: "order", // Sort by order field ascending (lowest numbers first)
   });
 
+  const getRealizedLink = (realizedProject: any): string | undefined => {
+    if (!realizedProject) return undefined;
+    // Relationship may be populated (object) or just an id (string)
+    const realizedId =
+      typeof realizedProject === "object"
+        ? realizedProject.id
+        : realizedProject;
+    return realizedId ? `/portfolio-details/${realizedId}` : undefined;
+  };
+
   const projectsData: ProjectShortInfo[] = projects.map((project: any) => ({
     id: project.id,
     image: project.verticalImage,
@@ -21,6 +31,11 @@ const ProjectsPage: React.FC = async () => {
     link: `/portfolio-details/${project.id}`,
     category: project.category,
     type: project.type || "implementation", // Default to 'implementation' for legacy projects
+    // Only design projects that were also fully executed link to a finished renovation
+    realizedLink:
+      project.type === "design"
+        ? getRealizedLink(project.realizedProject)
+        : undefined,
   }));
 
   return (

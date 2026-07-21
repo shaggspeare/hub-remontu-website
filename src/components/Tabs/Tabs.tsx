@@ -8,12 +8,9 @@ interface TabsProps {
   projectsData: ProjectShortInfo[];
 }
 
-type FilterType = "category" | "type";
-
 interface Filter {
   id: string;
   label: string;
-  type: FilterType;
   value: string;
 }
 
@@ -21,22 +18,8 @@ const Tabs: React.FC<TabsProps> = ({ projectsData }) => {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
   const filters: Filter[] = [
-    // Category filters
-    {
-      id: "commercial",
-      label: "Комерційні",
-      type: "category",
-      value: "commercial",
-    },
-    { id: "living", label: "Житлові", type: "category", value: "living" },
-    // Type filters
-    { id: "design", label: "Дизайн-проект", type: "type", value: "design" },
-    {
-      id: "implementation",
-      label: "Реалізація",
-      type: "type",
-      value: "implementation",
-    },
+    { id: "design", label: "Дизайн-проєкти", value: "design" },
+    { id: "implementation", label: "Реалізація", value: "implementation" },
   ];
 
   const handleFilterClick = (filterId: string) => {
@@ -60,35 +43,13 @@ const Tabs: React.FC<TabsProps> = ({ projectsData }) => {
       return projectsData;
     }
 
-    return projectsData.filter((project) => {
-      // Group active filters by type
-      const categoryFilters = activeFilters.filter(
-        (filterId) =>
-          filters.find((f) => f.id === filterId)?.type === "category",
-      );
-      const typeFilters = activeFilters.filter(
-        (filterId) => filters.find((f) => f.id === filterId)?.type === "type",
-      );
-
-      // Check category match (OR logic within category filters)
-      const categoryMatch =
-        categoryFilters.length === 0 ||
-        categoryFilters.some((filterId) => {
-          const filter = filters.find((f) => f.id === filterId);
-          return filter && project.category === filter.value;
-        });
-
-      // Check type match (OR logic within type filters)
-      const typeMatch =
-        typeFilters.length === 0 ||
-        typeFilters.some((filterId) => {
-          const filter = filters.find((f) => f.id === filterId);
-          return filter && project.type === filter.value;
-        });
-
-      // Both category and type conditions must be satisfied (AND logic between filter types)
-      return categoryMatch && typeMatch;
-    });
+    // OR logic: show projects matching any of the active type filters
+    return projectsData.filter((project) =>
+      activeFilters.some((filterId) => {
+        const filter = filters.find((f) => f.id === filterId);
+        return filter && project.type === filter.value;
+      }),
+    );
   };
 
   const filteredData = getFilteredData();

@@ -5,4 +5,5 @@ export interface ProjectShortInfo {
     link: string;
     category: string;
     type: string;
+    realizedLink?: string; // link to the finished renovation of the same object (design projects only)
 }

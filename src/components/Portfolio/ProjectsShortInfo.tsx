@@ -84,6 +84,14 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
                     {project.title}
                   </Link>
                 </h3>
+                {project.realizedLink && (
+                  <Link
+                    className="realized-project-btn"
+                    href={project.realizedLink}
+                  >
+                    Переглянути вже готовий ремонт
+                  </Link>
+                )}
               </div>
             </div>
           ))}

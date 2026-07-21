@@ -184,6 +184,10 @@ export interface Project {
   title: string;
   category: 'living' | 'commercial';
   type: 'design' | 'implementation';
+  /**
+   * Link to the implementation project of the same object. Adds a 'view finished renovation' button on the portfolio grid.
+   */
+  realizedProject?: (string | null) | Project;
   mainImage: string | Image;
   verticalImage: string | Image;
   /**
@@ -487,6 +491,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   category?: T;
   type?: T;
+  realizedProject?: T;
   mainImage?: T;
   verticalImage?: T;
   description1?: T;

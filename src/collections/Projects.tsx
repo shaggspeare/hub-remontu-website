@@ -317,6 +317,26 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "realizedProject",
+      type: "relationship",
+      relationTo: "projects",
+      label: {
+        en: "Realized Project (finished renovation)",
+        uk: "Реалізований проєкт (готовий ремонт)",
+      },
+      admin: {
+        // Only relevant for design projects that were also fully executed
+        condition: (data) => data?.type === "design",
+        description: {
+          en: "Link to the implementation project of the same object. Adds a 'view finished renovation' button on the portfolio grid.",
+          uk: "Посилання на реалізацію того самого об'єкта. Додає кнопку «переглянути вже готовий ремонт» у сітці портфоліо.",
+        },
+      },
+      filterOptions: () => ({
+        type: { equals: "implementation" },
+      }),
+    },
+    {
       name: "mainImage",
       type: "upload",
       label: {
