@@ -38,15 +38,14 @@ Footer Area CSS
                 color: #9D9A97;
                 position: relative;
                 font-weight: 400;
-                padding-left: 25px;
+                display: inline-flex;
+                align-items: baseline;
+                gap: 6px;
 
                 i {
                     font-size: 18px;
                     color: var(--primaryColor);
-                    position: absolute;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
+                    flex-shrink: 0;
                 }
                 &::before {
                     position: absolute;

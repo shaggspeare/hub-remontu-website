@@ -17,7 +17,7 @@ const socialLinksData = [
   },
   {
     id: "3",
-    icon: "ri-instagram-line",
+    icon: "ri-instagram-fill",
     link: "https://www.instagram.com/hub_architects",
   },
   {
