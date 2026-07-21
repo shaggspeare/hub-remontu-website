@@ -95,8 +95,12 @@ export interface Config {
     defaultIDType: string;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    heroSection: HeroSection;
+  };
+  globalsSelect: {
+    heroSection: HeroSectionSelect<false> | HeroSectionSelect<true>;
+  };
   locale: null;
   user: User;
   jobs: {
@@ -612,6 +616,50 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "heroSection".
+ */
+export interface HeroSection {
+  id: string;
+  headingLine1: string;
+  headingOutline: string;
+  description: string;
+  ctaLabel: string;
+  ctaLink: string;
+  videoUrl?: string | null;
+  socialLinks?:
+    | {
+        icon: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "heroSection_select".
+ */
+export interface HeroSectionSelect<T extends boolean = true> {
+  headingLine1?: T;
+  headingOutline?: T;
+  description?: T;
+  ctaLabel?: T;
+  ctaLink?: T;
+  videoUrl?: T;
+  socialLinks?:
+    | T
+    | {
+        icon?: T;
+        link?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

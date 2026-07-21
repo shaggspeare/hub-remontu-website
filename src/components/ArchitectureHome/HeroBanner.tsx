@@ -8,25 +8,47 @@ import Image from "next/image";
 import textShapeImg from "../../../public/images/main-banner/text.png";
 import heroPlaceholderImg from "../../../public/images/new-images/backgrounds/main-bg.png";
 
-const socialLinksData = [
+export interface HeroSocialLink {
+  icon: string;
+  link: string;
+}
+
+export interface HeroBannerProps {
+  headingLine1?: string;
+  headingOutline?: string;
+  description?: string;
+  ctaLabel?: string;
+  ctaLink?: string;
+  videoUrl?: string;
+  socialLinks?: HeroSocialLink[];
+}
+
+const defaultSocialLinks: HeroSocialLink[] = [
   {
-    id: "1",
     icon: "ri-facebook-line",
     link: "https://www.facebook.com/profile.php?id=61555825405999",
   },
   {
-    id: "2",
     icon: "ri-instagram-line",
     link: "https://www.instagram.com/hub_remontu",
   },
   {
-    id: "3",
     icon: "ri-telegram-line",
     link: "https://t.me/Design_interiors_HUB",
   },
 ];
 
-const HeroBanner: React.FC = () => {
+const HeroBanner: React.FC<HeroBannerProps> = ({
+  headingLine1 = "Дизайн зі змістом.",
+  headingOutline = "Ремонт зі смаком.",
+  description = "Вітаємо! Ми - студія дизайну інтер`єру та комплексного ремонту. У нас можна створити оселю мрії від її концепції до келиха шампанського на честь вашого новосілля!",
+  ctaLabel = "Отримати консультацію",
+  ctaLink = "/contact-us",
+  videoUrl = "https://www.youtube.com/embed/qsWuXD7tRvc?si=GtQnpcuF1HDT57QZ",
+  socialLinks,
+}) => {
+  const socialLinksData =
+    socialLinks && socialLinks.length > 0 ? socialLinks : defaultSocialLinks;
   const [toggler, setToggler] = useState<boolean>(false);
   const headingTextRef = useRef<HTMLSpanElement>(null);
   const paragraphTextRef = useRef<HTMLSpanElement>(null);
@@ -57,12 +79,7 @@ const HeroBanner: React.FC = () => {
 
   return (
     <>
-      <FsLightbox
-        toggler={toggler}
-        sources={[
-          "https://www.youtube.com/embed/qsWuXD7tRvc?si=GtQnpcuF1HDT57QZ",
-        ]}
-      />
+      <FsLightbox toggler={toggler} sources={[videoUrl]} />
 
       <div className="main-banner-area">
         <div className="container-fluid">
@@ -74,8 +91,8 @@ const HeroBanner: React.FC = () => {
               data-aos-once="false"
             >
               <span ref={headingTextRef}>
-                Дизайн зі змістом. <br />
-                <span className="h1-outline-text">Ремонт зі смаком.</span>
+                {headingLine1} <br />
+                <span className="h1-outline-text">{headingOutline}</span>
               </span>
             </h1>
             <p
@@ -84,11 +101,7 @@ const HeroBanner: React.FC = () => {
               data-aos-duration="600"
               data-aos-once="false"
             >
-              <span ref={paragraphTextRef}>
-                Вітаємо! Ми - студія дизайну інтер`єру та комплексного ремонту.
-                У нас можна створити оселю мрії від її концепції до келиха
-                шампанського на честь вашого новосілля!
-              </span>
+              <span ref={paragraphTextRef}>{description}</span>
             </p>
             <div
               className="banner-btn"
@@ -97,8 +110,8 @@ const HeroBanner: React.FC = () => {
               data-aos-duration="600"
               data-aos-once="false"
             >
-              <Link href="/contact-us" className="default-btn">
-                Отримати консультацію
+              <Link href={ctaLink} className="default-btn">
+                {ctaLabel}
               </Link>
             </div>
           </div>

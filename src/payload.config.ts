@@ -15,6 +15,7 @@ import { Projects } from "@/collections/Projects";
 import { Pages } from "@/collections/Pages";
 import { SEO } from "@/collections/SEO";
 import TeamMembers from "@/collections/TeamMembers";
+import { HeroSection } from "@/globals/HeroSection";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -30,6 +31,7 @@ export default buildConfig({
     supportedLanguages: { en, uk },
   },
   collections: [Users, Images, Projects, Pages, SEO, TeamMembers],
+  globals: [HeroSection],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
