@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 import { trackFormSubmission } from "@/utils/gtm";
@@ -9,25 +8,8 @@ import { useUtmTracker } from "@/hooks/useUtmTracker";
 
 interface FormValues {
   "your-name": string;
-  building_type: string;
-  design: string;
-  timing: string;
-  housing_type: string;
   phone: string;
 }
-
-type Option = {
-  label: string;
-  imgSrc?: string;
-};
-
-type OptionCardProps = {
-  options: (Option | string)[];
-  name: keyof FormValues;
-  value: string[];
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  multiSelect?: boolean;
-};
 
 declare global {
   interface Window {
@@ -35,84 +17,15 @@ declare global {
   }
 }
 
-const OptionCard: React.FC<OptionCardProps> = ({
-  options,
-  name,
-  value,
-  handleChange,
-  multiSelect = false,
-}) => (
-  <div className="options-grid">
-    {options.map((option) => (
-      <div
-        key={typeof option === "string" ? option : option.label}
-        className="option-wrapper"
-      >
-        <label
-          className={`option-card ${
-            value.includes(typeof option === "string" ? option : option.label)
-              ? "option-selected"
-              : ""
-          }`}
-        >
-          <input
-            type={multiSelect ? "checkbox" : "radio"}
-            className="form-check-input"
-            name={name}
-            value={typeof option === "string" ? option : option.label}
-            checked={value.includes(
-              typeof option === "string" ? option : option.label,
-            )}
-            onChange={handleChange}
-            style={{ display: "none" }}
-          />
-          {typeof option !== "string" && option.imgSrc && (
-            <div className="option-image-wrapper">
-              <Image
-                src={option.imgSrc}
-                className="option-image"
-                alt={option.label}
-                width={238}
-                height={346}
-              />
-            </div>
-          )}
-          <div className="option-label">
-            <span>{typeof option === "string" ? option : option.label}</span>
-          </div>
-        </label>
-      </div>
-    ))}
-  </div>
-);
-
 const MultiPartForm: React.FC = () => {
   const router = useRouter();
   const { utmParams } = useUtmTracker();
 
-  const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formValues, setFormValues] = useState<FormValues>({
     "your-name": "",
-    building_type: "Квартира",
-    design: "Так",
-    timing: "Якомога швидше",
-    housing_type: "Новобудова",
     phone: "",
   });
-
-  // GTM tracking function for step progression
-  const trackStepProgress = (stepNumber: number, stepTitle: string) => {
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: "form_step_progress",
-        form_name: "anketa_form",
-        step_number: stepNumber + 1,
-        step_title: stepTitle,
-        total_steps: steps.length,
-      });
-    }
-  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -122,133 +35,20 @@ const MultiPartForm: React.FC = () => {
       ...prevState,
       [fieldName]: value,
     }));
-
-    // Track field interactions
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: "form_field_interaction",
-        form_name: "anketa_form",
-        field_name: fieldName,
-        field_value: value,
-        step_number: currentStep + 1,
-      });
-    }
   };
 
-  const steps = [
-    {
-      title: "Тип об'єкту",
-      component: (
-        <div className="form-step">
-          <h3 className="step-title">Тип об&#39;єкту:</h3>
-          <OptionCard
-            options={["Квартира", "Будинок", "Комерція"]}
-            name="building_type"
-            value={[formValues.building_type]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Дизайн-проєкт",
-      component: (
-        <div className="form-step">
-          <h3 className="step-title">Чи маєте ви дизайн проєкт?</h3>
-          <OptionCard
-            options={["Так", "Ні", "Планую створити"]}
-            name="design"
-            value={[formValues.design]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Терміни",
-      component: (
-        <div className="form-step">
-          <h3 className="step-title">Коли хочете розпочати роботи?</h3>
-          <OptionCard
-            options={[
-              "Якомога швидше",
-              "Протягом місяця",
-              "Цікавлюсь на майбутнє",
-            ]}
-            name="timing"
-            value={[formValues.timing]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Тип житла",
-      component: (
-        <div className="form-step">
-          <h3 className="step-title">Тип житла:</h3>
-          <OptionCard
-            options={[
-              {
-                label: "Новобудова",
-                imgSrc: "/images/new-images/anketa/age/age1.jpg",
-              },
-              {
-                label: "Вторинна нерухомість",
-                imgSrc: "/images/new-images/anketa/age/age2.jpg",
-              },
-            ]}
-            name="housing_type"
-            value={[formValues.housing_type]}
-            handleChange={handleChange}
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Контактні дані",
-      component: (
-        <div className="form-step">
-          <h3 className="step-title">Ваше ім&#39;я:</h3>
-          <input
-            className="input-field"
-            required
-            placeholder="Введіть ваше ім'я"
-            value={formValues["your-name"]}
-            type="text"
-            name="your-name"
-            onChange={handleChange}
-          />
-
-          <h3 className="step-title" style={{ marginTop: "24px" }}>
-            Ваш номер телефону:
-          </h3>
-          <input
-            className="input-field"
-            required
-            placeholder="+ 380 __ ___ __ __"
-            value={formValues.phone}
-            type="tel"
-            name="phone"
-            onChange={handleChange}
-          />
-        </div>
-      ),
-    },
-  ];
+  const isFormValid = () =>
+    formValues["your-name"].length > 0 && formValues.phone.length > 0;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Combine form data with UTM parameters
       const submitData = {
         formData: formValues,
         ...utmParams,
       };
-
-      console.log("Submitting anketa form with UTM:", submitData);
 
       const response = await fetch("/api/sendTelegram", {
         method: "POST",
@@ -259,43 +59,24 @@ const MultiPartForm: React.FC = () => {
       });
 
       const result = await response.json();
-      console.log("Anketa form response:", result);
 
       if (response.ok) {
-        // Track successful form submission
         trackFormSubmission("anketa_form", true);
 
-        // Push comprehensive conversion event to dataLayer
         if (typeof window !== "undefined" && window.dataLayer) {
           window.dataLayer.push({
             event: "anketa_form_submission_success",
             form_name: "anketa_form",
             user_name: formValues["your-name"],
             user_phone: formValues.phone,
-            building_type: formValues.building_type,
-            design_preference: formValues.design,
-            timing: formValues.timing,
-            housing_type: formValues.housing_type,
-            total_steps_completed: steps.length,
-            form_completion_rate: 100,
             keycrm_status: result.keycrm || "unknown",
             keycrm_id: result.keycrm_id || null,
             ...utmParams,
           });
         }
 
-        // Reset form
-        setFormValues({
-          "your-name": "",
-          building_type: "Квартира",
-          design: "Так",
-          timing: "Якомога швидше",
-          housing_type: "Новобудова",
-          phone: "",
-        });
-        setCurrentStep(0);
+        setFormValues({ "your-name": "", phone: "" });
 
-        // Small delay to ensure GTM events are processed
         setTimeout(() => {
           router.push("/thank-you");
         }, 100);
@@ -312,94 +93,8 @@ const MultiPartForm: React.FC = () => {
     }
   };
 
-  const handleNext = () => {
-    if (currentStep < steps.length - 1) {
-      // Track step progression
-      trackStepProgress(currentStep + 1, steps[currentStep + 1].title);
-
-      setCurrentStep(currentStep + 1);
-      // Scroll to top of form with offset for header
-      const formContainer = document.querySelector(`.form-container`);
-      if (formContainer) {
-        const rect = formContainer.getBoundingClientRect();
-        const offset = window.innerWidth <= 768 ? 70 : 100; // 70px mobile, 100px desktop
-        window.scrollTo({
-          top: rect.top + window.pageYOffset - offset,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentStep > 0) {
-      // Track going back
-      if (typeof window !== "undefined" && window.dataLayer) {
-        window.dataLayer.push({
-          event: "form_step_back",
-          form_name: "anketa_form",
-          from_step: currentStep + 1,
-          to_step: currentStep,
-          step_title: steps[currentStep - 1].title,
-        });
-      }
-
-      setCurrentStep(currentStep - 1);
-      // Scroll to top of form with offset for header
-      const formContainer = document.querySelector(`.form-container`);
-      if (formContainer) {
-        const rect = formContainer.getBoundingClientRect();
-        const offset = window.innerWidth <= 768 ? 70 : 100; // 70px mobile, 100px desktop
-        window.scrollTo({
-          top: rect.top + window.pageYOffset - offset,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
-  const isStepValid = () => {
-    // Add validation logic here based on the current step
-    if (currentStep === 4) {
-      return formValues["your-name"].length > 0 && formValues.phone.length > 0;
-    }
-    return true;
-  };
-
-  const progressPercentage = ((currentStep + 1) / steps.length) * 100;
-
-  // Track form abandonment when component unmounts
-  React.useEffect(() => {
-    return () => {
-      if (currentStep > 0 && currentStep < steps.length - 1) {
-        if (typeof window !== "undefined" && window.dataLayer) {
-          window.dataLayer.push({
-            event: "form_abandonment",
-            form_name: "anketa_form",
-            abandoned_at_step: currentStep + 1,
-            abandonment_rate: ((currentStep + 1) / steps.length) * 100,
-          });
-        }
-      }
-    };
-  }, [currentStep, steps.length]);
-
   return (
     <div className="form-container">
-      {/* Progress Bar */}
-      <div className="progress-container">
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${progressPercentage}%` }}
-          />
-        </div>
-        <div className="progress-text">
-          Крок {currentStep + 1} з {steps.length}
-        </div>
-      </div>
-
-      {/* Show UTM parameters in development mode */}
       {process.env.NODE_ENV === "development" &&
         Object.keys(utmParams).length > 0 && (
           <div
@@ -420,41 +115,43 @@ const MultiPartForm: React.FC = () => {
           </div>
         )}
 
-      {/* Form */}
       <form onSubmit={handleSubmit} className="wpcf7-form">
-        <div className="step-container">{steps[currentStep].component}</div>
+        <div className="step-container">
+          <div className="form-step">
+            <h3 className="step-title">Ваше ім&#39;я:</h3>
+            <input
+              className="input-field"
+              required
+              placeholder="Введіть ваше ім'я"
+              value={formValues["your-name"]}
+              type="text"
+              name="your-name"
+              onChange={handleChange}
+            />
 
-        {/* Navigation Buttons */}
+            <h3 className="step-title" style={{ marginTop: "24px" }}>
+              Ваш номер телефону:
+            </h3>
+            <input
+              className="input-field"
+              required
+              placeholder="+ 380 __ ___ __ __"
+              value={formValues.phone}
+              type="tel"
+              name="phone"
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
         <div className="navigation-buttons">
-          {currentStep > 0 && (
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="prev-button"
-              disabled={isSubmitting}
-            >
-              Назад
-            </button>
-          )}
-
-          {currentStep < steps.length - 1 ? (
-            <button
-              type="button"
-              onClick={handleNext}
-              className="next-button"
-              disabled={!isStepValid() || isSubmitting}
-            >
-              Далі
-            </button>
-          ) : (
-            <button
-              type="submit"
-              className="submit-button"
-              disabled={!isStepValid() || isSubmitting}
-            >
-              {isSubmitting ? "Відправляємо..." : "Відправити форму"}
-            </button>
-          )}
+          <button
+            type="submit"
+            className="submit-button"
+            disabled={!isFormValid() || isSubmitting}
+          >
+            {isSubmitting ? "Відправляємо..." : "Відправити форму"}
+          </button>
         </div>
       </form>
     </div>

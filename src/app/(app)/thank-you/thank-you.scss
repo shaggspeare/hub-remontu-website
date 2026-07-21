@@ -47,19 +47,46 @@
   }
 
   .thank-you-actions {
-    .default-btn {
-      display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .default-btn,
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       padding: 15px 40px;
-      background-color: transparent;
-      color: var(--whiteColor);
       font-size: 18px;
       font-weight: 500;
       transition: var(--transition);
-      border: 1px solid var(--primaryColor);
       text-decoration: none;
+    }
+
+    .default-btn {
+      background-color: transparent;
+      color: var(--whiteColor);
+      border: 1px solid var(--primaryColor);
 
       &:hover {
         background-color: var(--primaryColor);
+        color: var(--whiteColor);
+      }
+    }
+
+    .telegram-btn {
+      background-color: var(--primaryColor);
+      color: var(--whiteColor);
+      border: 1px solid var(--primaryColor);
+
+      i {
+        font-size: 22px;
+      }
+
+      &:hover {
+        background-color: transparent;
         color: var(--whiteColor);
       }
     }
@@ -79,7 +106,8 @@
     }
 
     .thank-you-actions {
-      .default-btn {
+      .default-btn,
+      .telegram-btn {
         padding: 12px 30px;
         font-size: 16px;
       }

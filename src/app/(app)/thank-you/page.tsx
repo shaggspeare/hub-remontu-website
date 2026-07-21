@@ -33,10 +33,19 @@ export default function ThankYouPage() {
 
           <p className="thank-you-description">
             Ваша заявка успішно відправлена. Ми зв&#39;яжемося з вами найближчим
-            часом.
+            часом. А поки — продовжте спілкування з нами в Telegram-боті.
           </p>
 
           <div className="thank-you-actions">
+            <a
+              href="https://t.me/HUB_GROUP_BOT"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="telegram-btn"
+            >
+              <i className="ri-telegram-line"></i>
+              Продовжити в Telegram
+            </a>
             <Link href="/" className="default-btn">
               Повернутися на головну
             </Link>

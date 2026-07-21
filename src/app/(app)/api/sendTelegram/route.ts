@@ -123,22 +123,6 @@ class KeyCrmService {
             uuid: "form_type",
             value: "anketa_form_simplified",
           },
-          {
-            uuid: "building_type",
-            value: leadData.building_type || "",
-          },
-          {
-            uuid: "design_preference",
-            value: leadData.design || "",
-          },
-          {
-            uuid: "timing",
-            value: leadData.timing || "",
-          },
-          {
-            uuid: "housing_type",
-            value: leadData.housing_type || "",
-          },
         ],
       };
 
@@ -183,15 +167,8 @@ class KeyCrmService {
     }
   }
 
-  private formatAnketaDetails(formData: any): string {
-    const details = [];
-
-    if (formData.building_type)
-      details.push(`Тип об'єкту: ${formData.building_type}`);
-    if (formData.design) details.push(`Дизайн-проєкт: ${formData.design}`);
-    if (formData.timing) details.push(`Терміни роботи: ${formData.timing}`);
-    if (formData.housing_type)
-      details.push(`Тип житла: ${formData.housing_type}`);
+  private formatAnketaDetails(leadData: any): string {
+    const details = [`Ім'я: ${leadData.name}`, `Телефон: ${leadData.phone}`];
 
     return details.join("\n");
   }
@@ -294,14 +271,6 @@ export async function POST(req: Request) {
 
 📞 <b>Телефон</b>: ${formData.phone}
 
-🏢 <b>Тип об'єкту</b>: ${formData.building_type}
-
-📝 <b>Дизайн-проєкт</b>: ${formData.design}
-
-⏰ <b>Терміни роботи</b>: ${formData.timing}
-
-🏠 <b>Тип житла</b>: ${formData.housing_type}
-
 📊 <b>Дані Відстеження</b>:
 ${trackingParams.utm_source ? `🔗 Джерело: ${trackingParams.utm_source}` : ""}
 ${trackingParams.utm_medium ? `📱 Канал: ${trackingParams.utm_medium}` : ""}
@@ -324,10 +293,6 @@ ${trackingParams.gclid ? `🔍 Google ID: ${trackingParams.gclid.substring(0, 20
         name: formData["your-name"],
         phone: formData.phone,
         email: "", // Simplified form doesn't have email field
-        building_type: formData.building_type,
-        design: formData.design,
-        timing: formData.timing,
-        housing_type: formData.housing_type,
         ...trackingParams,
       });
 
