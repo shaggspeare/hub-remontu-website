@@ -81,14 +81,6 @@
             }
         }
     }
-    .hero-scroll-pin {
-        height: auto;
-    }
-    .main-banner-area--pinned {
-        position: relative;
-        top: 0;
-        height: auto;
-    }
     .hero-image-frame {
         display: none;
     }
@@ -3143,6 +3135,9 @@
     }
     .main-banner-bottom-row {
         left: calc(80px + max(0px, (100vw - 1920px) / 2));
+    }
+    .hero-image-frame {
+        right: calc(80px + max(0px, (100vw - 1920px) / 2));
     }
 
     // Main Banner Animation Area CSS
