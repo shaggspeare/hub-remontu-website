@@ -19,8 +19,9 @@ export const BUSINESS = {
   geo: { latitude: 50.398, longitude: 30.617 },
   sameAs: [
     "https://www.facebook.com/profile.php?id=61555825405999",
-    "https://www.instagram.com/hub_remontu",
-    "https://t.me/Design_interiors_HUB",
+    "https://www.instagram.com/hub_builds",
+    "https://www.instagram.com/hub_architects",
+    "https://t.me/HUB_GROUP_BOT",
   ],
   areaServed: [
     "Київ",

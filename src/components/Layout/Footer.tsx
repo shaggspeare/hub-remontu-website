@@ -16,13 +16,18 @@ const socialLinksData = [
   },
   {
     id: "2",
-    name: "Instagram",
-    link: "https://www.instagram.com/hub_remontu",
+    name: "Instagram Builds",
+    link: "https://www.instagram.com/hub_builds",
   },
   {
     id: "3",
+    name: "Instagram Architects",
+    link: "https://www.instagram.com/hub_architects",
+  },
+  {
+    id: "4",
     name: "Telegram",
-    link: "https://t.me/Design_interiors_HUB",
+    link: "https://t.me/HUB_GROUP_BOT",
   },
 ];
 

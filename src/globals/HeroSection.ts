@@ -84,16 +84,20 @@ export const HeroSection: GlobalConfig = {
       },
       defaultValue: [
         {
+          icon: "ri-telegram-line",
+          link: "https://t.me/HUB_GROUP_BOT",
+        },
+        {
           icon: "ri-facebook-line",
           link: "https://www.facebook.com/profile.php?id=61555825405999",
         },
         {
           icon: "ri-instagram-line",
-          link: "https://www.instagram.com/hub_remontu",
+          link: "https://www.instagram.com/hub_builds",
         },
         {
-          icon: "ri-telegram-line",
-          link: "https://t.me/Design_interiors_HUB",
+          icon: "ri-instagram-fill",
+          link: "https://www.instagram.com/hub_architects",
         },
       ],
       fields: [
