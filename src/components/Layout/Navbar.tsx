@@ -79,17 +79,7 @@ const Navbar: React.FC = () => {
           {/* Menu For Desktop Device */}
           <div className={classOne} id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto">
-              <Link
-                style={{
-                  marginRight: "10px",
-                  backgroundColor: "transparent",
-                  border: "1px solid var(--primaryColor)",
-                  padding: "10px",
-                  color: "white",
-                  lineHeight: "32px",
-                }}
-                href="tel:380683833888"
-              >
+              <Link className="navbar-phone" href="tel:380683833888">
                 +38(068) 383 38 88
               </Link>
               <li className="nav-item">

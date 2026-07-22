@@ -57,6 +57,51 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
   const headingTextRef = useRef<HTMLSpanElement>(null);
   const paragraphTextRef = useRef<HTMLSpanElement>(null);
   const bottomRowRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Safari (desktop + iOS) refuses to autoplay unless the element is muted as a
+  // real DOM property — React does not reliably reflect the `muted` prop as an
+  // attribute, so we force it here and kick off playback ourselves, with a few
+  // fallbacks for the cases where the first attempt is still blocked.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.playbackRate = 0.75;
+
+    const tryPlay = () => {
+      video.muted = true;
+      const playback = video.play();
+      if (playback) playback.catch(() => {});
+    };
+
+    tryPlay();
+    video.addEventListener("canplay", tryPlay);
+
+    // Last-resort fallback: start on the first user interaction.
+    const gestureEvents = ["touchstart", "click", "keydown", "scroll"] as const;
+    const onGesture = () => {
+      tryPlay();
+      gestureEvents.forEach((e) => window.removeEventListener(e, onGesture));
+    };
+    gestureEvents.forEach((e) =>
+      window.addEventListener(e, onGesture, { passive: true }),
+    );
+
+    const onVisibility = () => {
+      if (!document.hidden) tryPlay();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      video.removeEventListener("canplay", tryPlay);
+      gestureEvents.forEach((e) => window.removeEventListener(e, onGesture));
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, []);
 
   useEffect(() => {
     const computeTextEnd = () => {
@@ -138,13 +183,11 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
             className="hero-image-frame__video"
             src="/images/hero-animation/hero-video.mp4"
             poster={heroPlaceholderImg.src}
+            ref={videoRef}
             autoPlay
             muted
             playsInline
             preload="auto"
-            ref={(video) => {
-              if (video) video.playbackRate = 0.75;
-            }}
             onLoadedMetadata={(e) => {
               e.currentTarget.playbackRate = 0.75;
             }}
