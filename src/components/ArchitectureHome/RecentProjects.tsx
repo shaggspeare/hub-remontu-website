@@ -5,6 +5,7 @@ import config from "@payload-config";
 import { getPayload } from "payload";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
+import { getProjectBrandLogo } from "@/utils/projectBrand";
 
 export interface ProjectShortInfo {
   id: string;
@@ -12,6 +13,7 @@ export interface ProjectShortInfo {
   title: string;
   link: string;
   category: string;
+  type: string;
 }
 
 const RecentProjects: React.FC = async () => {
@@ -35,6 +37,7 @@ const RecentProjects: React.FC = async () => {
       title: project.title,
       link: `/portfolio-details/${project.id}`,
       category: project.category,
+      type: project.type || "implementation",
     };
   });
 
@@ -56,6 +59,12 @@ const RecentProjects: React.FC = async () => {
                   {projectsData.slice(0, 3).map((value, i) => (
                     <div className="projects-item" key={i}>
                       <div className="projects-image">
+                        <div className="project-brand-badge">
+                          <img
+                            src={getProjectBrandLogo(value.type).src}
+                            alt={getProjectBrandLogo(value.type).alt}
+                          />
+                        </div>
                         <Link href={value.link}>
                           {value.image &&
                           typeof value.image !== "string" &&
@@ -97,6 +106,12 @@ const RecentProjects: React.FC = async () => {
                   {projectsData.slice(3, 6).map((value, i) => (
                     <div className="projects-item" key={i}>
                       <div className="projects-image">
+                        <div className="project-brand-badge">
+                          <img
+                            src={getProjectBrandLogo(value.type).src}
+                            alt={getProjectBrandLogo(value.type).alt}
+                          />
+                        </div>
                         <Link href={value.link}>
                           {value.image &&
                           typeof value.image !== "string" &&
@@ -138,6 +153,12 @@ const RecentProjects: React.FC = async () => {
                   {projectsData.slice(6, 9).map((value, i) => (
                     <div className="projects-item" key={i}>
                       <div className="projects-image">
+                        <div className="project-brand-badge">
+                          <img
+                            src={getProjectBrandLogo(value.type).src}
+                            alt={getProjectBrandLogo(value.type).alt}
+                          />
+                        </div>
                         <Link href={value.link}>
                           {value.image &&
                           typeof value.image !== "string" &&

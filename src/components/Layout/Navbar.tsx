@@ -175,7 +175,7 @@ const Navbar: React.FC = () => {
 
             <div className="option-item">
               <Link href="/anketa-form" className="default-btn">
-                Заповніть анкету для консультації
+                Заповнити анкету
               </Link>
             </div>
           </div>
@@ -274,7 +274,7 @@ const Navbar: React.FC = () => {
                     currentRoute === "/anketa-form/" ? "active" : ""
                   }`}
                 >
-                  Заповніть анкету для консультаціїу
+                  Заповнити анкету
                 </Link>
               {/*</Accordion>*/}
             </div>

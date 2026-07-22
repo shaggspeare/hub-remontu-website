@@ -9,9 +9,20 @@ Projects Details Area CSS
 }
 
 .projects-details-image {
+    position: relative;
     margin-bottom: 45px;
     display: flex;
     justify-content: center;
+
+    .project-brand-badge {
+        width: 60px;
+        height: 60px;
+
+        img {
+            width: 38px;
+            height: 38px;
+        }
+    }
 }
 
 .portfolio-details-text * {

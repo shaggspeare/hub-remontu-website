@@ -7,6 +7,7 @@ import Image from "next/image";
 
 import rightArrowIcon from "../../../public/images/arrow-right2.svg";
 import { ProjectShortInfo } from "@/types/project";
+import { getProjectBrandLogo } from "@/utils/projectBrand";
 
 // Dynamically import Masonry components with SSR disabled
 const ResponsiveMasonry = dynamic(
@@ -32,9 +33,14 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
         }}
       >
         <Masonry gutter="50px">
-          {data.map((project) => (
+          {data.map((project) => {
+            const brandLogo = getProjectBrandLogo(project.type);
+            return (
             <div className="projects-item mx-0 my-2" key={project.id}>
               <div className="projects-image">
+                <div className="project-brand-badge">
+                  <img src={brandLogo.src} alt={brandLogo.alt} />
+                </div>
                 <Link href={project.link}>
                   {/* If project.image is a Payload Media object, it might have a `.url` or `.filename` property */}
                   {typeof project.image === "object" && project.image?.url ? (
@@ -94,7 +100,8 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
                 )}
               </div>
             </div>
-          ))}
+            );
+          })}
         </Masonry>
       </ResponsiveMasonry>
     </div>

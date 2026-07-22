@@ -8,6 +8,7 @@ import GalleryImage from "@/components/Gallery/GalleryImage";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 // Import your generated types - adjust the path as needed
 import type { Project } from "@/payload-types";
+import { getProjectBrandLogo } from "@/utils/projectBrand";
 
 interface PortfolioDetailsContentProps {
   project: Project;
@@ -19,6 +20,8 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
   if (!project) {
     return <div style={{ color: "#fff" }}>Project not found.</div>;
   }
+
+  const brandLogo = getProjectBrandLogo(project.type);
 
   // Helper function to safely get image URL
   const getImageUrl = (image: any): string => {
@@ -67,6 +70,9 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
           </h1>
           {!!portfolioDetailsInfo.mainImage && (
             <div className="projects-details-image">
+              <div className="project-brand-badge">
+                <img src={brandLogo.src} alt={brandLogo.alt} />
+              </div>
               <Image
                 src={portfolioDetailsInfo.mainImage}
                 alt={portfolioDetailsInfo.title || "project main image"}
