@@ -1339,6 +1339,26 @@
             max-width: 700px;
         }
     }
+    .main-banner-content {
+        max-width: 84dvw;
+    }
+    .hero-image-frame {
+        display: none;
+    }
+    .main-banner-image--mobile {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100dvh;
+        background-size: cover;
+        margin: auto;
+        text-align: center;
+    }
     .main-banner-wrap-shape {
         display: none;
     }
@@ -2230,6 +2250,14 @@
             max-width: 855px;
         }
     }
+    .main-banner-content {
+        max-width: 40dvw;
+    }
+    .hero-image-frame {
+        right: 20px;
+        aspect-ratio: unset;
+        width: 32vw;
+    }
     .main-banner-wrap-shape {
         display: none;
     }
@@ -3120,6 +3148,23 @@
     }
 }
 
+/* Min width 1200px to Max width 1599px */
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    // Home One Responsive
+    // Guards against scaled MacBook resolutions (e.g. 1280x832, 1512x982)
+    // where the video's height-driven width leaves little to no gap
+    // before the text column, since `aspect-ratio` scales it off 100dvh
+    // regardless of how narrow the viewport is.
+    .main-banner-content {
+        max-width: 42dvw;
+    }
+    .hero-image-frame {
+        right: 20px;
+        aspect-ratio: unset;
+        width: min(38vw, 75dvh);
+    }
+}
+
 /* Min width 1600px */
 @media only screen and (min-width: 1600px) {
 
@@ -3138,6 +3183,11 @@
     }
     .hero-image-frame {
         right: calc(80px + max(0px, (100vw - 1920px) / 2));
+        // Below ~1920px the video's height-driven width (via aspect-ratio)
+        // leaves too little room for the text column (e.g. 16in MacBook Pro's
+        // default 1728x1117) — cap it against viewport width too.
+        aspect-ratio: unset;
+        width: min(38vw, 75dvh);
     }
 
     // Main Banner Animation Area CSS
