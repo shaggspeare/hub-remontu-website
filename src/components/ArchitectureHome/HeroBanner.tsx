@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import textShapeImg from "../../../public/images/main-banner/text.png";
-import heroPlaceholderImg from "../../../public/images/new-images/backgrounds/main-bg.png";
 
 export interface HeroSocialLink {
   icon: string;
@@ -166,23 +165,10 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
           </div>
         </div>
 
-        <div
-          className="main-banner-image main-banner-image--mobile"
-          style={{
-            backgroundImage: `url(/images/new-images/backgrounds/main-bg.png)`,
-            backgroundPositionY: "bottom",
-          }}
-          data-aos="fade-up"
-          data-aos-delay="400"
-          data-aos-duration="600"
-          data-aos-once="false"
-        ></div>
-
         <div className="hero-image-frame">
           <video
             className="hero-image-frame__video"
             src="/images/hero-animation/hero-video.mp4"
-            poster={heroPlaceholderImg.src}
             ref={videoRef}
             autoPlay
             muted
