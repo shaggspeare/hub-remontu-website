@@ -40,7 +40,6 @@ function convertTextToLexical(text: string) {
       children,
       direction: "ltr",
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any;
 }
 
@@ -402,9 +401,7 @@ async function run() {
   console.log("Done.");
 }
 
-try {
-  await run();
-} catch (err) {
+run().catch((err) => {
   console.error(err);
   process.exit(1);
-}
+});

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useField } from "@payloadcms/ui";
 
 interface Project {
@@ -228,9 +229,12 @@ const ProjectOrder: React.FC = () => {
               }}
             >
               {getImageUrl(currentProject.verticalImage) ? (
-                <img
+                <Image
                   src={getImageUrl(currentProject.verticalImage)}
                   alt={getImageAlt(currentProject.verticalImage)}
+                  width={60}
+                  height={60}
+                  unoptimized
                   style={{
                     width: "100%",
                     height: "100%",
@@ -498,9 +502,12 @@ const ProjectOrder: React.FC = () => {
                       }}
                     >
                       {getImageUrl(project.verticalImage) ? (
-                        <img
+                        <Image
                           src={getImageUrl(project.verticalImage)}
                           alt={getImageAlt(project.verticalImage)}
+                          width={60}
+                          height={60}
+                          unoptimized
                           style={{
                             width: "100%",
                             height: "100%",
