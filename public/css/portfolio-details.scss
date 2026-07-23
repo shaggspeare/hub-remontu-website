@@ -15,12 +15,14 @@ Projects Details Area CSS
     justify-content: center;
 
     .project-brand-badge {
-        width: 60px;
-        height: 60px;
+        width: 140px;
+        height: 140px;
+        left: 25px;
+        top: 25px;
 
         img {
-            width: 38px;
-            height: 38px;
+            width: 90px;
+            height: 90px;
         }
     }
 }
@@ -181,6 +183,18 @@ Projects Details Area CSS
         margin-bottom: 30px;
         display: flex;
         justify-content: center;
+
+        .project-brand-badge {
+            width: 90px;
+            height: 90px;
+            left: 15px;
+            top: 15px;
+
+            img {
+                width: 58px;
+                height: 58px;
+            }
+        }
     }
     .projects-details-desc {
         padding: {
