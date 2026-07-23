@@ -71,7 +71,13 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
           {!!portfolioDetailsInfo.mainImage && (
             <div className="projects-details-image">
               <div className="project-brand-badge">
-                <img src={brandLogo.src} alt={brandLogo.alt} />
+                <Image
+                  src={brandLogo.src}
+                  alt={brandLogo.alt}
+                  width={90}
+                  height={90}
+                  quality={90}
+                />
               </div>
               <Image
                 src={portfolioDetailsInfo.mainImage}

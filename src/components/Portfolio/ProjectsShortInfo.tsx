@@ -33,73 +33,85 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
         }}
       >
         <Masonry gutter="50px">
-          {data.map((project) => {
+          {data.map((project, index) => {
             const brandLogo = getProjectBrandLogo(project.type);
-            return (
-            <div className="projects-item mx-0 my-2" key={project.id}>
-              <div className="projects-image">
-                <div className="project-brand-badge">
-                  <img src={brandLogo.src} alt={brandLogo.alt} />
-                </div>
-                <Link href={project.link}>
-                  {/* If project.image is a Payload Media object, it might have a `.url` or `.filename` property */}
-                  {typeof project.image === "object" && project.image?.url ? (
-                    <Image
-                      src={project.image.url}
-                      alt={project.title}
-                      width={570}
-                      height={720}
-                      sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
-                    />
-                  ) : typeof project.image === "string" ? (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={570}
-                      height={720}
-                      sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div
-                      style={{
-                        width: 570,
-                        height: 720,
-                        backgroundColor: "#ccc",
-                      }}
-                    ></div>
-                  )}
-                </Link>
+            const imageUrl =
+              typeof project.image === "object" && project.image?.url
+                ? project.image.url
+                : typeof project.image === "string"
+                ? project.image
+                : null;
+            const isPriority = index < 3;
 
-                <div className="icon">
-                  <Link href={project.link}>
+            return (
+              <div className="projects-item mx-0 my-2" key={project.id}>
+                <div className="projects-image">
+                  <div className="project-brand-badge">
                     <Image
-                      src={rightArrowIcon}
-                      alt="arrow-right"
-                      width={24}
-                      height={24}
+                      src={brandLogo.src}
+                      alt={brandLogo.alt}
+                      width={56}
+                      height={56}
+                      quality={90}
                     />
+                  </div>
+                  <Link href={project.link}>
+                    {imageUrl ? (
+                      <Image
+                        src={imageUrl}
+                        alt={project.title}
+                        width={570}
+                        height={720}
+                        quality={85}
+                        priority={isPriority}
+                        sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          objectFit: "cover",
+                        }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: 570,
+                          height: 720,
+                          backgroundColor: "#ccc",
+                        }}
+                      ></div>
+                    )}
                   </Link>
+
+                  <div className="icon">
+                    <Link href={project.link}>
+                      <Image
+                        src={rightArrowIcon}
+                        alt="arrow-right"
+                        width={24}
+                        height={24}
+                      />
+                    </Link>
+                  </div>
+                </div>
+                <div className="projects-content">
+                  <h3>
+                    <Link
+                      style={{ color: "white", marginBottom: 40 }}
+                      href={project.link}
+                    >
+                      {project.title}
+                    </Link>
+                  </h3>
+                  {project.realizedLink && (
+                    <Link
+                      className="realized-project-btn"
+                      href={project.realizedLink}
+                    >
+                      Переглянути вже готовий ремонт
+                    </Link>
+                  )}
                 </div>
               </div>
-              <div className="projects-content">
-                <h3>
-                  <Link
-                    style={{ color: "white", marginBottom: 40 }}
-                    href={project.link}
-                  >
-                    {project.title}
-                  </Link>
-                </h3>
-                {project.realizedLink && (
-                  <Link
-                    className="realized-project-btn"
-                    href={project.realizedLink}
-                  >
-                    Переглянути вже готовий ремонт
-                  </Link>
-                )}
-              </div>
-            </div>
             );
           })}
         </Masonry>

@@ -60,9 +60,12 @@ const RecentProjects: React.FC = async () => {
                     <div className="projects-item" key={i}>
                       <div className="projects-image">
                         <div className="project-brand-badge">
-                          <img
+                          <Image
                             src={getProjectBrandLogo(value.type).src}
                             alt={getProjectBrandLogo(value.type).alt}
+                            width={56}
+                            height={56}
+                            quality={90}
                           />
                         </div>
                         <Link href={value.link}>
@@ -107,9 +110,12 @@ const RecentProjects: React.FC = async () => {
                     <div className="projects-item" key={i}>
                       <div className="projects-image">
                         <div className="project-brand-badge">
-                          <img
+                          <Image
                             src={getProjectBrandLogo(value.type).src}
                             alt={getProjectBrandLogo(value.type).alt}
+                            width={56}
+                            height={56}
+                            quality={90}
                           />
                         </div>
                         <Link href={value.link}>
@@ -154,9 +160,12 @@ const RecentProjects: React.FC = async () => {
                     <div className="projects-item" key={i}>
                       <div className="projects-image">
                         <div className="project-brand-badge">
-                          <img
+                          <Image
                             src={getProjectBrandLogo(value.type).src}
                             alt={getProjectBrandLogo(value.type).alt}
+                            width={56}
+                            height={56}
+                            quality={90}
                           />
                         </div>
                         <Link href={value.link}>
