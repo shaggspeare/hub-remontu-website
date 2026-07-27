@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import config from "@payload-config";
 import { getPayload } from "payload";
 import Tabs from "@/components/Tabs/Tabs";
@@ -31,6 +31,7 @@ const ProjectsPage: React.FC = async () => {
     link: `/portfolio-details/${project.id}`,
     category: project.category,
     type: project.type || "implementation", // Default to 'implementation' for legacy projects
+    department: project.department || ["builds"], // Default to Hub Builds for legacy projects
     // Only design projects that were also fully executed link to a finished renovation
     realizedLink:
       project.type === "design"
@@ -47,7 +48,9 @@ const ProjectsPage: React.FC = async () => {
             <h1 style={{ color: "white" }}>Проєкти, якими ми пишаємось</h1>
           </div>
         </div>
-        <Tabs projectsData={projectsData} />
+        <Suspense fallback={null}>
+          <Tabs projectsData={projectsData} />
+        </Suspense>
       </div>
     </div>
   );

@@ -165,6 +165,18 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
           </div>
         </div>
 
+        <div
+          className="main-banner-image main-banner-image--mobile"
+          style={{
+            backgroundImage: `url(/images/new-images/backgrounds/main-bg.png)`,
+            backgroundPositionY: "bottom",
+          }}
+          data-aos="fade-up"
+          data-aos-delay="400"
+          data-aos-duration="600"
+          data-aos-once="false"
+        ></div>
+
         <div className="hero-image-frame">
           <video
             className="hero-image-frame__video"

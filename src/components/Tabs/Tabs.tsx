@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import ProjectsShortInfo from "@/components/Portfolio/ProjectsShortInfo";
 import { ProjectShortInfo } from "@/types/project";
 
@@ -8,19 +9,64 @@ interface TabsProps {
   projectsData: ProjectShortInfo[];
 }
 
+type FilterGroup = "category" | "type";
+
 interface Filter {
   id: string;
   label: string;
   value: string;
+  group: FilterGroup;
+}
+
+const categoryFilters: Filter[] = [
+  { id: "living", label: "Житлові", value: "living", group: "category" },
+  {
+    id: "commercial",
+    label: "Комерційні",
+    value: "commercial",
+    group: "category",
+  },
+];
+
+const typeFilters: Filter[] = [
+  { id: "design", label: "Дизайн-проєкти", value: "design", group: "type" },
+  {
+    id: "implementation",
+    label: "Реалізація",
+    value: "implementation",
+    group: "type",
+  },
+];
+
+const filters: Filter[] = [...categoryFilters, ...typeFilters];
+
+function filterIdsFromQuery(
+  searchParams: ReturnType<typeof useSearchParams>,
+): string[] {
+  const ids: string[] = [];
+
+  const category = searchParams.get("category");
+  category?.split(",").forEach((value) => {
+    const filter = categoryFilters.find((f) => f.value === value);
+    if (filter) ids.push(filter.id);
+  });
+
+  const type = searchParams.get("type");
+  type?.split(",").forEach((value) => {
+    const filter = typeFilters.find((f) => f.value === value);
+    if (filter) ids.push(filter.id);
+  });
+
+  return ids;
 }
 
 const Tabs: React.FC<TabsProps> = ({ projectsData }) => {
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
-
-  const filters: Filter[] = [
-    { id: "design", label: "Дизайн-проєкти", value: "design" },
-    { id: "implementation", label: "Реалізація", value: "implementation" },
-  ];
+  const searchParams = useSearchParams();
+  const initialFilters = useMemo(
+    () => filterIdsFromQuery(searchParams),
+    [searchParams],
+  );
+  const [activeFilters, setActiveFilters] = useState<string[]>(initialFilters);
 
   const handleFilterClick = (filterId: string) => {
     setActiveFilters((prev) => {
@@ -43,13 +89,24 @@ const Tabs: React.FC<TabsProps> = ({ projectsData }) => {
       return projectsData;
     }
 
-    // OR logic: show projects matching any of the active type filters
-    return projectsData.filter((project) =>
-      activeFilters.some((filterId) => {
-        const filter = filters.find((f) => f.id === filterId);
-        return filter && project.type === filter.value;
-      }),
-    );
+    const activeByGroup = (group: FilterGroup) =>
+      activeFilters
+        .map((id) => filters.find((f) => f.id === id))
+        .filter((f): f is Filter => !!f && f.group === group);
+
+    const activeCategoryFilters = activeByGroup("category");
+    const activeTypeFilters = activeByGroup("type");
+
+    return projectsData.filter((project) => {
+      const matchesCategory =
+        activeCategoryFilters.length === 0 ||
+        activeCategoryFilters.some((f) => project.category === f.value);
+      const matchesType =
+        activeTypeFilters.length === 0 ||
+        activeTypeFilters.some((f) => project.type === f.value);
+
+      return matchesCategory && matchesType;
+    });
   };
 
   const filteredData = getFilteredData();

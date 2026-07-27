@@ -182,6 +182,10 @@ export interface Project {
    */
   order?: number | null;
   title: string;
+  /**
+   * Which department(s) this project showcases. Full turnkey projects can belong to both.
+   */
+  department: ('builds' | 'architects')[];
   category: 'living' | 'commercial';
   type: 'design' | 'implementation';
   /**
@@ -489,6 +493,7 @@ export interface ImagesSelect<T extends boolean = true> {
 export interface ProjectsSelect<T extends boolean = true> {
   order?: T;
   title?: T;
+  department?: T;
   category?: T;
   type?: T;
   realizedProject?: T;

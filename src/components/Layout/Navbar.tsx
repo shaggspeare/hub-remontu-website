@@ -7,15 +7,14 @@ import Image from "next/image";
 
 import logo from "/public/images/logo_en.svg";
 import blackLogo from "/public/images/logo_en_black.svg";
+import { SERVICES, DEPARTMENTS, DepartmentSlug } from "@/constants/business";
 
-const services = [
-  { slug: "remont-kvartyr-pid-kliuch", name: "Ремонт квартир під ключ" },
-  { slug: "dyzajn-interieru", name: "Дизайн інтерʼєру" },
-  { slug: "dyzajnerskyj-remont", name: "Дизайнерський ремонт" },
-  { slug: "remont-ofisiv-ta-komertsii", name: "Ремонт офісів та комерції" },
-  { slug: "remont-budynkiv-ta-kotedzhiv", name: "Ремонт будинків і котеджів" },
-  { slug: "dyzajn-komertsii", name: "Дизайн комерції" },
-];
+const departmentEntries = Object.values(DEPARTMENTS).map((dept) => ({
+  ...dept,
+  services: SERVICES.filter(
+    (s) => (s.department as DepartmentSlug) === dept.slug,
+  ),
+}));
 
 const Navbar: React.FC = () => {
   const currentRoute = usePathname();
@@ -120,17 +119,39 @@ const Navbar: React.FC = () => {
                   Послуги
                 </span>
                 <ul className="dropdown-menu">
-                  {services.map((s) => (
-                    <li key={s.slug}>
-                      <Link
-                        href={`/posluhy/${s.slug}/`}
-                        className="dropdown-item"
+                  {departmentEntries.map((dept) => (
+                    <li key={dept.slug} className="nav-item dropdown">
+                      <span
+                        className="nav-link dropdown-toggle"
+                        style={{ cursor: "pointer" }}
                       >
-                        {s.name}
-                      </Link>
+                        {dept.name}
+                      </span>
+                      <ul className="dropdown-menu">
+                        {dept.services.map((s) => (
+                          <li key={s.slug}>
+                            <Link
+                              href={`/posluhy/${s.slug}/`}
+                              className="dropdown-item"
+                            >
+                              {s.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </li>
                   ))}
                 </ul>
+              </li>
+              <li className="nav-item">
+                <Link
+                  href="/tsiny/"
+                  className={`nav-link ${
+                    currentRoute === "/tsiny/" ? "active" : ""
+                  }`}
+                >
+                  Ціни
+                </Link>
               </li>
               <li className="nav-item">
                 <Link
@@ -247,18 +268,41 @@ const Navbar: React.FC = () => {
                   Портфоліо
                 </Link>
 
-                {services.map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/posluhy/${s.slug}/`}
-                    className={`nav-link ${
-                      currentRoute === `/posluhy/${s.slug}/` ? "active" : ""
-                    }`}
-                    style={{ paddingLeft: "32px", fontSize: "14px" }}
-                  >
-                    {s.name}
-                  </Link>
+                {departmentEntries.map((dept) => (
+                  <React.Fragment key={dept.slug}>
+                    <span
+                      className="nav-link"
+                      style={{
+                        paddingLeft: "16px",
+                        fontWeight: 600,
+                        opacity: 0.7,
+                      }}
+                    >
+                      {dept.name}
+                    </span>
+                    {dept.services.map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={`/posluhy/${s.slug}/`}
+                        className={`nav-link ${
+                          currentRoute === `/posluhy/${s.slug}/` ? "active" : ""
+                        }`}
+                        style={{ paddingLeft: "32px", fontSize: "14px" }}
+                      >
+                        {s.name}
+                      </Link>
+                    ))}
+                  </React.Fragment>
                 ))}
+
+                <Link
+                  href="/tsiny/"
+                  className={`nav-link ${
+                    currentRoute === "/tsiny/" ? "active" : ""
+                  }`}
+                >
+                  Ціни
+                </Link>
 
                 <Link
                   href="/contact-us/"

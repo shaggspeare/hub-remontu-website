@@ -1,4 +1,4 @@
-import { BUSINESS } from "@/constants/business";
+import { BUSINESS, DepartmentSlug } from "@/constants/business";
 
 export const areaServedList = BUSINESS.areaServed.join(", ");
 
@@ -8,6 +8,7 @@ export type ServiceData = {
   slug: string;
   name: string;
   serviceType: string;
+  department: DepartmentSlug;
   metaTitle: string;
   metaDescription: string;
   h1: string;
@@ -21,6 +22,7 @@ export const servicesData: ServiceData[] = [
     slug: "remont-kvartyr-pid-kliuch",
     name: "Ремонт квартир під ключ",
     serviceType: "Apartment renovation",
+    department: "builds",
     metaTitle: "Ремонт квартир під ключ у Києві — Hub Remontu",
     metaDescription:
       "Повний цикл: дизайн, ремонт, комплектація. Фіксована ціна в договорі, гарантія, авторський нагляд. 300+ обʼєктів, 13 років досвіду.",
@@ -56,6 +58,7 @@ export const servicesData: ServiceData[] = [
     slug: "dyzajn-interieru",
     name: "Дизайн інтерʼєру",
     serviceType: "Interior design",
+    department: "architects",
     metaTitle: "Дизайн інтерʼєру під ключ — Київ | Hub Remontu",
     metaDescription:
       "Індивідуальний дизайн-проєкт під ваш стиль і бюджет. 3D-візуалізації, авторський супровід. Реалізація під ключ у Києві та області.",
@@ -87,6 +90,7 @@ export const servicesData: ServiceData[] = [
     slug: "dyzajnerskyj-remont",
     name: "Дизайнерський ремонт",
     serviceType: "Designer renovation",
+    department: "builds",
     metaTitle: "Дизайнерський ремонт під ключ у Києві — Hub Remontu",
     metaDescription:
       "Ремонт за дизайн-проєктом з авторським наглядом. Один підрядник — повний цикл. Фіксована ціна, оплата за фактом робіт.",
@@ -118,6 +122,7 @@ export const servicesData: ServiceData[] = [
     slug: "remont-ofisiv-ta-komertsii",
     name: "Ремонт офісів та комерції",
     serviceType: "Commercial renovation",
+    department: "builds",
     metaTitle: "Ремонт офісів і комерційних приміщень — Київ",
     metaDescription:
       "Офіси, ресторани, клініки, салони, магазини під ключ. Запускаємо бізнес вчасно, мінімізуємо простій. 300+ проєктів.",
@@ -149,6 +154,7 @@ export const servicesData: ServiceData[] = [
     slug: "remont-budynkiv-ta-kotedzhiv",
     name: "Ремонт будинків і котеджів",
     serviceType: "House renovation",
+    department: "builds",
     metaTitle: "Ремонт будинків і котеджів під ключ — Київ та область",
     metaDescription:
       "Ремонт будинків, котеджів і таунхаусів під ключ. Авторський нагляд, прозора звітність. Київ та область.",
@@ -180,6 +186,7 @@ export const servicesData: ServiceData[] = [
     slug: "dyzajn-komertsii",
     name: "Дизайн комерції",
     serviceType: "Commercial interior design",
+    department: "architects",
     metaTitle: "Дизайн комерційних приміщень — Київ | Hub Remontu",
     metaDescription:
       "Дизайн офісів, ресторанів, клінік, шоурумів. Реалістичні 3D-візуалізації, реалізація під ключ.",

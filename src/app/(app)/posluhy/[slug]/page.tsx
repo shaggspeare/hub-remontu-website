@@ -7,7 +7,7 @@ import PageTitle from "@/components/Common/PageTitle";
 import ContactForm from "@/components/ContactUs/ContactForm";
 import JsonLd from "@/components/SEO/JsonLd";
 import { serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
-import { BUSINESS, SERVICES } from "@/constants/business";
+import { BUSINESS, SERVICES, DEPARTMENTS } from "@/constants/business";
 import { servicesData, getServiceBySlug } from "@/data/services";
 
 export function generateStaticParams() {
@@ -173,29 +173,47 @@ export default async function ServicePage({
       {/* Other services */}
       <section className="pb-75">
         <div className="container">
-          <h2 style={{ color: "var(--whiteColor)", marginBottom: "24px" }}>
-            Інші послуги Hub Remontu
-          </h2>
-          <div className="row g-3">
-            {servicesData
-              .filter((s) => s.slug !== slug)
-              .map((s) => (
-                <div key={s.slug} className="col-md-4 col-sm-6">
-                  <Link
-                    href={`/posluhy/${s.slug}/`}
-                    style={{
-                      display: "block",
-                      border: "1px solid rgba(255,255,255,0.15)",
-                      padding: "16px",
-                      color: "var(--whiteColor)",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {s.name}
-                  </Link>
+          {Object.values(DEPARTMENTS).map((dept) => {
+            const deptServices = servicesData.filter(
+              (s) => s.department === dept.slug && s.slug !== slug,
+            );
+            if (deptServices.length === 0) return null;
+
+            return (
+              <div key={dept.slug} style={{ marginBottom: "40px" }}>
+                <h2 style={{ color: "var(--whiteColor)", marginBottom: "4px" }}>
+                  {dept.name}
+                </h2>
+                <p
+                  style={{
+                    color: "var(--whiteColor)",
+                    opacity: 0.7,
+                    marginBottom: "20px",
+                  }}
+                >
+                  {dept.tagline}
+                </p>
+                <div className="row g-3">
+                  {deptServices.map((s) => (
+                    <div key={s.slug} className="col-md-4 col-sm-6">
+                      <Link
+                        href={`/posluhy/${s.slug}/`}
+                        style={{
+                          display: "block",
+                          border: "1px solid rgba(255,255,255,0.15)",
+                          padding: "16px",
+                          color: "var(--whiteColor)",
+                          textDecoration: "none",
+                        }}
+                      >
+                        {s.name}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-              ))}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

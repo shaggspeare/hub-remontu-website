@@ -168,7 +168,7 @@ export const Projects: CollectionConfig = {
   },
   admin: {
     // Set default sort by order field
-    defaultColumns: ["title", "category", "type", "order"],
+    defaultColumns: ["title", "department", "category", "type", "order"],
     useAsTitle: "title",
   },
   // Set default sort order
@@ -269,6 +269,39 @@ export const Projects: CollectionConfig = {
       label: {
         en: "Project Title",
         uk: "Назва проєкту",
+      },
+    },
+    {
+      name: "department",
+      type: "select",
+      label: {
+        en: "Department",
+        uk: "Напрямок",
+      },
+      options: [
+        {
+          label: {
+            en: "Hub Builds (renovation & construction)",
+            uk: "Hub Builds (ремонт та будівництво)",
+          },
+          value: "builds",
+        },
+        {
+          label: {
+            en: "Hub Architects (design)",
+            uk: "Hub Architects (дизайн)",
+          },
+          value: "architects",
+        },
+      ],
+      hasMany: true,
+      defaultValue: ["builds"],
+      required: true,
+      admin: {
+        description: {
+          en: "Which department(s) this project showcases. Full turnkey projects can belong to both.",
+          uk: "Який напрямок(и) демонструє цей проєкт. Проєкти під ключ можуть належати до обох.",
+        },
       },
     },
     {
