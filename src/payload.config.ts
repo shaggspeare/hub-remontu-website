@@ -15,7 +15,9 @@ import { Projects } from "@/collections/Projects";
 import { Pages } from "@/collections/Pages";
 import { SEO } from "@/collections/SEO";
 import TeamMembers from "@/collections/TeamMembers";
+import { WhatWeDoItems } from "@/collections/WhatWeDoItems";
 import { HeroSection } from "@/globals/HeroSection";
+import { PricingPage } from "@/globals/PricingPage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -30,8 +32,8 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en, uk },
   },
-  collections: [Users, Images, Projects, Pages, SEO, TeamMembers],
-  globals: [HeroSection],
+  collections: [Users, Images, Projects, Pages, SEO, TeamMembers, WhatWeDoItems],
+  globals: [HeroSection, PricingPage],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

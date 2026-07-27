@@ -73,6 +73,7 @@ export interface Config {
     pages: Page;
     seo: Seo;
     'team-members': TeamMember;
+    'what-we-do-items': WhatWeDoItem;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,6 +87,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     seo: SeoSelect<false> | SeoSelect<true>;
     'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
+    'what-we-do-items': WhatWeDoItemsSelect<false> | WhatWeDoItemsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -97,9 +99,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     heroSection: HeroSection;
+    pricingPage: PricingPage;
   };
   globalsSelect: {
     heroSection: HeroSectionSelect<false> | HeroSectionSelect<true>;
+    pricingPage: PricingPageSelect<false> | PricingPageSelect<true>;
   };
   locale: null;
   user: User;
@@ -356,6 +360,36 @@ export interface TeamMember {
   createdAt: string;
 }
 /**
+ * Service highlight cards shown in the homepage "What we do for you" section, grouped by department.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "what-we-do-items".
+ */
+export interface WhatWeDoItem {
+  id: string;
+  /**
+   * Lower numbers appear first within the department group.
+   */
+  order?: number | null;
+  department: 'architects' | 'builds';
+  title: string;
+  text: string;
+  /**
+   * Flaticon icon class from the theme icon font.
+   */
+  icon: string;
+  /**
+   * Used to build the "Детальніше" link to the filtered portfolio page.
+   */
+  category: 'living' | 'commercial';
+  /**
+   * Used to build the "Детальніше" link to the filtered portfolio page.
+   */
+  type: 'design' | 'implementation';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -402,6 +436,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'team-members';
         value: string | TeamMember;
+      } | null)
+    | ({
+        relationTo: 'what-we-do-items';
+        value: string | WhatWeDoItem;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -589,6 +627,21 @@ export interface TeamMembersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "what-we-do-items_select".
+ */
+export interface WhatWeDoItemsSelect<T extends boolean = true> {
+  order?: T;
+  department?: T;
+  title?: T;
+  text?: T;
+  icon?: T;
+  category?: T;
+  type?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -651,6 +704,31 @@ export interface HeroSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricingPage".
+ */
+export interface PricingPage {
+  id: string;
+  sectionTitle: string;
+  sectionSubtitle: string;
+  plans?:
+    | {
+        department: 'architects' | 'builds';
+        price: string;
+        description: string;
+        features?:
+          | {
+              feature: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "heroSection_select".
  */
 export interface HeroSectionSelect<T extends boolean = true> {
@@ -665,6 +743,31 @@ export interface HeroSectionSelect<T extends boolean = true> {
     | {
         icon?: T;
         link?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricingPage_select".
+ */
+export interface PricingPageSelect<T extends boolean = true> {
+  sectionTitle?: T;
+  sectionSubtitle?: T;
+  plans?:
+    | T
+    | {
+        department?: T;
+        price?: T;
+        description?: T;
+        features?:
+          | T
+          | {
+              feature?: T;
+              id?: T;
+            };
         id?: T;
       };
   updatedAt?: T;
