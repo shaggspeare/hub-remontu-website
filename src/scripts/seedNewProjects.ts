@@ -378,6 +378,7 @@ async function run() {
         title: project.title,
         category: project.category,
         type: project.type,
+        department: [project.type === "design" ? "architects" : "builds"],
         mainImage: placeholderImageId,
         verticalImage: placeholderImageId,
         description1: convertTextToLexical(description1Text),
