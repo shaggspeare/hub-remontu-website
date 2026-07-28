@@ -6,10 +6,26 @@ import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
+const GALLERY_SKELETON_COUNT = 6;
+
+const GallerySkeletonGrid: React.FC = () => (
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+      gap: 50,
+    }}
+  >
+    {Array.from({ length: GALLERY_SKELETON_COUNT }).map((_, index) => (
+      <div key={index} className="gallery-image-skeleton" style={{ aspectRatio: "570 / 720" }} />
+    ))}
+  </div>
+);
+
 // Dynamically import Masonry components with SSR disabled
 const ResponsiveMasonry = dynamic(
   () => import("react-responsive-masonry").then((mod) => mod.ResponsiveMasonry),
-  { ssr: false },
+  { ssr: false, loading: () => <GallerySkeletonGrid /> },
 );
 const Masonry = dynamic(() => import("react-responsive-masonry"), {
   ssr: false,
@@ -22,6 +38,10 @@ interface Props {
 const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loadedImageIds, setLoadedImageIds] = useState<Record<string, boolean>>({});
+
+  const markLoaded = (id: string) =>
+    setLoadedImageIds((prev) => (prev[id] ? prev : { ...prev, [id]: true }));
 
   if (!galleryImageData || galleryImageData.length === 0) {
     return (
@@ -57,9 +77,17 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
             {galleryImageData.map((value, index) => (
               <div
                 key={value.id}
-                style={{ cursor: "pointer" }}
+                style={{
+                  cursor: "pointer",
+                  position: "relative",
+                  aspectRatio: "570 / 720",
+                  overflow: "hidden",
+                }}
                 onClick={() => openLightbox(index)}
               >
+                {!loadedImageIds[value.id] && (
+                  <div className="gallery-image-skeleton" style={{ position: "absolute", inset: 0 }} />
+                )}
                 <Image
                   src={value.image}
                   alt={value.alt || "gallery image"}
@@ -68,10 +96,13 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
                   quality={85}
                   priority={index < 3}
                   sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 33vw"
+                  onLoad={() => markLoaded(value.id)}
                   style={{
                     width: "100%",
                     height: "auto",
                     objectFit: "cover",
+                    opacity: loadedImageIds[value.id] ? 1 : 0,
+                    transition: "opacity 0.3s ease",
                   }}
                 />
               </div>
@@ -92,6 +123,31 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
           }}
         />
       )}
+
+      <style jsx global>{`
+        .gallery-image-skeleton {
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+          background: linear-gradient(
+            90deg,
+            rgba(192, 182, 173, 0.15) 25%,
+            rgba(192, 182, 173, 0.3) 37%,
+            rgba(192, 182, 173, 0.15) 63%
+          );
+          background-size: 400% 100%;
+          animation: gallery-skeleton-shimmer 1.4s ease infinite;
+        }
+
+        @keyframes gallery-skeleton-shimmer {
+          0% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0 50%;
+          }
+        }
+      `}</style>
     </div>
   );
 };
