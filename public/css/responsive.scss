@@ -2256,7 +2256,10 @@
     .hero-image-frame {
         right: 20px;
         aspect-ratio: unset;
-        width: 32vw;
+        // 50vw would overlap .main-banner-content (40dvw, centered inside an
+        // 855px-capped container) at this breakpoint — cap against the space
+        // actually left over so there's always a 40px gap.
+        width: min(50vw, calc(10vw + 355.5px));
     }
     .main-banner-wrap-shape {
         display: none;
@@ -3161,7 +3164,7 @@
     .hero-image-frame {
         right: 20px;
         aspect-ratio: unset;
-        width: min(38vw, 75dvh);
+        width: 50vw;
     }
 }
 
@@ -3183,11 +3186,11 @@
     }
     .hero-image-frame {
         right: calc(80px + max(0px, (100vw - 1920px) / 2));
-        // Below ~1920px the video's height-driven width (via aspect-ratio)
-        // leaves too little room for the text column (e.g. 16in MacBook Pro's
-        // default 1728x1117) — cap it against viewport width too.
         aspect-ratio: unset;
-        width: min(38vw, 75dvh);
+        // 50vw would overlap .main-banner-content (46dvw, 80px left padding)
+        // at this breakpoint — cap against the space actually left over so
+        // there's always a 40px gap.
+        width: min(50vw, calc(54vw - 200px - max(0px, (100vw - 1920px) / 2)));
     }
 
     // Main Banner Animation Area CSS

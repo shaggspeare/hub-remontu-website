@@ -180,7 +180,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
         <div className="hero-image-frame">
           <video
             className="hero-image-frame__video"
-            src="/images/hero-animation/hero-video.mp4"
+            src="/images/hero-animation/hero-video-2.webm"
             ref={videoRef}
             autoPlay
             muted
