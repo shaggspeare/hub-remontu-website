@@ -23,12 +23,6 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
 
   const brandLogo = getProjectBrandLogo(project.type);
 
-  // Helper function to safely get image URL
-  const getImageUrl = (image: any): string => {
-    if (typeof image === "string") return image;
-    return image?.url || "";
-  };
-
   // Smaller pre-resized variant for grid thumbnails; falls back to the
   // original when an image predates the `thumbnail` size (see backfill script).
   const getThumbUrl = (image: any): string => {
@@ -36,9 +30,16 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsContentProps> = ({
     return image?.sizes?.thumbnail?.url || image?.url || "";
   };
 
+  // Mid-size pre-resized variant for large single images (e.g. the hero);
+  // avoids serving multi-MB DSLR originals for a ~900px display slot.
+  const getCardUrl = (image: any): string => {
+    if (typeof image === "string") return image;
+    return image?.sizes?.card?.url || image?.url || "";
+  };
+
   const portfolioDetailsInfo = {
     title: project.title || "",
-    mainImage: getImageUrl(project.mainImage),
+    mainImage: getCardUrl(project.mainImage),
     description: {
       part1: project.description1,
       part2: project.description2,

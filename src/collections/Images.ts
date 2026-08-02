@@ -23,6 +23,12 @@ export const Images: CollectionConfig = {
                 withoutEnlargement: true,
                 formatOptions: { format: 'webp', options: { quality: 75 } },
             },
+            {
+                name: 'card',
+                width: 1600,
+                withoutEnlargement: true,
+                formatOptions: { format: 'webp', options: { quality: 82 } },
+            },
         ],
     },
     admin: {

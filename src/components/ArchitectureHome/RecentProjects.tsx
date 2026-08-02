@@ -73,7 +73,7 @@ const RecentProjects: React.FC = async () => {
                           typeof value.image !== "string" &&
                           "url" in value.image ? (
                             <Image
-                              src={value.image.url || ""}
+                              src={value.image.sizes?.thumbnail?.url || value.image.url || ""}
                               alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
@@ -123,7 +123,7 @@ const RecentProjects: React.FC = async () => {
                           typeof value.image !== "string" &&
                           "url" in value.image ? (
                             <Image
-                              src={value.image.url || ""}
+                              src={value.image.sizes?.thumbnail?.url || value.image.url || ""}
                               alt={value.image.alt || "Image"}
                               width={570}
                               height={720}
@@ -173,7 +173,7 @@ const RecentProjects: React.FC = async () => {
                           typeof value.image !== "string" &&
                           "url" in value.image ? (
                             <Image
-                              src={value.image.url || ""}
+                              src={value.image.sizes?.thumbnail?.url || value.image.url || ""}
                               alt={value.image.alt || "Image"}
                               width={570}
                               height={720}

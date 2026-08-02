@@ -37,7 +37,7 @@ const ProjectsShortInfo: React.FC<ProjectsShortInfoProps> = ({ data }) => {
             const brandLogo = getProjectBrandLogo(project.type);
             const imageUrl =
               typeof project.image === "object" && project.image?.url
-                ? project.image.url
+                ? project.image.sizes?.thumbnail?.url || project.image.url
                 : typeof project.image === "string"
                 ? project.image
                 : null;

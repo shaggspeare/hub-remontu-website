@@ -1,9 +1,9 @@
 import { getPayload } from "payload";
 import config from "../payload.config";
 
-// One-time backfill: generate the `thumbnail` image size (added to the
-// `images` collection to stop the gallery grid from requesting full-size
-// DSLR originals) for docs uploaded before that config existed.
+// One-time backfill: generate the `thumbnail` and `card` image sizes (added
+// to the `images` collection to stop grids/hero images from requesting
+// full-size DSLR originals) for docs uploaded before those sizes existed.
 //
 // Runs in dry-run mode (report only) unless --write is passed. Must be run
 // from the same host/filesystem as the running app (no S3/CDN adapter is
@@ -39,11 +39,13 @@ async function run() {
     depth: 0,
   });
 
-  const missing = docs.filter((doc) => !doc.sizes?.thumbnail?.url);
+  const missing = docs.filter(
+    (doc) => !doc.sizes?.thumbnail?.url || !doc.sizes?.card?.url,
+  );
   const targets = typeof limit === "number" ? missing.slice(0, limit) : missing;
 
   console.log(
-    `${docs.length} total images, ${missing.length} missing a thumbnail, processing ${targets.length}.`,
+    `${docs.length} total images, ${missing.length} missing a thumbnail and/or card size, processing ${targets.length}.`,
   );
   console.log(isWrite ? "Mode: WRITE" : "Mode: DRY RUN (pass --write to apply)");
 
