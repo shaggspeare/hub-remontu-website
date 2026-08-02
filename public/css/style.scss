@@ -4562,17 +4562,17 @@ Client Feedback Redesigned Styles
 =================================================*/
 .client-area-redesigned {
   padding: 50px 0;
-  background-color: #F2EFEB; // Creamy background instead of black
+  background-color: var(--blackColor);
 
   .section-title {
     margin-bottom: 10px;
     h2 {
       margin-bottom: 0;
-      color: var(--blackColor); // Black title instead of white
+      color: var(--whiteColor);
 
       span {
         color: transparent;
-        -webkit-text-stroke: 0.5px var(--blackColor); // Black stroke instead of white
+        -webkit-text-stroke: 0.5px var(--whiteColor);
       }
     }
   }
@@ -4581,7 +4581,7 @@ Client Feedback Redesigned Styles
 .client-swiper-redesigned {
   .swiper-pagination {
     .swiper-pagination-bullet {
-      background-color: var(--blackColor);
+      background-color: var(--whiteColor);
       opacity: 0.3;
 
       &.swiper-pagination-bullet-active {
@@ -4599,10 +4599,10 @@ Client Feedback Redesigned Styles
   padding-bottom: 40px;
 
   .client-card {
-    background-color: var(--whiteColor);
+    background-color: #F2EFEB;
     border-radius: 15px;
     padding: 40px 30px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
     margin: 20px 0;
     position: relative;
     border: 1px solid #E7E0E0;
@@ -4761,11 +4761,7 @@ Client Feedback Redesigned Styles
 .client-area-redesigned {
   .client-shape1,
   .client-shape2 {
-    opacity: 0.5; // Make shapes more subtle on light background
-
-    img {
-      filter: invert(13%) sepia(8%) saturate(1015%) hue-rotate(314deg) brightness(91%) contrast(93%);
-    }
+    opacity: 0.5; // Make shapes more subtle
   }
 }
 

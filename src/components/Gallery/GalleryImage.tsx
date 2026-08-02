@@ -32,7 +32,7 @@ const Masonry = dynamic(() => import("react-responsive-masonry"), {
 });
 
 interface Props {
-  galleryImageData: { id: string; image: string; alt: string }[];
+  galleryImageData: { id: string; image: string; thumb: string; alt: string }[];
 }
 
 const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
@@ -89,7 +89,7 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
                   <div className="gallery-image-skeleton" style={{ position: "absolute", inset: 0 }} />
                 )}
                 <Image
-                  src={value.image}
+                  src={value.thumb}
                   alt={value.alt || "gallery image"}
                   width={570}
                   height={720}

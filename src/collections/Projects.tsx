@@ -1,5 +1,4 @@
-import { CollectionConfig, getPayload } from "payload";
-import config from "@payload-config";
+import { CollectionConfig } from "payload";
 import {
   lexicalEditor,
   // Text formatting features
@@ -166,13 +165,14 @@ export const Projects: CollectionConfig = {
   access: {
     read: () => true,
   },
+  // Enables native drag-and-drop reordering in the admin list view (fractional
+  // indexing under the hood via the hidden `_order` field). New docs are
+  // automatically appended to the end instead of defaulting to 0.
+  orderable: true,
   admin: {
-    // Set default sort by order field
-    defaultColumns: ["title", "department", "category", "type", "order"],
+    defaultColumns: ["title", "department", "category", "type"],
     useAsTitle: "title",
   },
-  // Set default sort order
-  defaultSort: "order",
   hooks: {
     // This hook will run before reading data
     afterRead: [
@@ -193,26 +193,6 @@ export const Projects: CollectionConfig = {
         }
 
         return modified ? updatedDoc : doc;
-      },
-    ],
-    // This hook will save the converted data when updating
-    beforeChange: [
-      async ({ data }) => {
-        // Auto-assign order if not provided
-        if (data.order === undefined || data.order === null) {
-          // Get the highest order number and add 1
-          const payload = await getPayload({ config });
-          const existingProjects = await payload.find({
-            collection: "projects",
-            sort: "-order",
-            limit: 1,
-          });
-
-          const highestOrder = existingProjects.docs[0]?.order || 0;
-          data.order = highestOrder + 1;
-        }
-
-        return data;
       },
     ],
   },
@@ -236,31 +216,6 @@ export const Projects: CollectionConfig = {
           Field: "@/components/ViewOnSiteButton/ViewOnSiteButton",
         },
       },
-    },
-    {
-      name: "orderManagement",
-      type: "ui",
-      admin: {
-        components: {
-          Field: "@/components/ProjectOrder/ProjectOrder",
-        },
-      },
-    },
-    {
-      name: "order",
-      type: "number",
-      label: {
-        en: "Display Order",
-        uk: "Порядок відображення",
-      },
-      admin: {
-        position: "sidebar",
-        description: {
-          en: "Lower numbers appear first. Leave empty to auto-assign.",
-          uk: "Менші числа з'являються першими. Залиште порожнім для автопризначення.",
-        },
-      },
-      defaultValue: 0,
     },
     {
       name: "title",

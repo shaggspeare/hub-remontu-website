@@ -15,7 +15,16 @@ export const Images: CollectionConfig = {
             uk: 'Медиа',
         },
     },
-    upload: true,
+    upload: {
+        imageSizes: [
+            {
+                name: 'thumbnail',
+                width: 640,
+                withoutEnlargement: true,
+                formatOptions: { format: 'webp', options: { quality: 75 } },
+            },
+        ],
+    },
     admin: {
         defaultColumns: ['folder', 'filename', 'alt'],
         group: {

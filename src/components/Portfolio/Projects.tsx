@@ -7,11 +7,11 @@ import { ProjectShortInfo } from "@/types/project";
 const ProjectsPage: React.FC = async () => {
   const payload = await getPayload({ config });
 
-  // Fetch projects sorted by order field
+  // Fetch projects sorted by the admin-managed drag-and-drop order
   const { docs: projects } = await payload.find({
     collection: "projects",
     limit: 50,
-    sort: "order", // Sort by order field ascending (lowest numbers first)
+    sort: "_order",
   });
 
   const getRealizedLink = (realizedProject: any): string | undefined => {

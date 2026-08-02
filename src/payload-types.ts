@@ -174,6 +174,16 @@ export interface Image {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -181,10 +191,7 @@ export interface Image {
  */
 export interface Project {
   id: string;
-  /**
-   * Lower numbers appear first. Leave empty to auto-assign.
-   */
-  order?: number | null;
+  _order?: string | null;
   title: string;
   /**
    * Which department(s) this project showcases. Full turnkey projects can belong to both.
@@ -523,13 +530,27 @@ export interface ImagesSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
-  order?: T;
+  _order?: T;
   title?: T;
   department?: T;
   category?: T;

@@ -22,7 +22,7 @@ const RecentProjects: React.FC = async () => {
     const payload = await getPayload({ config });
     const { docs } = await payload.find({
       collection: "projects",
-      sort: "order",
+      sort: "_order",
       limit: 9,
     });
     projects = docs;
