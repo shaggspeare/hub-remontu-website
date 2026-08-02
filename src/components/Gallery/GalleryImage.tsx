@@ -99,7 +99,7 @@ const GalleryImage: React.FC<Props> = ({ galleryImageData }) => {
                   onLoad={() => markLoaded(value.id)}
                   style={{
                     width: "100%",
-                    height: "auto",
+                    height: "100%",
                     objectFit: "cover",
                     opacity: loadedImageIds[value.id] ? 1 : 0,
                     transition: "opacity 0.3s ease",
