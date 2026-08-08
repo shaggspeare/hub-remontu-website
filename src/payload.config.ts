@@ -10,6 +10,7 @@ import { en } from "@payloadcms/translations/languages/en";
 import { uk } from "@payloadcms/translations/languages/uk";
 
 import { Users } from "./collections/Users";
+import { Folders } from "./collections/Folders";
 import { Images } from "./collections/Images";
 import { Projects } from "@/collections/Projects";
 import { Pages } from "@/collections/Pages";
@@ -32,7 +33,7 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en, uk },
   },
-  collections: [Users, Images, Projects, Pages, SEO, TeamMembers, WhatWeDoItems],
+  collections: [Users, Folders, Images, Projects, Pages, SEO, TeamMembers, WhatWeDoItems],
   globals: [HeroSection, PricingPage],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "",
