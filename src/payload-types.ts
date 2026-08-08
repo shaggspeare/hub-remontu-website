@@ -179,10 +179,7 @@ export interface Folder {
 export interface Image {
   id: string;
   alt?: string | null;
-  /**
-   * Select folder for organizing this media item
-   */
-  folder?: (string | null) | Folder;
+  folder?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;

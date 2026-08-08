@@ -57,18 +57,16 @@ export const Images: CollectionConfig = {
         },
         {
             name: 'folder',
-            type: 'relationship',
-            relationTo: 'folders',
-            hasMany: false,
-            required: false,
+            type: 'text',
             label: {
-                en: 'Folder',
-                uk: 'Папка',
+                en: 'Folder Name',
+                uk: 'Назва теки',
             },
+            required: false,
             admin: {
-                description: {
-                    en: 'Select folder for organizing this media item',
-                    uk: 'Оберіть папку для організації цього медіафайлу',
+                placeholder: {
+                    en: 'Enter folder name',
+                    uk: 'Введіть назву теки',
                 },
             },
         },
